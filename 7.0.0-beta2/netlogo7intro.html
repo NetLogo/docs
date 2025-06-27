@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>
+      NetLogo 7.0.0-beta2 User Manual: NetLogo 7.0.0 Changes Overview
+    </title>
+    <link rel="stylesheet" href="netlogo.css" type="text/css"/>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+<h1><a href="#netlogo-700-changes-overview" id="netlogo-700-changes-overview" class="section-anchor">NetLogo 7.0.0 Changes Overview</a></h1>
+  </head>
+  <body>
+    <div class="version">
+      NetLogo 7.0.0-beta2 User Manual
+    </div>
+  </body>
+</html>
+<p>The bolded items in the table of contents are the most important
+changes in NetLogo 7.0.0</p>
+<ul>
+<li><a href="#motivation">Motivation</a></li>
+<li><a href="#interface-tab"><b>Interface Tab</b></a>
+<ul>
+<li><a href="#overview-of-visual-changes-to-the-interface-tab">Overview of Visual Changes to the Interface Tab</a></li>
+<li><a href="#interface-elements-widgets">Interface Elements (Widgets)</a></li>
+<li><a href="#widget-sizes">Widget Sizes</a></li>
+</ul>
+</li>
+<li><a href="#new-file-format">New File Format</a></li>
+<li><a href="#tools-in-the-netlogo-7-interface"><b>Tools in the NetLogo 7 Interface</b></a>
+<ul>
+<li><a href="#overview-netlogo-interface-tool-buttons-and-dropdown-menus">Overview: NetLogo Interface Tool Buttons and Dropdown menus</a></li>
+<li><a href="#new-interface-tools">New Interface Tools</a></li>
+<li><a href="#new-interface-menu">New Interface Menu</a></li>
+</ul>
+</li>
+<li><a href="#the-color-picker">The Color Picker</a></li>
+<li><a href="#notifications">Notifications</a></li>
+<li><a href="#the-info-tab">The Info Tab</a></li>
+<li><a href="#code-tab">Code Tab</a>
+<ul>
+<li><a href="#color-themes-and-code-syntax-highlighting">Color Themes and Code Syntax Highlighting</a></li>
+<li><a href="#code-tab-toolbar">Code Tab Toolbar</a></li>
+<li><a href="#code-tab-preferences">Code Tab Preferences</a></li>
+<li><a href="#included-files">Included Files</a></li>
+</ul>
+</li>
+<li><a href="#menu-items">Menu Items</a>
+<ul>
+<li><a href="#preferences-dialog">Preferences Dialog</a></li>
+<li><a href="#file-resource-manager-dialog">File -&gt; Resource Manager dialog</a></li>
+</ul>
+</li>
+<li><a href="#tools-menu-changes">Tools Menu Changes</a>
+<ul>
+<li><a href="#turtle-shapes-editor-and-link-shapes-editor">Turtle Shapes Editor and Link Shapes Editor</a></li>
+<li><a href="#help-menu">Help Menu</a></li>
+</ul>
+</li>
+</ul>
+<p>For a video showing changes in NetLogo 7, <a href="https://www.youtube.com/watch?v=Xeagb1Y-xKU" target="_blank">see here</a>.</p>
+<p>Note: in this document the term “clicking” is
+synonymous with “left-clicking.” Right-clicking will be referred
+to explicitly.</p>
+<h2><a href="#motivation" id="motivation" class="section-anchor">Motivation</a></h2>
+<p>We interviewed many NetLogo users and one of the most desired updates
+was a more modern User Interface (UI). In response to user feedback we
+have made major changes to the UI for NetLogo 7.0.0. We plan to continue
+modernizing NetLogo in future releases. Your feedback via the <a href="https://forum.netlogo.org/" target="_blank">NetLogo
+Forum</a> will help guide UI improvements.</p>
+<h2><a href="#interface-tab" id="interface-tab" class="section-anchor"><b>Interface Tab</b></a></h2>
+<h3><a href="#overview-of-visual-changes-to-the-interface-tab" id="overview-of-visual-changes-to-the-interface-tab" class="section-anchor">Overview of Visual Changes to the Interface Tab</a></h3>
+<p>The most obvious change is that interface elements (widgets) have
+changed in appearance to a modern flat look. They are larger and more
+legible. A new feature is color themes which affect the appearance of
+the entire visual interface. They have been designed with visual
+coherence in mind. Navigate to the Color Themes tab in the Preferences window
+to select Light, Dark or Classic themes. For the Classic Color Theme the pre-7.0.0 widget colors
+are used. In other regards it is the same as the Light Theme. The Color Theme
+also affects the appearance of the Info Tab and the Code Tab, as well as any other
+windows that open in the app.</p>
+<table>
+<colgroup>
+<col style="width: 30%" />
+<col style="width: 30%" />
+<col style="width: 30%" />
+</colgroup>
+<thead>
+<tr>
+<th>
+Light Theme
+</th>
+<th>
+Dark Theme
+</th>
+<th>
+Classic Theme
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<img src="./images/nl7intro/inttablight.png" style="width:3in"
+alt="Alt Text" />
+</td>
+<td>
+<img src="./images/nl7intro/inttabdark.png" style="width:3in"
+alt="Alt Text" />
+</td>
+<td>
+<img src="./images/nl7intro/inttabclassic.png" style="width:3in"
+alt="Alt Text" />
+</td>
+</tr>
+</tbody>
+</table>
+<h3><a href="#interface-elements-widgets" id="interface-elements-widgets" class="section-anchor">Interface Elements (Widgets)</a></h3>
+<p>Buttons perform actions when clicked. The input widgets are: sliders,
+switches, choosers and inputs. The output widgets are: monitors, plots
+and the output area. Notes are used to add labels, instructions and
+other information to the interface. Buttons and input widgets are
+colored shades of blue. Output widgets are shades of grey. Widgets by
+and large perform as they did in previous releases of NetLogo. A new
+feature of the slider is a text box in which values can be added
+directly. A new feature of the Notes is that the user can set both the
+text color and the background color for both light and dark mode.</p>
+<p>A new feature is <a href="interfacetab.html#copying">copying widgets</a>.</p>
+<h3><a href="#widget-sizes" id="widget-sizes" class="section-anchor">Widget Sizes</a></h3>
+<p>In NetLogo 7 some widget sizes have been adjusted for greater
+readability. The default height of sliders, switches, choosers, inputs,
+monitors and plots has been increased. The image below shows some
+widgets in their new sizes on the left, and the original/pre-NetLogo 7
+sizes on the right.</p>
+<p><img src="./images/nl7intro/widgetsrelativesize.png" style="width:4.3in" /></p>
+<p>When you create a new model, widgets will appear by default in their new
+(generally larger) sizes. Existing models will open with new style
+widgets that retain their original size. Some widgets in the Models
+Library have been converted to the new sizes.</p>
+<p>Note that opening an old model in NetLogo 7 will automatically prompt you to
+perform an automatic widget conversion, as shown in the dialog below.</p>
+<p><img src="./images/nl7intro/openmodelconvert.png" style="width:4in"/></p>
+<p>Click &ldquo;Resize and adjust positions&rdquo;
+to resize the widgets and change their placements. Click &ldquo;Resize only&rdquo; to resize
+the widgets without changing their location. Since redesigning
+interfaces is an art, more work may be required to make the design meet
+your personal standards. The Edit -&gt;
+Undo menu will let you undo all the widget conversions at once if you are
+not satisfied with the result of the automatic conversion.
+If you choose not to make the full conversion, you can later
+use the tools menu item <em>Tools -&gt; Convert Widgets to New Sizes</em>.</p>
+<p><img src="./images/nl7intro/converttool.png" style="width:4in"/></p>
+<p>You can also switch the size of an individual widget by clicking the
+<em>Use old sizing</em> checkbox. This only holds for widgets that have
+undergone a size change for NetLogo 7. The size of the output
+area and notes have remained the same.</p>
+<p><img src="./images/nl7intro/editslider.png" style="width:4.7in" /></p>
+<h2><a href="#new-file-format" id="new-file-format" class="section-anchor">New File Format</a></h2>
+<p>Models in NetLogo 7 have a new format which is extensible and makes it
+easier to add new features to NetLogo. <a href="https://github.com/NetLogo/NetLogo/wiki/XML-File-Format" target="_blank">The new file
+format</a> follows
+the XML 1.0 standard, and is compatible with any external tools for working
+with XML. Models saved with this format will have the extension .nlogox or .nlogox3d, rather
+than .nlogo or .nlogo3d. All models going forward will use the new file
+format. Existing model files, with the extension .nlogo or .nlogo3d, can
+be opened in NetLogo 7 and will be automatically converted without loss
+of information. However .nlogox and .nlogox3d files cannot be opened with previous
+versions of NetLogo. Any tools users have created that rely on the
+format of .nlogo and .nlogo3d files will need to be re-written.</p>
+<h2><a href="#tools-in-the-netlogo-7-interface" id="tools-in-the-netlogo-7-interface" class="section-anchor"><b>Tools in the NetLogo 7 Interface</b></a></h2>
+<h3><a href="#overview-netlogo-interface-tool-buttons-and-dropdown-menus" id="overview-netlogo-interface-tool-buttons-and-dropdown-menus" class="section-anchor">Overview: NetLogo Interface Tool Buttons and Dropdown menus</a></h3>
+<h3><a href="#new-interface-tools" id="new-interface-tools" class="section-anchor">New Interface Tools</a></h3>
+<p>The key motivations for introducing these
+tools are</p>
+<ol>
+<li>to make user actions more discoverable</li>
+<li>to separate actions needed to use an existing model from those used when creating or
+modifying a model.</li>
+</ol>
+<p>The Interface toolbar includes four new tool buttons which control the
+meaning of user actions. They are the <a href="interfacetab.html#interaction-tool">Interaction Tool</a>,
+the <a href="interfacetab.html#selection-tool">Selection Tool</a>,
+the <a href="interfacetab.html#editing-tool">Edit Tool</a>, and the <a href="interfacetab.html#deletion-tool">Delete Tool</a>.
+For a brief explanation of the use of these tools see this section of the
+<a href="interfacetab.html#overview-working-with-interface-elements-widgets">Interface Tab Documentation</a>.
+For details on the use of these features click the links above.</p>
+<h3><a href="#new-interface-menu" id="new-interface-menu" class="section-anchor">New Interface Menu</a></h3>
+<p>There is a new <a href="interfacetab.html#aligning">Align Widgets Menu</a>.
+This menu is only active if more than one element is
+selected. Only one of a set of related options will be explained.
+Use the link above for more details.</p>
+<p><img src="./images/interfacetab/alignwidgetsmenu.png" style="width:3in" /></p>
+<p>With Align Left the left-most widget remains in place.
+The other widgets move to align to left-most widget edge.</p>
+<p>Distribute Vertically keeps the top and bottom widgets fixed, and
+moves the other widgets so the vertical spacing between the widgets
+is the same. Distribute horizontally works similarly.</p>
+<p>With Stretch Left the left-most widget remains in place.
+All the other widgets stretch so they
+have the same left-most edge.</p>
+<h2><a href="#the-color-picker" id="the-color-picker" class="section-anchor">The Color Picker</a></h2>
+<p>Color Swatches has been replaced by the <a href="colorpicker.html">Color Picker</a>,
+a new, more powerful way of selecting colors.</p>
+<h2><a href="#notifications" id="notifications" class="section-anchor">Notifications</a></h2>
+<p>When the NetLogo team sends out a new notification message a banner will
+appear below the Interface Toolbar with a brief message. If you click on
+the message you will be taken to a web page that gives the full information of
+all messages to date in reverse chronological order. You can also click the X
+button on the right to dismiss the message.</p>
+<h2><a href="#the-info-tab" id="the-info-tab" class="section-anchor">The Info Tab</a></h2>
+<p>The changes to the Info Tab are purely visual. The Find and Edit icons
+and the section headers have been updated, as has the Help Icon that is
+visible when editing the Info Tab.</p>
+<p><img src="./images/nl7intro/infotabtoolbaredithelp.png" style="width:4in" /></p>
+<p>These are the new Info Tab color themes.</p>
+<table>
+<colgroup>
+<col style="width: 45%" />
+<col style="width: 45%" />
+</colgroup>
+<thead>
+<tr>
+<th>
+Light Theme
+</th>
+<th>
+Dark Theme
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<img src="./images/nl7intro/infotablight.png" style="width:4in"
+alt="Alt Text" />
+</td>
+<td>
+<img src="./images/nl7intro/infotabdark.png" style="width:4in"
+alt="Alt Text" />
+</td>
+</tr>
+</tbody>
+</table>
+<h2><a href="#code-tab" id="code-tab" class="section-anchor">Code Tab</a></h2>
+<h3><a href="#color-themes-and-code-syntax-highlighting" id="color-themes-and-code-syntax-highlighting" class="section-anchor">Color Themes and Code Syntax Highlighting</a></h3>
+<p>The code syntax highlighting colors have changed slightly for the Light
+Color Theme, and there is a separate set of code colors for the Dark Color Theme.</p>
+<table>
+<colgroup>
+<col style="width: 45%" />
+<col style="width: 45%" />
+</colgroup>
+<thead>
+<tr>
+<th>
+Light Theme
+</th>
+<th>
+Dark Theme
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<img src="./images/nl7intro/codetablight.png" style="width:4in"
+alt="Alt Text" />
+</td>
+<td>
+<img src="./images/nl7intro/codetabdark.png" style="width:4in"
+alt="Alt Text" />
+</td>
+</tr>
+</tbody>
+</table>
+<h3><a href="#code-tab-toolbar" id="code-tab-toolbar" class="section-anchor">Code Tab Toolbar</a></h3>
+<p>The Code Tab toolbar features new icons. See <a href="codetab.html#code-tab-toolbar">Code Tab Toolbar</a> for more details.</p>
+<h3><a href="#code-tab-preferences" id="code-tab-preferences" class="section-anchor">Code Tab Preferences</a></h3>
+<p>Code related preferences are now set in the Code tab of the Preferences dialog.
+See <a href="netlogopreferences.html#code-preferences">Code Preferences</a> for details.</p>
+<h3><a href="#included-files" id="included-files" class="section-anchor">Included Files</a></h3>
+<p>An included (.nls) file tab now has separate code window checkbox, and a
+Preferences button. Note that these buttons and preferences apply to all code tabs, not just the one
+from which they were clicked/set. Included file tabs can be closed by clicking on the “x” on the right side of
+the tab. More details are in the <a href="codetab.html#included-files">Included Files documentation</a>.</p>
+<h2><a href="#menu-items" id="menu-items" class="section-anchor">Menu Items</a></h2>
+<h3><a href="#preferences-dialog" id="preferences-dialog" class="section-anchor">Preferences Dialog</a></h3>
+<p>This dialog is now  organized into four tabs. You use it customize various NetLogo settings. On Windows and
+Linux, it is opened with the Tools menu “Preferences” item. For Macs,
+it’s under the “NetLogo” menu and reads “Settings”.</p>
+<p><img src="./images/preferences/generalprefs.png" style="width:5in" /></p>
+<p>Here is a brief description of the new preferences.
+See the <a href="#netlogopreferences.html">Preferences Documentation</a> for more details.</p>
+<p><strong>Reload model on external changes</strong>: If you use an editor outside of
+NetLogo to change the model or any included .nls files the model will be
+reloaded.</p>
+<p><strong>Bold widget names</strong>: By default, widget names are not in bold, use
+this option to make them bold.</p>
+<p><strong>UI Scale:</strong> This option is for Linux only. It must be set to the
+same value as your system UI scale or NetLogo will fail to resize its
+visual components correctly.</p>
+<p><strong>Auto-focus text or tab with errors when model is compiled</strong>: If
+checked, NetLogo will bring you to the location of an error if one
+occurs during compilation.</p>
+<p><strong>Open code tab in separate window on startup</strong>: When checked the
+Code tab will appear in a separate window when NetLogo is opened.</p>
+<p><strong>Jump slider widget thumb to mouse location on click (instead of incrementing)</strong>:
+When checked, clicking anywhere in the slider bar of a slider widget will move the
+thumb to that location. When unchecked, the pre-NetLogo 7 behavior will be applied,
+and clicking in the slider bar will increase or decrease the value of the slider by
+one increment, depending on which side of the bar is clicked.</p>
+<h3><a href="#file-resource-manager-dialog" id="file-resource-manager-dialog" class="section-anchor">File -&gt; Resource Manager dialog</a></h3>
+<p>The <a href="resource-manager.html">Resource Manager dialog</a> allows you to view, add, or remove files that are bundled
+with the current NetLogo model. These files can be read during a model
+run using the <a href="resource.html">Resource Extension</a>.</p>
+<h2><a href="#tools-menu-changes" id="tools-menu-changes" class="section-anchor">Tools Menu Changes</a></h2>
+<p>The new menu items &ldquo;Color Themes&rdquo;, &ldquo;Color Picker&rdquo; and &ldquo;Convert Widgets
+to New Sizes&rdquo; have been described in earlier sections. The menu item &ldquo;Color Swatches&rdquo; has been removed.</p>
+<p>The Turtle Shapes Editor and the Link Shapes Editor have been updated,
+as described below.</p>
+<h3><a href="#turtle-shapes-editor-and-link-shapes-editor" id="turtle-shapes-editor-and-link-shapes-editor" class="section-anchor">Turtle Shapes Editor and Link Shapes Editor</a></h3>
+<p>These Shapes Editors now have buttons at the top, for easier
+use. A search field has been added so users can quickly search through
+the model’s collection of shapes.</p>
+<table>
+<colgroup>
+<col style="width: 45%" />
+<col style="width: 45%" />
+</colgroup>
+<tbody>
+<tr>
+ <td>
+<img src="./images/nl7intro/turtleshapeseditor.png" style="width:3" />
+</td>
+<td>
+<img src="./images/nl7intro/linkshapeseditor.png " style="width:3" />
+</td>
+</tr>
+</tbody>
+</table>
+<h3><a href="#help-menu" id="help-menu" class="section-anchor">Help Menu</a></h3>
+<p>The Help Menu now has a link to
+the <a href="https://forum.netlogo.org/" target="_blank">NetLogo Forum</a>, a website to ask/answer
+questions and have discussions about NetLogo.</p>

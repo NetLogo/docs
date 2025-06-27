@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<title>
+      NetLogo 7.0.0-beta2 User Manual: Gogo Extension
+    </title>
+    <link rel="stylesheet" href="netlogo.css" type="text/css">
+    <style type="text/css">
+p { margin-left: 1.5em ; }
+    h3 { font-size: 115% ; }
+    h4 { font-size: 100% ; margin-left: 1.5em ; background: white ; }
+    </style>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+<h1>NetLogo Gogo Extension</h1>
+<h2><a href="#netlogolab-and-the-gogo-board-extension-for-sensors-and-robotics" id="netlogolab-and-the-gogo-board-extension-for-sensors-and-robotics" class="section-anchor">NetLogoLab and the GoGo Board Extension for sensors and robotics</a></h2>
+<p>This is the extension for physical computing, using sensors, motors, etc in NetLogo. It interfaces with GoGo boards running Human Interface Driver (HID) firmware, and it replaces the old GoGo Extension, which used USB-serial communications. (The USB-serial GoGo extension is still available for NetLogo 5.3.1 and earlier <a href="https://github.com/NetLogo/GoGo-Serial-Extension" target="_blank">here</a>.)</p>
+<p>This extension comes bundled with NetLogo 5.2 and later.  The source code is hosted online at
+<a href="https://github.com/NetLogo/GoGo-HID-Extension" target="_blank">https://github.com/NetLogo/GoGo-HID-Extension</a>.</p>
+<h1><a href="#netlogolab-and-the-gogo-board-extension" id="netlogolab-and-the-gogo-board-extension" class="section-anchor">NetLogoLab and the GoGo Board Extension</a></h1>
+<h2><a href="#what-is-netlogolab" id="what-is-netlogolab" class="section-anchor">What is NetLogoLab?</a></h2>
+<p>NetLogoLab is the technological infrastructure that connects NetLogo and the physical world. It can be used for robotics, interactive art, scientific investigations, and model validation. This infrastructure was created at the CCL by <a href="http://www.blikstein.com/paulo" target="_blank">Paulo Blikstein</a> and Uri Wilensky in 2005 as part of the <a href="https://tltlab.org/bifocal-modeling/" target="_blank">Bifocal Modeling</a> project. For more information, please check the new and <a href="http://ccl.northwestern.edu/netlogolab/" target="_blank">old</a> websites, where you will find academic papers, models, and demos.</p>
+<p>NetLogoLab is comprised of the following software and hardware components:</p>
+<ol>
+<li>A NetLogo extension to control a robotics or data-logging board.</li>
+<li>A robotics or data-logging board (also know as a serial interface board, or analog-to-digital board).</li>
+<li>Sensor and actuator toolkits.</li>
+<li>NetLogo models.</li>
+</ol>
+<p>NetLogo&rsquo;s robotics/data-logging board of choice is the <a href="http://www.gogoboard.org/" target="_blank">GoGo Board</a>, an open-source, easy-to-build, low-cost interface designed by <a href="http://alumni.media.mit.edu/~arnans/" target="_blank">Arnan Sipitakiat</a> and <a href="http://www.blikstein.com/paulo" target="_blank">Paulo Blikstein</a>, first at the MIT Media Lab, then at Northwestern&rsquo;s CCL, and is in continuous refinement. Other robotics hardware can be used with NetLogo, including those that are commercially available, such as <a href="http://www.arduino.cc/" target="_blank">Arduino</a> boards, <a href="http://www.vernier.com/" target="_blank">Vernier</a> and <a href="http://www.pasco.com/" target="_blank">Pasco</a> sensors and actuators, <a href="http://www.phidgets.com/" target="_blank">Phidgets</a>, and <a href="http://www.vexrobotics.com/" target="_blank">VEX</a> kits, but specific extensions have not yet been developed for each of those platforms. So far, only the GoGo Board extension is available with NetLogo&rsquo;s standard distribution.</p>
+<h3><a href="#the-gogo-board-netlogo-extension" id="the-gogo-board-netlogo-extension" class="section-anchor">The GoGo Board NetLogo extension</a></h3>
+<p>The GoGo Extension for NetLogo provides primitives to communicate with a GoGo Board. This enables the user to connect NetLogo with the physical world using sensors, motors, light bulbs, LEDs, relays and other devices.</p>
+<h3><a href="#gogo-board-a-low-cost-robotics-and-data-logging-board" id="gogo-board-a-low-cost-robotics-and-data-logging-board" class="section-anchor">GoGo Board: a low-cost robotics and data-logging board</a></h3>
+<p>A <a href="http://www.gogoboard.org/" target="_blank">GoGo Board</a> is a low cost, general purpose serial interface board especially designed to be used in school and for educational projects. It was created by <a href="http://alumni.media.mit.edu/~arnans/" target="_blank">Arnan Sipitakiat</a> and <a href="http://www.blikstein.com/paulo" target="_blank">Paulo Blikstein</a> at the <a href="http://www.media.mit.edu/" target="_blank">MIT Media Lab</a> in 2001, and has been actively developed since then. It is currently used in over 10 countries, such as the United States, China, Thailand, South Korea, Brazil, Portugal, Mexico, Malaysia, and Egypt. For more information see the <a href="https://gogoboard.org/about/" target="_blank">the gogo board about page</a>.</p>
+<p>Up to 8 sensors (i.e., temperature, light, pressure) and 4 output devices (i.e., motors, light bulbs, LEDs, relays) can be connected to the board simultaneously. The board also has a connector for add-on devices (such as displays, Bluetooth or ZigBee wireless modules, voice recorders, real-time clock, and GPS).</p>
+<h3><a href="#sensor-and-actuator-toolkits" id="sensor-and-actuator-toolkits" class="section-anchor">Sensor and actuator toolkits</a></h3>
+<p>NetLogo models can interact with the physical world in two ways. First, they can gather data from the environment. This information can be used by the model to change or calibrate its behavior. This data is gathered using electronic sensors, which can measure a wide range of phenomena: temperature, light, touch (see pictures below), pH, chemical concentration, pressure, etc. See the <a href="https://docs.gogoboard.org/#/en/sensor/sensor-set" target="_blank">Gogo docs here</a> for info on the the sensors that are included with a GoGo board kit.</p>
+<p>The second mode of interaction between NetLogo and the physical world is the control of output devices, or &ldquo;actuators&rdquo; - motors, light bulbs (see pictures below), LEDs, and more complex devices that include these outputs such as toys, remote controlled cars, electrical appliances, and automated laboratory equipment. See the <a href="https://docs.gogoboard.org/#/en/04-output" target="_blank">Using Output Ports</a> section of the GoGo docs for more info.</p>
+<p>The GoGo board also comes with <a href="https://docs.gogoboard.org/#/en/sensor/sensor-set?id=terminal-connector-" target="_blank">Terminal Connectors</a> to wire in additional sensor that don&rsquo;t come included. Additional sensors and actuators can be found through online retailers such as <a href="http://www.digikey.com/" target="_blank">Digikey</a>, <a href="http://www.mouser.com/" target="_blank">Mouser</a>, <a href="http://www.phidgets.com/" target="_blank">Phidgets</a>, <a href="http://www.sparkfun.com/" target="_blank">Spark Fun</a>, and <a href="http://www.solarbotics.com/" target="_blank">Solarbotics</a>.</p>
+<h3><a href="#netlogo-models" id="netlogo-models" class="section-anchor">NetLogo models</a></h3>
+<p>To make use of the GoGo Board extension and the NetLogoLab framework, users need to create NetLogo models using the special primitives made available by the extension. Later in this document, we will provide examples of models that do this.</p>
+<h2><a href="#how-to-get-a-gogo-board" id="how-to-get-a-gogo-board" class="section-anchor">How to get a GoGo Board?</a></h2>
+<p>Gogo Boards can be purchased from the <a href="https://www.seeedstudio.com/GoGo-Board-Kit-p-2717.html" target="_blank">SEED Foundation</a>.</p>
+<h2><a href="#installing-and-testing-the-gogo-extension" id="installing-and-testing-the-gogo-extension" class="section-anchor">Installing and testing the GoGo Extension</a></h2>
+<p>The GoGo Board connects with the computer via the USB port. Turn the GoGo Board on using the switch behind the power connector: the board will beep twice and the red light will turn on.</p>
+<h3><a href="#windows" id="windows" class="section-anchor">Windows</a></h3>
+<p>Plug in your GoGo board and go to <a href="https://code.gogoboard.org/" target="_blank">https://code.gogoboard.org/</a>. The website should prompt you to download the gogo plugin for Windows. You can now try using the NetLogo GoGo extension. If you don&rsquo;t have Java installed, you will be prompted to locate your java executable. You will need to install Java to get the extension to work. We recommend using the Java 17 which is the version used by NetLogo as of NetLogo 6.3.0, installer here: <a href="https://www.oracle.com/java/technologies/downloads/#java17" target="_blank">https://www.oracle.com/java/technologies/downloads/#java17</a>. You can check which Java version your system is using by running <code>java -version</code> in the command line.</p>
+<h3><a href="#mac-os-x" id="mac-os-x" class="section-anchor">Mac OS X</a></h3>
+<p>The GoGo extension requires no special installation on Mac OS X. If you don&rsquo;t have Java installed, you will need to install Java 17 which is the version used by NetLogo as of NetLogo 6.3.0, installer here: <a href="https://www.oracle.com/java/technologies/downloads/#java17" target="_blank">https://www.oracle.com/java/technologies/downloads/#java17</a>. You can check which Java version your system is using by running <code>java -version</code> in the command line.</p>
+<h3><a href="#linux" id="linux" class="section-anchor">Linux</a></h3>
+<p>Many versions of Linux require no special installation.</p>
+<h2><a href="#usage" id="usage" class="section-anchor">Usage</a></h2>
+<p>The GoGo Extension comes preinstalled when you download and install NetLogo. To use the extension in your model, add this line to the top of your Code tab:</p>
+<pre><code class="language-NetLogo">extensions [ gogo ]
+</code></pre>
+<p>If your model already uses other extensions, then it already has an extensions line in it, so just add gogo to the list.</p>
+<p>If you are using a GoGo board 6, you will also need to initialize the extension by typing the following command into the command center:</p>
+<pre><code>gogo:init &quot;gogo6&quot;
+</code></pre>
+<p>You can see if the GoGo board is connected by seeing if it will beep when you type into the command center:</p>
+<pre><code>gogo:beep
+</code></pre>
+<p>Or, you can see whether one or more HID-based gogos are on and attached to the computer by typing the following into the command center:</p>
+<pre><code class="language-NetLogo">gogo:howmany-gogos
+</code></pre>
+<p>For examples that use the GoGo extension see GoGoMonitor and GoGoMonitorSimple models in the Models Library and the example projects at the bottom of this page.</p>
+<h2><a href="#changes" id="changes" class="section-anchor">Changes</a></h2>
+<p>Compared to previous versions of the GoGo extension, this version offers:</p>
+<ul>
+<li><strong>Improved robustness</strong>.  With prior versions of the GoGo extension, crashes were fairly common due to problems in the USB-Serial stack across platforms.  The switch to HID improved robustness, and the new extension also uses a &ldquo;daemon&rdquo; architecture which shields NetLogo from any problems that may occur in direct communication with the GoGo board.  The result is a substantial reduction in the number of crashes of NetLogo.</li>
+<li><strong>No Installation of Drivers</strong>. Because the new GoGo firmware presents the board as an HID device, the extension could be written so as not to require installing drivers.  This means there is no need for the user to have administrator rights on the computer.</li>
+<li><strong>Directionality for Motors</strong>. The board now has polarity-ensuring output connectors, so that &ldquo;counterclockwise&rdquo; or &ldquo;clockwise&rdquo; can now be specified in code.</li>
+</ul>
+<h2>Primitives</h2>
+<h3>Other Outputs</h3>
+<div id="outputs-other">
+  <a href="#gogo:led"><code>gogo:led</code></a>
+  <a href="#gogo:beep"><code>gogo:beep</code></a>
+</div>
+<h3>Utilities</h3>
+<div id="utilities">
+  <a href="#gogo:read-all"><code>gogo:read-all</code></a>
+</div>
+<h3>General</h3>
+<div id="general">
+  <a href="#gogo:primitives"><code>gogo:primitives</code></a>
+  <a href="#gogo:howmany-gogos"><code>gogo:howmany-gogos</code></a>
+  <a href="#gogo:init"><code>gogo:init</code></a>
+</div>
+<h3>Sensors</h3>
+<div id="sensors">
+  <a href="#gogo:read-sensors"><code>gogo:read-sensors</code></a>
+  <a href="#gogo:read-sensor"><code>gogo:read-sensor</code></a>
+</div>
+<h3>Outputs and Servos</h3>
+<div id="outputs-servos">
+  <a href="#gogo:talk-to-output-ports"><code>gogo:talk-to-output-ports</code></a>
+  <a href="#gogo:talk-to-servo-ports"><code>gogo:talk-to-servo-ports</code></a>
+  <a href="#gogo:set-output-port-power"><code>gogo:set-output-port-power</code></a>
+  <a href="#gogo:output-port-on"><code>gogo:output-port-on</code></a>
+  <a href="#gogo:output-port-off"><code>gogo:output-port-off</code></a>
+  <a href="#gogo:output-port-clockwise"><code>gogo:output-port-clockwise</code></a>
+  <a href="#gogo:output-port-counterclockwise"><code>gogo:output-port-counterclockwise</code></a>
+  <a href="#gogo:set-servo"><code>gogo:set-servo</code></a>
+</div>
+<div class="dict_entry" id="gogo:primitives">
+  <h3><a>gogo:primitives</a></h3>
+  <h4>
+    <span class="prim_example">gogo:primitives</span>
+  </h4>
+<p>Returns a list of the primitives of this extension.</p>
+</div>
+<div class="dict_entry" id="gogo:howmany-gogos">
+  <h3><a>gogo:howmany-gogos</a></h3>
+  <h4>
+    <span class="prim_example">gogo:howmany-gogos</span>
+  </h4>
+<p>Reports the number of USB HID devices visible to the computer and having the correct vendor and product ID to be a GoGo board.  A board will only be detected if it is both connected and powered on.  Using this primitive is one way to determine quickly whether a GoGo board has the HID firmware loaded. (A USB-Serial version of the board will not be detected.).</p>
+</div>
+<div class="dict_entry" id="gogo:init">
+  <h3><a>gogo:init</a></h3>
+  <h4>
+    <span class="prim_example">gogo:init</span>
+  </h4>
+<p>Initialize the extension. The parameter <code>name</code> is a string representing the name of the backend to initialize.  There are currently 2 backends. One is the <code>&quot;gogo&quot;</code> backend that supports GoGo board 5 and earlier versions. Another is the <code>&quot;gogo6&quot;</code> backend that supports GoGo board 6.  You only need to use this primitive if you are using a GoGo board 6.  The extension will automatically initialize itself with the <code>&quot;gogo&quot;</code> backend if this primitive is not called.</p>
+</div>
+<div class="dict_entry" id="gogo:talk-to-output-ports">
+  <h3><a>gogo:talk-to-output-ports</a></h3>
+  <h4>
+    <span class="prim_example">gogo:talk-to-output-ports <i>list-of-portnames</i></span>
+  </h4>
+<p>Establishes a list of output ports that will be controlled with subsequent output-port commands.  See below&hellip;</p>
+</div>
+<div class="dict_entry" id="gogo:talk-to-servo-ports">
+  <h3><a>gogo:talk-to-servo-ports</a></h3>
+  <h4>
+    <span class="prim_example">gogo:talk-to-servo-ports <i>list-of-portnames</i></span>
+  </h4>
+<p>Establishes a list of servo ports that will be controlled with subsequent output-port commands.  See below&hellip;</p>
+<p>This command is only available with the &ldquo;gogo6&rdquo; backend.</p>
+</div>
+<div class="dict_entry" id="gogo:set-output-port-power">
+  <h3><a>gogo:set-output-port-power</a></h3>
+  <h4>
+    <span class="prim_example">gogo:set-output-port-power <i>power-level</i></span>
+  </h4>
+<p><code>power-level</code> is a number between 0 and 100, reflecting the percentage of maximum power.
+Sets the amount of power that will be fed to the output ports indicated in <code>talk-to-output-ports</code>.
+This will not affect the on-off state of the output ports.
+So, for example, if a motor is already connected to an output port and running, changing its power will change its speed.
+If the motor is not running, changing the power level will not turn it on; instead, it will affect the speed at which the motor starts when it is turned on with <code>output-port-on</code>.</p>
+</div>
+<div class="dict_entry" id="gogo:output-port-on">
+  <h3><a>gogo:output-port-on</a></h3>
+  <h4>
+    <span class="prim_example">gogo:output-port-on</span>
+  </h4>
+<p>Turns on the output ports which have been indicated with talk-to-output-ports.
+If none have been set with talk-to-output-ports, no ports will be turned on.</p>
+</div>
+<div class="dict_entry" id="gogo:output-port-off">
+  <h3><a>gogo:output-port-off</a></h3>
+  <h4>
+    <span class="prim_example">gogo:output-port-off</span>
+  </h4>
+<p>Turns off the output ports which have been indicated with talk-to-output-ports.
+If none have been set with talk-to-output-ports, no ports will be turned off.</p>
+</div>
+<div class="dict_entry" id="gogo:output-port-clockwise">
+  <h3><a>gogo:output-port-clockwise</a></h3>
+  <h4>
+    <span class="prim_example">gogo:output-port-clockwise</span>
+  </h4>
+<p>Sets the polarity of the output port(s) that have been specified with talk-to-output-ports,
+so that a motor attached to one of these ports would turn clockwise.</p>
+</div>
+<div class="dict_entry" id="gogo:output-port-counterclockwise">
+  <h3><a>gogo:output-port-counterclockwise</a></h3>
+  <h4>
+    <span class="prim_example">gogo:output-port-counterclockwise</span>
+  </h4>
+<p>Sets the polarity of the output port(s) that have been specified with <code>talk-to-output-ports</code>, so that a motor attached to one of these ports would turn counterclockwise.</p>
+</div>
+<div class="dict_entry" id="gogo:set-servo">
+  <h3><a>gogo:set-servo</a></h3>
+  <h4>
+    <span class="prim_example">gogo:set-servo <i>number</i></span>
+  </h4>
+<p>Sets the Pulse-Width Modulation (PWM) proportion of the output port(s) that have been specified with talk-to-output-ports.  Note that the servo connectors are the male pins next to the standard motor connectors.  Different servos respond to different PWM ranges, but all servos read PWM proportions and set the position of their main gear accordingly.</p>
+</div>
+<div class="dict_entry" id="gogo:led">
+  <h3><a>gogo:led</a></h3>
+  <h4>
+    <span class="prim_example">gogo:led <i>on-or-off</i></span>
+  </h4>
+<p>Turns the user-LED on or off, depending on the argument.  gogo:led 1 turns the LED on; gogo:led 0 turns it off.</p>
+</div>
+<div class="dict_entry" id="gogo:beep">
+  <h3><a>gogo:beep</a></h3>
+  <h4>
+    <span class="prim_example">gogo:beep</span>
+  </h4>
+<p>Causes the GoGo board to beep.</p>
+</div>
+<div class="dict_entry" id="gogo:read-sensors">
+  <h3><a>gogo:read-sensors</a></h3>
+  <h4>
+    <span class="prim_example">gogo:read-sensors</span>
+  </h4>
+<p>Reports a list containing the current readings of all eight sensors ports of the GoGo.</p>
+</div>
+<div class="dict_entry" id="gogo:read-sensor">
+  <h3><a>gogo:read-sensor</a></h3>
+  <h4>
+    <span class="prim_example">gogo:read-sensor <i>which-sensor</i></span>
+  </h4>
+<p>Reports the value of sensor number <em>which-sensor</em>, where <em>which-sensor</em> is a number between 0-7.</p>
+</div>
+<div class="dict_entry" id="gogo:read-all">
+  <h3><a>gogo:read-all</a></h3>
+  <h4>
+    <span class="prim_example">gogo:read-all</span>
+  </h4>
+<p>Reports all data available from the board, in a raw-list form useful for debugging.</p>
+</div>
+<div class="dict_entry" id="gogo:send-bytes">
+  <h3><a>gogo:send-bytes</a></h3>
+  <h4>
+    <span class="prim_example">gogo:send-bytes <i>list</i></span>
+  </h4>
+<p>Sends a list of bytes to the GoGo board.  Useful for debugging or for testing any new or future functionality that is added to the GoGo board with new firmware updates.</p>
+</div>
+<h2><a href="#examples-of-netlogolab-models" id="examples-of-netlogolab-models" class="section-anchor">Examples of NetLogoLab models</a></h2>
+<h3><a href="#controlling-a-car" id="controlling-a-car" class="section-anchor">Controlling a car</a></h3>
+<p>The first step when creating a NetLogoLab model is to add the <a href="dictionary.html#extensions"><code>extensions</code></a> keyword to NetLogo&rsquo;s Code tab. Just go to the Code tab and add this line:</p>
+<p><code>extensions [gogo]</code></p>
+<p>Now let&rsquo;s start the model. Imagine that we want to control a car with four wheels and two motors attached to the back wheels. We will assume that you have built such as car and connected the motors to the output ports &ldquo;a&rdquo; and &ldquo;b&rdquo; on the GoGo board. One very simple approach could be to create two buttons for each motor, &ldquo;on&rdquo; and &ldquo;off&rdquo;:</p>
+<p><img src="http://ccl.northwestern.edu/netlogo/docs/images/gogo/netlogolab-example1-on_off_buttons.png" alt="on off buttons" /></p>
+<p>The code associated with these buttons is very simple: for the &ldquo;on&rdquo; button, we could simply have</p>
+<pre><code>gogo:talk-to-output-ports [&quot;a&quot;]  
+gogo:output-port-on
+    
+For the off button, it would be very similar:
+    
+gogo:talk-to-output-ports [&quot;a&quot;]
+gogo:output-port-off
+</code></pre>
+<p>The other set of &ldquo;on&rdquo; and &ldquo;off&rdquo; buttons, used to control the second motor, would have very similar code, except that we would use the second output port (&ldquo;b&rdquo;), so:</p>
+<pre><code>gogo:talk-to-output-ports [&quot;b&quot;]
+</code></pre>
+<p>We could make our model more interesting by adding a &ldquo;toggle direction&rdquo; button, adding a button with the following code, which would reverse the direction of motors &ldquo;a&rdquo; and &ldquo;b&rdquo;:</p>
+<pre><code>gogo:talk-to-output-ports [&quot;a&quot; &quot;b&quot;]
+gogo:output-port-reverse
+</code></pre>
+<h3><a href="#a-simple-sensing-project" id="a-simple-sensing-project" class="section-anchor">A simple sensing project</a></h3>
+<p>To create a simple sensing project, we will assume that you have added the GoGo extension to your model and successfully opened a connection to the GoGo board, i.e., adding the &ldquo;extensions&rdquo; command to the Code Tab. For this sensing project we do not need motors, but we will need another device: a temperature sensor. A standard GoGo board comes with a temperature sensor. It is labeled (TEMP Sensor). More info on the sensors that come standard with a gogo board can be found <a href="https://docs.gogoboard.org/#/en/sensor/sensor-set" target="_blank">in the GoGo Docs</a>. The simplest use of a temperature sensor, obviously, is to display the temperature. We could achieve this by plugging the sensor in to input 1 and adding a monitor to the NetLogo interface with this code:</p>
+<pre><code>gogo:read-sensor 1
+</code></pre>
+<p>The GoGo docs say, &ldquo;Note that the readout is not in Celsius or Fahrenheit. The value is reflects the resistance of the sensor. Mappings between the resistance and the standard units must be done manually.&rdquo; So, to figure out how these values map to a real temperature, you will need to use a thermometer and see how the reading on the temperature sensor corresponds to the temperature in degrees. If you found out that the conversion is to divide by 30, the monitor on the NetLogo interface could be changed to:</p>
+<pre><code>gogo:read-sensor 1 / 30
+</code></pre>
+<p>The sensor value could also be used to control on-screen objects, such as turtles. For example, let us create two buttons: a &ldquo;create one turtle&rdquo; button, which will clear the world and create a turtle, and a &ldquo;move with heat&rdquo; button, that will cause the turtle to move forwards depending on the temperature reading from the sensor. The code would look like this:</p>
+<pre><code>to create-one-turtle
+  clear-all
+  create-turtle
+end
+    
+to move-with-heat
+  if gogo:read-sensor 1 &gt; 500
+    [ forward 1 ]
+end
+</code></pre>
+<p>If the &ldquo;move with heat&rdquo; forever button is activated and the user heats up the sensor (by rubbing it, or <em>slowly</em> bringing a flame near it), the heat threshold will be achieved (&gt; 500) and the turtle will move.</p>
+<p>A more elaborate use of this sensor apparatus would be to control output devices, such as motors. The user could, for example, turn a motor on when the value from the temperature sensor reaches 500, using the following code:</p>
+<pre><code>to turn-motor-on-with-heat
+  if gogo:read-sensor 1 &gt; 500
+  [
+    gogo:talk-to-output-ports [&quot;a&quot;]
+    gogo:output-port-on
+  ]
+end
+</code></pre>
+<p>Another possible use of the sensing primitives is to plot and log data. Logging could be useful for more elaborate data analysis and comparison, and can be achieved with NetLogo&rsquo;s list commands. For example, if the user wants to log sensor values from sensor 1 every 0.5 seconds, the code could look like this:</p>
+<pre><code>to log-data-from-sensor
+  set data-vector lput (gogo:read-sensor 1) data-vector
+  wait 0.5
+end
+</code></pre>
+<p>Finally, plotting data is straightforward. The following code, for example, would create a graph for the value of sensor 1:</p>
+<pre><code>plot (gogo:read-sensor 1)
+</code></pre>

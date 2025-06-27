@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>
+      NetLogo 7.0.0-beta2 User Manual: Color Picker Guide
+    </title>
+    <link rel="stylesheet" href="netlogo.css" type="text/css"/>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+<h1><a href="#color-picker-guide" id="color-picker-guide" class="section-anchor">Color Picker Guide</a></h1>
+  </head>
+  <body>
+    <div class="version">
+      NetLogo 7.0.0-beta2 User Manual
+    </div>
+  </body>
+</html>
+<ul>
+<li><a href="#introduction">Introduction</a></li>
+<li><a href="#colors-in-netlogo">Colors in NetLogo</a></li>
+<li><a href="#simple-tab">Simple Tab</a></li>
+<li><a href="#the-advanced-tab">The Advanced Tab</a>
+<ul>
+<li><a href="#introduction">Introduction</a></li>
+<li><a href="#input-format">Input Format</a></li>
+<li><a href="#output-format">Output Format</a></li>
+<li><a href="#output-formats-for-different-contexts">Output Formats for Different Contexts</a></li>
+<li><a href="#details-about-rgb-output">Details about RGB Output</a></li>
+<li><a href="#details-about-the-alpha-bar">Details about the Alpha Bar</a></li>
+</ul>
+</li>
+</ul>
+<h2><a href="#introduction" id="introduction" class="section-anchor">Introduction</a></h2>
+<p>NetLogo 7 introduces a new, more powerful way of selecting colors, which
+replaces Color Swatches. As was the case previously there are four
+different contexts in which colors can be selected: from the Tools menu,
+from a Color Input widget, when selecting a plot pen color and when
+editing a Note. The ways in which the versions differ involve whether a
+selected color can be copied or &ldquo;picked,&rdquo; whether transparency is
+allowed, and what forms of input and output specifications are allowed,
+as will be described later.</p>
+<h2><a href="#colors-in-netlogo" id="colors-in-netlogo" class="section-anchor">Colors in NetLogo</a></h2>
+<p>For information on the different ways colors are represented in NetLogo
+see the
+<a href="programming.html#colors">Colors</a>
+section of the NetLogo Programming Guide. The NetLogo primitives for
+working with colors are
+<a href="dictionary.html#approximate-hsb">approximate-hsb</a> <a href="dictionary.html#approximate-rgb">approximate-rgb</a> <a href="dictionary.html#base-colors">base-colors</a> <a href="dictionary.html#color">color</a> <a href="dictionary.html#extract-hsb">extract-hsb</a> <a href="dictionary.html#extract-rgb">extract-rgb</a> <a href="dictionary.html#hsb">hsb</a> <a href="dictionary.html#import-pcolors">import-pcolors</a> <a href="dictionary.html#import-pcolors-rgb">import-pcolors-rgb</a> <a href="dictionary.html#pcolor">pcolor</a> <a href="dictionary.html#rgb">rgb</a> <a href="dictionary.html#scale-color">scale-color</a> <a href="dictionary.html#shade-of">shade-of?</a> <a href="dictionary.html#wrap-color">wrap-color</a>.
+The <a href="palette.html">Palette
+Extension</a>
+offers additional ways to work with colors.</p>
+<p>All versions of the Color Picker have two tabs, Simple, and Advanced.
+The Simple tab allows users to pick a color from a rectangular grid.
+This is analogous to the Color Swatches dialog, although it is more
+visually streamlined.</p>
+<h2><a href="#simple-tab" id="simple-tab" class="section-anchor">Simple Tab</a></h2>
+<p>The Simple tab of the Color Picker in the Tools menu has buttons to
+allow the user to copy the color (icon to the right of the grey
+rectangle), or exit the dialog (cancel).</p>
+<p><img src="./images/colorpicker/colorpickersimple.png"style="width:7in" /></p>
+<p>As shown below Simple tab for the Color Input adds a blue &lsquo;OK&rsquo; button to
+the right of &lsquo;Cancel.&rsquo; Choosing &lsquo;OK&rsquo; changes the Input to the selected
+color, exiting the dialog. &lsquo;Copy&rsquo; puts the NetLogo Color number
+corresponding to the selected color in the clipboard. It can then be
+copied to the Code Tab, or any other text area. The dialog remains open.
+Cancel closes the dialog without changing the color input widget.</p>
+<p><img src="./images/colorpicker/colorpickersimpleoklight.png"style="width:7in" /></p>
+<p>When editing a Note, there are four buttons that can be clicked to open
+a Color Picker.</p>
+<p><img src="./images/colorpicker/editnotelight.png"/></p>
+<p>The &lsquo;Simple&rsquo; tab of the color picker is the same, regardless of context.
+The &lsquo;Advanced&rsquo; tab allows different output formats, depending on the
+context.</p>
+<h2><a href="#the-advanced-tab" id="the-advanced-tab" class="section-anchor">The Advanced Tab</a></h2>
+<h3><a href="#introduction" id="introduction" class="section-anchor">Introduction</a></h3>
+<p>The Advanced Tab allows a much more nuanced way to choose a color.</p>
+<p><img src="./images/colorpicker/colorpickeradvanced.png"style="width:7in" /></p>
+<p>The rainbow slider on the left allows users to select a hue. The slider
+to its right allows the user to select the transparency of the color. By
+default, the color is fully opaque, and the knob is at the top of the
+slider, moving it down makes the color more transparent. You can also drag the small circle in the rectangle to the right
+of the sliders to quickly explore variants of the selected hue. Moving from it
+from left to right (horizontally) increases the saturation. Moving it bottom to top
+(vertically) increases the lightness.</p>
+<h3><a href="#input-format" id="input-format" class="section-anchor">Input Format</a></h3>
+<p>A powerful feature of the Advanced tab is that you can import colors
+using the following common formats RGB, RGBA, HSB, HSBA, HSL, HSLA and
+hexadecimal as well as NetLogo Number or NetLogo word. Use the Input
+Format pulldown menu to select the format and you will be able to set
+the appropriate value(s). The pulldown menu below shows the output
+options, which have the acronyms above spelled out. There follow two
+examples of specifying an input. For a NetLogo word there is a text
+field. For HSB (Hue, Saturation, Brightness) there are three numeric
+fields. The color selected using the Input format can then be modified
+by using the hue slider, transparency slider or the palette rectangle.</p>
+<p><img src="./images/colorpicker/colorpickerinputformatchoices.png"/></p>
+<p>In this example the input is a NetLogo word.</p>
+<p><img src="./images/colorpicker/colorpickerinputformatNLword.png"/></p>
+<p>In this example the input is HSB.</p>
+<p><img src="./images/colorpicker/colorpickerHSBinputRGBAoutput.png"style="width:7in" /></p>
+<h3><a href="#output-format" id="output-format" class="section-anchor">Output Format</a></h3>
+<p>The color that results after any adjustments can be output in the
+selected Output Format. The full list of output formats is NetLogo
+Number, NetLogo word and RGBA (Red, Green, Blue, Alpha). However in some
+contexts only a NetLogo Number can be output. As the user changes a
+color the value of the Input value is updated. In the image below it was
+initially lime - 0.3, but changed to lime - 0.6</p>
+<p><img src="./images/colorpicker/colorpickerNLwordinputRGBAoutput.png"style="width:7in" /></p>
+<h3><a href="#output-formats-for-different-contexts" id="output-formats-for-different-contexts" class="section-anchor">Output Formats for Different Contexts</a></h3>
+<p>For the Color Input and plot pen colors the output format is a NetLogo
+number. Transparency is not supported for the Color Input in this
+release, but may be available in the future.</p>
+<p>For Notes the output format is RGBA.</p>
+<p>For the Tools menu Color Picker the output formats are NetLogo number,
+NetLogo word and RGBA.</p>
+<h3><a href="#details-about-rgb-output" id="details-about-rgb-output" class="section-anchor">Details about RGB Output</a></h3>
+<p>There is no explicit RGB output format. However when you select &ldquo;RGBA&rdquo;,
+and your color is opaque (maximum alpha), the result is RGB format - a
+3-item list (no alpha). Otherwise &ldquo;RGBA&rdquo; output produces a 4-item list
+(with alpha). In the example below you can see that the output is a
+3-item list, because there is no transparency and RGBA output is
+selected.</p>
+<p><img src="./images/colorpicker/colorpickerHexinputRGBAoutput.png"style="width:7in" /></p>
+<h3><a href="#details-about-the-alpha-bar" id="details-about-the-alpha-bar" class="section-anchor">Details about the Alpha Bar</a></h3>
+<p>Some users may want to skip this section on first reading. The &ldquo;alpha&rdquo;
+bar of the Advanced tab is used to adjust the transparency of a color.
+If neither the input format nor the output format allows transparency
+the alpha bar will be hidden. The formats that do not allow transparency
+are: NetLogo number, NetLogo word RGB, HSB, and HSL. If the input
+supports alpha, but the output does not, the output dropdown will be
+highlighted and will have a tooltip that explains that the output color
+will be opaque. The first example shows the case where there is no alpha
+bar. The second example show the highlighted output because there is
+transparency, but an opaque output format.</p>
+<p><img src="./images/colorpicker/colorpickernoalpha.png"style="width:7in" /></p>
+<p><img src="./images/colorpicker/colorpickerHSBinputNLnumberoutput.png"style="width:7in" /></p>

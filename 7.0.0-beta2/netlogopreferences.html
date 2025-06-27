@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>
+      NetLogo 7.0.0-beta2 User Manual: NetLogo Preferences
+    </title>
+    <link rel="stylesheet" href="netlogo.css" type="text/css"/>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+<h1><a href="#netlogo-preferences" id="netlogo-preferences" class="section-anchor">NetLogo Preferences</a></h1>
+  </head>
+  <body>
+    <div class="version">
+      NetLogo 7.0.0-beta2 User Manual
+    </div>
+  </body>
+</html>
+<ul>
+<li><a href="#overview">Overview</a></li>
+<li><a href="#general-preferences">General Preferences</a>
+<ul>
+<li><a href="#user-interface-language">User Interface language</a></li>
+<li><a href="#reload-the-last-used-model-on-startup">Reload the last used model on startup</a></li>
+<li><a href="#reload-model-on-external-changes">Reload model on external changes</a></li>
+<li><a href="#bold-widget-text">Bold widget text</a></li>
+<li><a href="#jump-slider-widget-thumb-to-mouse-location-on-click-instead-of-incrementing">Jump slider widget thumb to mouse location on click (instead of incrementing)</a></li>
+<li><a href="#ui-scale">UI Scale</a></li>
+</ul>
+</li>
+<li><a href="#code-preferences">Code Preferences</a>
+<ul>
+<li><a href="#sort-order-of-procedures-menu">Sort order of procedures menu</a></li>
+<li><a href="#always-show-included-files-menu">Always show &ldquo;Included Files&rdquo; menu</a></li>
+<li><a href="#auto-focus-text-or-tab-with-errors-when-model-is-compiled">Auto-focus text or tab with errors when model is compiled</a></li>
+<li><a href="#open-code-tab-in-separate-window-on-startup">Open code tab in separate window on startup</a></li>
+<li><a href="#auto-indent">Auto Indent</a></li>
+<li><a href="#show-line-numbers">Show line numbers</a></li>
+</ul>
+</li>
+<li><a href="#logging-preferences">Logging Preferences</a>
+<ul>
+<li><a href="#enable-logging">Enable logging</a></li>
+<li><a href="#directory-to-store-logs">Directory to store logs</a></li>
+<li><a href="#events-to-log">Events to log:</a></li>
+</ul>
+</li>
+<li><a href="#color-themes">Color Themes</a>
+<ul>
+<li><a href="#light">Light</a></li>
+<li><a href="#dark">Dark</a></li>
+<li><a href="#classic">Classic</a></li>
+</ul>
+</li>
+</ul>
+<h2><a href="#overview" id="overview" class="section-anchor">Overview</a></h2>
+<p>This dialog lets you customize various NetLogo settings. On Windows and
+Linux, it is opened with the Tools menu “Preferences” item. For Macs,
+it’s under the “NetLogo” menu and reads “Settings”.</p>
+<p>Items are organized into four tabs:</p>
+<ul>
+<li><a href="#general-preferences">General Preferences</a></li>
+<li><a href="#code-preferences">Code Preferences</a></li>
+<li><a href="#logging-preferences">Logging Preferences</a></li>
+<li><a href="#color-themes">Color Themes</a></li>
+</ul>
+<table>
+<colgroup>
+<col style="width: 45%" />
+<col style="width: 45%" />
+</colgroup>
+<thead>
+<tr>
+<th style="text-align: left;">
+General Preferences
+</th>
+<th style="text-align: left;">
+Code Preferences
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<tr>
+<td>
+<img src="./images/preferences/generalprefs.png" style="width:5in" />
+</td>
+<td>
+<img src="./images/preferences/codeprefs.png" style="width:5in" />
+</td>
+</tr>
+</tbody>
+</table>
+<table>
+<colgroup>
+<col style="width: 45%" />
+<col style="width: 45%" />
+</colgroup>
+<thead>
+<tr>
+<th style="text-align: left;">
+Logging Preferences
+</th>
+<th style="text-align: left;">
+Color Themes
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<tr>
+<td>
+<img src="./images/preferences/loggingprefs.png" style="width:5in" />
+</td>
+<td>
+<img src="./images/preferences/colorthemes.png" style="width:5in" />
+</td>
+<tr>
+</tbody>
+</table>
+<p>Use the check boxes, pull-down menus and text fields to change the default preference
+values. When you are done, click the OK button to save your changes, or
+the Cancel button to revert the preferences to the state they were in
+before you opened the dialog. Most preferences take effect immediately.
+You must exit and re-open NetLogo for the preferences that indicate
+“(restart required)” to take effect.</p>
+<h2><a href="#general-preferences" id="general-preferences" class="section-anchor">General Preferences</a></h2>
+<h3><a href="#user-interface-language" id="user-interface-language" class="section-anchor">User Interface language</a></h3>
+<p>Choose a language for user interface items and error messages. NetLogo must be restarted for
+this preference to take effect. The default option is &ldquo;Detect Language&rdquo;, which will set the interface
+language to your system language, or English if your system language is not supported by NetLogo. The
+other available choices are English, Spanish, Chinese, Portuguese, Russian, and Japanese.</p>
+<h3><a href="#reload-the-last-used-model-on-startup" id="reload-the-last-used-model-on-startup" class="section-anchor">Reload the last used model on startup</a></h3>
+<p>NetLogo opens with an empty model by default. When this option is selected the most recently opened
+model will be loaded when NetLogo starts instead of an empty model.</p>
+<h3><a href="#reload-model-on-external-changes" id="reload-model-on-external-changes" class="section-anchor">Reload model on external changes</a></h3>
+<p>If you use an editor outside of NetLogo to change the model or any included .nls files, the
+changed file is updated in NetLogo.</p>
+<h3><a href="#bold-widget-text" id="bold-widget-text" class="section-anchor">Bold widget text</a></h3>
+<p>By default, widget text is not in bold, use this option to bold it.</p>
+<h3><a href="#jump-slider-widget-thumb-to-mouse-location-on-click-instead-of-incrementing" id="jump-slider-widget-thumb-to-mouse-location-on-click-instead-of-incrementing" class="section-anchor">Jump slider widget thumb to mouse location on click (instead of incrementing)</a></h3>
+<p>By default, clicking a slider location will cause the value of the slider to be set
+to the value at the click location and the slider widget thumb will jump to that location.
+Deselecting this option will cause the value to change by one increment towards the
+mouse click, also moving the widget thumb. This option applies to slider widgets
+and the Speed Slider.</p>
+<h3><a href="#ui-scale" id="ui-scale" class="section-anchor">UI Scale</a></h3>
+<p>This option is for Linux only. It must be set to the
+same value as your system UI scale or NetLogo will fail to resize its
+visual components correctly. This value must be a floating point number, or NetLogo will
+produce an error message.</p>
+<h2><a href="#code-preferences" id="code-preferences" class="section-anchor">Code Preferences</a></h2>
+<h3><a href="#sort-order-of-procedures-menu" id="sort-order-of-procedures-menu" class="section-anchor">Sort order of procedures menu</a></h3>
+<p>Choices:</p>
+<ul>
+<li>Alphabetical (default)</li>
+<li>Order of appearance</li>
+</ul>
+<h3><a href="#always-show-included-files-menu" id="always-show-included-files-menu" class="section-anchor">Always show &ldquo;Included Files&rdquo; menu</a></h3>
+<p>By default the &ldquo;Included Files&rdquo; menu is only shown when the Code Tab has an &ldquo;includes&rdquo; statement. With this
+option the &ldquo;Included Files&rdquo; menu will always be in the Code Tab toolbar. That menu allows user to select and open
+an included file or choose the <strong>New Source File</strong> or <strong>Open Source File</strong> options.</p>
+<h3><a href="#auto-focus-text-or-tab-with-errors-when-model-is-compiled" id="auto-focus-text-or-tab-with-errors-when-model-is-compiled" class="section-anchor">Auto-focus text or tab with errors when model is compiled</a></h3>
+<p>If checked, NetLogo will bring you to the location of an error if one
+occurs during compilation.</p>
+<h3><a href="#open-code-tab-in-separate-window-on-startup" id="open-code-tab-in-separate-window-on-startup" class="section-anchor">Open code tab in separate window on startup</a></h3>
+<p>When checked the Code tab will appear in a separate window when NetLogo is opened.</p>
+<h3><a href="#auto-indent" id="auto-indent" class="section-anchor">Auto Indent</a></h3>
+<p>When selected, indentation in the Code Tab will be determined by the compiler, instead of by
+manually pressing the Tab key to change the indentation of a line.</p>
+<h3><a href="#show-line-numbers" id="show-line-numbers" class="section-anchor">Show line numbers</a></h3>
+<p>When selected line numbers will be shown on the left edge of the Code Tab.</p>
+<h2><a href="#logging-preferences" id="logging-preferences" class="section-anchor">Logging Preferences</a></h2>
+<h3><a href="#enable-logging" id="enable-logging" class="section-anchor">Enable logging</a></h3>
+<p>Create a log file containing user actions. This option can be useful for debugging and research. NetLogo must be restarted for
+this preference to take effect. If logging is enabled you must also specify a log directory, or NetLogo will produce
+an error message.</p>
+<h3><a href="#directory-to-store-logs" id="directory-to-store-logs" class="section-anchor">Directory to store logs</a></h3>
+<p>Specifies the directory to which log files will be written. You can type in the directory name, or select a
+directory using the Browse… dialog. NetLogo must be restarted for this preference to take effect.</p>
+<p>If logging is enabled one of the following may happen.</p>
+<ul>
+<li>
+<p>If you type in a non-existent directory you will see a dialog that
+says “The specified log directory does not exist, would you like to
+create it?” with options “Yes” and “No.”</p>
+</li>
+<li>
+<p>You must have write permission for the log directory, otherwise you
+will get the message “NetLogo does not have permission to write to the
+specified log directory.”</p>
+</li>
+</ul>
+<h3><a href="#events-to-log" id="events-to-log" class="section-anchor">Events to log:</a></h3>
+<p>Enter a comma-separate list of the event names or “shortcut” names. If you leave this value blank with logging enabled
+a set of default events will be logged. For detailed options see the <a href="logging.html#events">Events</a> of the Logging documentation. The &ldquo;all&rdquo; option causes all the events be logged,
+including button, chooser, comment, compile, command-center, global, input-box, link, model-open, slider, speed-slider, start, switch, stop, turtle, widget-edit, and tick events.</p>
+<h2><a href="#color-themes" id="color-themes" class="section-anchor">Color Themes</a></h2>
+<p>Use the radio buttons to change the color theme. See the images below for an example of each theme.</p>
+<h3><a href="#light" id="light" class="section-anchor">Light</a></h3>
+<img src="./images/nl7intro/inttablight.png" style="width:5in" />
+<h3><a href="#dark" id="dark" class="section-anchor">Dark</a></h3>
+<img src="./images/nl7intro/inttabdark.png" style="width:5in" />
+<h3><a href="#classic" id="classic" class="section-anchor">Classic</a></h3>
+<img src="./images/nl7intro/inttabclassic.png" style="width:5in" />

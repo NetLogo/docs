@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>
+      NetLogo 7.0.0-beta2 User Manual: Code Tab Guide
+    </title>
+    <link rel="stylesheet" href="netlogo.css" type="text/css"/>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+<h1><a href="#code-tab-guide" id="code-tab-guide" class="section-anchor">Code Tab Guide</a></h1>
+  </head>
+  <body>
+    <div class="version">
+      NetLogo 7.0.0-beta2 User Manual
+    </div>
+  </body>
+</html>
+<p>The Code tab is where the code for the model is stored. Commands you only want
+to use once can be typed in the Command Center, but collections of commands that
+you want to save for later use can be stored in the Code tab.
+<img src="images/codetab/codetab.png" alt="Screenshot" class="screenshot" /></p>
+<ul>
+<li><a href="#code-tab-toolbar">Code Tab Toolbar</a></li>
+<li><a href="#checking-for-errors">Checking for Errors</a></li>
+<li><a href="#separate-code-tab">Separate Code tab</a></li>
+<li><a href="#find-replace">Find &amp; Replace</a></li>
+<li><a href="#automatic-indentation">Automatic Indentation</a></li>
+<li><a href="#line-numbers">Line Numbers</a></li>
+<li><a href="#more-editing-options">More Editing Options</a></li>
+<li><a href="#included-files">Included Files</a></li>
+</ul>
+<p>Many Code tab behaviors can be changed by using <a href="netlogopreferences.html#code-preferences">Code preferences</a>.
+These preferences can be accessed via the &ldquo;Preferences&rdquo; button in the Code tab toolbar, or the Code
+Preferences tab of the NetLogo Preferences dialog which is opened with the Tools menu “Preferences”
+item on Windows and Linux, and with the NetLogo menu “Settings” item on MacOS.</p>
+<h2><a href="#code-tab-toolbar" id="code-tab-toolbar" class="section-anchor">Code Tab Toolbar</a></h2>
+<p><img src="./images/codetab/codetabtoolbar.png" style="width:6in" /></p>
+Details for these items can be found in the corresponding sections.
+<ul>
+<li><a href="#checking-for-errors">Check</a></li>
+<li><a href="#find-replace">Find</a></li>
+<li><a href="#procedures-menu">Procedures</a></li>
+<li><a href="#separate-code-tab">Separate code window</a></li>
+<li><a href="netlogopreferences.html#code-preferences">Preferences</a> (also described in relevant sections of this document)</li>
+</ul>
+<h3><a href="#procedures-menu" id="procedures-menu" class="section-anchor">Procedures menu</a></h3>
+<p>This menu includes a list of all the procedures in the Code tab. Clicking on a procedure
+moves the cursor to that procedure. Typing in the text box at the top will filter the list, only
+showing procedures whose name contains the typed text.
+By default procedures are listed alphabetically, but this
+can be changed to their order of appearance by using the &ldquo;Sort order of procedures menu&rdquo;
+code preference.</p>
+<table>
+<colgroup>
+<col style="width: 45%" />
+<col style="width: 45%" />
+</colgroup>
+<tbody>
+<tr>
+ <td>
+<img src="./images/codetab/codetabproceduresmenu.png" style="width:2in" />
+</td>
+<td>
+<img src="./images/codetab/codetabproceduresmenusearch.png" style="width:2in" />
+</td>
+</tr>
+</tbody>
+</table>
+<h2><a href="#checking-for-errors" id="checking-for-errors" class="section-anchor">Checking for Errors</a></h2>
+<p>To determine if the code has any errors, you may press the &ldquo;Check&rdquo; button. If
+there are any syntax errors, the Code tab will turn orange, the code that contains
+the error will be highlighted, the cursor will move to the error location, and an error message will appear
+in an orange banner at the top of the code area. If you don&rsquo;t want the cursor to move when there is a
+compilation error (for example when there is more code than fits on the screen) uncheck the &ldquo;Auto-focus text or tab with errors when model is compiled&rdquo; preference.
+The error will not be highlighted. If the error occurs in the Interface tab, for example if any button
+or plot commands result in a compilation error, the Interface tab will turn orange instead.</p>
+<p><img src="images/codetab/codetaberror.png" alt="Screenshot" class="screenshot" /></p>
+<p>Switching tabs also causes the code to be checked, so if you just switch tabs,
+pressing the Check button first isn&rsquo;t necessary.</p>
+<h2><a href="#separate-code-tab" id="separate-code-tab" class="section-anchor">Separate Code tab</a></h2>
+<p>The Code tab can be opened in a separate window from the main NetLogo window. It can then be moved and resized.</p>
+<ul>
+<li>The &ldquo;Code Tab in separate window&rdquo; checkbox can be used to switch the Code tab location between the main NetLogo window and a separate window.</li>
+<li>A Control-click with the mouse on the tab bar of the Code tab will also switch its location.</li>
+<li>To separate a Code tab from the main NetLogo window you can use Command + Shift + W on Mac, Control + Shift + W
+on other operating systems.</li>
+<li>To return a separated Code tab to the main NetLogo window you can use Command + W on Mac, Control + W
+on other operating systems or click the window&rsquo;s close button.</li>
+<li>There is a Code preference to &ldquo;Open code tab in separate window on startup&rdquo;.</li>
+</ul>
+<h2><a href="#find-replace" id="find-replace" class="section-anchor">Find &amp; Replace</a></h2>
+<p>To find a fragment of code in the Code tab, click on the &ldquo;Find&rdquo; button in the
+Code toolbar and the Find dialog will appear.
+<img src="images/codetab/find-replace.png" alt="Screenshot" class="screenshot" /></p>
+<p>You may enter a word or phrase to find, and optionally also a new word or phrase
+to replace it with. The &ldquo;Ignore case&rdquo; checkbox controls whether the
+capitalization must be the same to indicate a match.</p>
+<p>If the &ldquo;Wrap around&rdquo; checkbox is checked, the entire Code tab will be checked
+for the phrase, starting at the cursor position. When it reaches the end it will
+return to the top, otherwise only the area from the cursor position to the end
+of the Code tab will be searched. The &ldquo;Next&rdquo; and &ldquo;Previous&rdquo; buttons will move
+down and up to find another occurrence of the search phrase.</p>
+<p>&ldquo;Replace&rdquo; changes the currently selected phrase with the replace phrase and
+&ldquo;Replace &amp; Find&rdquo; changes the selected phrase and moves to the next occurrence.
+&ldquo;Replace All&rdquo; will change all instances of the find phrase in the search area
+with the replace phrase.</p>
+<h2><a href="#automatic-indentation" id="automatic-indentation" class="section-anchor">Automatic Indentation</a></h2>
+<p>When the &ldquo;Auto indent&rdquo; Code preference is selected, NetLogo will automatically
+attempt to align your code in a logically structured format. For example, when
+you open a set of square brackets &ldquo;[&rdquo; (perhaps after an <code>if</code> statement), NetLogo
+will automatically add spaces so that the following lines of code are two spaces
+further indented than the bracket. When you close the square brackets the
+closing bracket will be lined up with the matching open bracket.
+<img src="images/codetab/tabified-code.png" alt="Screenshot" class="screenshot" /></p>
+<p>NetLogo will try to indent the code as you type, but you can also press the tab
+key anywhere on any line to ask NetLogo to indent the line immediately. Or, you
+can select a whole region of code and press the tab key to re-indent all of it.</p>
+<h2><a href="#line-numbers" id="line-numbers" class="section-anchor">Line Numbers</a></h2>
+<p>By default line numbers are shown on the left edge of the code area. They can be
+removed by unselecting the &ldquo;Show line numbers&rdquo; Code preference.</p>
+<h2><a href="#more-editing-options" id="more-editing-options" class="section-anchor">More Editing Options</a></h2>
+<p>To find a particular procedure definition in your code, use the &ldquo;Procedures&rdquo;
+popup menu in the Code tab. The menu lists all procedures in the order they
+appear in the file. To search for a particular procedure, use the search field
+at the top of the popup. It will filter the list of procedures using fuzzy
+matching as you type. Fuzzy match will include procedures whose names contain
+the characters that you type in the order that they appear in the search field,
+but the characters do not have to be right next to each other. For instance,
+&ldquo;fnn&rdquo; will match&quot;<strong>f</strong>ind-<strong>n</strong>earest-<strong>n</strong>eighbors&quot; and
+&ldquo;wol<strong>f</strong>-dow<strong>n</strong>-<strong>n</strong>eighbor&rdquo; but not &ldquo;nearest-wolf-neighbor&rdquo;. You may use
+the arrow keys or mouse to select a particular procedure and enter or click to
+jump to it. This can be a very convenient way to navigate your file. To
+facilitate this, you can use the shortcut <code>ctrl-g</code> (<code>cmd+g</code> on Mac OS) to
+access the procedures menu.</p>
+<p>The &ldquo;Shift Left&rdquo;, &ldquo;Shift Right&rdquo;, &ldquo;Comment&rdquo;, and &ldquo;Uncomment&rdquo; items on the Edit
+menu are used in the Code tab to change the indentation level of your code or
+add and remove semicolons, which mark comments, from sections of code.</p>
+<p>For more information about writing procedures, read
+<a href="tutorial3.html">Tutorial #3: Procedures</a> and the
+<a href="programming.html">Programming Guide</a>.</p>
+<h2><a href="#included-files" id="included-files" class="section-anchor">Included Files</a></h2>
+<p><strong>Caution:</strong> The includes facility is still experimental.</p>
+<p>If you have a file with the extension .nls all of its breeds, variables, and procedure definitions
+are available in the model if you add it by using the <a href="dictionary.html#includes">__includes</a> keyword
+to a model. When that keyword is used the &ldquo;Included Files&rdquo; appears menu to the right of the procedures
+menu appears. This menu lists all the NetLogo source files (.nls) included in this model. You can choose
+a file name from the menu to open a tab for that file, or you can open a new or existing file using the
+&ldquo;New Source File&rdquo; or &ldquo;Open Source File&rdquo; items .You
+can make this menu always visible using the &ldquo;Always show &ldquo;Included Files&rdquo; menu&rdquo; Code preference.</p>
+<table>
+<colgroup>
+<col style="width: 45%" />
+<col style="width: 45%" />
+</colgroup>
+<tbody>
+<tr>
+ <td>
+<img src="./images/codetab/includesmenu.png" />
+</td>
+<td>
+<img src="./images/codetab/includesmenuopen.png" />
+</td>
+</tr>
+</tbody>
+</table>
+<p>Once you&rsquo;ve opened new tabs they become accessible from the Tabs menu, and you
+can use the keyboard to move from tab to tab (Command + number on Mac,
+Control + number on other operating systems). If the main Code tab is in a separate window, the tabs
+for included files will appear there too. When an included (.nls) file tab is selected it becomes blue.
+An included file tab can be closed by clicking on the “x” on the right side of the tab. Each included file
+tab has a toolbar indentical to the main Code Tab&rsquo;s toolbar; the options in this toolbar apply to all
+Code tabs, not just the one that is currently visible.</p>
+<table>
+<colgroup>
+<col style="width: 35%" />
+<col style="width: 55%" />
+</colgroup>
+<tbody>
+<tr>
+ <td>
+<img src="./images/codetab/tabsmenu.png" />
+</td>
+<td>
+<img src="./images/codetab/codetabtoolbarwithnls.png"  style="width:7in" />
+</td>
+</tr>
+</tbody>
+</table>
+<p>Note that you can create or open an .nls file before including it in a model with an <code>__includes</code> statement.
+In this case, the contents of the file will not be compilable, which is indicated by a warning label below the
+toolbar and by the Check button being disabled. This does not affect the rest of the model or cause any errors,
+but the contents of the file will not be accessible from any other code tabs in the model.</p>

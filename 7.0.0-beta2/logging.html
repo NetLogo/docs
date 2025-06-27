@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>
+      NetLogo 7.0.0-beta2 User Manual: Logging
+    </title>
+    <link rel="stylesheet" href="netlogo.css" type="text/css"/>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+<h1><a href="#logging" id="logging" class="section-anchor">Logging</a></h1>
+  </head>
+  <body>
+    <div class="version">
+      NetLogo 7.0.0-beta2 User Manual
+    </div>
+  </body>
+</html>
+<p>NetLogo&rsquo;s logging facility allows researchers to record student actions for later
+analysis.</p>
+<p>Logging in NetLogo is invisible to the student once initiated. The researcher can choose
+the type of events logged through the NetLogo preferences or by using a custom command
+line switch to start NetLogo.</p>
+<p>In NetLogo version 6.2.2 and earlier, log4j was the library used and the logging output
+was in XML format.  See <a href="https://ccl.northwestern.edu/netlogo/6.2.2/docs/" target="_blank">the documentation for that prior version</a>
+if you&rsquo;re not on the latest NetLogo release.</p>
+<ul>
+<li><a href="#starting-logging">Starting Logging</a></li>
+<li><a href="#using-logging">Using Logging</a></li>
+</ul>
+<h2><a href="#starting-logging" id="starting-logging" class="section-anchor">Starting Logging</a></h2>
+<p>There is a NetLogo preference to enable logging:</p>
+<ul>
+<li>Open NetLogo, then open <strong>Preferences</strong> from the <strong>Tools</strong> menu.</li>
+<li>Check the box for <strong>Enable Logging:</strong> then click <strong>OK</strong>.</li>
+<li>Restart NetLogo and logging will be enabled.</li>
+</ul>
+<p>The setting will remain in effect until it is unchecked and NetLogo is restarted again.</p>
+<p>You can also specify the <strong>Directory to store logs:</strong> in the NetLogo <strong>Preferences</strong>.  If
+you leave this value blank with logging enabled the default location of the user&rsquo;s home
+directory will be used.  See below for more information on the default location.</p>
+<p>You can also specify the <strong>Events to log:</strong> in the NetLogo <strong>Preferences</strong>.  This is a
+comma-separate list of the event names or &ldquo;shortcut&rdquo; names.  If you leave this value blank
+with logging enabled a set of default events will be logged.  See below for more
+information on the event names and what the defaults are.</p>
+<h3><a href="#command-line-switches" id="command-line-switches" class="section-anchor">Command Line Switches</a></h3>
+<p>You can also enable logging and set the log directory and log events with command line
+switches.  If you specify either the <code>--log-directory</code> or <code>--log-events</code> switch, then
+logging will be enabled and the switch values will override any preferences set in the
+NetLogo UI.</p>
+<p>Let&rsquo;s assume you are running on Linux and you have NetLogo installed in a <code>NetLogo 6.2.3</code>
+directory in your home folder.  To enable logging, invoke the <code>NetLogo</code> executable like
+so:</p>
+<pre><code class="language-sh">~/NetLogo\ 6.2.3/NetLogo --log-directory ~/NetLogoLogs/ --log-events &quot;default, ticks, globals&quot;
+</code></pre>
+<h2><a href="#using-logging" id="using-logging" class="section-anchor">Using Logging</a></h2>
+<p>When NetLogo starts up it will ask for a user name. This name will appear in all the logs
+generated during this session.</p>
+<h3><a href="#events" id="events" class="section-anchor">Events</a></h3>
+<p>Below are all of the events that can be logged with the logging app.  By default all of
+these events are logged <em>except</em> &ldquo;global&rdquo;, &ldquo;link&rdquo;, &ldquo;tick&rdquo;, and &ldquo;turtle&rdquo; since they can cause a
+large number of log entries to be created.</p>
+<ul>
+<li>button - button widget presses</li>
+<li>chooser - chooser widget changes</li>
+<li>comment - any user comments, currently only generated for compiler errors</li>
+<li>compile - when the model code is recompiled</li>
+<li>command-center - when code is run through the command center</li>
+<li>global - when a global variable value changes</li>
+<li>input-box - when an input box widget changes</li>
+<li>link - when a link agent is created or dies</li>
+<li>model-open - when a model is opened</li>
+<li>slider - when a slider widget changes</li>
+<li>speed-slider - when the speed slider changes</li>
+<li>start - always the first entry of a log, contains system info</li>
+<li>switch - when a switch widget changes</li>
+<li>stop - always the last entry of a log</li>
+<li>turtle - when a turtle agent is created or dies</li>
+<li>widget-edit - when a widget is added to or removed from the model</li>
+<li>tick - when the tick counter is advanced</li>
+</ul>
+<p>There are also some shortcut names you can use in the preferences to refer to collections
+of events:</p>
+<ul>
+<li>all - button, chooser, comment, compile, command-center, global, input-box, link,
+model-open, slider, speed-slider, start, switch, stop, turtle, widget-edit, tick</li>
+<li>agents - link, turtle</li>
+<li>defaults - everything but global, link, tick, and turtle</li>
+<li>greens - chooser, input-box, slider, switch - the &ldquo;global variable&rdquo; widgets</li>
+</ul>
+<p>Example logging strings you could put in the <strong>Events to log:</strong> setting in preferences
+dialog or use via the <code>--log-events</code> command line switch.</p>
+<ul>
+<li>&ldquo;button, model-open, widget-edit&rdquo; - log only button widget presses, model open events,
+and widget add/remove</li>
+<li>&ldquo;defaults, global&rdquo; - add global variable change events to the defaults list</li>
+<li>&ldquo;button, greens, model-open&rdquo; - log widget use and model open events.</li>
+</ul>
+<h3><a href="#json-output" id="json-output" class="section-anchor">JSON Output</a></h3>
+<p>The output is in <a href="https://en.wikipedia.org/wiki/JSON" target="_blank">JSON text format</a>.  Below is an
+example log file with some small modifications to content to fit better in this document.</p>
+<p>Each line has an &ldquo;event&rdquo; identifying its type along with a &ldquo;timeStamp&rdquo; of when it occurred.
+Then there is an &ldquo;eventInfo&rdquo; entry that contains further information specific to the
+event.  For example, &ldquo;model-open&rdquo; event contains the model &ldquo;name&rdquo;, and the &ldquo;button&rdquo; events
+contain the &ldquo;buttonName&rdquo; and whether the click stopped a forever button, &ldquo;wasStopped&rdquo;.</p>
+<pre><code class="language-json">[
+  {&quot;event&quot;:&quot;start&quot;,&quot;timeStamp&quot;:&quot;2022-06-17 11:29:56.737&quot;,&quot;eventInfo&quot;:{&quot;studentName&quot;:&quot;Larry&quot;,&quot;modelName&quot;:&quot;Slime.nlogo&quot;,&quot;version&quot;:&quot;NetLogo 6.#.#&quot;,&quot;ipAddress&quot;:&quot;192.168.1.11&quot;,&quot;loginName&quot;:&quot;cpu_user&quot;,&quot;events&quot;:[&quot;input-box&quot;,&quot;switch&quot;,...,&quot;widget-edit&quot;]}}
+, {&quot;event&quot;:&quot;model-open&quot;,&quot;timeStamp&quot;:&quot;2022-06-17 11:29:56.738&quot;,&quot;eventInfo&quot;:{&quot;name&quot;:&quot;Slime.nlogo&quot;}}
+, {&quot;event&quot;:&quot;compile&quot;,&quot;timeStamp&quot;:&quot;2022-06-17 11:29:57.201&quot;,&quot;eventInfo&quot;:{&quot;code&quot;:&quot;patches-own [chemical]\n...&quot;,&quot;success&quot;:true}}
+, {&quot;event&quot;:&quot;button&quot;,&quot;timeStamp&quot;:&quot;2022-06-17 11:29:58.617&quot;,&quot;eventInfo&quot;:{&quot;buttonName&quot;:&quot;setup&quot;,&quot;wasStopped&quot;:false}}
+, {&quot;event&quot;:&quot;tick&quot;,&quot;timeStamp&quot;:&quot;2022-06-17 11:29:58.675&quot;,&quot;eventInfo&quot;:{&quot;ticks&quot;:0.0}}
+, {&quot;event&quot;:&quot;button&quot;,&quot;timeStamp&quot;:&quot;2022-06-17 11:29:58.676&quot;,&quot;eventInfo&quot;:{&quot;buttonName&quot;:&quot;setup&quot;,&quot;wasStopped&quot;:true}}
+, {&quot;event&quot;:&quot;button&quot;,&quot;timeStamp&quot;:&quot;2022-06-17 11:29:58.961&quot;,&quot;eventInfo&quot;:{&quot;buttonName&quot;:&quot;go&quot;,&quot;wasStopped&quot;:false}}
+, {&quot;event&quot;:&quot;tick&quot;,&quot;timeStamp&quot;:&quot;2022-06-17 11:29:58.993&quot;,&quot;eventInfo&quot;:{&quot;ticks&quot;:1.0}}
+, {&quot;event&quot;:&quot;tick&quot;,&quot;timeStamp&quot;:&quot;2022-06-17 11:29:59.030&quot;,&quot;eventInfo&quot;:{&quot;ticks&quot;:2.0}}
+, {&quot;event&quot;:&quot;tick&quot;,&quot;timeStamp&quot;:&quot;2022-06-17 11:29:59.076&quot;,&quot;eventInfo&quot;:{&quot;ticks&quot;:3.0}}
+, {&quot;event&quot;:&quot;tick&quot;,&quot;timeStamp&quot;:&quot;2022-06-17 11:29:59.123&quot;,&quot;eventInfo&quot;:{&quot;ticks&quot;:4.0}}
+, {&quot;event&quot;:&quot;button&quot;,&quot;timeStamp&quot;:&quot;2022-06-17 11:29:59.921&quot;,&quot;eventInfo&quot;:{&quot;buttonName&quot;:&quot;go&quot;,&quot;wasStopped&quot;:true}}
+, {&quot;event&quot;:&quot;slider&quot;,&quot;timeStamp&quot;:&quot;2022-06-17 11:30:01.681&quot;,&quot;eventInfo&quot;:{&quot;valueChanged&quot;:true,&quot;min&quot;:1.0,&quot;globalName&quot;:&quot;population&quot;,&quot;max&quot;:1500.0,&quot;inc&quot;:1.0,&quot;buttonReleased&quot;:false,&quot;newValue&quot;:399.0}}
+, {&quot;event&quot;:&quot;slider&quot;,&quot;timeStamp&quot;:&quot;2022-06-17 11:30:01.698&quot;,&quot;eventInfo&quot;:{&quot;valueChanged&quot;:true,&quot;min&quot;:1.0,&quot;globalName&quot;:&quot;population&quot;,&quot;max&quot;:1500.0,&quot;inc&quot;:1.0,&quot;buttonReleased&quot;:false,&quot;newValue&quot;:391.0}}
+, {&quot;event&quot;:&quot;slider&quot;,&quot;timeStamp&quot;:&quot;2022-06-17 11:30:02.317&quot;,&quot;eventInfo&quot;:{&quot;valueChanged&quot;:true,&quot;min&quot;:1.0,&quot;globalName&quot;:&quot;population&quot;,&quot;max&quot;:1500.0,&quot;inc&quot;:1.0,&quot;buttonReleased&quot;:false,&quot;newValue&quot;:179.0}}
+, {&quot;event&quot;:&quot;button&quot;,&quot;timeStamp&quot;:&quot;2022-06-17 11:30:02.910&quot;,&quot;eventInfo&quot;:{&quot;buttonName&quot;:&quot;setup&quot;,&quot;wasStopped&quot;:false}}
+, {&quot;event&quot;:&quot;tick&quot;,&quot;timeStamp&quot;:&quot;2022-06-17 11:30:02.919&quot;,&quot;eventInfo&quot;:{&quot;ticks&quot;:-1.0}}
+, {&quot;event&quot;:&quot;tick&quot;,&quot;timeStamp&quot;:&quot;2022-06-17 11:30:02.922&quot;,&quot;eventInfo&quot;:{&quot;ticks&quot;:0.0}}
+, {&quot;event&quot;:&quot;button&quot;,&quot;timeStamp&quot;:&quot;2022-06-17 11:30:02.922&quot;,&quot;eventInfo&quot;:{&quot;buttonName&quot;:&quot;setup&quot;,&quot;wasStopped&quot;:true}}
+, {&quot;event&quot;:&quot;button&quot;,&quot;timeStamp&quot;:&quot;2022-06-17 11:30:03.254&quot;,&quot;eventInfo&quot;:{&quot;buttonName&quot;:&quot;go&quot;,&quot;wasStopped&quot;:false}}
+, {&quot;event&quot;:&quot;tick&quot;,&quot;timeStamp&quot;:&quot;2022-06-17 11:30:03.258&quot;,&quot;eventInfo&quot;:{&quot;ticks&quot;:1.0}}
+, {&quot;event&quot;:&quot;tick&quot;,&quot;timeStamp&quot;:&quot;2022-06-17 11:30:03.293&quot;,&quot;eventInfo&quot;:{&quot;ticks&quot;:2.0}}
+, {&quot;event&quot;:&quot;button&quot;,&quot;timeStamp&quot;:&quot;2022-06-17 11:30:03.763&quot;,&quot;eventInfo&quot;:{&quot;buttonName&quot;:&quot;go&quot;,&quot;wasStopped&quot;:true}}
+, {&quot;event&quot;:&quot;command-center&quot;,&quot;timeStamp&quot;:&quot;2022-06-17 11:30:08.489&quot;,&quot;eventInfo&quot;:{&quot;owner&quot;:&quot;Command Center&quot;,&quot;code&quot;:&quot;ask turtles [ set color black ]&quot;,&quot;agentType&quot;:&quot;O&quot;,&quot;success&quot;:true}}
+, {&quot;event&quot;:&quot;stop&quot;,&quot;timeStamp&quot;:&quot;2022-06-17 11:30:09.703&quot;}
+]
+</code></pre>
+<p>JSON is a very common data format so there are numerous ways to use it.  Most scripting
+and programming languages have easy ways to read JSON data in so that it can be processed,
+fed to another system (such as a database), or re-formatted somehow (perhaps to a plot using a plotting library).</p>
+<p>Modern versions of Microsoft Excel can import JSON directly.  Google Sheets does not yet
+support JSON import natively, but there are add-on scripts that can be used.  There are
+also numerous online converters that can turn JSON to a &ldquo;flattened&rdquo; CSV or just convert it
+to XML as well.</p>
+<h3><a href="#where-logs-are-stored" id="where-logs-are-stored" class="section-anchor">Where Logs are Stored</a></h3>
+<p>By default logs are stored in the operating system specific user&rsquo;s home directory.  On
+most Unix-like systems that is <code>/home/&lt;username&gt;/</code>.  On Windows the logs can be found in
+<code>C:\Users\&lt;username&gt;\</code>, where <code>&lt;username&gt;</code> is the logged in user. On macOS the usual
+location is <code>/Users/&lt;username&gt;/</code>.</p>
+<h3><a href="#managing-log-files" id="managing-log-files" class="section-anchor">Managing Log Files</a></h3>
+<p>There are two convenience commands that will help you manage the logs.  <code>__zip-log-files *filename*</code> will gather all the logs in the temp directory and put them in one zip file,
+at the location specified. After doing <code>__zip-log-files</code> the existing logs are <strong>not</strong>
+deleted, you can do so explicitly by using <code>__delete-log-files</code>.  Both commands stop the
+current log file (so it can be zipped or deleted) and a new one is started afterwards.</p>

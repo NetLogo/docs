@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>
+      NetLogo 7.0.0-beta2 User Manual: Resource Manager Guide
+    </title>
+    <link rel="stylesheet" href="netlogo.css" type="text/css"/>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+<h1><a href="#resource-manager-guide" id="resource-manager-guide" class="section-anchor">Resource Manager Guide</a></h1>
+  </head>
+  <body>
+    <div class="version">
+      NetLogo 7.0.0-beta2 User Manual
+    </div>
+  </body>
+</html>
+<h2><a href="#overview" id="overview" class="section-anchor">Overview</a></h2>
+<p>The Resource Manager dialog, shown below, allows you to manipulate the resources that are bundled with a model.</p>
+<p><img src="images/resource-manager/dialog.png" alt="Resource Manager dialog" /></p>
+<p>You can store any file type in a model using the Resource Manager. Although each resource&rsquo;s original file extension is
+not included in its name, the Resource Manager will remember the extension for other users&rsquo; reference.</p>
+<h2><a href="#usage" id="usage" class="section-anchor">Usage</a></h2>
+<h3><a href="#add" id="add" class="section-anchor">Add</a></h3>
+<p>This button opens a system file selection dialog where you can choose a file to bundle with the model. After accepting
+the dialog, you will be prompted to enter a name for the resource (without a file extension). You can choose whatever
+name you would like, although no two resources can have the same name, regardless of their original file extensions.</p>
+<h3><a href="#export" id="export" class="section-anchor">Export</a></h3>
+<p>Sometimes you might want to get a closer look at a resource bundled with a model, or save it for your personal use.
+After selecting a resource from the list, the Export button will become enabled, and clicking it will open a system
+file selection dialog where you can choose a path for the exported file. Exporting a resource does not remove it from
+the model.</p>
+<h3><a href="#rename" id="rename" class="section-anchor">Rename</a></h3>
+<p>After selecting a resource from the list, the Rename button will become enabled, and clicking it will open a dialog
+where you can choose a new name for the resource. The operation will not be completed if you choose a name that already
+exists in the list.</p>
+<h3><a href="#remove" id="remove" class="section-anchor">Remove</a></h3>
+<p>After selecting a resource from the list, the Remove button will become enabled, and clicking it will remove the
+selected resource from the model.</p>
+<h2><a href="#file-types" id="file-types" class="section-anchor">File Types</a></h2>
+<p>As mentioned above, any file type can be stored in a model. However, most file types do not have an obvious use case in
+NetLogo. Listed below are the most common use cases for bundled resources.</p>
+<h3><a href="#plain-text" id="plain-text" class="section-anchor">Plain Text</a></h3>
+<p>Bundling plain text files with a model is the simplest use case, and can be useful for storing large strings of text
+that would otherwise clutter up the Code tab. Plain text files can be accessed with the <code>resource:get</code> primitive
+(See <a href="resource.html">Resource Extension</a>).</p>
+<h3><a href="#images" id="images" class="section-anchor">Images</a></h3>
+<p>Bundling images with a model is one of the most common use cases. One way to use a bundled image is to load it into the
+View, which can be done using either the <a href="https://github.com/NetLogo/ImportA-Extension" target="_blank">Import-A Extension</a> or the
+<a href="bitmap.html">Bitmap Extension</a>. Another way to use a bundled image is to display it in the Info tab, which can be done
+using either Markdown or HTML (See <a href="infotab.html">Info Tab</a>).</p>
