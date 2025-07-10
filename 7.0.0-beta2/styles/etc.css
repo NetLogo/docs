@@ -73,7 +73,7 @@
    ========================================================================== */
 /* Special Case for /docs/arduino.html */
 li > p:first-child:last-child {
-	display: inline-block;
+	display: inline;
 }
 
 /* Special Case for footer */

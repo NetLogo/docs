@@ -55,6 +55,7 @@
 			let enterTimer, leaveTimer;
 
 			const menu = item.querySelector('.dropdown__menu');
+			if (!menu) return; // Skip if no dropdown menu
 
 			item.addEventListener('mouseenter', () => {
 				clearTimeout(leaveTimer);
@@ -74,20 +75,16 @@
 		// Version Change
 		const CURRENT_VERSION = 'this'; // Default to current version
 		function goToVersion(select) {
-			let docsURL = select.value;
-			if (!docsURL || docsURL === CURRENT_VERSION) return;
+			let version = select.value;
+			if (!version || version === CURRENT_VERSION) return;
 
 			// Get the path up to and including docs/ (if present)
-			const currentPath = window.location.pathname.replace(/\/$/, ''); // Remove trailing slash
-			const docsIndex = currentPath.indexOf('/docs');
-			const rest = currentPath.substring(docsIndex + 5);
+			const pathname = window.location.pathname.slice(1); // Remove leading slash
+			const versionPathIndexEnd = pathname.indexOf('/'); // Find the first slash after the leading slash
 
-			// Construct the new URL
-			docsURL = docsURL.endsWith('/') ? docsURL.substring(0, docsURL.length - 1) : docsURL;
-			const newURLString = docsURL + rest;
-			const newURL = new URL(newURLString, window.location.origin);
-
-			window.location = newURL;
+			// Why 2? -> version number always ends with a slash, so we need to skip it
+			const rest = window.location.pathname.slice(versionPathIndexEnd + 2); // Get the rest of the path after the first slash
+			window.location.pathname = '/' + version + '/' + rest; // Redirect to the selected version
 		}
 
 		const $versionSelect = document.getElementById('version-select');
