@@ -1,27 +1,483 @@
 <!DOCTYPE html>
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <title>
-      NetLogo 7.0.0-beta2 User Manual: Programming Guide
-    </title>
-    <link rel="stylesheet" href="netlogo.css" type="text/css"/>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-<h1><a href="#programming-guide" id="programming-guide" class="section-anchor">Programming Guide</a></h1>
-  </head>
-  <body>
-    <div class="version">
-      NetLogo 7.0.0-beta2 User Manual
-    </div>
+	<head>
+		<script src="script.js" type="module"></script>
+		<meta charset="UTF-8" />
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>NetLogo 7.0.0-beta2 — User Manual</title>
+		<link rel="stylesheet" href="netlogo.css" type="text/css" />
+		<link rel="icon" type="image/png" href="favicon/favicon-96x96.png" sizes="96x96" />
+		<link rel="icon" type="image/svg+xml" href="favicon/favicon.svg" />
+		<link rel="shortcut icon" href="favicon/favicon.ico" />
+		<link rel="apple-touch-icon" sizes="180x180" href="favicon/apple-touch-icon.png" />
+		<meta name="apple-mobile-web-app-title" content="Docs" />
+		<link rel="manifest" href="favicon/site.webmanifest" />
+	<body>
+	<!------------  NAV  ------------>
+<nav class="navbar">
+	<input id="menu-toggle" type="checkbox" hidden />
+	<div class="navbar__row">
+		<div class="navbar__anchor">
+			<label class="hamburger" for="menu-toggle"> <span></span><span></span><span></span> </label>
+			<a href="/" class="navbar__brand"
+				><svg width="261" height="50" viewBox="0 0 261 50" fill="none" xmlns="http://www.w3.org/2000/svg">
+					<path
+						d="M76.6661 13V-0.340001H79.4261L86.2861 8.9L85.3261 10.9V-0.340001H88.3061V13H85.8661L78.8861 3.88L79.6461 2.42V13H76.6661ZM95.6188 13.3C94.6054 13.3 93.7054 13.0933 92.9188 12.68C92.1454 12.2533 91.5388 11.6533 91.0988 10.88C90.6721 10.0933 90.4588 9.16 90.4588 8.08C90.4588 6.32 90.8921 4.96 91.7588 4C92.6388 3.02667 93.8921 2.54 95.5188 2.54C96.6388 2.54 97.5388 2.78 98.2188 3.26C98.9121 3.74 99.4188 4.44 99.7388 5.36C100.059 6.28 100.212 7.4 100.199 8.72H92.4988L92.1788 6.82H97.7388L97.2988 7.76C97.2854 6.68 97.1321 5.92 96.8388 5.48C96.5454 5.04 96.0654 4.82 95.3988 4.82C95.0254 4.82 94.6854 4.91333 94.3788 5.1C94.0854 5.28667 93.8521 5.6 93.6788 6.04C93.5188 6.46667 93.4388 7.06 93.4388 7.82C93.4388 8.78 93.6654 9.52 94.1188 10.04C94.5854 10.56 95.3254 10.82 96.3388 10.82C96.7121 10.82 97.0788 10.78 97.4388 10.7C97.8121 10.6067 98.1588 10.5 98.4788 10.38C98.7988 10.26 99.0721 10.1533 99.2988 10.06V12.62C98.8188 12.82 98.2788 12.98 97.6788 13.1C97.0921 13.2333 96.4054 13.3 95.6188 13.3ZM106.409 13.4C105.236 13.4 104.363 13.1267 103.789 12.58C103.216 12.02 102.929 11.2333 102.929 10.22V5.16H101.449V2.88H102.929V0.0999992H106.049V2.88H108.269V5.16H106.049V9.84C106.049 10.1867 106.123 10.4467 106.269 10.62C106.416 10.78 106.663 10.86 107.009 10.86C107.209 10.86 107.429 10.82 107.669 10.74C107.909 10.66 108.109 10.56 108.269 10.44V13C107.989 13.1467 107.683 13.2467 107.349 13.3C107.029 13.3667 106.716 13.4 106.409 13.4ZM110.631 13V-0.340001H113.871V10.46H119.671V13H110.631ZM126.185 13.3C124.478 13.3 123.191 12.8467 122.325 11.94C121.471 11.02 121.045 9.67333 121.045 7.9C121.045 5.99333 121.478 4.62667 122.345 3.8C123.225 2.96 124.505 2.54 126.185 2.54C127.318 2.54 128.265 2.73333 129.025 3.12C129.798 3.49333 130.378 4.07333 130.765 4.86C131.165 5.64667 131.365 6.66 131.365 7.9C131.365 9.67333 130.918 11.02 130.025 11.94C129.131 12.8467 127.851 13.3 126.185 13.3ZM126.185 10.92C126.678 10.92 127.085 10.8067 127.405 10.58C127.738 10.34 127.985 10 128.145 9.56C128.318 9.10667 128.405 8.55333 128.405 7.9C128.405 7.15333 128.318 6.56667 128.145 6.14C127.985 5.7 127.738 5.38667 127.405 5.2C127.071 5 126.665 4.9 126.185 4.9C125.678 4.9 125.265 5 124.945 5.2C124.625 5.4 124.385 5.72 124.225 6.16C124.078 6.58667 124.005 7.16667 124.005 7.9C124.005 8.91333 124.178 9.67333 124.525 10.18C124.885 10.6733 125.438 10.92 126.185 10.92ZM137.302 13.3C136.382 13.2467 135.588 13.0333 134.922 12.66C134.268 12.2867 133.755 11.74 133.382 11.02C133.022 10.2867 132.842 9.36667 132.842 8.26C132.842 7.14 132.982 6.21333 133.262 5.48C133.542 4.73333 133.928 4.15333 134.422 3.74C134.928 3.32667 135.535 3.03333 136.242 2.86C136.948 2.68667 137.735 2.6 138.602 2.6C139.442 2.6 140.175 2.70667 140.802 2.92C141.428 3.13333 141.915 3.44 142.262 3.84C142.608 4.24 142.782 4.73333 142.782 5.32V13.12C142.782 13.8267 142.668 14.4467 142.442 14.98C142.215 15.5267 141.875 15.98 141.422 16.34C140.982 16.7133 140.442 16.9933 139.802 17.18C139.175 17.3667 138.448 17.46 137.622 17.46C136.728 17.46 135.962 17.3933 135.322 17.26C134.695 17.14 134.215 16.9867 133.882 16.8V14.18C134.082 14.26 134.375 14.3667 134.762 14.5C135.148 14.6333 135.582 14.74 136.062 14.82C136.542 14.9133 137.022 14.96 137.502 14.96C138.128 14.96 138.608 14.8733 138.942 14.7C139.288 14.5267 139.528 14.2933 139.662 14C139.795 13.7067 139.862 13.3733 139.862 13V11.36L140.442 11.78C140.228 12.0867 139.975 12.3533 139.682 12.58C139.388 12.8067 139.042 12.98 138.642 13.1C138.255 13.2333 137.808 13.3 137.302 13.3ZM138.062 11.06C138.408 11.06 138.728 11.0267 139.022 10.96C139.315 10.88 139.595 10.7667 139.862 10.62V5.98C139.862 5.7 139.782 5.48667 139.622 5.34C139.462 5.19333 139.262 5.09333 139.022 5.04C138.782 4.98667 138.528 4.96 138.262 4.96C137.648 4.96 137.162 5.09333 136.802 5.36C136.455 5.62667 136.202 6 136.042 6.48C135.895 6.94667 135.822 7.48 135.822 8.08C135.822 9 136.028 9.72667 136.442 10.26C136.855 10.7933 137.395 11.06 138.062 11.06ZM149.837 13.3C148.13 13.3 146.844 12.8467 145.977 11.94C145.124 11.02 144.697 9.67333 144.697 7.9C144.697 5.99333 145.13 4.62667 145.997 3.8C146.877 2.96 148.157 2.54 149.837 2.54C150.97 2.54 151.917 2.73333 152.677 3.12C153.45 3.49333 154.03 4.07333 154.417 4.86C154.817 5.64667 155.017 6.66 155.017 7.9C155.017 9.67333 154.57 11.02 153.677 11.94C152.784 12.8467 151.504 13.3 149.837 13.3ZM149.837 10.92C150.33 10.92 150.737 10.8067 151.057 10.58C151.39 10.34 151.637 10 151.797 9.56C151.97 9.10667 152.057 8.55333 152.057 7.9C152.057 7.15333 151.97 6.56667 151.797 6.14C151.637 5.7 151.39 5.38667 151.057 5.2C150.724 5 150.317 4.9 149.837 4.9C149.33 4.9 148.917 5 148.597 5.2C148.277 5.4 148.037 5.72 147.877 6.16C147.73 6.58667 147.657 7.16667 147.657 7.9C147.657 8.91333 147.83 9.67333 148.177 10.18C148.537 10.6733 149.09 10.92 149.837 10.92Z"
+						fill="black"
+					/>
+					<path
+						d="M83.9923 44.28C81.6776 44.28 79.8763 43.5987 78.5883 42.236C77.319 40.8733 76.6843 38.9227 76.6843 36.384V25.324H78.7003V36.496C78.7003 38.4933 79.1483 39.9773 80.0443 40.948C80.9403 41.9 82.2563 42.376 83.9923 42.376C85.7283 42.376 87.0536 41.9 87.9683 40.948C88.883 39.9773 89.3403 38.4933 89.3403 36.496V25.324H91.3003V36.384C91.3003 38.0827 91.011 39.52 90.4323 40.696C89.8536 41.872 89.023 42.768 87.9403 43.384C86.8576 43.9813 85.5416 44.28 83.9923 44.28ZM101.083 44.28C100.15 44.28 99.3564 44.2147 98.703 44.084C98.0497 43.9533 97.4617 43.7667 96.939 43.524C96.4163 43.2813 95.847 43.0013 95.231 42.684V40.5C95.8283 41.004 96.631 41.452 97.639 41.844C98.647 42.236 99.823 42.432 101.167 42.432C102.586 42.432 103.612 42.1333 104.247 41.536C104.9 40.92 105.227 40.1453 105.227 39.212C105.227 38.428 105.012 37.8027 104.583 37.336C104.154 36.8507 103.603 36.4587 102.931 36.16C102.259 35.8427 101.55 35.544 100.803 35.264C100.168 35.04 99.5337 34.8067 98.899 34.564C98.283 34.3027 97.723 33.9853 97.219 33.612C96.715 33.22 96.3137 32.7253 96.015 32.128C95.7163 31.512 95.567 30.7467 95.567 29.832C95.567 29.328 95.6603 28.796 95.847 28.236C96.0523 27.676 96.3697 27.1533 96.799 26.668C97.247 26.1827 97.835 25.7907 98.563 25.492C99.3097 25.1933 100.215 25.044 101.279 25.044C102.007 25.044 102.623 25.1 103.127 25.212C103.65 25.3053 104.144 25.4547 104.611 25.66C105.078 25.8467 105.6 26.08 106.179 26.36V28.432C105.694 28.152 105.227 27.9 104.779 27.676C104.35 27.4333 103.864 27.2467 103.323 27.116C102.8 26.9667 102.156 26.892 101.391 26.892C100.476 26.892 99.739 27.0227 99.179 27.284C98.6377 27.5453 98.2363 27.8907 97.975 28.32C97.7323 28.7493 97.611 29.2067 97.611 29.692C97.611 30.4573 97.779 31.064 98.115 31.512C98.4697 31.96 98.955 32.3333 99.571 32.632C100.206 32.912 100.934 33.192 101.755 33.472C102.408 33.696 103.062 33.948 103.715 34.228C104.368 34.4893 104.956 34.8253 105.479 35.236C106.02 35.628 106.45 36.132 106.767 36.748C107.103 37.3453 107.271 38.092 107.271 38.988C107.271 39.828 107.084 40.6587 106.711 41.48C106.338 42.2827 105.703 42.9547 104.807 43.496C103.911 44.0187 102.67 44.28 101.083 44.28ZM111.042 44V25.324H122.83V27.228H113.058V33.668H121.654V35.628H113.058V42.096H122.83V44H111.042ZM127.032 44V25.324H134.704C136.533 25.324 137.905 25.7813 138.82 26.696C139.753 27.6107 140.22 28.964 140.22 30.756C140.22 31.8387 139.996 32.8 139.548 33.64C139.1 34.48 138.474 35.1427 137.672 35.628C136.869 36.1133 135.926 36.356 134.844 36.356L135.684 35.796L141.06 44H138.68L133.136 35.432L134.144 36.468H129.048V44H127.032ZM129.048 34.564H133.78C135.329 34.564 136.449 34.256 137.14 33.64C137.849 33.0053 138.204 32.0907 138.204 30.896C138.204 29.776 137.942 28.8893 137.42 28.236C136.897 27.564 135.917 27.228 134.48 27.228H129.048V34.564ZM152.257 44V25.324H154.441L161.357 35.936L159.985 36.244L167.293 25.324H169.477V44H167.461V27.34H168.357L160.657 38.148L153.545 27.564L154.273 26.528V44H152.257ZM172.141 44L179.589 25.324H181.605L189.025 44H186.869L180.401 27.2L180.821 27.144L174.325 44H172.141ZM175.417 38.176L176.285 36.244H185.441L185.581 38.176H175.417ZM191.674 44V25.324H193.97L205.618 41.76L205.114 42.544V25.324H207.13V44H204.862L192.766 26.948L193.69 26.08V44H191.674ZM218.909 44.28C216.594 44.28 214.793 43.5987 213.505 42.236C212.235 40.8733 211.601 38.9227 211.601 36.384V25.324H213.617V36.496C213.617 38.4933 214.065 39.9773 214.961 40.948C215.857 41.9 217.173 42.376 218.909 42.376C220.645 42.376 221.97 41.9 222.885 40.948C223.799 39.9773 224.257 38.4933 224.257 36.496V25.324H226.217V36.384C226.217 38.0827 225.927 39.52 225.349 40.696C224.77 41.872 223.939 42.768 222.857 43.384C221.774 43.9813 220.458 44.28 218.909 44.28ZM228.887 44L236.335 25.324H238.351L245.771 44H243.615L237.147 27.2L237.567 27.144L231.071 44H228.887ZM232.163 38.176L233.031 36.244H242.187L242.327 38.176H232.163ZM248.419 44V25.324H250.435V42.04H259.983V44H248.419Z"
+						fill="black"
+					/>
+					<g clip-path="url(#clip0_1_80)">
+						<g clip-path="url(#paint0_angular_1_80_clip_path)" data-figma-skip-parse="true">
+							<g transform="matrix(0.0191234 -0.00861445 0.00861444 0.0191234 24.5732 8.78025)">
+								<foreignObject x="-1071.43" y="-1071.43" width="2142.86" height="2142.86"
+									><div
+										xmlns="http://www.w3.org/1999/xhtml"
+										style="
+											background: conic-gradient(
+												from 90deg,
+												rgba(200, 2, 0, 1) 0deg,
+												rgba(195, 0, 0, 1) 0.0794891deg,
+												rgba(191, 0, 0, 1) 116.448deg,
+												rgba(223, 24, 0, 1) 127.48deg,
+												rgba(223, 24, 0, 1) 235.378deg,
+												rgba(255, 22, 0, 1) 240.998deg,
+												rgba(243, 21, 0, 1) 359.438deg,
+												rgba(200, 2, 0, 1) 360deg
+											);
+											height: 100%;
+											width: 100%;
+											opacity: 1;
+										"
+									></div
+								></foreignObject>
+							</g>
+						</g>
+						<path
+							d="M43.6966 0.165806L10.8397 0.178574L21.1584 10.3186L21.9154 24.7658L43.6966 0.165806Z"
+							data-figma-gradient-fill="{&#34;type&#34;:&#34;GRADIENT_ANGULAR&#34;,&#34;stops&#34;:[{&#34;color&#34;:{&#34;r&#34;:0.76470589637756348,&#34;g&#34;:0.0,&#34;b&#34;:0.0,&#34;a&#34;:1.0},&#34;position&#34;:0.00022080302005633712},{&#34;color&#34;:{&#34;r&#34;:0.75082629919052124,&#34;g&#34;:0.0,&#34;b&#34;:0.0,&#34;a&#34;:1.0},&#34;position&#34;:0.32346612215042114},{&#34;color&#34;:{&#34;r&#34;:0.87450981140136719,&#34;g&#34;:0.094117648899555206,&#34;b&#34;:0.0,&#34;a&#34;:1.0},&#34;position&#34;:0.35411190986633301},{&#34;color&#34;:{&#34;r&#34;:0.87450981140136719,&#34;g&#34;:0.094117648899555206,&#34;b&#34;:0.0,&#34;a&#34;:1.0},&#34;position&#34;:0.65382820367813110},{&#34;color&#34;:{&#34;r&#34;:1.0,&#34;g&#34;:0.086419761180877686,&#34;b&#34;:0.0,&#34;a&#34;:1.0},&#34;position&#34;:0.66943931579589844},{&#34;color&#34;:{&#34;r&#34;:0.95294117927551270,&#34;g&#34;:0.082352943718433380,&#34;b&#34;:0.0,&#34;a&#34;:1.0},&#34;position&#34;:0.99844002723693848}],&#34;stopsVar&#34;:[{&#34;color&#34;:{&#34;r&#34;:0.76470589637756348,&#34;g&#34;:0.0,&#34;b&#34;:0.0,&#34;a&#34;:1.0},&#34;position&#34;:0.00022080302005633712},{&#34;color&#34;:{&#34;r&#34;:0.75082629919052124,&#34;g&#34;:0.0,&#34;b&#34;:0.0,&#34;a&#34;:1.0},&#34;position&#34;:0.32346612215042114},{&#34;color&#34;:{&#34;r&#34;:0.87450981140136719,&#34;g&#34;:0.094117648899555206,&#34;b&#34;:0.0,&#34;a&#34;:1.0},&#34;position&#34;:0.35411190986633301},{&#34;color&#34;:{&#34;r&#34;:0.87450981140136719,&#34;g&#34;:0.094117648899555206,&#34;b&#34;:0.0,&#34;a&#34;:1.0},&#34;position&#34;:0.65382820367813110},{&#34;color&#34;:{&#34;r&#34;:1.0,&#34;g&#34;:0.086419761180877686,&#34;b&#34;:0.0,&#34;a&#34;:1.0},&#34;position&#34;:0.66943931579589844},{&#34;color&#34;:{&#34;r&#34;:0.95294117927551270,&#34;g&#34;:0.082352943718433380,&#34;b&#34;:0.0,&#34;a&#34;:1.0},&#34;position&#34;:0.99844002723693848}],&#34;transform&#34;:{&#34;m00&#34;:38.246723175048828,&#34;m01&#34;:17.228889465332031,&#34;m02&#34;:-3.1645612716674805,&#34;m10&#34;:-17.228891372680664,&#34;m11&#34;:38.246719360351562,&#34;m12&#34;:-1.7286592721939087},&#34;opacity&#34;:1.0,&#34;blendMode&#34;:&#34;NORMAL&#34;,&#34;visible&#34;:true}"
+						/>
+					</g>
+					<g clip-path="url(#clip1_1_80)">
+						<g clip-path="url(#paint1_angular_1_80_clip_path)" data-figma-skip-parse="true">
+							<g transform="matrix(0.0191234 -0.00861445 0.00861444 0.0191234 35.8408 33.4802)">
+								<foreignObject x="-1071.43" y="-1071.43" width="2142.86" height="2142.86"
+									><div
+										xmlns="http://www.w3.org/1999/xhtml"
+										style="
+											background: conic-gradient(
+												from 90deg,
+												rgba(200, 2, 0, 1) 0deg,
+												rgba(195, 0, 0, 1) 0.0794891deg,
+												rgba(191, 0, 0, 1) 116.448deg,
+												rgba(223, 24, 0, 1) 127.48deg,
+												rgba(223, 24, 0, 1) 235.378deg,
+												rgba(255, 22, 0, 1) 240.998deg,
+												rgba(243, 21, 0, 1) 359.438deg,
+												rgba(200, 2, 0, 1) 360deg
+											);
+											height: 100%;
+											width: 100%;
+											opacity: 1;
+										"
+									></div
+								></foreignObject>
+							</g>
+						</g>
+						<path
+							d="M54.9642 24.8658L22.1072 24.8785L32.4259 35.0185L33.183 49.4657L54.9642 24.8658Z"
+							data-figma-gradient-fill="{&#34;type&#34;:&#34;GRADIENT_ANGULAR&#34;,&#34;stops&#34;:[{&#34;color&#34;:{&#34;r&#34;:0.76470589637756348,&#34;g&#34;:0.0,&#34;b&#34;:0.0,&#34;a&#34;:1.0},&#34;position&#34;:0.00022080302005633712},{&#34;color&#34;:{&#34;r&#34;:0.75082629919052124,&#34;g&#34;:0.0,&#34;b&#34;:0.0,&#34;a&#34;:1.0},&#34;position&#34;:0.32346612215042114},{&#34;color&#34;:{&#34;r&#34;:0.87450981140136719,&#34;g&#34;:0.094117648899555206,&#34;b&#34;:0.0,&#34;a&#34;:1.0},&#34;position&#34;:0.35411190986633301},{&#34;color&#34;:{&#34;r&#34;:0.87450981140136719,&#34;g&#34;:0.094117648899555206,&#34;b&#34;:0.0,&#34;a&#34;:1.0},&#34;position&#34;:0.65382820367813110},{&#34;color&#34;:{&#34;r&#34;:1.0,&#34;g&#34;:0.086419761180877686,&#34;b&#34;:0.0,&#34;a&#34;:1.0},&#34;position&#34;:0.66943931579589844},{&#34;color&#34;:{&#34;r&#34;:0.95294117927551270,&#34;g&#34;:0.082352943718433380,&#34;b&#34;:0.0,&#34;a&#34;:1.0},&#34;position&#34;:0.99844002723693848}],&#34;stopsVar&#34;:[{&#34;color&#34;:{&#34;r&#34;:0.76470589637756348,&#34;g&#34;:0.0,&#34;b&#34;:0.0,&#34;a&#34;:1.0},&#34;position&#34;:0.00022080302005633712},{&#34;color&#34;:{&#34;r&#34;:0.75082629919052124,&#34;g&#34;:0.0,&#34;b&#34;:0.0,&#34;a&#34;:1.0},&#34;position&#34;:0.32346612215042114},{&#34;color&#34;:{&#34;r&#34;:0.87450981140136719,&#34;g&#34;:0.094117648899555206,&#34;b&#34;:0.0,&#34;a&#34;:1.0},&#34;position&#34;:0.35411190986633301},{&#34;color&#34;:{&#34;r&#34;:0.87450981140136719,&#34;g&#34;:0.094117648899555206,&#34;b&#34;:0.0,&#34;a&#34;:1.0},&#34;position&#34;:0.65382820367813110},{&#34;color&#34;:{&#34;r&#34;:1.0,&#34;g&#34;:0.086419761180877686,&#34;b&#34;:0.0,&#34;a&#34;:1.0},&#34;position&#34;:0.66943931579589844},{&#34;color&#34;:{&#34;r&#34;:0.95294117927551270,&#34;g&#34;:0.082352943718433380,&#34;b&#34;:0.0,&#34;a&#34;:1.0},&#34;position&#34;:0.99844002723693848}],&#34;transform&#34;:{&#34;m00&#34;:38.246723175048828,&#34;m01&#34;:17.228889465332031,&#34;m02&#34;:8.1030168533325195,&#34;m10&#34;:-17.228891372680664,&#34;m11&#34;:38.246719360351562,&#34;m12&#34;:22.971292495727539},&#34;opacity&#34;:1.0,&#34;blendMode&#34;:&#34;NORMAL&#34;,&#34;visible&#34;:true}"
+						/>
+					</g>
+					<g clip-path="url(#clip2_1_80)">
+						<g clip-path="url(#paint2_angular_1_80_clip_path)" data-figma-skip-parse="true">
+							<g transform="matrix(0.012641 -0.00569436 0.00569436 0.012641 9.15805 30.5895)">
+								<foreignObject x="-1071.43" y="-1071.43" width="2142.86" height="2142.86"
+									><div
+										xmlns="http://www.w3.org/1999/xhtml"
+										style="
+											background: conic-gradient(
+												from 90deg,
+												rgba(200, 2, 0, 1) 0deg,
+												rgba(195, 0, 0, 1) 0.0794891deg,
+												rgba(191, 0, 0, 1) 116.448deg,
+												rgba(223, 24, 0, 1) 127.48deg,
+												rgba(223, 24, 0, 1) 235.378deg,
+												rgba(255, 22, 0, 1) 240.998deg,
+												rgba(243, 21, 0, 1) 359.438deg,
+												rgba(200, 2, 0, 1) 360deg
+											);
+											height: 100%;
+											width: 100%;
+											opacity: 1;
+										"
+									></div
+								></foreignObject>
+							</g>
+						</g>
+						<path
+							d="M21.7991 24.8951L0.0798187 24.9035L6.90073 31.6063L7.40114 41.1563L21.7991 24.8951Z"
+							data-figma-gradient-fill="{&#34;type&#34;:&#34;GRADIENT_ANGULAR&#34;,&#34;stops&#34;:[{&#34;color&#34;:{&#34;r&#34;:0.76470589637756348,&#34;g&#34;:0.0,&#34;b&#34;:0.0,&#34;a&#34;:1.0},&#34;position&#34;:0.00022080302005633712},{&#34;color&#34;:{&#34;r&#34;:0.75082629919052124,&#34;g&#34;:0.0,&#34;b&#34;:0.0,&#34;a&#34;:1.0},&#34;position&#34;:0.32346612215042114},{&#34;color&#34;:{&#34;r&#34;:0.87450981140136719,&#34;g&#34;:0.094117648899555206,&#34;b&#34;:0.0,&#34;a&#34;:1.0},&#34;position&#34;:0.35411190986633301},{&#34;color&#34;:{&#34;r&#34;:0.87450981140136719,&#34;g&#34;:0.094117648899555206,&#34;b&#34;:0.0,&#34;a&#34;:1.0},&#34;position&#34;:0.65382820367813110},{&#34;color&#34;:{&#34;r&#34;:1.0,&#34;g&#34;:0.086419761180877686,&#34;b&#34;:0.0,&#34;a&#34;:1.0},&#34;position&#34;:0.66943931579589844},{&#34;color&#34;:{&#34;r&#34;:0.95294117927551270,&#34;g&#34;:0.082352943718433380,&#34;b&#34;:0.0,&#34;a&#34;:1.0},&#34;position&#34;:0.99844002723693848}],&#34;stopsVar&#34;:[{&#34;color&#34;:{&#34;r&#34;:0.76470589637756348,&#34;g&#34;:0.0,&#34;b&#34;:0.0,&#34;a&#34;:1.0},&#34;position&#34;:0.00022080302005633712},{&#34;color&#34;:{&#34;r&#34;:0.75082629919052124,&#34;g&#34;:0.0,&#34;b&#34;:0.0,&#34;a&#34;:1.0},&#34;position&#34;:0.32346612215042114},{&#34;color&#34;:{&#34;r&#34;:0.87450981140136719,&#34;g&#34;:0.094117648899555206,&#34;b&#34;:0.0,&#34;a&#34;:1.0},&#34;position&#34;:0.35411190986633301},{&#34;color&#34;:{&#34;r&#34;:0.87450981140136719,&#34;g&#34;:0.094117648899555206,&#34;b&#34;:0.0,&#34;a&#34;:1.0},&#34;position&#34;:0.65382820367813110},{&#34;color&#34;:{&#34;r&#34;:1.0,&#34;g&#34;:0.086419761180877686,&#34;b&#34;:0.0,&#34;a&#34;:1.0},&#34;position&#34;:0.66943931579589844},{&#34;color&#34;:{&#34;r&#34;:0.95294117927551270,&#34;g&#34;:0.082352943718433380,&#34;b&#34;:0.0,&#34;a&#34;:1.0},&#34;position&#34;:0.99844002723693848}],&#34;transform&#34;:{&#34;m00&#34;:25.282018661499023,&#34;m01&#34;:11.388715744018555,&#34;m02&#34;:-9.1773138046264648,&#34;m10&#34;:-11.388717651367188,&#34;m11&#34;:25.282012939453125,&#34;m12&#34;:23.6428222656250},&#34;opacity&#34;:1.0,&#34;blendMode&#34;:&#34;NORMAL&#34;,&#34;visible&#34;:true}"
+						/>
+					</g>
+					<g clip-path="url(#clip3_1_80)">
+						<g clip-path="url(#paint3_angular_1_80_clip_path)" data-figma-skip-parse="true">
+							<g transform="matrix(0.012641 -0.00569436 0.00569436 0.012641 53.6131 9.85192)">
+								<foreignObject x="-1071.43" y="-1071.43" width="2142.86" height="2142.86"
+									><div
+										xmlns="http://www.w3.org/1999/xhtml"
+										style="
+											background: conic-gradient(
+												from 90deg,
+												rgba(200, 2, 0, 1) 0deg,
+												rgba(195, 0, 0, 1) 0.0794891deg,
+												rgba(191, 0, 0, 1) 116.448deg,
+												rgba(223, 24, 0, 1) 127.48deg,
+												rgba(223, 24, 0, 1) 235.378deg,
+												rgba(255, 22, 0, 1) 240.998deg,
+												rgba(243, 21, 0, 1) 359.438deg,
+												rgba(200, 2, 0, 1) 360deg
+											);
+											height: 100%;
+											width: 100%;
+											opacity: 1;
+										"
+									></div
+								></foreignObject>
+							</g>
+						</g>
+						<path
+							d="M66.2541 4.15756L44.5349 4.166L51.3558 10.8688L51.8562 20.4187L66.2541 4.15756Z"
+							data-figma-gradient-fill="{&#34;type&#34;:&#34;GRADIENT_ANGULAR&#34;,&#34;stops&#34;:[{&#34;color&#34;:{&#34;r&#34;:0.76470589637756348,&#34;g&#34;:0.0,&#34;b&#34;:0.0,&#34;a&#34;:1.0},&#34;position&#34;:0.00022080302005633712},{&#34;color&#34;:{&#34;r&#34;:0.75082629919052124,&#34;g&#34;:0.0,&#34;b&#34;:0.0,&#34;a&#34;:1.0},&#34;position&#34;:0.32346612215042114},{&#34;color&#34;:{&#34;r&#34;:0.87450981140136719,&#34;g&#34;:0.094117648899555206,&#34;b&#34;:0.0,&#34;a&#34;:1.0},&#34;position&#34;:0.35411190986633301},{&#34;color&#34;:{&#34;r&#34;:0.87450981140136719,&#34;g&#34;:0.094117648899555206,&#34;b&#34;:0.0,&#34;a&#34;:1.0},&#34;position&#34;:0.65382820367813110},{&#34;color&#34;:{&#34;r&#34;:1.0,&#34;g&#34;:0.086419761180877686,&#34;b&#34;:0.0,&#34;a&#34;:1.0},&#34;position&#34;:0.66943931579589844},{&#34;color&#34;:{&#34;r&#34;:0.95294117927551270,&#34;g&#34;:0.082352943718433380,&#34;b&#34;:0.0,&#34;a&#34;:1.0},&#34;position&#34;:0.99844002723693848}],&#34;stopsVar&#34;:[{&#34;color&#34;:{&#34;r&#34;:0.76470589637756348,&#34;g&#34;:0.0,&#34;b&#34;:0.0,&#34;a&#34;:1.0},&#34;position&#34;:0.00022080302005633712},{&#34;color&#34;:{&#34;r&#34;:0.75082629919052124,&#34;g&#34;:0.0,&#34;b&#34;:0.0,&#34;a&#34;:1.0},&#34;position&#34;:0.32346612215042114},{&#34;color&#34;:{&#34;r&#34;:0.87450981140136719,&#34;g&#34;:0.094117648899555206,&#34;b&#34;:0.0,&#34;a&#34;:1.0},&#34;position&#34;:0.35411190986633301},{&#34;color&#34;:{&#34;r&#34;:0.87450981140136719,&#34;g&#34;:0.094117648899555206,&#34;b&#34;:0.0,&#34;a&#34;:1.0},&#34;position&#34;:0.65382820367813110},{&#34;color&#34;:{&#34;r&#34;:1.0,&#34;g&#34;:0.086419761180877686,&#34;b&#34;:0.0,&#34;a&#34;:1.0},&#34;position&#34;:0.66943931579589844},{&#34;color&#34;:{&#34;r&#34;:0.95294117927551270,&#34;g&#34;:0.082352943718433380,&#34;b&#34;:0.0,&#34;a&#34;:1.0},&#34;position&#34;:0.99844002723693848}],&#34;transform&#34;:{&#34;m00&#34;:25.282016754150391,&#34;m01&#34;:11.388714790344238,&#34;m02&#34;:35.277732849121094,&#34;m10&#34;:-11.388716697692871,&#34;m11&#34;:25.282012939453125,&#34;m12&#34;:2.9052729606628418},&#34;opacity&#34;:1.0,&#34;blendMode&#34;:&#34;NORMAL&#34;,&#34;visible&#34;:true}"
+						/>
+					</g>
+					<defs>
+						<clipPath id="paint0_angular_1_80_clip_path">
+							<path d="M43.6966 0.165806L10.8397 0.178574L21.1584 10.3186L21.9154 24.7658L43.6966 0.165806Z" />
+						</clipPath>
+						<clipPath id="paint1_angular_1_80_clip_path">
+							<path d="M54.9642 24.8658L22.1072 24.8785L32.4259 35.0185L33.183 49.4657L54.9642 24.8658Z" />
+						</clipPath>
+						<clipPath id="paint2_angular_1_80_clip_path">
+							<path d="M21.7991 24.8951L0.0798187 24.9035L6.90073 31.6063L7.40114 41.1563L21.7991 24.8951Z" />
+						</clipPath>
+						<clipPath id="paint3_angular_1_80_clip_path">
+							<path d="M66.2541 4.15756L44.5349 4.166L51.3558 10.8688L51.8562 20.4187L66.2541 4.15756Z" />
+						</clipPath>
+						<clipPath id="clip0_1_80">
+							<rect width="36" height="36" fill="white" transform="translate(6.23242 -2.69995) rotate(-24.25)" />
+						</clipPath>
+						<clipPath id="clip1_1_80">
+							<rect width="36" height="36" fill="white" transform="translate(17.5 22) rotate(-24.25)" />
+						</clipPath>
+						<clipPath id="clip2_1_80">
+							<rect width="24" height="24" fill="white" transform="translate(-3.10001 22.95) rotate(-24.25)" />
+						</clipPath>
+						<clipPath id="clip3_1_80">
+							<rect width="20" height="20" fill="white" transform="translate(44 3.21437) rotate(-24.25)" />
+						</clipPath>
+					</defs>
+				</svg>
+			</a>
+		</div>
+		<div class="visible-lg">
+		<div class="navbar__links">
+	<!-- Intro -->
+	<div class="navbar__item">
+		<a href="/docs/">Home</a>
+	</div>
+	<!-- Learning -->
+	<div class="navbar__item">
+		<a href="whatis.html">Learning NetLogo</a>
+		<div class="dropdown__menu">
+			<a href="whatis.html">What is NetLogo?</a>
+			<a href="sample.html">Tutorial #0: Sample Model</a>
+			<a href="tutorial1.html">Tutorial #1 Models</a>
+			<a href="tutorial2.html">Tutorial #2 Commands</a>
+			<a href="tutorial3.html">Tutorial #3 Procedures</a>
+		</div>
+	</div>
+	<!-- Reference -->
+	<div class="navbar__item">
+		<a href="interface.html">Documentation</a>
+		<div class="dropdown__menu">
+			<a href="dictionary.html">NetLogo Dictionary</a>
+			<a href="interface.html">Interface Guide</a>
+			<a href="interfacetab.html">Interface Tab Guide</a>
+			<a href="infotab.html">Info Tab Guide</a>
+			<a href="codetab.html">Code Tab Guide</a>
+			<a href="programming.html">Programming Guide</a>
+			<a href="transition.html">Transition Guide</a>
+			<a href="scaladoc">Scaladoc</a>
+		</div>
+	</div>
+	<!-- Features -->
+	<div class="navbar__item">
+		<a href="extension-manager.html">Advanced Tools</a>
+		<div class="dropdown__menu" style="column-count: 2; column-gap: 1rem; row-gap: 0.5rem">
+			<a href="extension-manager.html">Extension Manager</a>
+			<a href="shapes.html">Shapes Editor</a>
+			<a href="behaviorspace.html">BehaviorSpace</a>
+			<a href="systemdynamics.html">System Dynamics</a>
+			<a href="hubnet.html">HubNet</a>
+			<a href="hubnet-authoring.html">HubNet Authoring</a>
+			<a href="logging.html">Logging</a>
+			<a href="controlling.html">Controlling</a>
+			<a href="mathematica.html">Mathematica Link</a>
+			<a href="3d.html">NetLogo 3D</a>
+			<a href="modelingcommons.html">Save to Modeling Commons</a>
+		</div>
+	</div>
+	<!-- Extensions -->
+	<div class="navbar__item">
+		<a href="extensions.html">Extensions</a>
+		<div class="dropdown__menu" style="column-count: 2; column-gap: 1rem; row-gap: 0.5rem">
+			<a href="extensions.html">Extensions Guide</a>
+			<a href="arduino.html">Arduino</a>
+			<a href="array.html">Array</a>
+			<a href="bitmap.html">Bitmap</a>
+			<a href="csv.html">CSV</a>
+			<a href="gis.html">GIS</a>
+			<a href="gogo.html">GoGo</a>
+			<a href="ls.html">LevelSpace</a>
+			<a href="matrix.html">Matrices</a>
+			<a href="nw.html">Networks</a>
+			<a href="palette.html">Palette</a>
+			<a href="profiler.html">Profiler</a>
+			<a href="py.html">Python</a>
+			<a href="r.html">R</a>
+			<a href="resource.html">Resource</a>
+			<a href="rnd.html">Rnd</a>
+			<a href="sound.html">Sound</a>
+			<a href="table.html">Table</a>
+			<a href="time.html">Time</a>
+			<a href="vid.html">Vid</a>
+			<a href="view2.5d.html">View2.5D</a>
+		</div>
+	</div>
+	<!-- FAQ -->
+	<div class="navbar__item"><a href="faq.html">FAQ</a></div>
+</div>
+		</div>
+		<div class="navbar__actions">
+			<!-- Version / Actions -->
+			<select id="version-select" class="version-select" aria-label="Select version">
+				<option selected value="this">7.0.0-beta2</option>
+				<option value="https://ccl.northwestern.edu/netlogo/6.4.0/docs/">6.4</option>
+				<option value="https://ccl.northwestern.edu/netlogo/6.3.0/docs/">6.3.0</option>
+				<option value="https://ccl.northwestern.edu/netlogo/6.2.2/docs/">6.2.2</option>
+				<option value="https://ccl.northwestern.edu/netlogo/6.1.1/docs/">6.1.1</option>
+				<option value="https://ccl.northwestern.edu/netlogo/6.0.4/docs/">6.0.4</option>
+				<option value="https://ccl.northwestern.edu/netlogo/6.0-BETA1/docs/">6.0beta</option>
+				<option value="https://ccl.northwestern.edu/netlogo/5.3.1/docs/">5.3.1</option>
+				<option value="https://ccl.northwestern.edu/netlogo/5.2.1/docs/">5.2.1</option>
+				<option value="https://ccl.northwestern.edu/netlogo/5.1.0/docs/">5.1.0</option>
+				<option value="https://ccl.northwestern.edu/netlogo/5.0/docs/">5.0</option>
+				<option value="https://ccl.northwestern.edu/netlogo/4.1/docs/">4.1</option>
+				<option value="https://ccl.northwestern.edu/netlogo/4.0/docs/">4.0</option>
+				<option value="https://ccl.northwestern.edu/netlogo/3.1/docs/">3.1</option>
+				<option value="https://ccl.northwestern.edu/netlogo/3.0/docs/">3.0</option>
+				<option value="https://ccl.northwestern.edu/netlogo/2.1/docs/">2.1</option>
+				<option value="https://ccl.northwestern.edu/netlogo/2.0/docs/">2.0</option>
+				<option value="https://ccl.northwestern.edu/netlogo/1.2/docs/">1.2</option>
+				<option value="https://ccl.northwestern.edu/netlogo/1.1/docs/">1.1</option>
+				<option value="https://ccl.northwestern.edu/netlogo/1.0/docs/">1.0</option>
+			</select>
+			<button class="navbar__action hidden" id="searchBtn" aria-label="Search (⌘K)">
+				<!-- Search icon -->
+				<svg viewBox="0 0 24 24">
+					<path
+						d="M10 2a8 8 0 0 1 5.29 13.93l5.4 5.4-1.42 1.42-5.4-5.4A8 8 0 1 1 10 2m0 2a6 6 0 1 0 0 12A6 6 0 0 0 10 4z"
+					/>
+				</svg>
+			</button>
+			<a class="navbar__action" href="https://github.com/NetLogo/NetLogo" aria-label="GitHub" target="_blank">
+				<!-- GitHub logo -->
+				<svg viewBox="0 0 24 24">
+					<path
+						d="M12 .5a12 12 0 0 0-3.79 23.4c.6.11.82-.26.82-.58v-2.04c-3.34.72-4.04-1.61-4.04-1.61-.55-1.4-1.34-1.77-1.34-1.77-1.09-.74.08-.73.08-.73 1.2.08 1.83 1.23 1.83 1.23 1.07 1.84 2.8 1.31 3.48 1.01.11-.78.42-1.31.76-1.61-2.67-.3-5.47-1.34-5.47-5.96 0-1.32.47-2.4 1.23-3.24-.12-.3-.53-1.52.12-3.17 0 0 1.01-.32 3.3 1.23a11.32 11.32 0 0 1 6 0c2.3-1.55 3.3-1.23 3.3-1.23.65 1.65.24 2.87.12 3.17.77.84 1.23 1.92 1.23 3.24 0 4.63-2.8 5.66-5.47 5.96.43.38.81 1.12.81 2.25v3.34c0 .32.22.7.83.58A12 12 0 0 0 12 .5z"
+					/>
+				</svg>
+			</a>
+		</div>
+	</div>
+	<div class="navbar__links__mobile hidden-lg">
+		<div class="navbar__links">
+	<!-- Intro -->
+	<div class="navbar__item">
+		<a href="/docs/">Home</a>
+	</div>
+	<!-- Learning -->
+	<div class="navbar__item">
+		<a href="whatis.html">Learning NetLogo</a>
+		<div class="dropdown__menu">
+			<a href="whatis.html">What is NetLogo?</a>
+			<a href="sample.html">Tutorial #0: Sample Model</a>
+			<a href="tutorial1.html">Tutorial #1 Models</a>
+			<a href="tutorial2.html">Tutorial #2 Commands</a>
+			<a href="tutorial3.html">Tutorial #3 Procedures</a>
+		</div>
+	</div>
+	<!-- Reference -->
+	<div class="navbar__item">
+		<a href="interface.html">Documentation</a>
+		<div class="dropdown__menu">
+			<a href="dictionary.html">NetLogo Dictionary</a>
+			<a href="interface.html">Interface Guide</a>
+			<a href="interfacetab.html">Interface Tab Guide</a>
+			<a href="infotab.html">Info Tab Guide</a>
+			<a href="codetab.html">Code Tab Guide</a>
+			<a href="programming.html">Programming Guide</a>
+			<a href="transition.html">Transition Guide</a>
+			<a href="scaladoc">Scaladoc</a>
+		</div>
+	</div>
+	<!-- Features -->
+	<div class="navbar__item">
+		<a href="extension-manager.html">Advanced Tools</a>
+		<div class="dropdown__menu" style="column-count: 2; column-gap: 1rem; row-gap: 0.5rem">
+			<a href="extension-manager.html">Extension Manager</a>
+			<a href="shapes.html">Shapes Editor</a>
+			<a href="behaviorspace.html">BehaviorSpace</a>
+			<a href="systemdynamics.html">System Dynamics</a>
+			<a href="hubnet.html">HubNet</a>
+			<a href="hubnet-authoring.html">HubNet Authoring</a>
+			<a href="logging.html">Logging</a>
+			<a href="controlling.html">Controlling</a>
+			<a href="mathematica.html">Mathematica Link</a>
+			<a href="3d.html">NetLogo 3D</a>
+			<a href="modelingcommons.html">Save to Modeling Commons</a>
+		</div>
+	</div>
+	<!-- Extensions -->
+	<div class="navbar__item">
+		<a href="extensions.html">Extensions</a>
+		<div class="dropdown__menu" style="column-count: 2; column-gap: 1rem; row-gap: 0.5rem">
+			<a href="extensions.html">Extensions Guide</a>
+			<a href="arduino.html">Arduino</a>
+			<a href="array.html">Array</a>
+			<a href="bitmap.html">Bitmap</a>
+			<a href="csv.html">CSV</a>
+			<a href="gis.html">GIS</a>
+			<a href="gogo.html">GoGo</a>
+			<a href="ls.html">LevelSpace</a>
+			<a href="matrix.html">Matrices</a>
+			<a href="nw.html">Networks</a>
+			<a href="palette.html">Palette</a>
+			<a href="profiler.html">Profiler</a>
+			<a href="py.html">Python</a>
+			<a href="r.html">R</a>
+			<a href="resource.html">Resource</a>
+			<a href="rnd.html">Rnd</a>
+			<a href="sound.html">Sound</a>
+			<a href="table.html">Table</a>
+			<a href="time.html">Time</a>
+			<a href="vid.html">Vid</a>
+			<a href="view2.5d.html">View2.5D</a>
+		</div>
+	</div>
+	<!-- FAQ -->
+	<div class="navbar__item"><a href="faq.html">FAQ</a></div>
+</div>
+	</div>
+</nav>
+<!-- ------------ SEARCH MODAL ------------ -->
+<section class="search-modal" id="searchModal" role="dialog" aria-modal="true" aria-label="Search">
+	<div class="search-box">
+		<input type="text" placeholder="Type to search… Esc to close" autofocus />
+	</div>
+</section>
+<!-- ------------ END NAVBAR ------------ -->
+<footer class="nl-container-full mt-5 landing px-standard gap-3 hidden-important">
+	<div class="nl-col nl-col-lg-4 px-1 py-2">
+		<div class="nl-col nl-col-lg-3 flex flex-col align-items-left">
+			<img class="h-fit mt-0 mx-0" src="images/user-manual-logo.png" alt="User Manual Logo" style="max-width: 300px" />
+			<hr />
+			<p>
+				NetLogo is a programmable modeling environment for simulating natural and social phenomena. It was authored by
+				Uri Wilensky in 1999 and has been in continuous development ever since at the Center for Connected Learning and
+				Computer-Based Modeling.
+			</p>
+		</div>
+	</div>
+	<div class="nl-col nl-col-lg-3 px-1 py-2">
+		<div>
+			<h5 class="mt-0">Related Links</h5>
+			<ul>
+				<li>
+					<a href="https://ccl.northwestern.edu/netlogo/">NetLogo Home</a>
+				</li>
+				<li>
+					<a href="https://ccl.northwestern.edu/">Center for Connected Learning</a>
+				</li>
+				<li>
+					<a href="https://www.netlogoweb.org/">NetLogo Web</a>
+				</li>
+				<li>
+					<a href="https://ccl.northwestern.edu/nettangoweb/">NetTango Web</a>
+				</li>
+				<li>
+					<a href="3d.html">NetLogo 3D</a>
+				</li>
+				<li>
+					<a href="https://www.behaviorsearch.org/">BehaviorSearch</a>
+				</li>
+				<li>
+					<a href="contact.html">Contact Us</a>
+				</li>
+			</ul>
+		</div>
+	</div>
+	<div class="nl-col nl-col-lg-5 px-1 py-2">
+		<p id="copyright" class="mt-2">
+			Copyright © 1999- Uri Wilensky and the
+			<a href="https://ccl.northwestern.edu/">Center for Connected Learning and Computer-Based Modeling</a> at
+			<a href="https://www.northwestern.edu/">Northwestern University</a>. All rights reserved.
+		</p>
+		<p>
+			This program is free software; you can redistribute it and/or modify it under the terms of the GNU General Public
+			License as published by the Free Software Foundation; either version 2 of the License, or (at your option) any
+			later version.
+		</p>
+		<p>
+			Commercial licenses are also available. To inquire about commercial licenses, please contact Uri Wilensky at
+			<a href="mailto:netlogo-commercial-admin@ccl.northwestern.edu">netlogo-commercial-admin@ccl.northwestern.edu</a>.
+		</p>
+		<p>For more information, visit the <a href="https://ccl.northwestern.edu/netlogo">NetLogo website</a>.</p>
+	</div>
+</footer>
+		<script src="scripts/highlight-nl.min.js" type="text/javascript"></script>
+		<script>
+			(function() {
+				document.addEventListener("DOMContentLoaded", function() {
+					const highlightNL = require('highlight-nl');
+					let codeElems   = Array.from(document.querySelectorAll('pre code'));
+					codeElems = codeElems.concat(
+						Array.from(document.querySelectorAll('pre')).filter(
+							(elem) => elem.children.length === 0 && elem.innerText.trim() !== ''
+						)
+					);
+					codeElems.forEach((elem) => {
+						let html = highlightNL(elem.innerText);
+						elem.innerHTML = html;
+					});
+				});
+			})()
+		</script>
   </body>
 </html>
+<main class="prose">
 <p>This section describes the NetLogo programming language in detail.</p>
 <p>The Code Example models mentioned throughout can be found in the Code
 Examples section of the Models Library.</p>
-<p><strong>Table of Contents</strong></p>
+<div class="toc">
+<h4><a href="#table-of-contents" id="table-of-contents" class="section-anchor">Table of Contents</a></h4>
 <ul>
-<li><a href="#agents-and-agentsets"><b>Agents and Agentsets</b></a>
+<li><a href="#agents-and-agentsets">Agents and Agentsets</a>
 <ul>
 <li><a href="#agents">Agents</a></li>
 <li><a href="#agentsets">Agentsets</a></li>
@@ -34,46 +490,46 @@ Examples section of the Models Library.</p>
 <li><a href="#link-shapes">Link shapes</a></li>
 </ul>
 </li>
-<li><a href="#programming"><b>Programming</b></a>
+<li><a href="#programming">Programming</a>
 <ul>
 <li><a href="#procedures">Procedures</a></li>
 <li><a href="#ask">Ask</a></li>
-<li><a href="#ask-concurrent">Ask    -Concurrent</a></li>
+<li><a href="#ask-concurrent">Ask-Concurrent</a></li>
 <li><a href="#syntax">Syntax</a></li>
 <li><a href="#multiple-source-files">Multiple source files</a></li>
 <li><a href="#buttons">Buttons</a></li>
 <li><a href="#anonymous-procedures">Anonymous procedures</a></li>
 </ul>
 </li>
-<li><a href="#world"><b>World</b></a>
+<li><a href="#world">World</a>
 <ul>
 <li><a href="#tick-counter">Tick counter</a></li>
 <li><a href="#view-updates">View updates</a></li>
 <li><a href="#topology">Topology</a></li>
 </ul>
 </li>
-<li><a href="#observer-perspective"><b>Observer Perspective</b></a></li>
-<li><a href="#inputoutput"><b>Input/Output</b></a>
+<li><a href="#observer-perspective">Observer Perspective</a></li>
+<li><a href="#inputoutput">Input/Output</a>
 <ul>
 <li><a href="#output">Output</a></li>
-<li><a href="#use-interaction-primitives">User Interaction Primitives</a></li>
 <li><a href="#file-io">File I/O</a></li>
 </ul>
 </li>
-<li><a href="#lists"><b>Lists</b></a></li>
-<li><a href="#strings"><b>Strings</b></a></li>
-<li><a href="#mathematics"><b>Mathematics</b></a>
+<li><a href="#lists">Lists</a></li>
+<li><a href="#strings">Strings</a></li>
+<li><a href="#mathematics">Mathematics</a>
 <ul>
 <li><a href="#math">Math</a></li>
 <li><a href="#random-numbers">Random numbers</a></li>
 </ul>
 </li>
-<li><a href="#plotting"><b>Plotting</b></a></li>
-<li><a href="#color"><b>Color</b></a></li>
-<li><a href="#movies"><b>Movies</b></a></li>
+<li><a href="#plotting">Plotting</a></li>
+<li><a href="#color">Color</a></li>
+<li><a href="#movies">Movies</a></li>
 </ul>
-<h2><a href="#agents-and-agentsets" id="agents-and-agentsets" class="section-anchor"><b>Agents and Agentsets</b></a></h2>
-<h2><a href="#agents" id="agents" class="section-anchor">Agents</a></h2>
+</div>
+<h2><a href="#agents-and-agentsets" id="agents-and-agentsets" class="section-anchor">Agents and Agentsets</a></h2>
+<h3><a href="#agents" id="agents" class="section-anchor">Agents</a></h3>
 <p>The NetLogo world is made up of <strong>agents</strong>. Agents are beings that can follow
 instructions.</p>
 <p>In NetLogo, there are four types of agents: <strong>turtles</strong>, <strong>patches</strong>, <strong>links</strong>,
@@ -108,7 +564,7 @@ the center of the patch.</p>
 <p>Links do not have coordinates. Every link has two ends, and each end is a
 turtle. If either turtle dies, the link dies too. A link is represented visually
 as a line connecting the two turtles.</p>
-<h2><a href="#agentsets" id="agentsets" class="section-anchor">Agentsets</a></h2>
+<h3><a href="#agentsets" id="agentsets" class="section-anchor">Agentsets</a></h3>
 <p>An agentset is exactly what its name implies, a set of agents. An agentset can
 contain either turtles, patches or links, but not more than one type at once.</p>
 <p>An agentset is not in any particular order. In fact, it&rsquo;s always in a random
@@ -207,7 +663,7 @@ and consult the NetLogo Dictionary for more information about all of the
 agentset primitives.</p>
 <p>More examples of using agentsets are provided in the individual entries for
 these primitives in the NetLogo Dictionary.</p>
-<h3><a href="#special-agentsets" id="special-agentsets" class="section-anchor">Special agentsets</a></h3>
+<h4><a href="#special-agentsets" id="special-agentsets" class="section-anchor">Special agentsets</a></h4>
 <p>The agentsets <code>turtles</code> and <code>links</code> have special behavior because they always
 hold the sets of <em>all</em> turtles and <em>all</em> links. Therefore, these agentsets can
 grow.</p>
@@ -236,14 +692,14 @@ containing just the turtles that <em>currently</em> exist. New turtles don&rsquo
 they&rsquo;re born.</p>
 <p>Breed agentsets are special in the same way as <code>turtles</code> and <code>links</code>. Breeds are
 introduced and explained below.</p>
-<h3><a href="#agentsets-and-lists" id="agentsets-and-lists" class="section-anchor">Agentsets and lists</a></h3>
+<h4><a href="#agentsets-and-lists" id="agentsets-and-lists" class="section-anchor">Agentsets and lists</a></h4>
 <p>Earlier, we said that agentsets are always in random order, a different random
 order every time. If you need your agents to do something in a fixed order, you
 need to make a list of the agents instead. See the Lists section below.</p>
 <blockquote>
 <p><strong>Code Example:</strong> Ask Ordering Example</p>
 </blockquote>
-<h2><a href="#breeds" id="breeds" class="section-anchor">Breeds</a></h2>
+<h3><a href="#breeds" id="breeds" class="section-anchor">Breeds</a></h3>
 <p>NetLogo allows you to define different &ldquo;breeds&rdquo; of turtles and breeds of links.
 Once you have defined breeds, you can go on and make the different breeds behave
 differently. For example, you could have breeds called <code>sheep</code> and <code>wolves</code>, and
@@ -304,7 +760,7 @@ end
 <blockquote>
 <p><strong>Code Example:</strong> Breeds and Shapes Example</p>
 </blockquote>
-<h3><a href="#link-breeds" id="link-breeds" class="section-anchor">Link breeds</a></h3>
+<h4><a href="#link-breeds" id="link-breeds" class="section-anchor">Link breeds</a></h4>
 <p>Link breeds are very similar to turtle breeds, however, there are a few
 differences.</p>
 <p>When you declare a link breed you must declare whether it is a breed of directed
@@ -350,7 +806,7 @@ particular link shape.</p>
 <blockquote>
 <p><strong>Code Example:</strong> Link Breeds Example</p>
 </blockquote>
-<h2><a href="#variables" id="variables" class="section-anchor">Variables</a></h2>
+<h3><a href="#variables" id="variables" class="section-anchor">Variables</a></h3>
 <p><strong>Agent variables</strong></p>
 <p>Agent variables are places to store values (such as numbers) in an agent. An
 agent variable can be a global variable, a turtle variable, a patch variable, or
@@ -412,7 +868,7 @@ example inside an &ldquo;ask&rdquo;, then it will exist only inside those bracke
   ask turtle2 [ set color temp ]
 end
 </code></pre>
-<h2><a href="#links" id="links" class="section-anchor">Links</a></h2>
+<h3><a href="#links" id="links" class="section-anchor">Links</a></h3>
 <p>A link is an agent that connects two turtles. These turtles are sometimes also
 called nodes.</p>
 <p>The link is always drawn as a line between the two turtles. Links do not have a
@@ -497,10 +953,10 @@ mind that very small changes can still affect the appearance of the network. The
 springs also have a length (in patch units), however, because of all the forces
 involved the nodes will not end up exactly that distance from each other.</p>
 <blockquote>
-<p>**Code Examples:**Network Example, Network Import Example, Giant Component,
+<p><strong>Code Examples:</strong> Network Example, Network Import Example, Giant Component,
 Small Worlds, Preferential Attachment</p>
 </blockquote>
-<h2><a href="#tie" id="tie" class="section-anchor">Tie</a></h2>
+<h3><a href="#tie" id="tie" class="section-anchor">Tie</a></h3>
 <p>Tie connects two turtles so that the movement of one turtles affects the
 location and heading of another. Tie is a property of links so there must be a
 link between two turtles to create a tie relationship.</p>
@@ -524,7 +980,7 @@ the mode to &ldquo;free&rdquo; you need to: <code>set tie-mode &quot;free&quot;<
 <blockquote>
 <p><strong>Code Example:</strong> Tie System Example</p>
 </blockquote>
-<h2><a href="#drawing" id="drawing" class="section-anchor">Drawing</a></h2>
+<h3><a href="#drawing" id="drawing" class="section-anchor">Drawing</a></h3>
 <p>The drawing is a layer where turtles can make visible marks.</p>
 <p>In the view, the drawing appears on top of the patches but underneath the
 turtles. Initially, the drawing is empty and transparent.</p>
@@ -571,7 +1027,7 @@ background by coloring the patches, e.g. <code>ask patches [ set pcolor blue ]</
 turtle roam over an infinite plane.</li>
 <li>There is no <code>flood</code> or <code>fill</code> command to fill an enclosed area with color.</li>
 </ul>
-<h2><a href="#turtle-shapes" id="turtle-shapes" class="section-anchor">Turtle shapes</a></h2>
+<h3><a href="#turtle-shapes" id="turtle-shapes" class="section-anchor">Turtle shapes</a></h3>
 <p>In NetLogo, turtle shapes are vector shapes. They are built up from basic
 geometric shapes; squares, circles, and lines, rather than a grid of pixels.
 Vector shapes are fully scalable and rotatable. NetLogo caches bitmap images of
@@ -594,7 +1050,7 @@ the <a href="dictionary.html#set-line-thickness"><code>__set-line-thickness</cod
 <blockquote>
 <p><strong>Code Examples:</strong> Breeds and Shapes Example, Shape Animation Example</p>
 </blockquote>
-<h2><a href="#link-shapes" id="link-shapes" class="section-anchor">Link shapes</a></h2>
+<h3><a href="#link-shapes" id="link-shapes" class="section-anchor">Link shapes</a></h3>
 <p>Link Shapes are similar to turtle shapes, only you use the Link Shape Editor to
 create and edit them. Link shapes consist of between 0 and 3 lines which can
 have different patterns and a direction indicator that is composed of the same
@@ -605,8 +1061,8 @@ shape, though you can change that using <a href="dictionary.html#set-default-sha
 model.</p>
 <p>The thickness of the lines in the link shape is controlled by the <a href="dictionary.html#thickness"><code>thickness</code></a>
 link variable.</p>
-<h2><a href="#programming" id="programming" class="section-anchor"><b>Programming</b></a></h2>
-<h2><a href="#procedures" id="procedures" class="section-anchor">Procedures</a></h2>
+<h2><a href="#programming" id="programming" class="section-anchor">Programming</a></h2>
+<h3><a href="#procedures" id="procedures" class="section-anchor">Procedures</a></h3>
 <p>In NetLogo, <strong>commands</strong> and <strong>reporters</strong> tell agents what to do. A command is
 an action for an agent to carry out, resulting in some effect. A reporter is
 instructions for computing a value, which the agent then &ldquo;reports&rdquo; to whoever
@@ -693,7 +1149,7 @@ report the value you want to report.</p>
     [ report (- number) ]
 end
 </code></pre>
-<h2><a href="#ask" id="ask" class="section-anchor">Ask</a></h2>
+<h3><a href="#ask" id="ask" class="section-anchor">Ask</a></h3>
 <p>NetLogo uses the <a href="dictionary.html#ask"><code>ask</code></a> command to give commands to turtles, patches, and
 links. All code to be run by turtles <em>must</em> be located in a turtle &ldquo;context&rdquo;.
 You can establish a turtle context in any of three ways:</p>
@@ -778,7 +1234,7 @@ and so on.</p>
 ask turtles [ set color red ]
 </code></pre>
 <p>first all the turtles move, then they all turn red.</p>
-<h2><a href="#ask-concurrent" id="ask-concurrent" class="section-anchor">Ask-Concurrent</a></h2>
+<h3><a href="#ask-concurrent" id="ask-concurrent" class="section-anchor">Ask-Concurrent</a></h3>
 <p><strong>NOTE:</strong> The following information is included only for backwards
 compatibility. We don&rsquo;t recommend using the <code>ask-concurrent</code> primitive at all in
 new models.</p>
@@ -844,8 +1300,8 @@ suggest you write your model so that it does not depend on the exact details of
 how <code>ask-concurrent</code> works. We make no guarantees that its semantics will remain
 the same in future versions of NetLogo, or that it will continue to be supported
 at all.</p>
-<h2><a href="#syntax" id="syntax" class="section-anchor">Syntax</a></h2>
-<h3><a href="#colors" id="colors" class="section-anchor">Colors</a></h3>
+<h3><a href="#syntax" id="syntax" class="section-anchor">Syntax</a></h3>
+<h4><a href="#colors" id="colors" class="section-anchor">Colors</a></h4>
 <p>In the Code tab and elsewhere in the NetLogo user interface, program code is
 color-coded by the following scheme:</p>
 <ul>
@@ -856,15 +1312,15 @@ color-coded by the following scheme:</p>
 <li>Primitive reporters are purple</li>
 <li>Everything else is black</li>
 </ul>
-<h3><a href="#notice" id="notice" class="section-anchor">Notice</a></h3>
+<h4><a href="#notice" id="notice" class="section-anchor">Notice</a></h4>
 <p>The remainder of this section contains technical terminology which will be
 unfamiliar to some readers.</p>
-<h3><a href="#keywords" id="keywords" class="section-anchor">Keywords</a></h3>
+<h4><a href="#keywords" id="keywords" class="section-anchor">Keywords</a></h4>
 <p>The only keywords in the language are <a href="dictionary.html#globals"><code>globals</code></a>, <a href="dictionary.html#breed"><code>breed</code></a>, <a href="dictionary.html#turtles-own"><code>turtles-own</code></a>,
 <a href="dictionary.html#patches-own"><code>patches-own</code></a>, <a href="dictionary.html#to"><code>to</code></a>, <a href="dictionary.html#to-report"><code>to-report</code></a>, and <a href="dictionary.html#end"><code>end</code></a>, plus <a href="dictionary.html#extensions"><code>extensions</code></a> and the
 experimental <a href="dictionary.html#includes"><code>__includes</code></a> keyword. (Built-in primitive names may not be
 shadowed or redefined, so they are effectively a kind of keyword as well.)</p>
-<h3><a href="#identifiers" id="identifiers" class="section-anchor">Identifiers</a></h3>
+<h4><a href="#identifiers" id="identifiers" class="section-anchor">Identifiers</a></h4>
 <p>All primitives, global and agent variable names, and procedure names share a
 single global case-insensitive namespace; local names (<a href="dictionary.html#let"><code>let</code></a> variables and the
 names of procedure inputs) may not shadow global names or each other.
@@ -875,14 +1331,14 @@ characters:</p>
 <p>Some primitive names begin with two underscores to indicate that they are
 experimental and are especially likely to change or be removed in future NetLogo
 releases.</p>
-<h3><a href="#scope" id="scope" class="section-anchor">Scope</a></h3>
+<h4><a href="#scope" id="scope" class="section-anchor">Scope</a></h4>
 <p>NetLogo is lexically scoped. Local variables (including inputs to procedures)
 are accessible within the block of commands in which they are declared, but not
 accessible by procedures called by those commands.</p>
-<h3><a href="#comments" id="comments" class="section-anchor">Comments</a></h3>
+<h4><a href="#comments" id="comments" class="section-anchor">Comments</a></h4>
 <p>The semicolon character introduces a comment, which lasts until the
 end of the line. There is no multi-line comment syntax.</p>
-<h3><a href="#structure" id="structure" class="section-anchor">Structure</a></h3>
+<h4><a href="#structure" id="structure" class="section-anchor">Structure</a></h4>
 <p>A program consists of optional declarations (<a href="dictionary.html#globals"><code>globals</code></a>, <a href="dictionary.html#breed"><code>breed</code></a>,
 <a href="dictionary.html#turtles-own"><code>turtles-own</code></a>, <a href="dictionary.html#patches-own"><code>patches-own</code></a>, <a href="dictionary.html#turtles-own"><code>&lt;BREED&gt;-own</code></a>, <a href="dictionary.html#extensions"><code>extensions</code></a>)
 in any order, followed by zero or more procedure definitions. Multiple breeds
@@ -891,7 +1347,7 @@ appear once only.</p>
 <p>Every procedure definition begins with <a href="dictionary.html#to"><code>to</code></a> or <a href="dictionary.html#to-report"><code>to-report</code></a>, the procedure
 name, and an optional bracketed list of input names. Every procedure definition
 ends with <a href="dictionary.html#end"><code>end</code></a>. In between are zero or more commands.</p>
-<h3><a href="#commands-and-reporters" id="commands-and-reporters" class="section-anchor">Commands and reporters</a></h3>
+<h4><a href="#commands-and-reporters" id="commands-and-reporters" class="section-anchor">Commands and reporters</a></h4>
 <p>Commands take zero or more inputs; the inputs are reporters, which may also take
 zero or more inputs. No punctuation separates or terminates commands; no
 punctuation separates inputs. Identifiers must be separated by whitespace or by
@@ -930,12 +1386,12 @@ Example:  <code>true or false and false</code> is read as <code>(true or false) 
 is <code>false</code>.  This is different than many other programming languages where <code>or</code> has a lower precedence than <code>and</code>, so
 the above statement would be read as <code>true or (false and false)</code>, <code>true or (false)</code>, so <code>true</code>.  You can surround
 expressions in parentheses to ensure you get your desired order of operations.</p>
-<h3><a href="#compared-to-other-logos" id="compared-to-other-logos" class="section-anchor">Compared to other Logos</a></h3>
+<h4><a href="#compared-to-other-logos" id="compared-to-other-logos" class="section-anchor">Compared to other Logos</a></h4>
 <p>There is no agreed-upon standard definition of Logo; it is a loose family of
 languages. We believe that NetLogo has enough in common with other Logos to earn
 the Logo name. Still, NetLogo differs in some respects from most other Logos.
 The most important differences are as follows.</p>
-<h4><a href="#surface-differences" id="surface-differences" class="section-anchor">Surface differences</a></h4>
+<h5><a href="#surface-differences" id="surface-differences" class="section-anchor">Surface differences</a></h5>
 <ul>
 <li>The precedence of mathematical operators is different. Infix math operators
 (like <code>+</code>, <code>*</code>, etc.) have lower precedence than reporters with names. For
@@ -975,7 +1431,7 @@ end</pre>
 report x * x
 end</pre>
 </table>
-<h4><a href="#deeper-differences" id="deeper-differences" class="section-anchor">Deeper differences</a></h4>
+<h5><a href="#deeper-differences" id="deeper-differences" class="section-anchor">Deeper differences</a></h5>
 <ul>
 <li>NetLogo&rsquo;s local variables and inputs to procedures are lexically scoped, not
 dynamically scoped.</li>
@@ -1000,7 +1456,7 @@ standard Logo.</li>
 </ul>
 <p>Of course, the NetLogo language also contains other features not found in most
 Logos, most importantly agents and agentsets.</p>
-<h2><a href="#multiple-source-files" id="multiple-source-files" class="section-anchor">Multiple source files</a></h2>
+<h3><a href="#multiple-source-files" id="multiple-source-files" class="section-anchor">Multiple source files</a></h3>
 <p>The <a href="dictionary.html#includes"><code>__includes</code></a> keyword allows you to use multiple source files in a single
 NetLogo model.</p>
 <p>The keyword begins with two underscores to indicate that the feature is
@@ -1019,7 +1475,7 @@ declarations all share the same namespace. That is, if you declare a global
 the name <code>my-global</code> in any file that is included in the model. <code>my-global</code> will
 be accessible from all the included files. The same would be true if <code>my-global</code>
 were declared in one of the included files.</p>
-<h2><a href="#buttons" id="buttons" class="section-anchor">Buttons</a></h2>
+<h3><a href="#buttons" id="buttons" class="section-anchor">Buttons</a></h3>
 <p>Buttons in the interface tab provide an easy way to control the model. Typically
 a model will have at least a &ldquo;setup&rdquo; button, to set up the initial state of the
 world, and a &ldquo;go&rdquo; button to make the model run continuously. Some models will
@@ -1094,7 +1550,7 @@ tick-based way, without using a turtle forever button.</p>
 </blockquote>
 <p>At present, NetLogo has no way for one forever button to start another. Buttons
 are only started when you press them.</p>
-<h2><a href="#anonymous-procedures" id="anonymous-procedures" class="section-anchor">Anonymous procedures</a></h2>
+<h3><a href="#anonymous-procedures" id="anonymous-procedures" class="section-anchor">Anonymous procedures</a></h3>
 <p>Anonymous procedures let you store code to be run later. Just like regular
 NetLogo procedures, an anonymous procedures can be either a command (anonymous
 command) or a reporter (anonymous reporter).</p>
@@ -1103,7 +1559,7 @@ reported as a result, or stored in a variable.</p>
 <p>An anonymous procedure might be run once, multiple times, or not at all.</p>
 <p>In other programming languages anonymous procedures are known as first-class
 functions, closures, or lambda.</p>
-<h3><a href="#anonymous-procedure-primitives" id="anonymous-procedure-primitives" class="section-anchor">Anonymous procedure primitives</a></h3>
+<h4><a href="#anonymous-procedure-primitives" id="anonymous-procedure-primitives" class="section-anchor">Anonymous procedure primitives</a></h4>
 <p>Primitives specific to anonymous procedures are <code>-&gt;</code>, <code>is-anonymous-command?</code>,
 and <code>is-anonymous-reporter?</code>.</p>
 <p>The <code>-&gt;</code> creates an anonymous procedure. The anonymous procedure it reports
@@ -1127,16 +1583,16 @@ all primitives accepting varying number of inputs, the whole call must be
 surrounded with parentheses, so for example <code>(run my-anonymous-command 5)</code> or
 <code>(runresult my-anonymous-reporter &quot;foo&quot; 2)</code>. When not passing input, no
 parentheses are required.</p>
-<h3><a href="#anonymous-procedure-inputs" id="anonymous-procedure-inputs" class="section-anchor">Anonymous procedure inputs</a></h3>
+<h4><a href="#anonymous-procedure-inputs" id="anonymous-procedure-inputs" class="section-anchor">Anonymous procedure inputs</a></h4>
 <p>An anonymous procedure may take zero or more inputs. The inputs are referenced
 the variables declared before the arrow. For instance, in the anonymous reporter
 <code>[ [a b] -&gt; a + b ]</code>, <code>a</code> and <code>b</code> are inputs.</p>
-<h3><a href="#anonymous-procedures-and-strings" id="anonymous-procedures-and-strings" class="section-anchor">Anonymous procedures and strings</a></h3>
+<h4><a href="#anonymous-procedures-and-strings" id="anonymous-procedures-and-strings" class="section-anchor">Anonymous procedures and strings</a></h4>
 <p>Creating and running anonymous procedures is fast. To use <code>run</code> or <code>runresult</code>
 on a new string for the first time is about 100x slower than running an
 anonymous procedure. Modelers should normally use anonymous procedures instead
 of running strings, except when running strings entered by the user.</p>
-<h3><a href="#concise-syntax" id="concise-syntax" class="section-anchor">Concise syntax</a></h3>
+<h4><a href="#concise-syntax" id="concise-syntax" class="section-anchor">Concise syntax</a></h4>
 <p>Simple uses of <code>foreach</code>, <code>map</code>, <code>reduce</code>, <code>filter</code>, <code>n-values</code>, and <code>sort-by</code>
 can be written with an especially concise syntax. You can write:</p>
 <pre><code>map abs [1 -2 3 -4]
@@ -1158,19 +1614,19 @@ filter [is-number? ?] [1 &quot;x&quot; 3]
 foreach [1 2 3 4] [ print ? ]
 ;; prints 1 through 4
 </code></pre>
-<h3><a href="#anonymous-procedures-as-closures" id="anonymous-procedures-as-closures" class="section-anchor">Anonymous procedures as closures</a></h3>
+<h4><a href="#anonymous-procedures-as-closures" id="anonymous-procedures-as-closures" class="section-anchor">Anonymous procedures as closures</a></h4>
 <p>Anonymous procedures are &ldquo;closures&rdquo;; that means they capture or &ldquo;close over&rdquo; the
 bindings (not just the current values) of local variables and procedure inputs.
 They do not capture agent variables and do not capture the identity (or even the
 agent type) of the current agent.</p>
-<h3><a href="#nonlocal-exits" id="nonlocal-exits" class="section-anchor">Nonlocal exits</a></h3>
+<h4><a href="#nonlocal-exits" id="nonlocal-exits" class="section-anchor">Nonlocal exits</a></h4>
 <p>The <code>stop</code> and <code>report</code> commands exit from the dynamically enclosing procedure,
 not the enclosing anonymous procedure. (This is backward-compatible with older
 NetLogo versions.)</p>
-<h3><a href="#anonymous-procedures-and-extensions" id="anonymous-procedures-and-extensions" class="section-anchor">Anonymous procedures and extensions</a></h3>
+<h4><a href="#anonymous-procedures-and-extensions" id="anonymous-procedures-and-extensions" class="section-anchor">Anonymous procedures and extensions</a></h4>
 <p>The extensions API supports writing primitives that accept anonymous procedures
 as input. Write us for sample code.</p>
-<h3><a href="#limitations" id="limitations" class="section-anchor">Limitations</a></h3>
+<h4><a href="#limitations" id="limitations" class="section-anchor">Limitations</a></h4>
 <p>We hope to address at least some of the following limitations in future NetLogo
 versions:</p>
 <ul>
@@ -1194,7 +1650,7 @@ and extension primitives, not ordinary procedures. So for example if I have a
 procedure <code>p</code> that accepts an anonymous procedure as input, it must be called
 as e.g. <code>p [ -&gt; ... ]</code> not <code>p [ ... ]</code>.</li>
 </ul>
-<h3><a href="#what-is-optional" id="what-is-optional" class="section-anchor">What is Optional?</a></h3>
+<h4><a href="#what-is-optional" id="what-is-optional" class="section-anchor">What is Optional?</a></h4>
 <p>There are several different ways of writing anonymous procedures which allow
 users to omit part or all of the anonymous procedure syntax. These are
 summarized in the table below.</p>
@@ -1276,12 +1732,12 @@ summarized in the table below.</p>
 <p><strong>Note</strong>: brackets around input names were <strong>always required</strong> in NetLogo 6.0.0.
 If you copy and paste code into NetLogo 6.0.0 using anonymous procedures with
 unbracketed input names, the code will not compile until you add the brackets.</p>
-<h3><a href="#code-example" id="code-example" class="section-anchor">Code example</a></h3>
+<h4><a href="#code-example" id="code-example" class="section-anchor">Code example</a></h4>
 <blockquote>
 <p><strong>Code Example:</strong> State Machine Example</p>
 </blockquote>
-<h2><a href="#world" id="world" class="section-anchor"><b>World</b></a></h2>
-<h2><a href="#tick-counter" id="tick-counter" class="section-anchor">Tick counter</a></h2>
+<h2><a href="#world" id="world" class="section-anchor">World</a></h2>
+<h3><a href="#tick-counter" id="tick-counter" class="section-anchor">Tick counter</a></h3>
 <p>In many NetLogo models, time passes in discrete steps, called &ldquo;ticks&rdquo;. NetLogo
 includes a built-in tick counter so you can keep track of how many ticks have
 passed.</p>
@@ -1297,7 +1753,7 @@ tick counter.</p>
 <p>If your model is set to use tick-based updates, then the <a href="dictionary.html#tick"><code>tick</code></a> command will
 usually also update the view. See the later section,
 <a href="#view-updates">View Updates</a>.</p>
-<h3><a href="#when-to-tick" id="when-to-tick" class="section-anchor">When to tick</a></h3>
+<h4><a href="#when-to-tick" id="when-to-tick" class="section-anchor">When to tick</a></h4>
 <p>Use <a href="dictionary.html#reset-ticks"><code>reset-ticks</code></a> at the end of your setup procedure.</p>
 <p>Use <a href="dictionary.html#tick"><code>tick</code></a> at the end of your go procedure.</p>
 <pre><code>to setup
@@ -1311,7 +1767,7 @@ to go
   tick
 end
 </code></pre>
-<h3><a href="#fractional-ticks" id="fractional-ticks" class="section-anchor">Fractional ticks</a></h3>
+<h4><a href="#fractional-ticks" id="fractional-ticks" class="section-anchor">Fractional ticks</a></h4>
 <p>In most models, the tick counter starts at 0 and goes up 1 at a time, from
 integer to integer. But it&rsquo;s also possible for the tick counter to take on
 in-between floating point values.</p>
@@ -1322,7 +1778,7 @@ tick counter.</p>
 See, for example, the GasLab models in the Models Library (under
 Chemistry &amp; Physics). These models calculate the exact time at which a future
 event is to occur, then advance the tick counter to exactly that time.</p>
-<h2><a href="#view-updates" id="view-updates" class="section-anchor">View updates</a></h2>
+<h3><a href="#view-updates" id="view-updates" class="section-anchor">View updates</a></h3>
 <p>The &ldquo;view&rdquo; in NetLogo lets you see the agents in your model on your computer&rsquo;s
 screen. As your agents move and change, you see them moving and changing in the
 view.</p>
@@ -1347,7 +1803,7 @@ you may see something unexpected &ndash; perhaps something confusing or misleadi
 <p>It&rsquo;s also important how often updates happen, because updates take time. The
 more time NetLogo spends updating the view, the slower your model will run. With
 fewer updates, your model runs faster.</p>
-<h3><a href="#continuous-updates" id="continuous-updates" class="section-anchor">Continuous updates</a></h3>
+<h4><a href="#continuous-updates" id="continuous-updates" class="section-anchor">Continuous updates</a></h4>
 <p>Continuous updates are very simple. With continuous updates, NetLogo updates the
 view a certain number of times per second &ndash; by default, 30 times a second when
 the speed slider is in the default, middle setting.</p>
@@ -1361,7 +1817,7 @@ your agents moving (or changing color, etc.) one at a time.</p>
 command. The <a href="dictionary.html#display"><code>display</code></a> command turns updates back on, and also forces an
 immediate update (unless the user is fast-forwarding the model using the speed
 slider).</p>
-<h3><a href="#tick-based-updates" id="tick-based-updates" class="section-anchor">Tick-based updates</a></h3>
+<h4><a href="#tick-based-updates" id="tick-based-updates" class="section-anchor">Tick-based updates</a></h4>
 <p>As discussed above in the <a href="#tick-counter">Tick Counter</a> section, in many NetLogo
 models, time passes in discrete steps, called &ldquo;ticks&rdquo;. Typically, you want the
 view to update once per tick, between ticks. That&rsquo;s the default behavior with
@@ -1385,7 +1841,7 @@ command. An example in the Models Library is the Life model (under
 Computer Science -&gt; Cellular Automata). The forever buttons that let the user
 draw in the view use the <a href="dictionary.html#display"><code>display</code></a> command so the user can see what they are
 drawing, even though the tick counter is not advancing.</p>
-<h3><a href="#choosing-a-mode" id="choosing-a-mode" class="section-anchor">Choosing a mode</a></h3>
+<h4><a href="#choosing-a-mode" id="choosing-a-mode" class="section-anchor">Choosing a mode</a></h4>
 <p>Advantages of tick-based updates over continuous updates include:</p>
 <ol>
 <li>Consistent, predictable view update behavior which does not vary from
@@ -1413,7 +1869,7 @@ your model faster. On the other hand, continuous updates will be faster when
 running a single tick is faster than drawing a frame of the model. Most models
 run faster under tick-based updates, but for an example of a model which is
 faster with continuous updates see the &ldquo;Heroes and Cowards&rdquo; library model.</p>
-<h3><a href="#frame-rate" id="frame-rate" class="section-anchor">Frame rate</a></h3>
+<h4><a href="#frame-rate" id="frame-rate" class="section-anchor">Frame rate</a></h4>
 <p>One of the model settings in NetLogo&rsquo;s &ldquo;Settings&hellip;&rdquo; dialog is &ldquo;Frame rate&rdquo;
 which defaults to 30 frames per second.</p>
 <p>The frame rate setting affects both continuous updates and tick-based updates.</p>
@@ -1427,7 +1883,7 @@ pause and wait until the full 1/30 of a second has passed before continuing.</p>
 <p>The frame rate settings lets you set what you consider to be a normal speed for
 your model. Then you, or the user of your model, can use the speed slider to
 temporarily get a faster or slower speed.</p>
-<h2><a href="#topology" id="topology" class="section-anchor">Topology</a></h2>
+<h3><a href="#topology" id="topology" class="section-anchor">Topology</a></h3>
 <p>The way the world of patches is connected can change. By default the world is a
 torus which means it isn&rsquo;t bounded, but &ldquo;wraps&rdquo; &ndash; so when a turtle moves past
 the edge of the world, it disappears and reappears on the opposite edge and
@@ -1541,7 +1997,7 @@ patch-variable across the world remains constant. However, if you want the
 diffuse matter to still fall off the edges of the world as it would on an
 infinite plane you still need to clear the edges each step as in the Diffuse Off
 Edges Example.</p>
-<h2><a href="#observer-perspective" id="observer-perspective" class="section-anchor"><b>Observer Perspective</b></a></h2>
+<h2><a href="#observer-perspective" id="observer-perspective" class="section-anchor">Observer Perspective</a></h2>
 <p>The 2D and the 3D view show the world from the perspective of the observer. By
 default the observer is looking down on the world from the positive z-axis at
 the origin. You can change the perspective of the observer by using the
@@ -1561,8 +2017,8 @@ returns to its default position (above the origin, looking straight down).</p>
 <blockquote>
 <p><strong>Code Example:</strong> Perspective Example</p>
 </blockquote>
-<h2><a href="#inputoutput" id="inputoutput" class="section-anchor"><b>Input/Output</b></a></h2>
-<h2><a href="#output" id="output" class="section-anchor">Output</a></h2>
+<h2><a href="#inputoutput" id="inputoutput" class="section-anchor">Input/Output</a></h2>
+<h3><a href="#output" id="output" class="section-anchor">Output</a></h3>
 <p>This section is about output to the screen. Output to the screen can also be
 later saved to a file using the <a href="dictionary.html#export-cmds"><code>export-output</code></a> command. If you
 need a more flexible method of writing data to external files, see the next
@@ -1593,7 +2049,7 @@ area can increase the size of your exported worlds.</p>
 <a href="dictionary.html#output-cmds"><code>output-type</code></a>, <a href="dictionary.html#output-cmds"><code>output-write</code></a>, <a href="dictionary.html#clear-output"><code>clear-output</code></a>, or
 <a href="dictionary.html#export-cmds"><code>export-output</code></a> in a model which does not have a separate output
 area, then the commands apply to the output portion of the Command Center.</p>
-<h3><a href="#how-output-primitives-differ" id="how-output-primitives-differ" class="section-anchor">How Output Primitives Differ</a></h3>
+<h4><a href="#how-output-primitives-differ" id="how-output-primitives-differ" class="section-anchor">How Output Primitives Differ</a></h4>
 <p>This information is a quick reference for more advanced users.</p>
 <p>The <a href="dictionary.html#print"><code>print</code></a>, <a href="dictionary.html#show"><code>show</code></a>, <a href="dictionary.html#type"><code>type</code></a>, and <a href="dictionary.html#write"><code>write</code></a> primitives differ on the following facets:</p>
 <ul>
@@ -1614,7 +2070,7 @@ area, then the commands apply to the output portion of the Command Center.</p>
 <tr><td><a href="dictionary.html#write"><code>write</code></a></td><td>boolean, number, string, lists containing only these types</td><td>no</td><td>yes</td><td>no</td></tr>
 </tbody>
 </table>
-<h2><a href="#user-interaction-primitives" id="user-interaction-primitives" class="section-anchor">User Interaction Primitives</a></h2>
+<h4><a href="#user-interaction-primitives" id="user-interaction-primitives" class="section-anchor">User Interaction Primitives</a></h4>
 <p>NetLogo features several primitives which allow a model to interact with the
 user. These primitives include <a href="dictionary.html#user-directory">user-directory</a>,
 <a href="dictionary.html#user-file">user-file</a>,
@@ -1632,7 +2088,7 @@ all prompt the user to provide input in the form of text or a selection.
 <p>Note that all active forever buttons will pause when one of these primitives is
 used and will resume only when the user completes the interaction with the
 button.</p>
-<h3><a href="#what-does-halt-mean" id="what-does-halt-mean" class="section-anchor">What does &ldquo;Halt&rdquo; mean?</a></h3>
+<h4><a href="#what-does-halt-mean" id="what-does-halt-mean" class="section-anchor">What does &ldquo;Halt&rdquo; mean?</a></h4>
 <p>The primitives which prompt the user for input, as well as <code>user-message</code> all
 provide a &ldquo;Halt&rdquo; button. The effect of this button is the same for all of these
 primitives - it halts the model. When the model is halted all running code is
@@ -1640,7 +2096,7 @@ stopped, including buttons and the command center. Since halting stops code in
 the middle of whatever it happened to be doing at the time it was halted, you
 may see strange results if you continue to run the model after a halt without
 setting it up again.</p>
-<h2><a href="#file-io" id="file-io" class="section-anchor">File I/O</a></h2>
+<h3><a href="#file-io" id="file-io" class="section-anchor">File I/O</a></h3>
 <p>In NetLogo, there is a set of primitives that give you the power to interact
 with outside files. They all begin with the prefix <strong>file-</strong>.</p>
 <p>There are two main modes when dealing with files: reading and writing. The
@@ -1709,7 +2165,7 @@ file-close
 <p>The <a href="dictionary.html#user-directory"><code>user-directory</code></a>, <a href="dictionary.html#user-file"><code>user-file</code></a>, and <a href="dictionary.html#user-new-file"><code>user-new-file</code></a> primitives are
 useful when you want the user to choose a file or directory for your code to
 operate on.</p>
-<h2><a href="#lists" id="lists" class="section-anchor"><b>Lists</b></a></h2>
+<h2><a href="#lists" id="lists" class="section-anchor">Lists</a></h2>
 <p>In the simplest models, each variable holds only one piece of information,
 usually a number or a string. Lists let you store multiple pieces of information
 in a single value by collecting that information in a list. Each value in the
@@ -1921,7 +2377,7 @@ collections library. These are 32-wide
 <a href="https://en.wikipedia.org/wiki/Hash_array_mapped_trie" target="_blank">hash array mapped tries</a>,
 as implemented by Tiark Rompf, based in part on work by Phil Bagwell and Rich
 Hickey.</p>
-<h2><a href="#strings" id="strings" class="section-anchor"><b>Strings</b></a></h2>
+<h2><a href="#strings" id="strings" class="section-anchor">Strings</a></h2>
 <p>Strings may contain any Unicode characters.</p>
 <p>To input a constant string in NetLogo, surround it with double quotes.</p>
 <p>The empty string is written by putting nothing between the quotes, like this:
@@ -1962,8 +2418,8 @@ sequences:</p>
 <li><code>\&quot;</code> = double quote</li>
 <li><code>\\</code> = backslash</li>
 </ul>
-<h2><a href="#mathematics" id="mathematics" class="section-anchor"><b>Mathematics</b></a></h2>
-<h2><a href="#math" id="math" class="section-anchor">Math</a></h2>
+<h2><a href="#mathematics" id="mathematics" class="section-anchor">Mathematics</a></h2>
+<h3><a href="#math" id="math" class="section-anchor">Math</a></h3>
 <p>All numbers in NetLogo are stored internally as double precision floating point
 numbers, as defined in the IEEE 754 standard. They are 64 bit numbers consisting
 of one sign bit, an 11-bit exponent, and a 52-bit mantissa. See the IEEE 754
@@ -2059,7 +2515,7 @@ that tolerates slight imprecision, for example
 <p>Also, the <a href="dictionary.html#precision"><code>precision</code></a> primitive is handy for rounding off numbers for display
 purposes. NetLogo monitors round the numbers they display to a configurable
 number of decimal places, too.</p>
-<h2><a href="#random-numbers" id="random-numbers" class="section-anchor">Random numbers</a></h2>
+<h3><a href="#random-numbers" id="random-numbers" class="section-anchor">Random numbers</a></h3>
 <p>The random numbers used by NetLogo are what is called &ldquo;pseudo-random&rdquo;. (This is
 typical in computer programming.) That means they appear random, but are in fact
 generated by a deterministic process. &ldquo;Deterministic&rdquo; means that you get the
@@ -2108,18 +2564,18 @@ numbers generated by <a href="dictionary.html#random"><code>random</code></a> an
 several other random distributions. See the dictionary entries for
 <a href="dictionary.html#random-reporters"><code>random-normal</code></a>, <a href="dictionary.html#random-reporters"><code>random-poisson</code></a>,
 <a href="dictionary.html#random-reporters"><code>random-exponential</code></a>, and <a href="dictionary.html#random-reporters"><code>random-gamma</code></a>.</p>
-<h3><a href="#auxiliary-generator" id="auxiliary-generator" class="section-anchor">Auxiliary generator</a></h3>
+<h4><a href="#auxiliary-generator" id="auxiliary-generator" class="section-anchor">Auxiliary generator</a></h4>
 <p>Code run by buttons or from the command center uses the main random number
 generator.</p>
 <p>Code in monitors uses an auxiliary random generator, so even if a monitor does a
 calculation that uses random numbers, the outcome of the model is not affected.
 The same is true of code in sliders.</p>
-<h3><a href="#local-randomness" id="local-randomness" class="section-anchor">Local randomness</a></h3>
+<h4><a href="#local-randomness" id="local-randomness" class="section-anchor">Local randomness</a></h4>
 <p>You may want to explicitly specify that a section of code does not affect the
 state of the main random generator, so the outcome of the model is not affected.
 The <a href="dictionary.html#with-local-randomness"><code>with-local-randomness</code></a> command is provided for this purpose. See its
 entry in the NetLogo Dictionary for more information.</p>
-<h3><a href="#saving-a-random-seed-for-a-run" id="saving-a-random-seed-for-a-run" class="section-anchor">Saving a Random Seed for a Run</a></h3>
+<h4><a href="#saving-a-random-seed-for-a-run" id="saving-a-random-seed-for-a-run" class="section-anchor">Saving a Random Seed for a Run</a></h4>
 <p>If you want to know what the random seed used by a &ldquo;run&rdquo; of a model was, you can
 add some simple code to track it.  Then if an interesting behavior emerges or
 an intermittent error condition occurs, you have a way to reproduce the run by
@@ -2144,7 +2600,7 @@ end
 to the command center whenever you want to know its value.  If you are using
 BehaviorSpace to run experiments, you can also include it in the output to be
 able to later reproduce runs that it generates.</p>
-<h2><a href="#plotting" id="plotting" class="section-anchor"><b>Plotting</b></a></h2>
+<h2><a href="#plotting" id="plotting" class="section-anchor">Plotting</a></h2>
 <p>NetLogo&rsquo;s plotting features let you create plots to help you understand what&rsquo;s
 going on in your model.</p>
 <p>Most plots can be created by creating and editing plot widgets in the Interface tab,
@@ -2354,7 +2810,7 @@ plotting techniques. Also check out the following code examples:</p>
 <blockquote>
 <p>Code Examples: Plot Axis Example, Plot Smoothing Example, Rolling Plot Example</p>
 </blockquote>
-<h2><a href="#color" id="color" class="section-anchor"><b>Color</b></a></h2>
+<h2><a href="#color" id="color" class="section-anchor">Color</a></h2>
 <p>NetLogo represents colors in different ways. A color can be number in the range
 0 to 140, with the exception of 140 itself. Below is a chart showing the range
 of such NetLogo colors.
@@ -2455,7 +2911,7 @@ ask one-of turtles [palette:set-transparency 60]
 <p><strong>Color Picker dialog</strong></p>
 <p>The <a href="colorpicker.html">Color Picker</a> dialog helps you experiment with and choose colors. Open it
 by choosing Color Picker on the Tools Menu.</p>
-<h2><a href="#movies" id="movies" class="section-anchor"><b>Movies</b></a></h2>
+<h2><a href="#movies" id="movies" class="section-anchor">Movies</a></h2>
 <p>This section describes how to capture an &ldquo;.mp4&rdquo; movie of a NetLogo model.</p>
 <p>First, use the <a href="vid.html#vid:start-recorder"><code>vid:start-recorder</code></a> command to
 start the video recorder.</p>
@@ -2518,3 +2974,4 @@ others are lossy. &ldquo;Lossy&rdquo; means that in order to make the files smal
 the detail in the movie is lost. Depending on the nature of your model, you may
 want to avoid using lossy compression, for example if the view contains fine
 pixel-level detail.</p>
+</main>
