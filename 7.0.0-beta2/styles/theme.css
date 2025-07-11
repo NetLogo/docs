@@ -317,13 +317,29 @@ table {
 
 	--table-background: rgb(30, 30, 30);
 	--table-border-color: rgb(40, 50, 80);
+}
+
+/* Workaround because max-width does not work on table */
+div.table-container table {
+	margin: 0;
+	padding: 0;
+}
+
+div.table-container,
+table:not(.table-container table) {
+	display: block;
+	padding: 0;
+	margin-inline: var(--space-xl);
+	margin-bottom: var(--block-bottom);
 	width: calc(var(--max-width-ch) - 2 * (var(--space-xl)));
 	max-width: calc(var(--max-width-ch) - 2 * (var(--space-xl))) !important;
+	overflow-x: auto; /* Allow horizontal scrolling */
 }
 
 @media (max-width: 1024px) {
-	table {
-		max-width: min(90vw, calc(var(--max-width-ch) - 2 * (var(--space-md)))) !important;
+	div.table-container,
+	table:not(.table-container table) {
+		max-width: min(100vw - 2 * (var(--space-xl)), calc(var(--max-width-ch) - 2 * (var(--space-md)))) !important;
 	}
 }
 

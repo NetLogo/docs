@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>NetLogo Help: let</title>
+    <link rel="stylesheet" href="../netlogo.css" type="text/css" />
+		<link rel="icon" type="image/png" href="../favicon/favicon-96x96.png" sizes="96x96" />
+		<link rel="icon" type="image/svg+xml" href="../favicon/favicon.svg" />
+		<link rel="shortcut icon" href="../favicon/favicon.ico" />
+		<link rel="apple-touch-icon" sizes="180x180" href="../favicon/apple-touch-icon.png" />
+		<meta name="apple-mobile-web-app-title" content="Docs" />
+		<link rel="manifest" href="favicon/site.webmanifest" />
+		<link rel="stylesheet" href="netlogo.css" type="text/css"/>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+  </head>
+  <body class="prose">
+    <div class="dict_entry" id="let">
+ <h3><a>let<span class="since">2.1</span></a></h3>
+ <h4><span class="prim_example">let <i>variable</i> <i>value</i></span></h4>
+ <p>Creates a new local variable and gives it the given value. A local variable is one that exists only within the enclosing block of commands.</p>
+ <p>If you want to change the value afterwards, use <a class="code" href="#set">set</a>.</p>
+ <p>Example:</p>
+ <pre>let prey one-of sheep-here
+if prey != nobody
+  [ ask prey [ die ] ]
+</pre>
+ <p>You can also create multiple local variables if you put the variable names in a list format. The values for the new variables will be taken from the list given as the second argument. This can be particular useful when you want to calculate multiple values in a reporter procedure, as you can easily create multiple variables with the results. A runtime error will occur if you do not give a list of values or the list you provide doesn't have enough values for all the variables.</p>
+ <pre>let [x y z] [10 15 20]
+show x ; prints 10
+show y ; prints 15
+show z ; prints 20
+
+let [a b c] [10] ; causes a runtime error as we need at least 3 values in the list
+</pre>
+</div>
+    <p>
+      Take me to the full <a href="../dictionary.html">NetLogo Dictionary</a>
+    </p>
+  </body>
+</html>

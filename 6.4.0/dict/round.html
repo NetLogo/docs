@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>NetLogo Help: round</title>
+    <link rel="stylesheet" href="../netlogo.css" type="text/css" />
+		<link rel="icon" type="image/png" href="../favicon/favicon-96x96.png" sizes="96x96" />
+		<link rel="icon" type="image/svg+xml" href="../favicon/favicon.svg" />
+		<link rel="shortcut icon" href="../favicon/favicon.ico" />
+		<link rel="apple-touch-icon" sizes="180x180" href="../favicon/apple-touch-icon.png" />
+		<meta name="apple-mobile-web-app-title" content="Docs" />
+		<link rel="manifest" href="favicon/site.webmanifest" />
+		<link rel="stylesheet" href="netlogo.css" type="text/css"/>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+  </head>
+  <body class="prose">
+    <div class="dict_entry" id="round">
+ <h3><a>round<span class="since">1.0</span></a></h3>
+ <h4><span class="prim_example">round <i>number</i></span></h4>
+ <p>Reports the integer nearest to <i>number</i>.</p>
+ <p>If the decimal portion of <i>number</i> is exactly .5, the number is rounded in the <b>positive</b> direction.</p>
+ <p>Note that rounding in the positive direction is not always how rounding is done in other software programs. (In particular, it does not match the behavior of StarLogoT, which always rounded numbers ending in 0.5 to the nearest even integer.) The rationale for this behavior is that it matches how turtle coordinates relate to patch coordinates in NetLogo. For example, if a turtle's xcor is -4.5, then it is on the boundary between a patch whose pxcor is -4 and a patch whose pxcor is -5, but the turtle must be considered to be in one patch or the other, so the turtle is considered to be in the patch whose pxcor is -4, because we round towards the positive numbers.</p>
+ <pre>show round 4.2
+=&gt; 4
+show round 4.5
+=&gt; 5
+show round -4.5
+=&gt; -4
+</pre>
+ <p>See also <a class="code" href="#precision">precision</a>, <a class="code" href="#ceiling">ceiling</a>, <a class="code" href="#floor">floor</a>.</p>
+</div>
+    <p>
+      Take me to the full <a href="../dictionary.html">NetLogo Dictionary</a>
+    </p>
+  </body>
+</html>

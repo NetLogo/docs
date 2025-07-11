@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>NetLogo Help: who-are-not</title>
+    <link rel="stylesheet" href="../netlogo.css" type="text/css" />
+		<link rel="icon" type="image/png" href="../favicon/favicon-96x96.png" sizes="96x96" />
+		<link rel="icon" type="image/svg+xml" href="../favicon/favicon.svg" />
+		<link rel="shortcut icon" href="../favicon/favicon.ico" />
+		<link rel="apple-touch-icon" sizes="180x180" href="../favicon/apple-touch-icon.png" />
+		<meta name="apple-mobile-web-app-title" content="Docs" />
+		<link rel="manifest" href="favicon/site.webmanifest" />
+		<link rel="stylesheet" href="netlogo.css" type="text/css"/>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+  </head>
+  <body class="prose">
+    <div class="dict_entry" id="who-are-not">
+ <h3><a>who-are-not<span class="since">6.3.1</span></a></h3>
+ <h4><span class="prim_example"><i>agentset</i> who-are-not <i>agentset</i></span> <span class="prim_example"><i>agentset</i> who-are-not <i>agent</i></span></h4>
+ <p>Takes an agentset on the left and an agentset or an agent on the right. Reports a new agentset containing all agents from the left-hand agentset that are not in the right-hand agentset (or are not the right-hand agent).</p>
+ <pre>breed [frogs frog]
+breed [mice mouse]
+
+create-frogs 10
+create-mice 10
+create-turtles 10
+
+; contains all the turtles who are not frogs
+ask turtles who-are-not frogs [
+  forward 1
+]</pre>
+ <p>Another example:</p>
+ <p></p>
+ <pre>ask turtles [
+  ; contains all the turtles this turtle is not linked to
+  let targets (other turtles who-are-not link-neighbors)
+  if count targets &gt; 0 [
+    create-link-with one-of targets
+  ]
+]</pre>
+</div>
+    <p>
+      Take me to the full <a href="../dictionary.html">NetLogo Dictionary</a>
+    </p>
+  </body>
+</html>

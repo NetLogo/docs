@@ -62,6 +62,14 @@
 			if (e.key === 'Escape' && modal.classList.contains('open')) closeModal();
 		});
 
+		// Wrap tables in div.table-container
+		document.querySelectorAll('table').forEach((table) => {
+			const container = document.createElement('div');
+			container.className = 'table-container';
+			table.parentNode.insertBefore(container, table);
+			container.appendChild(table);
+		});
+
 		// Dropdown hover
 		const dropdownExitTimers = [];
 		document.querySelectorAll('.navbar__item').forEach((item) => {

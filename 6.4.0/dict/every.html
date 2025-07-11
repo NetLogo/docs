@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>NetLogo Help: every</title>
+    <link rel="stylesheet" href="../netlogo.css" type="text/css" />
+		<link rel="icon" type="image/png" href="../favicon/favicon-96x96.png" sizes="96x96" />
+		<link rel="icon" type="image/svg+xml" href="../favicon/favicon.svg" />
+		<link rel="shortcut icon" href="../favicon/favicon.ico" />
+		<link rel="apple-touch-icon" sizes="180x180" href="../favicon/apple-touch-icon.png" />
+		<meta name="apple-mobile-web-app-title" content="Docs" />
+		<link rel="manifest" href="favicon/site.webmanifest" />
+		<link rel="stylesheet" href="netlogo.css" type="text/css"/>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+  </head>
+  <body class="prose">
+    <div class="dict_entry" id="every">
+ <h3><a>every<span class="since">1.0</span></a></h3>
+ <h4><span class="prim_example">every <i>number</i> [ <i>commands</i> ]</span></h4>
+ <p>Runs the given commands only if it's been more than <i>number</i> seconds since the last time this agent ran them in this context. Otherwise, the commands are skipped.</p>
+ <p>By itself, every doesn't make commands run over and over again. You need to use every inside a loop, or inside a forever button, if you want the commands run over and over again. every only limits how often the commands run.</p>
+ <p>Above, "in this context" means during the same ask (or button press or command typed in the Command Center). So it doesn't make sense to write <code>ask turtles [ every 0.5 [ ... ] ]</code>, because when the ask finishes the turtles will all discard their timers for the "every". The correct usage is shown below.</p>
+ <pre>every 0.5 [ ask turtles [ fd 1 ] ]
+;; twice a second the turtles will move forward 1
+every 2 [ set index index + 1 ]
+;; every 2 seconds index is incremented
+</pre>
+ <p>See also <a class="code" href="#wait">wait</a>.</p>
+</div>
+    <p>
+      Take me to the full <a href="../dictionary.html">NetLogo Dictionary</a>
+    </p>
+  </body>
+</html>
