@@ -22,6 +22,18 @@
 			}
 		}
 
+		// Scroll to hash
+		if (window.location.hash) {
+			const target = document.querySelector(window.location.hash);
+			if (target) {
+				target.scrollIntoView({ behavior: 'smooth' });
+				// Ensure the target is visible after scrolling
+				setTimeout(() => {
+					target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+				}, 100);
+			}
+		}
+
 		/* search modal toggle */
 		const modal = document.getElementById('searchModal');
 		const btn = document.getElementById('searchBtn');
@@ -51,7 +63,19 @@
 		});
 
 		// Dropdown hover
+		const dropdownExitTimers = [];
 		document.querySelectorAll('.navbar__item').forEach((item) => {
+			// Cancel any existing timers
+			const timers = [...dropdownExitTimers];
+			dropdownExitTimers.length = 0;
+			timers.forEach((timer) => clearTimeout(timer));
+
+			// Clear any 'open' class from previous items
+			document.querySelectorAll('.navbar__item .dropdown__menu.open').forEach((menu) => {
+				menu.classList.remove('open');
+			});
+
+			// Set up new timers for the current item
 			let enterTimer, leaveTimer;
 
 			const menu = item.querySelector('.dropdown__menu');
@@ -70,6 +94,8 @@
 					menu.classList.remove('open');
 				}, 200); // leave debounce (200ms)
 			});
+
+			dropdownExitTimers.push(leaveTimer);
 		});
 
 		// Version Change

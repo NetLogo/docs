@@ -108,7 +108,7 @@
 
 /* Version selector */
 .version-select {
-	appearance: none;
+	appearance: base-select;
 	background: var(--color-nav-text);
 	color: var(--color-text-on-primary);
 	border: 1px solid transparent;

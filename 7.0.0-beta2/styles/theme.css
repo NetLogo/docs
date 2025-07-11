@@ -24,6 +24,7 @@ h1 {
 	padding: var(--padding-block) var(--space-xl);
 }
 
+h1,
 h1 a {
 	scroll-margin-top: calc(
 		var(--scroll-margin) + var(--h1-size) + 2 * var(--padding-block)
@@ -42,6 +43,8 @@ h2 {
 	--padding-block: calc(0.7 * var(--space-lg));
 	padding: var(--padding-block) var(--space-xl);
 }
+
+h2,
 h2 a {
 	scroll-margin-top: calc(
 		var(--scroll-margin) + var(--h2-size) + 2 * var(--padding-block)
@@ -57,6 +60,7 @@ h3 {
 	padding: var(--padding-block) var(--space-xl);
 }
 
+h3,
 h3 a,
 .dict_entry {
 	/* special case for dictionary entries requires redefining padding */
@@ -72,6 +76,7 @@ h4 {
 	font-weight: 500;
 }
 
+h4,
 h4 a {
 	scroll-margin-top: calc(var(--scroll-margin) + var(--h4-size)); /* 100% of the h4 height + padding */
 }
@@ -82,6 +87,7 @@ h5 {
 	color: #707290;
 }
 
+h5,
 h5 a {
 	scroll-margin-top: calc(var(--scroll-margin) + var(--h5-size)); /* 100% of the h5 height + padding */
 }
@@ -221,13 +227,13 @@ ul.no-bullets {
 /* Common */
 div.toc ul,
 div.toc ul a {
-	color: var(--color-primary);
+	color: var(--color-link);
 	text-decoration: none;
 }
 
 div.toc ul a:hover,
 div.toc ul a:focus {
-	text-decoration: underline;
+	color: var(--color-link-hover);
 	border: none;
 	outline: none;
 }
