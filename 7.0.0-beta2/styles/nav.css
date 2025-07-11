@@ -313,7 +313,7 @@ button.navbar__action {
 	}
 }
 
-@media (max-width: 400px) {
+@media (max-width: 768px) {
 	.navbar__brand {
 		/* display: none; Hide brand logo on small screens */
 		width: 6rem; /* Adjust width for smaller screens */
