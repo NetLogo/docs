@@ -2027,7 +2027,7 @@
  <p>export-output writes the contents of the model's output area to an external file given by the string <i>filename</i>. (If the model does not have a separate output area, the output portion of the Command Center is used.)</p>
  <p>export-plot writes the x and y values of all points plotted by all the plot pens in the plot given by the string <i>plotname</i> to an external file given by the string <i>filename</i>. If a pen is in bar mode (mode 0) and the y value of the point plotted is greater than 0, the upper-left corner point of the bar will be exported. If the y value is less than 0, then the lower-left corner point of the bar will be exported.</p>
  <p>export-all-plots writes every plot in the current model to an external file given by the string <i>filename</i>. Each plot is identical in format to the output of export-plot.</p>
- <p>export-world writes the values of all variables, both built-in and user-defined, including all observer, turtle, and patch variables, the drawing, the contents of the output area if one exists, the contents of any plots and the state of the random number generator, to an external file given by the string <i>filename</i>. (The result file can be read back into NetLogo with the <a class="code" href="#import-world">import-world</a> primitive.) export-world does not save the state of open files.</p>
+ <p>export-world writes the values of all variables, both built-in and user-defined, including all observer, turtle, and patch variables, the drawing, the contents of the output area if one exists, the contents of any plots and the state of the random number generator, to an external file given by the string <i>filename</i>. (The result file can be read back into NetLogo with the <a class="code" href="./dictionary.html#import-world">import-world</a> primitive.) export-world does not save the state of open files.</p>
  <p>export-plot, export-all-plots and export-world save files in in plain-text, "comma-separated values" (<code>.csv</code>) format. CSV files can be read by most popular spreadsheet and database programs as well as any text editor.</p>
  <p>If you wish to export to a file in a location other than the model's location, you should include the full path to the file you wish to export. (Use the forward-slash "/" as the folder separator.)</p>
  <p>Note that the functionality of these primitives is also available directly from NetLogo's File menu.</p>
@@ -2048,7 +2048,9 @@ export-world (word "results " date-and-time ".csv") ;; Colon characters in the t
 export-world (word "results " random-float 1.0 ".csv")
 </pre>
 </div>
-				<p style="padding: 0">Take me to the full <a href="dictionary.html">NetLogo Dictionary</a></p>
+				<p style="padding: var(--space-sm)">
+					Take me to the full <a href="dictionary.html">NetLogo Dictionary</a>
+				</p>
 			</main>
 		</div>
 		<script>

@@ -2021,7 +2021,7 @@
 				<div class="dict_entry" id="set-current-directory">
  <h3><a>set-current-directory<span class="since">2.0</span></a></h3>
  <h4><span class="prim_example">set-current-directory <i>string</i></span></h4>
- <p>Sets the current directory that is used by the primitives <a class="code" href="#file-delete">file-delete</a>, <a class="code" href="#file-exists">file-exists?</a>, and <a class="code" href="#file-open">file-open</a>.</p>
+ <p>Sets the current directory that is used by the primitives <a class="code" href="./dictionary.html#file-delete">file-delete</a>, <a class="code" href="./dictionary.html#file-exists">file-exists?</a>, and <a class="code" href="./dictionary.html#file-open">file-open</a>.</p>
  <p>The current directory is not used if the above commands are given an absolute file path. This is defaulted to the user's home directory for new models, and is changed to the model's directory when a model is opened.</p>
  <p>Note that in Windows file paths the backslash needs to be escaped within a string by using another backslash "C:\\"</p>
  <p>The change is temporary and is not saved with the model.</p>
@@ -2031,7 +2031,9 @@ file-open "my-file.txt"
 ;; Opens file "C:\\NetLogo\\my-file.txt"
 </pre>
 </div>
-				<p style="padding: 0">Take me to the full <a href="dictionary.html">NetLogo Dictionary</a></p>
+				<p style="padding: var(--space-sm)">
+					Take me to the full <a href="dictionary.html">NetLogo Dictionary</a>
+				</p>
 			</main>
 		</div>
 		<script>

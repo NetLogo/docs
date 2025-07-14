@@ -301,6 +301,7 @@ div.version {
 	flex-shrink: 0; /* Prevent shrinking */
 	box-shadow: none;
 	padding: 0;
+	padding-bottom: var(--space-sm);
 }
 
 .dictionary-layout .sidebar .heading-sticky {
@@ -415,7 +416,6 @@ div.version {
 		padding: 0 !important;
 		background: var(--color-nav-background);
 		overflow-y: auto;
-		max-height: 20rem;
 		position: absolute;
 		top: 12rem;
 		width: calc(100% - 2 * var(--space-xl));
@@ -459,8 +459,8 @@ div.version {
 /* --------- Desktop: min-width 1024px --------- */
 @media (min-width: 1024px) {
 	.dictionary-layout .sidebar {
-		min-height: 100vh; /* full-height */
-		max-height: 100vh;
+		min-height: 90vh; /* full-height */
+		max-height: 90vh;
 		margin-top: 0;
 	}
 	.dictionary-layout .content {

@@ -1106,8 +1106,8 @@ if (distancexyz 0 0 0) &lt; 10
 						world only modifies the turtle's heading, left in a 3D world may also modify the turtle's pitch and roll.
 					</p>
 					<p>
-						See also <a href="dictionary.html#left">left</a>, <a href="#tilt-cmds">tilt-up</a>,
-						<a href="#tilt-cmds">tilt-down</a>
+						See also <a href="dictionary.html#left">left</a>, <a class="code" href="#tilt-cmds">tilt-up</a>,
+						<a class="code" href="#tilt-cmds">tilt-down</a>
 					</p>
 				</div>
 				<div class="dict_entry" id="link-pitch">
@@ -1126,7 +1126,7 @@ ask link 0 1 [ print link-pitch ]
 					>
 					<p>
 						See also <a href="dictionary.html#link-heading">link-heading</a>,
-						<a href="#pitch">pitch</a>
+						<a class="code" href="#pitch">pitch</a>
 					</p>
 				</div>
 				<div class="dict_entry" id="load-shapes-3d">
@@ -1167,7 +1167,7 @@ ask link 0 1 [ print link-pitch ]
 					<p>
 						See also <a href="dictionary.html#max-pcor">max-pxcor</a>, <a href="dictionary.html#max-pcor">max-pycor</a>,
 						<a href="dictionary.html#min-pcor">min-pxcor</a>, <a href="dictionary.html#min-pcor">min-pycor</a>, and
-						<a href="#world-depth">world-depth</a>.
+						<a class="code" href="#world-depth">world-depth</a>.
 					</p>
 				</div>
 				<div class="dict_entry" id="neighbors-3d">
@@ -1219,8 +1219,8 @@ ask neighbors6 [ set pcolor red ]
 						the positive z-axis) the roll will never change.
 					</p>
 					<p>
-						See also <a href="#setxyz">setxyz</a>, <a href="#face-3d">face</a> and
-						<a href="#zoom">zoom</a>
+						See also <a class="code" href="#setxyz">setxyz</a>, <a class="code" href="#face-3d">face</a> and
+						<a class="code" href="#zoom">zoom</a>
 					</p>
 				</div>
 				<div class="dict_entry" id="observer-cors">
@@ -1236,7 +1236,7 @@ ask neighbors6 [ set pcolor red ]
 						<img alt="Observer Movement Command" src="images/observermovement.png" width="16" height="16" />
 					</h4>
 					<p>Reports the x-, y-, or z-coordinate of the observer.</p>
-					<p>See also <a href="#setxyz">setxyz</a></p>
+					<p>See also <a class="code" href="#setxyz">setxyz</a></p>
 					<h3>
 						<a id="patch">patch<span class="since">4.1</span></a>
 					</h3>
@@ -1327,9 +1327,9 @@ set heading heading + 10 ;; same effect as &quot;tilt-up 10&quot;
 </pre
 					>
 					<p>
-						See also <a href="dictionary.html#heading">heading</a>, <a href="#roll">roll</a>,
-						<a href="#tilt-cmds">tilt-up</a>, <a href="#tilt-cmds">tilt-down</a>, <a href="#right">right</a>,
-						<a href="#left">left</a>
+						See also <a href="dictionary.html#heading">heading</a>, <a class="code" href="#roll">roll</a>,
+						<a class="code" href="#tilt-cmds">tilt-up</a>, <a class="code" href="#tilt-cmds">tilt-down</a>, <a class="code" href="#right">right</a>,
+						<a class="code" href="#left">left</a>
 					</p>
 				</div>
 				<div class="dict_entry" id="pzcor">
@@ -1347,7 +1347,7 @@ set heading heading + 10 ;; same effect as &quot;tilt-up 10&quot;
 					</p>
 					<p>pzcor is greater than or equal to min-pzcor and less than or equal to max-pzcor.</p>
 					<p>All patch variables can be directly accessed by any turtle standing on the patch.</p>
-					<p>See also <a href="dictionary.html#pcor">pxcor, pycor</a>, <a href="#zcor">zcor</a>.</p>
+					<p>See also <a href="dictionary.html#pcor">pxcor, pycor</a>, <a class="code" href="#zcor">zcor</a>.</p>
 				</div>
 				<div class="dict_entry" id="random-pzcor">
 					<h3>
@@ -1402,7 +1402,7 @@ ask turtles [
 						The turtle turns right by <i>number</i> degrees, relative to its current orientation. While right in a 2D
 						world only modifies the turtle's heading, right in a 3D world may also modify the turtle's pitch and roll.
 					</p>
-					<p>See also <a href="dictionary.html#right">right</a> and <a href="#left">left</a></p>
+					<p>See also <a class="code" href="dictionary.html#right">right</a> and <a class="code" href="#left">left</a></p>
 				</div>
 				<div class="dict_entry" id="roll">
 					<h3>
@@ -1428,8 +1428,8 @@ set roll roll + 10 ;; same effect as &quot;roll-right 10&quot;
 </pre
 					>
 					<p>
-						See also <a href="dictionary.html#heading">heading</a>, <a href="#pitch">pitch</a>,
-						<a href="#roll-left">roll-left</a>, <a href="#roll-right">roll-right</a>.
+						See also <a href="dictionary.html#heading">heading</a>, <a class="code" href="#pitch">pitch</a>,
+						<a class="code" href="#roll-left">roll-left</a>, <a class="code" href="#roll-right">roll-right</a>.
 					</p>
 				</div>
 				<div class="dict_entry" id="roll-left">
@@ -1480,9 +1480,10 @@ set roll roll + 10 ;; same effect as &quot;roll-right 10&quot;
 					<pre>
 setxyz 0 0 0
 ;; agent moves to the middle of the center patch
-</pre
-					>
-					See also <a href="#face-3d">face</a>
+</pre>
+					<p>
+					See also <a class="code" href="#face-3d">face</a>
+					</p>
 				</div>
 				<div class="dict_entry" id="tilt-cmds">
 					<h3>
@@ -1582,7 +1583,7 @@ show [count turtles-at 0 0 0] of turtle 0
 					<p>Reports the total depth of the NetLogo world.</p>
 					<p>The depth of the world is the same as max-pzcor - min-pzcor + 1.</p>
 					<p>
-						See also <a href="#min-max-pzcor">max-pzcor</a>, <a href="#min-max-pzcor">min-pzcor</a>,
+						See also <a class="code" href="#min-max-pzcor">max-pzcor</a>, <a class="code" href="#min-max-pzcor">min-pzcor</a>,
 						<a href="dictionary.html#world-dim">world-width</a>, and
 						<a href="dictionary.html#world-dim">world-height</a>
 					</p>
@@ -1603,9 +1604,9 @@ show [count turtles-at 0 0 0] of turtle 0
 						This variable is always greater than or equal to (- screen-edge-z) and strictly less than screen-edge-z.
 					</p>
 					<p>
-						See also <a href="#setxyz">setxy</a>, <a href="dictionary.html#xcor">xcor</a>,
+						See also <a class="code" href="#setxyz">setxy</a>, <a href="dictionary.html#xcor">xcor</a>,
 						<a href="dictionary.html#ycor">ycor</a>, <a href="dictionary.html#pcor">pxcor</a>,
-						<a href="dictionary.html#pcor">pycor</a>, <a href="#pzcor">pzcor</a>
+						<a href="dictionary.html#pcor">pycor</a>, <a class="code" href="#pzcor">pzcor</a>
 					</p>
 				</div>
 				<div class="dict_entry" id="zoom">

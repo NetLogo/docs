@@ -2022,14 +2022,16 @@
  <h3><a>carefully<span class="since">2.1</span></a></h3>
  <h4><span class="prim_example">carefully [ <i>commands1</i> ] [ <i>commands2</i> ]</span></h4>
  <p>Runs <i>commands1</i>. If a runtime error occurs inside <i>commands1</i>, NetLogo won't stop and alert the user that an error occurred. It will suppress the error and run <i>commands2</i> instead.</p>
- <p>The error-message reporter can be used in <i>commands2</i> to find out what error was suppressed in <i>commands1</i>. See <a class="code" href="#error-message">error-message</a>.</p>
+ <p>The error-message reporter can be used in <i>commands2</i> to find out what error was suppressed in <i>commands1</i>. See <a class="code" href="./dictionary.html#error-message">error-message</a>.</p>
  <pre>carefully [ print one-of [1 2 3] ] [ print error-message ]
 =&gt; 3
 observer&gt; carefully [ print one-of [] ] [ print error-message ]
 =&gt; ONE-OF got an empty list as input.
 </pre>
 </div>
-				<p style="padding: 0">Take me to the full <a href="dictionary.html">NetLogo Dictionary</a></p>
+				<p style="padding: var(--space-sm)">
+					Take me to the full <a href="dictionary.html">NetLogo Dictionary</a>
+				</p>
 			</main>
 		</div>
 		<script>
