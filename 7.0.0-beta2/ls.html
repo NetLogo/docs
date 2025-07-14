@@ -5,7 +5,7 @@
 		<meta charset="UTF-8" />
 		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
-		<title>NetLogo 7.0.0-beta2: Ls</title>
+		<title>NetLogo 7.0.0-beta2: LevelSpace</title>
 		<link rel="stylesheet" href="netlogo.css" type="text/css" />
 		<link rel="icon" type="image/png" href="favicon/favicon-96x96.png" sizes="96x96" />
 		<link rel="icon" type="image/svg+xml" href="favicon/favicon.svg" />
@@ -254,10 +254,10 @@
 			<a href="palette.html">Palette</a>
 			<a href="profiler.html">Profiler</a>
 			<a href="py.html">Python</a>
-			<a href="r.html">R</a>
 			<a href="resource.html">Resource</a>
 			<a href="rnd.html">Rnd</a>
 			<a href="sound.html">Sound</a>
+			<a href="sr.html">Simple R</a>
 			<a href="table.html">Table</a>
 			<a href="time.html">Time</a>
 			<a href="vid.html">Vid</a>
@@ -375,10 +375,10 @@
 			<a href="palette.html">Palette</a>
 			<a href="profiler.html">Profiler</a>
 			<a href="py.html">Python</a>
-			<a href="r.html">R</a>
 			<a href="resource.html">Resource</a>
 			<a href="rnd.html">Rnd</a>
 			<a href="sound.html">Sound</a>
+			<a href="sr.html">Simple R</a>
 			<a href="table.html">Table</a>
 			<a href="time.html">Time</a>
 			<a href="vid.html">Vid</a>
@@ -490,10 +490,10 @@
 	</body>
 </html>
 <title>
-  NetLogo 7.0.0-beta2 User Manual: Ls Extension
+  NetLogo 7.0.0-beta2 User Manual: LevelSpace Extension
 </title>
 <main class="prose">
-<h1>Ls</h1>
+<h1>LevelSpace</h1>
 <h2><a href="#levelspace-fundamentals" id="levelspace-fundamentals" class="section-anchor">LevelSpace fundamentals</a></h2>
 <p>LevelSpace must be loaded in a model using <code>extensions [ls]</code> at the top of your model. Once this is done, a model will be able to load up other models using the LevelSpace primitives, run commands and reporters in them, and close them down when they are no longer needed.</p>
 <p>Asking and reporting in LevelSpace is conceptually pretty straight forward: You pass blocks of code to child models, and the child models respond as if you had typed that code into their Command Center. LevelSpace allows you to report strings, numbers, and lists from a child to its parent. It is not possible to directly report turtles, patches, links, or any of their respective sets. Further, it is not possible to push data from a child to its parent - parents must ask their children to report. This mimicks the way in which turtles cannot &ldquo;push&rdquo; data to the observer, but rely on the observer to ask them for it.</p>

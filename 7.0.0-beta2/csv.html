@@ -5,7 +5,7 @@
 		<meta charset="UTF-8" />
 		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
-		<title>NetLogo 7.0.0-beta2: Csv</title>
+		<title>NetLogo 7.0.0-beta2: CSV</title>
 		<link rel="stylesheet" href="netlogo.css" type="text/css" />
 		<link rel="icon" type="image/png" href="favicon/favicon-96x96.png" sizes="96x96" />
 		<link rel="icon" type="image/svg+xml" href="favicon/favicon.svg" />
@@ -254,10 +254,10 @@
 			<a href="palette.html">Palette</a>
 			<a href="profiler.html">Profiler</a>
 			<a href="py.html">Python</a>
-			<a href="r.html">R</a>
 			<a href="resource.html">Resource</a>
 			<a href="rnd.html">Rnd</a>
 			<a href="sound.html">Sound</a>
+			<a href="sr.html">Simple R</a>
 			<a href="table.html">Table</a>
 			<a href="time.html">Time</a>
 			<a href="vid.html">Vid</a>
@@ -375,10 +375,10 @@
 			<a href="palette.html">Palette</a>
 			<a href="profiler.html">Profiler</a>
 			<a href="py.html">Python</a>
-			<a href="r.html">R</a>
 			<a href="resource.html">Resource</a>
 			<a href="rnd.html">Rnd</a>
 			<a href="sound.html">Sound</a>
+			<a href="sr.html">Simple R</a>
 			<a href="table.html">Table</a>
 			<a href="time.html">Time</a>
 			<a href="vid.html">Vid</a>
@@ -490,13 +490,13 @@
 	</body>
 </html>
 <title>
-  NetLogo 7.0.0-beta2 User Manual: Csv Extension
+  NetLogo 7.0.0-beta2 User Manual: CSV Extension
 </title>
 <main class="prose">
-<h1>Csv</h1>
+<h1>CSV</h1>
 <h2><a href="#common-use-cases-and-examples" id="common-use-cases-and-examples" class="section-anchor">Common use cases and examples</a></h2>
 <h3><a href="#read-a-file-all-at-once" id="read-a-file-all-at-once" class="section-anchor">Read a file all at once</a></h3>
-<p>Just use <code>csv:from-file &quot;/path/to/myfile.csv&quot;</code>! See <a href="#csv:from-file">from-file</a> for more information.</p>
+<p>Just use <code>csv:from-file &quot;/path/to/myfile.csv&quot;</code>! See <a href="#csvfrom-file">from-file</a> for more information.</p>
 <h3><a href="#read-a-file-one-line-at-a-time" id="read-a-file-one-line-at-a-time" class="section-anchor">Read a file one line at a time</a></h3>
 <p>For really big files, you may not want to store the entire file in memory, but rather just process it a line at a time. For instance, if you want to sum each of the columns of a numeric CSV file, you can do:</p>
 <pre><code class="language-NetLogo">to-report sum-columns [ file ]
@@ -531,7 +531,7 @@ to go
 end
 </code></pre>
 <h3><a href="#write-a-file" id="write-a-file" class="section-anchor">Write a file</a></h3>
-<p>Just use <code>csv:to-file &quot;/path/to/myfile.csv&quot; my-data</code>! See <a href="#csv:to-file">to-file</a> for more information.</p>
+<p>Just use <code>csv:to-file &quot;/path/to/myfile.csv&quot; my-data</code>! See <a href="#csvto-file">to-file</a> for more information.</p>
 <h2>Primitives</h2>
 # <h3>Formatting NetLogo data as CSV</h3>
 <div id="writing">

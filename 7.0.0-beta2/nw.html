@@ -5,7 +5,7 @@
 		<meta charset="UTF-8" />
 		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
-		<title>NetLogo 7.0.0-beta2: Nw</title>
+		<title>NetLogo 7.0.0-beta2: Networks</title>
 		<link rel="stylesheet" href="netlogo.css" type="text/css" />
 		<link rel="icon" type="image/png" href="favicon/favicon-96x96.png" sizes="96x96" />
 		<link rel="icon" type="image/svg+xml" href="favicon/favicon.svg" />
@@ -254,10 +254,10 @@
 			<a href="palette.html">Palette</a>
 			<a href="profiler.html">Profiler</a>
 			<a href="py.html">Python</a>
-			<a href="r.html">R</a>
 			<a href="resource.html">Resource</a>
 			<a href="rnd.html">Rnd</a>
 			<a href="sound.html">Sound</a>
+			<a href="sr.html">Simple R</a>
 			<a href="table.html">Table</a>
 			<a href="time.html">Time</a>
 			<a href="vid.html">Vid</a>
@@ -375,10 +375,10 @@
 			<a href="palette.html">Palette</a>
 			<a href="profiler.html">Profiler</a>
 			<a href="py.html">Python</a>
-			<a href="r.html">R</a>
 			<a href="resource.html">Resource</a>
 			<a href="rnd.html">Rnd</a>
 			<a href="sound.html">Sound</a>
+			<a href="sr.html">Simple R</a>
 			<a href="table.html">Table</a>
 			<a href="time.html">Time</a>
 			<a href="vid.html">Vid</a>
@@ -490,10 +490,10 @@
 	</body>
 </html>
 <title>
-  NetLogo 7.0.0-beta2 User Manual: Nw Extension
+  NetLogo 7.0.0-beta2 User Manual: Networks Extension
 </title>
 <main class="prose">
-<h1>Nw</h1>
+<h1>Networks</h1>
 <h2><a href="#usage" id="usage" class="section-anchor">Usage</a></h2>
 <p>The first thing that one needs to understand in order to work with the network extension is how to tell the extension <em>which</em> network to work with. Consider the following example situation:</p>
 <pre><code>breed [ bankers banker ]
@@ -505,7 +505,7 @@ directed-link-breed [ accounts account ]
 <p>Basically, you have bankers and clients. Clients can have accounts with bankers. Bankers can probably have account with other bankers, and anyone can be friends with anyone.</p>
 <p>Now we might want to consider this whole thing as one big network. If that is the case, there is nothing special to do: by default, the NW extension primitives consider all turtles and all links to be part of the current network.</p>
 <p>We could also, however, be only interested in a subset of the network. Maybe we want to consider only friendship relations. Furthermore, maybe we want to consider only the friendships <em>between bankers</em>. After all, having a very high centrality in a network of banker friendships is very different from having a high centrality in a network of client friendships.</p>
-<p>To specify such networks, we need to tell the extension <em>both</em> which turtles <em>and</em> which links we are interested in. All the turtles from the specified set of turtles will be included in the network, and only the links from the specified set of links that are between turtles of the specified set will be included. For example, if you ask for <code>bankers</code> and <code>friendships</code>, even the lonely bankers with no friends will be included, but friendship links between bankers and clients will <strong>not</strong> be included. The way to tell the extension about this is with the <a href="#nw:set-context"><code>nw:set-context</code></a> primitive, which you must call <em>prior</em> to doing any operations on a network.</p>
+<p>To specify such networks, we need to tell the extension <em>both</em> which turtles <em>and</em> which links we are interested in. All the turtles from the specified set of turtles will be included in the network, and only the links from the specified set of links that are between turtles of the specified set will be included. For example, if you ask for <code>bankers</code> and <code>friendships</code>, even the lonely bankers with no friends will be included, but friendship links between bankers and clients will <strong>not</strong> be included. The way to tell the extension about this is with the <a href="#nwset-context"><code>nw:set-context</code></a> primitive, which you must call <em>prior</em> to doing any operations on a network.</p>
 <p>Some examples:</p>
 <ul>
 <li><code>nw:set-context turtles links</code> will give you everything: bankers and clients, friendships and accounts, as one big network.</li>
@@ -517,11 +517,11 @@ directed-link-breed [ accounts account ]
 <h3><a href="#special-agentsets-vs-normal-agentsets" id="special-agentsets-vs-normal-agentsets" class="section-anchor">Special agentsets vs normal agentsets</a></h3>
 <p>It must be noted that NetLogo has two types of agentsets that behave slightly differently, and that this has an impact on the way <code>nw:set-context</code> works. We will say a few words about these concepts here but, for a thorough understanding, it is highly recommended that you read <a href="programming.html#agentsets">the section on agentsets in the NetLogo programming guide</a>.</p>
 <p>The &ldquo;special&rdquo; agentsets in NetLogo are <code>turtles</code>, <code>links</code> and the different &ldquo;breed&rdquo; agentsets. What is special about them is that they can grow: if you create a new turtle, it will be added to the <code>turtles</code> agentset. If you have a <code>bankers</code> breed and you create a new banker, it will be added to the <code>bankers</code> agentset and to the <code>turtles</code> agentset. Same goes for links. Other agentsets, such as those created with the <code>with</code> primitive (e.g., <code>turtles with [ color = red ]</code>) or the <code>turtle-set</code> and <code>link-set</code> primitives) are never added to. The content of normal agentsets will only change if the agents that they contain die.</p>
-<p>To show how different types of agentsets interact with <a href="#nw:set-context"><code>nw:set-context</code></a>, let&rsquo;s create a very simple network:</p>
+<p>To show how different types of agentsets interact with <a href="#nwset-context"><code>nw:set-context</code></a>, let&rsquo;s create a very simple network:</p>
 <pre><code class="language-NetLogo">clear-all
 create-turtles 3 [ create-links-with other turtles ]
 </code></pre>
-<p>Let&rsquo;s set the context to <code>turtles</code> and <code>links</code> (which is the default anyway) and use <a href="#nw:get-context"><code>nw:get-context</code></a> to see what we have:</p>
+<p>Let&rsquo;s set the context to <code>turtles</code> and <code>links</code> (which is the default anyway) and use <a href="#nwget-context"><code>nw:get-context</code></a> to see what we have:</p>
 <pre><code class="language-NetLogo">nw:set-context turtles links
 show map sort nw:get-context
 </code></pre>
@@ -768,7 +768,7 @@ ask turtle 0 [
   <h4>
     <span class="prim_example">nw:turtles-in-reverse-radius <i>radius</i></span>
   </h4>
-<p>Like <a href="#nw:turtles-in-radius">nw:turtles-in-radius</a>, but follows in-links instead of out-links. Also follow undirected links. You can think of <code>turtles-in-reverse-radius</code> as &ldquo;turtles <strong>who can get to me</strong> in <em>radius</em> steps&rdquo;.</p>
+<p>Like <a href="#nwturtles-in-radius">nw:turtles-in-radius</a>, but follows in-links instead of out-links. Also follow undirected links. You can think of <code>turtles-in-reverse-radius</code> as &ldquo;turtles <strong>who can get to me</strong> in <em>radius</em> steps&rdquo;.</p>
 </div>
 <div class="dict_entry" id="nw:distance-to">
   <h3><a>nw:distance-to</a></h3>
@@ -797,7 +797,7 @@ end
   <h4>
     <span class="prim_example">nw:weighted-distance-to <i>target-turtle</i> <i>weight-variable</i></span>
   </h4>
-<p>Like <a href="#nw:distance-to">nw:distance-to</a>, but takes link weight into account. The weights cannot be negative numbers.</p>
+<p>Like <a href="#nwdistance-to">nw:distance-to</a>, but takes link weight into account. The weights cannot be negative numbers.</p>
 <p>Example:</p>
 <pre><code class="language-NetLogo">links-own [ weight ]
 to go
@@ -845,7 +845,7 @@ end
   <h4>
     <span class="prim_example">nw:turtles-on-path-to <i>target-turtle</i></span>
   </h4>
-<p>Like <a href="#nw:path-to"><code>nw:path-to</code></a>, but the turtles on the path are reported, instead of the links, including the source turtle and target turtle.</p>
+<p>Like <a href="#nwpath-to"><code>nw:path-to</code></a>, but the turtles on the path are reported, instead of the links, including the source turtle and target turtle.</p>
 <p>Example:</p>
 <pre><code class="language-NetLogo">to go
   clear-all
@@ -867,7 +867,7 @@ end
   <h4>
     <span class="prim_example">nw:weighted-path-to <i>target-turtle</i> <i>weight-variable</i></span>
   </h4>
-<p>Like <a href="#nw:path-to"><code>nw:path-to</code></a>, but takes link weight into account.</p>
+<p>Like <a href="#nwpath-to"><code>nw:path-to</code></a>, but takes link weight into account.</p>
 <p>Example:</p>
 <pre><code class="language-NetLogo">links-own [ weight ]
 to go
@@ -890,7 +890,7 @@ end
   <h4>
     <span class="prim_example">nw:turtles-on-weighted-path-to <i>target-turtle</i> <i>weight-variable</i></span>
   </h4>
-<p>Like <a href="#nw:turtles-on-path-to"><code>nw:turtles-on-path-to</code></a>, but takes link weight into account.</p>
+<p>Like <a href="#nwturtles-on-path-to"><code>nw:turtles-on-path-to</code></a>, but takes link weight into account.</p>
 <p>Example:</p>
 <pre><code class="language-NetLogo">links-own [ weight ]
 to go
@@ -937,7 +937,7 @@ observer: false
   <h4>
     <span class="prim_example">nw:mean-weighted-path-length <i>weight-variable</i></span>
   </h4>
-<p>Like <a href="#nw:mean-path-length"><code>nw:mean-path-length</code></a>, but takes into account link weights.</p>
+<p>Like <a href="#nwmean-path-length"><code>nw:mean-path-length</code></a>, but takes into account link weights.</p>
 <p>Example:</p>
 <pre><code class="language-NetLogo">links-own [ weight ]
 to go
@@ -998,7 +998,7 @@ observer: false
   <h4>
     <span class="prim_example">nw:weighted-closeness-centrality <i>link-weight-variable</i></span>
   </h4>
-<p>This is identical to <a href="#nw:closeness-centrality"><code>nw:closeness-centrality</code></a>, except that weights provided by the given variable are treated as the distances of links.</p>
+<p>This is identical to <a href="#nwcloseness-centrality"><code>nw:closeness-centrality</code></a>, except that weights provided by the given variable are treated as the distances of links.</p>
 </div>
 <div class="dict_entry" id="nw:clustering-coefficient">
   <h3><a>nw:clustering-coefficient</a></h3>
@@ -1050,7 +1050,7 @@ end
   <h4>
     <span class="prim_example">nw:louvain-communities</span>
   </h4>
-<p>Detects community structure present in the network. It does this by maximizing <a href="#nw:modularity">modularity</a> using the <a href="https://en.wikipedia.org/wiki/Louvain_Modularity" target="_blank">Louvain method</a>. The communities are reported as a list of turtle-sets.</p>
+<p>Detects community structure present in the network. It does this by maximizing <a href="#nwmodularity">modularity</a> using the <a href="https://en.wikipedia.org/wiki/Louvain_Modularity" target="_blank">Louvain method</a>. The communities are reported as a list of turtle-sets.</p>
 <p>Often you&rsquo;ll want to tell turtles about the community that they are in. You can do this like so:</p>
 <pre><code class="language-NetLogo">turtles-own [ community ]
 
@@ -1124,7 +1124,7 @@ The more links a turtle already has, the greater the probability that new turtle
   <h4>
     <span class="prim_example">nw:generate-small-world <i>turtle-breed</i> <i>link-breed</i> <i>row-count</i> <i>column-count</i> <i>clustering-exponent</i> <i>is-toroidal</i> <i>optional-command-block</i></span>
   </h4>
-<p>Generates a new <a href="https://en.wikipedia.org/wiki/Small-world_network" target="_blank">small-world network</a> using the <a href="https://en.wikipedia.org/wiki/Small_world_routing#The_Kleinberg_Model" target="_blank">Kleinberg Model</a>. Note that <a href="#nw:generate-watts-strogatz"><code>nw:generate-watts-strogatz</code></a> generates a more traditional small-world network.</p>
+<p>Generates a new <a href="https://en.wikipedia.org/wiki/Small-world_network" target="_blank">small-world network</a> using the <a href="https://en.wikipedia.org/wiki/Small_world_routing#The_Kleinberg_Model" target="_blank">Kleinberg Model</a>. Note that <a href="#nwgenerate-watts-strogatz"><code>nw:generate-watts-strogatz</code></a> generates a more traditional small-world network.</p>
 <p>The algorithm proceeds by generating a lattice of the given number of rows and columns (the lattice will wrap around itself if <em>is-toroidal</em> is <code>true</code>). The &ldquo;small world effect&rdquo; is created by adding additional links between the nodes in the lattice. The higher the <em>clustering-exponent</em>, the more the algorithm will favor already close-by nodes when adding new links. A clustering exponent of <code>2.0</code> is typically used.</p>
 <p>If you specify an <em>optional-command-block</em>, it is executed for each turtle in the newly created network. For example:</p>
 <pre><code class="language-NetLogo">nw:generate-small-world turtles links 10 10 2.0 false [ set color red ]

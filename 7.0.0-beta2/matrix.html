@@ -5,7 +5,7 @@
 		<meta charset="UTF-8" />
 		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
-		<title>NetLogo 7.0.0-beta2: Matrix</title>
+		<title>NetLogo 7.0.0-beta2: Matrices</title>
 		<link rel="stylesheet" href="netlogo.css" type="text/css" />
 		<link rel="icon" type="image/png" href="favicon/favicon-96x96.png" sizes="96x96" />
 		<link rel="icon" type="image/svg+xml" href="favicon/favicon.svg" />
@@ -254,10 +254,10 @@
 			<a href="palette.html">Palette</a>
 			<a href="profiler.html">Profiler</a>
 			<a href="py.html">Python</a>
-			<a href="r.html">R</a>
 			<a href="resource.html">Resource</a>
 			<a href="rnd.html">Rnd</a>
 			<a href="sound.html">Sound</a>
+			<a href="sr.html">Simple R</a>
 			<a href="table.html">Table</a>
 			<a href="time.html">Time</a>
 			<a href="vid.html">Vid</a>
@@ -375,10 +375,10 @@
 			<a href="palette.html">Palette</a>
 			<a href="profiler.html">Profiler</a>
 			<a href="py.html">Python</a>
-			<a href="r.html">R</a>
 			<a href="resource.html">Resource</a>
 			<a href="rnd.html">Rnd</a>
 			<a href="sound.html">Sound</a>
+			<a href="sr.html">Simple R</a>
 			<a href="table.html">Table</a>
 			<a href="time.html">Time</a>
 			<a href="vid.html">Vid</a>
@@ -490,10 +490,10 @@
 	</body>
 </html>
 <title>
-  NetLogo 7.0.0-beta2 User Manual: Matrix Extension
+  NetLogo 7.0.0-beta2 User Manual: Matrices Extension
 </title>
 <main class="prose">
-<h1>Matrix</h1>
+<h1>Matrices</h1>
 <h2><a href="#using" id="using" class="section-anchor">Using</a></h2>
 <p>The matrix extension adds a new matrix data structure to NetLogo.
 A matrix is a mutable 2-dimensional array containing only numbers.</p>
@@ -1028,24 +1028,24 @@ print matrix:forecast-linear-growth [20 25 28 32 35 39]
   </h4>
 <p>Reports a four-element list of the form:</p>
 <p><tt>[ forecast constant growth-proportion R<sup>2</sup> ]</tt></p>
-<p>Whereas <a href="#matrix:forecast-linear-growth">matrix:forecast-linear-growth</a>
-assumes growth by a constant absolute amount each period, <a href="#matrix:forecast-compound-growth">matrix:forecast-compound-growth</a>
+<p>Whereas <a href="#matrixforecast-linear-growth">matrix:forecast-linear-growth</a>
+assumes growth by a constant absolute amount each period, <a href="#matrixforecast-compound-growth">matrix:forecast-compound-growth</a>
 assumes that Y grows by a constant <strong>proportion</strong> each period.
 The <em>constant</em> and <em>growth-proportion</em> are the parameters
 of the trend-line</p>
 <p><tt>Y = <em>constant</em> * <em>growth-proportion</em><sup>t</sup>.</tt></p>
 <p>Note that the growth proportion is typically interpreted as
 <em>growth-proportion</em> = <em>(1.0 + growth-rate)</em>. Therefore,
-if <a href="#matrix:forecast-compound-growth">matrix:forecast-compound-growth</a>
+if <a href="#matrixforecast-compound-growth">matrix:forecast-compound-growth</a>
 returns a <em>growth-proportion</em> of 1.10, that implies that Y
 grows by (1.10 - 1.0) = 10% each period. Note that if growth is
-negative, <a href="#matrix:forecast-compound-growth">matrix:forecast-compound-growth</a>
+negative, <a href="#matrixforecast-compound-growth">matrix:forecast-compound-growth</a>
 will return a <em>growth-proportion</em> of less than one. E.g., a
 <em>growth-proportion</em> of 0.90 implies a growth rate of -10%.</p>
 <p><strong>NOTE:</strong> The compound growth forecast is achieved by taking the
-ln of Y. (See <a href="#matrix:regress">matrix:regress</a>, below.)
+ln of Y. (See <a href="#matrixregress">matrix:regress</a>, below.)
 Because it is impossible to take the natural log of zero or a
-negative number, <a href="#matrix:forecast-compound-growth">matrix:forecast-compound-growth</a>
+negative number, <a href="#matrixforecast-compound-growth">matrix:forecast-compound-growth</a>
 will result in an error if it finds a zero or negative number in
 <em>data-list</em>.</p>
 <pre><code class="language-NetLogo">;; a compound growth extrapolation of the next item in the list.
@@ -1065,23 +1065,23 @@ print matrix:forecast-compound-growth [20 25 28 32 35 39]
   </h4>
 <p>Reports a four-element list of the form:</p>
 <p><tt>[ <em>forecast</em> <em>constant</em>  <em>growth-rate</em>  <em>R<sup>2</sup></em> ]</tt>.
-Whereas <a href="#matrix:forecast-compound-growth">matrix:forecast-compound-growth</a>
+Whereas <a href="#matrixforecast-compound-growth">matrix:forecast-compound-growth</a>
 assumes discrete time with Y growing by a given proportion each
-finite period of time (e.g., a month or a year), <a href="#matrix:forecast-continuous-growth">matrix:forecast-continuous-growth</a>
+finite period of time (e.g., a month or a year), <a href="#matrixforecast-continuous-growth">matrix:forecast-continuous-growth</a>
 assumes that Y is compounded <strong>continuously</strong> (e.g., each second
 or fraction of a second). The <em>constant</em> and
 <em>growth-rate</em> are the parameters of the trend-line</p>
 <p><tt>Y = <em>constant</em> * e<sup>(growth-rate * t)</sup></tt></p>
-<p><a href="#matrix:forecast-continuous-growth">matrix:forecast-continuous-growth</a>
-is the &ldquo;calculus&rdquo; analog of <a href="#matrix:forecast-compound-growth">matrix:forecast-compound-growth</a>.
+<p><a href="#matrixforecast-continuous-growth">matrix:forecast-continuous-growth</a>
+is the &ldquo;calculus&rdquo; analog of <a href="#matrixforecast-compound-growth">matrix:forecast-compound-growth</a>.
 The two will normally yield similar (but not identical) results, as
 shown in the example below. <em>growth-rate</em> may, of course, be
 negative.</p>
 <blockquote>
 <p><em>NOTE:</em> The continuous growth forecast is achieved by taking
-the ln of Y. (See <a href="#matrix:regress">matrix:regress</a>,
+the ln of Y. (See <a href="#matrixregress">matrix:regress</a>,
 below.) Because it is impossible to take the natural log of zero or
-a negative number, <a href="#matrix:forecast-continuous-growth">matrix:forecast-continuous-growth</a>
+a negative number, <a href="#matrixforecast-continuous-growth">matrix:forecast-continuous-growth</a>
 will result in an error if it finds a zero or negative number in
 <em>data-list</em>.</p>
 </blockquote>
@@ -1114,10 +1114,10 @@ first element is a list containing the regression constant followed
 by the coefficients on each of the independent variables. The
 second element is a 3-element list containing the R<sup>2</sup>
 statistic, the total sum of squares, and the residual sum of
-squares. The following code example shows how the <a href="#matrix:regress">matrix:regress</a> primitive can be used to
+squares. The following code example shows how the <a href="#matrixregress">matrix:regress</a> primitive can be used to
 perform the same function as the code examples shown in the
 matrix:forecast-*-growth primitives above. (However, keep in mind
-that the <a href="#matrix:regress">matrix:regress</a> primitive is
+that the <a href="#matrixregress">matrix:regress</a> primitive is
 more powerful than this, and can have many more independent
 variables in the regression, as indicated in the fourth example
 below.)</p>

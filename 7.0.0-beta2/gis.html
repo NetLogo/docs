@@ -5,7 +5,7 @@
 		<meta charset="UTF-8" />
 		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
-		<title>NetLogo 7.0.0-beta2: Gis</title>
+		<title>NetLogo 7.0.0-beta2: GIS</title>
 		<link rel="stylesheet" href="netlogo.css" type="text/css" />
 		<link rel="icon" type="image/png" href="favicon/favicon-96x96.png" sizes="96x96" />
 		<link rel="icon" type="image/svg+xml" href="favicon/favicon.svg" />
@@ -254,10 +254,10 @@
 			<a href="palette.html">Palette</a>
 			<a href="profiler.html">Profiler</a>
 			<a href="py.html">Python</a>
-			<a href="r.html">R</a>
 			<a href="resource.html">Resource</a>
 			<a href="rnd.html">Rnd</a>
 			<a href="sound.html">Sound</a>
+			<a href="sr.html">Simple R</a>
 			<a href="table.html">Table</a>
 			<a href="time.html">Time</a>
 			<a href="vid.html">Vid</a>
@@ -375,10 +375,10 @@
 			<a href="palette.html">Palette</a>
 			<a href="profiler.html">Profiler</a>
 			<a href="py.html">Python</a>
-			<a href="r.html">R</a>
 			<a href="resource.html">Resource</a>
 			<a href="rnd.html">Rnd</a>
 			<a href="sound.html">Sound</a>
+			<a href="sr.html">Simple R</a>
 			<a href="table.html">Table</a>
 			<a href="time.html">Time</a>
 			<a href="vid.html">Vid</a>
@@ -490,10 +490,10 @@
 	</body>
 </html>
 <title>
-  NetLogo 7.0.0-beta2 User Manual: Gis Extension
+  NetLogo 7.0.0-beta2 User Manual: GIS Extension
 </title>
 <main class="prose">
-<h1>Gis</h1>
+<h1>GIS</h1>
 <h2><a href="#using" id="using" class="section-anchor">Using</a></h2>
 <p>This extension adds GIS (Geographic Information Systems) support to
 NetLogo. It provides the ability to load vector GIS data (points,
@@ -521,7 +521,7 @@ system of the data. If no associated .prj file is found, the
 extension will assume that the dataset already uses the current
 projection, regardless of what that projection is.</p>
 <p>Once the coordinate system is defined, you can load datasets using
-<a href="#gis:load-dataset">gis:load-dataset</a>. This primitive
+<a href="#gisload-dataset">gis:load-dataset</a>. This primitive
 reports either a VectorDataset or a RasterDataset, depending on what
 type of file you pass it.</p>
 <p>A VectorDataset consists of a collection of VectorFeatures, each one
@@ -541,7 +541,7 @@ the values of a particular property of the dataset&rsquo;s features to
 a given patch variable.</p>
 <p>For the common use case of converting a VectorDataset of points into
 a corresponding set of turtles with the same attributes, the
-<a href="#gis:create-turtles-from-points">gis:create-turtles-from-points</a>
+<a href="#giscreate-turtles-from-points">gis:create-turtles-from-points</a>
 primitive should be used.</p>
 <p>There are also several things you can do with a VectorFeature from a
 VectorDataset: ask it for a list of vertex lists, ask it for a
@@ -556,9 +556,9 @@ lists are made up of values of type Vertex, and the centroid will be
 a value of type Vertex as well.</p>
 <p>For the common use case of spawning a number of turtles inside the
 bounds of a Polygon VectorFeature, the
-<a href="#gis:create-turtles-inside-polygon">gis:create-turtles-inside-polygon</a>
+<a href="#giscreate-turtles-inside-polygon">gis:create-turtles-inside-polygon</a>
 primitive should be used. Though the
-<a href="#gis:random-point-inside">gis:random-point-inside</a> primitive can
+<a href="#gisrandom-point-inside">gis:random-point-inside</a> primitive can
 also be used if you don&rsquo;t want the spawned turtles to take on
 the attributes of the Polygon.</p>
 <p>There are a number of operations defined for RasterDatasets as well.
@@ -701,20 +701,20 @@ regardless of the current dimensions of the NetLogo world:</p>
 (list min-pxcor max-pxcor min-pycor max-pycor)
 </code></pre>
 <p>However, if you&rsquo;re setting the envelope of the NetLogo world,
-you should probably be using <a href="#gis:set-world-envelope">set-world-envelope</a>.</p>
+you should probably be using <a href="#gisset-world-envelope">set-world-envelope</a>.</p>
 </div>
 <div class="dict_entry" id="gis:set-transformation-ds">
   <h3><a>gis:set-transformation-ds</a></h3>
   <h4>
     <span class="prim_example">gis:set-transformation-ds <i>gis-envelope</i> <i>netlogo-envelope</i></span>
   </h4>
-<p>Does the same thing as <a href="#gis:set-transformation">set-transformation</a> above, except that
+<p>Does the same thing as <a href="#gisset-transformation">set-transformation</a> above, except that
 it allows the scale for mapping the range of x values to be
 different than the scale for y values. The &ldquo;-ds&rdquo; on the
 end stands for &ldquo;different scales&rdquo;. Using different scales
 will cause distortion of the shape of GIS features, and so it is
 generally not recommended, but it may be useful for some models.</p>
-<p>Here is an example of the difference between <a href="#gis:set-transformation">set-transformation</a> and <a href="#gis:set-transformation-ds">set-transformation-ds</a>:</p>
+<p>Here is an example of the difference between <a href="#gisset-transformation">set-transformation</a> and <a href="#gisset-transformation-ds">set-transformation-ds</a>:</p>
 <table width="80%" border="1" rules="cols" style="border-collaps: separate; border-spacing: 4px; text-align: center; margin: 0 auto;">
 <tr>
   <td style="padding: 8px">
@@ -854,7 +854,7 @@ of WKT converted to a list by moving each keyword inside its
 associated brackets and putting quotes around it. The latter is
 preferred because it makes the code much more readable.</p>
 <p>The same limitations on WKT support apply as described above in the
-documentation for <a href="#gis:load-coordinate-system">load-coordinate-system</a></p>
+documentation for <a href="#gisload-coordinate-system">load-coordinate-system</a></p>
 </div>
 <div class="dict_entry" id="gis:project-lat-lon">
   <h3><a>gis:project-lat-lon</a></h3>
@@ -995,7 +995,7 @@ been saved yet.</p>
   </h4>
 <p>Reports a new raster whose cells correspond directly to NetLogo
 patches, and whose cell values consist of the values of the given
-patch variable. This primitive is basically the inverse of <a href="#gis:apply-raster">apply-raster</a>;
+patch variable. This primitive is basically the inverse of <a href="#gisapply-raster">apply-raster</a>;
 <code>apply-raster</code> copies values from a raster dataset to a patch variable, while this
 primitive copies values from a patch variable to a raster dataset.</p>
 </div>
@@ -1038,7 +1038,7 @@ values are &ldquo;POINT&rdquo;, &ldquo;LINE&rdquo;, and &ldquo;POLYGON&rdquo;.</
   </h4>
 <p>Reports a list of strings where each string is the name of a
 property possessed by each VectorFeature in the given
-VectorDataset, suitable for use in <a href="#gis:property-value">gis:property-value</a>.</p>
+VectorDataset, suitable for use in <a href="#gisproperty-value">gis:property-value</a>.</p>
 </div>
 <div class="dict_entry" id="gis:feature-list-of">
   <h3><a>gis:feature-list-of</a></h3>
@@ -1416,28 +1416,28 @@ how to override default mappings with manual ones.</p>
   <h4>
     <span class="prim_example">gis:coverage-minimum-threshold</span>
   </h4>
-<p>Reports the current coverage minimum threshold used by <a href="#gis:apply-coverage">gis:apply-coverage</a>.</p>
+<p>Reports the current coverage minimum threshold used by <a href="#gisapply-coverage">gis:apply-coverage</a>.</p>
 </div>
 <div class="dict_entry" id="gis:set-coverage-minimum-threshold">
   <h3><a>gis:set-coverage-minimum-threshold</a></h3>
   <h4>
     <span class="prim_example">gis:set-coverage-minimum-threshold <i>new-threshold</i></span>
   </h4>
-<p>Sets the current coverage minimum threshold to be used by <a href="#gis:apply-coverage">gis:apply-coverage</a>.</p>
+<p>Sets the current coverage minimum threshold to be used by <a href="#gisapply-coverage">gis:apply-coverage</a>.</p>
 </div>
 <div class="dict_entry" id="gis:coverage-maximum-threshold">
   <h3><a>gis:coverage-maximum-threshold</a></h3>
   <h4>
     <span class="prim_example">gis:coverage-maximum-threshold</span>
   </h4>
-<p>Reports the current coverage maximum threshold used by <a href="#gis:apply-coverage">gis:apply-coverage</a>.</p>
+<p>Reports the current coverage maximum threshold used by <a href="#gisapply-coverage">gis:apply-coverage</a>.</p>
 </div>
 <div class="dict_entry" id="gis:set-coverage-maximum-threshold">
   <h3><a>gis:set-coverage-maximum-threshold</a></h3>
   <h4>
     <span class="prim_example">gis:set-coverage-maximum-threshold <i>new-threshold</i></span>
   </h4>
-<p>Sets the current coverage maximum threshold to be used by <a href="#gis:apply-coverage">gis:apply-coverage</a>.</p>
+<p>Sets the current coverage maximum threshold to be used by <a href="#gisapply-coverage">gis:apply-coverage</a>.</p>
 </div>
 <div class="dict_entry" id="gis:intersects?">
   <h3><a>gis:intersects?</a></h3>
@@ -1737,8 +1737,8 @@ from top to bottom, beginning with zero. So the upper left cell is
 <p>Reports the sampling method used to compute the value of the given
 raster dataset at a single point, or over an area smaller than a
 single raster cell. Sampling is performed by the GIS extension
-primitives <a href="#gis:raster-sample">raster-sample</a>, <a href="#gis:resample">resample</a>, <a href="#gis:convolve">convolve</a>,
-and <a href="#gis:apply-raster">apply-raster</a>. The sampling
+primitives <a href="#gisraster-sample">raster-sample</a>, <a href="#gisresample">resample</a>, <a href="#gisconvolve">convolve</a>,
+and <a href="#gisapply-raster">apply-raster</a>. The sampling
 method will be one of the following:</p>
 <ul>
 <li><code>&quot;NEAREST_NEIGHBOR&quot;</code>: the value of the cell
@@ -1768,8 +1768,8 @@ article</a>.</p>
   </h4>
 <p>Sets the sampling method used by the given raster dataset at a
 single point, or over an area smaller than a single raster cell.
-Sampling is performed by the GIS extension primitives <a href="#gis:raster-sample">raster-sample</a>, <a href="#gis:resample">resample</a>, <a href="#gis:convolve">convolve</a>,
-and <a href="#gis:apply-raster">apply-raster</a>. The sampling
+Sampling is performed by the GIS extension primitives <a href="#gisraster-sample">raster-sample</a>, <a href="#gisresample">resample</a>, <a href="#gisconvolve">convolve</a>,
+and <a href="#gisapply-raster">apply-raster</a>. The sampling
 method must be one of the following:</p>
 <ul>
 <li><code>&quot;NEAREST_NEIGHBOR&quot;</code></li>
@@ -1777,7 +1777,7 @@ method must be one of the following:</p>
 <li><code>&quot;BICUBIC&quot;</code></li>
 <li><code>&quot;BICUBIC_2&quot;</code></li>
 </ul>
-<p>See <a href="#gis:sampling-method-of">sampling-method-of</a> above
+<p>See <a href="#gissampling-method-of">sampling-method-of</a> above
 for a more specific description of each sampling method.</p>
 </div>
 <div class="dict_entry" id="gis:raster-sample">
@@ -1790,10 +1790,10 @@ location may be any of the following:</p>
 <ul>
 <li>A list of length 2, which is taken to represent a point in
 netlogo space (<code>[xcor ycor]</code>) of the sort reported by
-<a href="#gis:location-of">location-of</a> Vertex. The raster
+<a href="#gislocation-of">location-of</a> Vertex. The raster
 dataset is sampled at the point of that location.</li>
 <li>A list of length 4, which is taken to represent an envelope in
-GIS space, of the sort reported by <a href="#gis:envelope-of">envelope-of</a>. The raster dataset is sampled
+GIS space, of the sort reported by <a href="#gisenvelope-of">envelope-of</a>. The raster dataset is sampled
 over the area of that envelope.</li>
 <li>A patch, in which case the raster dataset is sampled over the
 area of the patch.</li>
@@ -1819,7 +1819,7 @@ ifelse (value &lt;= 0) or (value &gt;= 0)
 [ set color red ]
 </code></pre>
 <p>If the requested location is a point, the sample is always computed
-using the method set by <a href="#gis:set-sampling-method">set-sampling-method</a>. If the
+using the method set by <a href="#gisset-sampling-method">set-sampling-method</a>. If the
 requested location is an area (i.e., an envelope or patch), the
 sample is computed by taking the average of all raster cells
 covered by the requested area.</p>
@@ -1831,7 +1831,7 @@ covered by the requested area.</p>
   </h4>
 <p>Reports the GIS envelope needed to match the boundaries of NetLogo
 patches with the boundaries of cells in the given raster dataset.
-This envelope could then be used as an argument to <a href="#gis:set-transformation-ds">set-transformation-ds</a>.</p>
+This envelope could then be used as an argument to <a href="#gisset-transformation-ds">set-transformation-ds</a>.</p>
 <p>There may be more cells in the dataset than there are patches in
 the NetLogo world. In that case, you will need to select a subset
 of cells in the dataset by specifying which cell in the dataset you
@@ -1857,7 +1857,7 @@ number of columns and rows, covering the given envelope.</p>
 resampled to cover the given envelope and to contain the given
 number of columns and rows. If the new raster&rsquo;s cells are
 smaller than the existing raster&rsquo;s cells, they will be
-resampled using the method set by <a href="#gis:set-sampling-method">set-sampling-method</a>. If the new
+resampled using the method set by <a href="#gisset-sampling-method">set-sampling-method</a>. If the new
 cells are larger than the original cells, they will be sampled
 using the <code>&quot;NEAREST_NEIGHBOR&quot;</code> method.</p>
 </div>
@@ -1906,11 +1906,11 @@ which looks like this:
 <p>Copies values from the given raster dataset to the given patch
 variable, resampling the raster as necessary so that its cell
 boundaries match up with NetLogo patch boundaries. This resampling
-is done as if using <a href="#gis:resample">resample</a> rather
-than <a href="#gis:raster-sample">raster-sample</a>, for the sake
+is done as if using <a href="#gisresample">resample</a> rather
+than <a href="#gisraster-sample">raster-sample</a>, for the sake
 of efficiency. However, patches not covered by the raster are
 assigned values of &ldquo;not a number&rdquo; in the same way that
-<a href="#gis:raster-sample">raster-sample</a> reports values for
+<a href="#gisraster-sample">raster-sample</a> reports values for
 locations outside the raster.</p>
 </div>
 <div class="dict_entry" id="gis:drawing-color">

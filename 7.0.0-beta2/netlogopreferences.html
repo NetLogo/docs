@@ -255,10 +255,10 @@
 			<a href="palette.html">Palette</a>
 			<a href="profiler.html">Profiler</a>
 			<a href="py.html">Python</a>
-			<a href="r.html">R</a>
 			<a href="resource.html">Resource</a>
 			<a href="rnd.html">Rnd</a>
 			<a href="sound.html">Sound</a>
+			<a href="sr.html">Simple R</a>
 			<a href="table.html">Table</a>
 			<a href="time.html">Time</a>
 			<a href="vid.html">Vid</a>
@@ -376,10 +376,10 @@
 			<a href="palette.html">Palette</a>
 			<a href="profiler.html">Profiler</a>
 			<a href="py.html">Python</a>
-			<a href="r.html">R</a>
 			<a href="resource.html">Resource</a>
 			<a href="rnd.html">Rnd</a>
 			<a href="sound.html">Sound</a>
+			<a href="sr.html">Simple R</a>
 			<a href="table.html">Table</a>
 			<a href="time.html">Time</a>
 			<a href="vid.html">Vid</a>
@@ -502,8 +502,9 @@
 <li><a href="#reload-the-last-used-model-on-startup">Reload the last used model on startup</a></li>
 <li><a href="#reload-model-on-external-changes">Reload model on external changes</a></li>
 <li><a href="#bold-widget-text">Bold widget text</a></li>
-<li><a href="#jump-slider-widget-thumb-to-mouse-location-on-click-instead-of-incrementing">Jump slider widget thumb to mouse location on click (instead of incrementing)</a></li>
+<li><a href="#jump-sliders-to-click-location-instead-of-incrementing">Jump sliders to click location (instead of incrementing)</a></li>
 <li><a href="#ui-scale">UI Scale</a></li>
+<li><a href="#send-anonymous-usage-statistics">Send anonymous usage statistics</a></li>
 </ul>
 </li>
 <li><a href="#code-preferences">Code Preferences</a>
@@ -617,7 +618,7 @@ model will be loaded when NetLogo starts instead of an empty model.</p>
 changed file is updated in NetLogo.</p>
 <h3><a href="#bold-widget-text" id="bold-widget-text" class="section-anchor">Bold widget text</a></h3>
 <p>By default, widget text is not in bold, use this option to bold it.</p>
-<h3><a href="#jump-slider-widget-thumb-to-mouse-location-on-click-instead-of-incrementing" id="jump-slider-widget-thumb-to-mouse-location-on-click-instead-of-incrementing" class="section-anchor">Jump slider widget thumb to mouse location on click (instead of incrementing)</a></h3>
+<h3><a href="#jump-sliders-to-click-location-instead-of-incrementing" id="jump-sliders-to-click-location-instead-of-incrementing" class="section-anchor">Jump sliders to click location (instead of incrementing)</a></h3>
 <p>By default, clicking a slider location will cause the value of the slider to be set
 to the value at the click location and the slider widget thumb will jump to that location.
 Deselecting this option will cause the value to change by one increment towards the
@@ -628,6 +629,16 @@ and the Speed Slider.</p>
 same value as your system UI scale or NetLogo will fail to resize its
 visual components correctly. This value must be a floating point number, or NetLogo will
 produce an error message.</p>
+<h3><a href="#send-anonymous-usage-statistics" id="send-anonymous-usage-statistics" class="section-anchor">Send anonymous usage statistics</a></h3>
+<p>By default NetLogo will now collect anonymous usage statistics from users while
+the application is running. Uncheck this option to disable data collection.
+When this option is enabled, NetLogo will collect information about your usage
+of tools and features of the NetLogo application and the NetLogo language.
+This information is analyzed by the NetLogo team in order to understand how often
+certain NetLogo features are being used, so as to inform development priorities.
+No personal or identifying information will be collected.
+If you have any questions or concerns about the collection and storage of this data,
+feel free to contact the NetLogo team at <a href="&#109;&#x61;i&#x6c;&#x74;&#111;&#58;&#102;&#101;&#x65;&#100;&#x62;&#97;&#x63;&#107;@&#x63;&#99;&#108;.&#x6e;&#x6f;&#x72;&#116;&#104;w&#101;&#x73;te&#114;&#x6e;&#46;&#x65;&#100;&#x75;">f&#101;&#101;&#x64;&#x62;&#97;&#x63;&#107;@&#99;&#x63;l&#46;&#x6e;&#x6f;r&#x74;&#x68;w&#101;&#115;&#x74;&#101;&#x72;&#x6e;&#46;&#x65;&#100;u</a>.</p>
 <h2><a href="#code-preferences" id="code-preferences" class="section-anchor">Code Preferences</a></h2>
 <h3><a href="#sort-order-of-procedures-menu" id="sort-order-of-procedures-menu" class="section-anchor">Sort order of procedures menu</a></h3>
 <p>Choices:</p>
@@ -671,9 +682,13 @@ specified log directory.”</p>
 </li>
 </ul>
 <h3><a href="#events-to-log" id="events-to-log" class="section-anchor">Events to log:</a></h3>
-<p>Enter a comma-separate list of the event names or “shortcut” names. If you leave this value blank with logging enabled
-a set of default events will be logged. For detailed options see the <a href="logging.html#events">Events</a> of the Logging documentation. The &ldquo;all&rdquo; option causes all the events be logged,
-including button, chooser, comment, compile, command-center, global, input-box, link, model-open, slider, speed-slider, start, switch, stop, turtle, widget-edit, and tick events.</p>
+<p>Enter a comma-separate list of the event names or “shortcut” names.
+If you leave this value blank with logging enabled
+a set of default events will be logged. For detailed options see the
+<a href="logging.html#events">Events</a> section of the Logging documentation.
+The &ldquo;all&rdquo; option causes all the events be logged, including button, chooser,
+comment, compile, command-center, global, input-box, link, model-open, slider,
+speed-slider, start, switch, stop, turtle, widget-edit, and tick events.</p>
 <h2><a href="#color-themes" id="color-themes" class="section-anchor">Color Themes</a></h2>
 <p>Use the radio buttons to change the color theme. See the images below for an example of each theme.</p>
 <h3><a href="#light" id="light" class="section-anchor">Light</a></h3>

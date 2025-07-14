@@ -255,10 +255,10 @@
 			<a href="palette.html">Palette</a>
 			<a href="profiler.html">Profiler</a>
 			<a href="py.html">Python</a>
-			<a href="r.html">R</a>
 			<a href="resource.html">Resource</a>
 			<a href="rnd.html">Rnd</a>
 			<a href="sound.html">Sound</a>
+			<a href="sr.html">Simple R</a>
 			<a href="table.html">Table</a>
 			<a href="time.html">Time</a>
 			<a href="vid.html">Vid</a>
@@ -376,10 +376,10 @@
 			<a href="palette.html">Palette</a>
 			<a href="profiler.html">Profiler</a>
 			<a href="py.html">Python</a>
-			<a href="r.html">R</a>
 			<a href="resource.html">Resource</a>
 			<a href="rnd.html">Rnd</a>
 			<a href="sound.html">Sound</a>
+			<a href="sr.html">Simple R</a>
 			<a href="table.html">Table</a>
 			<a href="time.html">Time</a>
 			<a href="vid.html">Vid</a>
@@ -532,6 +532,7 @@ created using new features are not backwards compatible.</li>
 <a href="#creating-an-experiment-setup"><strong>Creating an experiment setup</strong></a>.</li>
 <li>Experiments using the new features can be found in the model
 Sample Models=&gt;Biology=&gt;Wolf Sheep Predation, with with additional notes in the Info tab.</li>
+<li>Hovering over the edit dialog entry titles will show a helpful &lsquo;tooltip&rsquo;.</li>
 <li>Additional minor changes can be found by searching this page for <em>(Since 6.4)</em>.</li>
 </ul>
 <h2><a href="#what-is-behaviorspace" id="what-is-behaviorspace" class="section-anchor">What is BehaviorSpace?</a></h2>
@@ -594,9 +595,8 @@ or view sliders in the Interface Tab (<em>Since 6.4</em>).</p>
 <h3><a href="#creating-an-experiment-setup" id="creating-an-experiment-setup" class="section-anchor">Creating an experiment setup</a></h3>
 <p>The information that can be included in the Experiment dialog is detailed below.
 Note that it is not necessary to specify everything; some parts can be left blank
-or with their default values. If a property&rsquo;s name is underlined, you can hover over
-it to read more info about the property and how it is used, so you don&rsquo;t have to
-revisit this page as often <em>(Since 6.4)</em>.</p>
+or with their default values. Hovering over the edit dialog entry titles will show a helpful &lsquo;tooltip&rsquo;,
+so you don&rsquo;t have to revisit this page as often <em>(Since 6.4)</em>.</p>
 <p><strong>Experiment name:</strong> Experiments in the same model must have different names. If
 you open a model that contains experiments with duplicate names, the conflicting
 names will be altered to ensure that all experiment names remain unique <em>(Since 6.4)</em>.</p>
@@ -810,9 +810,9 @@ population of turtles rose and fell during each run, you would enter:</p>
 <p>You can enter one reporter, or several, or none at all. If you enter several,
 each reporter must be on a line by itself, for example:</p>
 <blockquote>
-<p><code>count frogs</code>
-<code>count mice</code>
-<code>count birds</code></p>
+<code>count frogs</code><br>
+<code>count mice</code><br>
+<code>count birds</code>
 </blockquote>
 <p>If you don&rsquo;t enter any reporters, the runs will still take place. This is useful
 if you want to record the results yourself your own way, such as with the
