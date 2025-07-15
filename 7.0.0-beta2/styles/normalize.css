@@ -220,7 +220,6 @@ p:first-of-type {
 
 ul,
 ol {
-	list-style-position: inside; /* Ensure list items are indented */
 	padding-inline: var(--space-md);
 }
 

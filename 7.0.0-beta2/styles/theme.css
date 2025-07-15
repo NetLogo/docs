@@ -199,7 +199,9 @@ a.code {
 /* HR */
 hr {
 	color: var(--netlogo-black);
-	height: 0.1875rem; /* 3px */
+	height: 0.0625rem; /* 1px */
+	border: none;
+	background-color: var(--color-grey-accent);
 }
 
 /* Images */
@@ -333,8 +335,7 @@ table:not(.table-container table) {
 	padding: 0;
 	margin-inline: var(--space-xl);
 	margin-bottom: var(--block-bottom);
-	width: calc(var(--max-width-ch) - 2 * (var(--space-xl)));
-	max-width: calc(var(--max-width-ch) - 2 * (var(--space-xl))) !important;
+	max-width: min(calc(var(--max-width-ch) - 2 * (var(--space-xl))), 100%) !important;
 	overflow-x: auto; /* Allow horizontal scrolling */
 }
 

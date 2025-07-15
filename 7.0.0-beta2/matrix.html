@@ -5,7 +5,7 @@
 		<meta charset="UTF-8" />
 		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
-		<title>NetLogo 7.0.0-beta2: Matrices</title>
+		<title>NetLogo 7.0.0-beta2: Matrix</title>
 		<link rel="stylesheet" href="netlogo.css" type="text/css" />
 		<link rel="icon" type="image/png" href="favicon/favicon-96x96.png" sizes="96x96" />
 		<link rel="icon" type="image/svg+xml" href="favicon/favicon.svg" />
@@ -249,7 +249,7 @@
 			<a href="gis.html">GIS</a>
 			<a href="gogo.html">GoGo</a>
 			<a href="ls.html">LevelSpace</a>
-			<a href="matrix.html">Matrices</a>
+			<a href="matrix.html">Matrix</a>
 			<a href="nw.html">Networks</a>
 			<a href="palette.html">Palette</a>
 			<a href="profiler.html">Profiler</a>
@@ -370,7 +370,7 @@
 			<a href="gis.html">GIS</a>
 			<a href="gogo.html">GoGo</a>
 			<a href="ls.html">LevelSpace</a>
-			<a href="matrix.html">Matrices</a>
+			<a href="matrix.html">Matrix</a>
 			<a href="nw.html">Networks</a>
 			<a href="palette.html">Palette</a>
 			<a href="profiler.html">Profiler</a>
@@ -490,10 +490,10 @@
 	</body>
 </html>
 <title>
-  NetLogo 7.0.0-beta2 User Manual: Matrices Extension
+  NetLogo 7.0.0-beta2 User Manual: Matrix Extension
 </title>
 <main class="prose">
-<h1>Matrices</h1>
+<h1>Matrix</h1>
 <h2><a href="#using" id="using" class="section-anchor">Using</a></h2>
 <p>The matrix extension adds a new matrix data structure to NetLogo.
 A matrix is a mutable 2-dimensional array containing only numbers.</p>
@@ -554,59 +554,60 @@ print matrix:to-row-list (matrix:plus m2 m3)
 =&gt; [[2 0 0] [0 0 0] [0 0 2]]
 </code></pre>
 <h2>Primitives</h2>
-# <h3>Matrix creation and conversion to/from lists</h3>
+<p> Looking for the primitive reference for the Matrix extension? You can find it <a href="matrix/index.html">here</a>.</p>
+<h3>Matrix creation and conversion to/from lists</h3>
 <div id="matrix creation">
-  <a href="#matrix:make-constant"><code>matrix:make-constant</code></a>
-  <a href="#matrix:make-identity"><code>matrix:make-identity</code></a>
-  <a href="#matrix:from-row-list"><code>matrix:from-row-list</code></a>
-  <a href="#matrix:from-column-list"><code>matrix:from-column-list</code></a>
-  <a href="#matrix:to-row-list"><code>matrix:to-row-list</code></a>
-  <a href="#matrix:to-column-list"><code>matrix:to-column-list</code></a>
-  <a href="#matrix:copy"><code>matrix:copy</code></a>
-  <a href="#matrix:pretty-print-text"><code>matrix:pretty-print-text</code></a>
+  <a class="code" href="#matrix:make-constant"><code>matrix:make-constant</code></a>
+  <a class="code" href="#matrix:make-identity"><code>matrix:make-identity</code></a>
+  <a class="code" href="#matrix:from-row-list"><code>matrix:from-row-list</code></a>
+  <a class="code" href="#matrix:from-column-list"><code>matrix:from-column-list</code></a>
+  <a class="code" href="#matrix:to-row-list"><code>matrix:to-row-list</code></a>
+  <a class="code" href="#matrix:to-column-list"><code>matrix:to-column-list</code></a>
+  <a class="code" href="#matrix:copy"><code>matrix:copy</code></a>
+  <a class="code" href="#matrix:pretty-print-text"><code>matrix:pretty-print-text</code></a>
 </div>
 <h3>Advanced features</h3>
 <div id="advanced">
-  <a href="#matrix:solve"><code>matrix:solve</code></a>
-  <a href="#matrix:forecast-linear-growth"><code>matrix:forecast-linear-growth</code></a>
-  <a href="#matrix:forecast-compound-growth"><code>matrix:forecast-compound-growth</code></a>
-  <a href="#matrix:forecast-continuous-growth"><code>matrix:forecast-continuous-growth</code></a>
-  <a href="#matrix:regress"><code>matrix:regress</code></a>
+  <a class="code" href="#matrix:solve"><code>matrix:solve</code></a>
+  <a class="code" href="#matrix:forecast-linear-growth"><code>matrix:forecast-linear-growth</code></a>
+  <a class="code" href="#matrix:forecast-compound-growth"><code>matrix:forecast-compound-growth</code></a>
+  <a class="code" href="#matrix:forecast-continuous-growth"><code>matrix:forecast-continuous-growth</code></a>
+  <a class="code" href="#matrix:regress"><code>matrix:regress</code></a>
 </div>
 <h3>Matrix data retrieval and manipulation</h3>
 <div id="retrieval/manipulation">
-  <a href="#matrix:get"><code>matrix:get</code></a>
-  <a href="#matrix:get-row"><code>matrix:get-row</code></a>
-  <a href="#matrix:get-column"><code>matrix:get-column</code></a>
-  <a href="#matrix:set"><code>matrix:set</code></a>
-  <a href="#matrix:set-row"><code>matrix:set-row</code></a>
-  <a href="#matrix:set-column"><code>matrix:set-column</code></a>
-  <a href="#matrix:swap-rows"><code>matrix:swap-rows</code></a>
-  <a href="#matrix:swap-columns"><code>matrix:swap-columns</code></a>
-  <a href="#matrix:set-and-report"><code>matrix:set-and-report</code></a>
-  <a href="#matrix:dimensions"><code>matrix:dimensions</code></a>
-  <a href="#matrix:submatrix"><code>matrix:submatrix</code></a>
-  <a href="#matrix:map"><code>matrix:map</code></a>
+  <a class="code" href="#matrix:get"><code>matrix:get</code></a>
+  <a class="code" href="#matrix:get-row"><code>matrix:get-row</code></a>
+  <a class="code" href="#matrix:get-column"><code>matrix:get-column</code></a>
+  <a class="code" href="#matrix:set"><code>matrix:set</code></a>
+  <a class="code" href="#matrix:set-row"><code>matrix:set-row</code></a>
+  <a class="code" href="#matrix:set-column"><code>matrix:set-column</code></a>
+  <a class="code" href="#matrix:swap-rows"><code>matrix:swap-rows</code></a>
+  <a class="code" href="#matrix:swap-columns"><code>matrix:swap-columns</code></a>
+  <a class="code" href="#matrix:set-and-report"><code>matrix:set-and-report</code></a>
+  <a class="code" href="#matrix:dimensions"><code>matrix:dimensions</code></a>
+  <a class="code" href="#matrix:submatrix"><code>matrix:submatrix</code></a>
+  <a class="code" href="#matrix:map"><code>matrix:map</code></a>
 </div>
 <h3>Math operations</h3>
 <div id="math">
-  <a href="#matrix:times-scalar"><code>matrix:times-scalar</code></a>
-  <a href="#matrix:times"><code>matrix:times</code></a>
-  <a href="#matrix:*"><code>matrix:*</code></a>
-  <a href="#matrix:times-element-wise"><code>matrix:times-element-wise</code></a>
-  <a href="#matrix:plus-scalar"><code>matrix:plus-scalar</code></a>
-  <a href="#matrix:plus"><code>matrix:plus</code></a>
-  <a href="#matrix:+"><code>matrix:+</code></a>
-  <a href="#matrix:minus"><code>matrix:minus</code></a>
-  <a href="#matrix:-"><code>matrix:-</code></a>
-  <a href="#matrix:inverse"><code>matrix:inverse</code></a>
-  <a href="#matrix:transpose"><code>matrix:transpose</code></a>
-  <a href="#matrix:real-eigenvalues"><code>matrix:real-eigenvalues</code></a>
-  <a href="#matrix:imaginary-eigenvalues"><code>matrix:imaginary-eigenvalues</code></a>
-  <a href="#matrix:eigenvectors"><code>matrix:eigenvectors</code></a>
-  <a href="#matrix:det"><code>matrix:det</code></a>
-  <a href="#matrix:rank"><code>matrix:rank</code></a>
-  <a href="#matrix:trace"><code>matrix:trace</code></a>
+  <a class="code" href="#matrix:times-scalar"><code>matrix:times-scalar</code></a>
+  <a class="code" href="#matrix:times"><code>matrix:times</code></a>
+  <a class="code" href="#matrix:*"><code>matrix:*</code></a>
+  <a class="code" href="#matrix:times-element-wise"><code>matrix:times-element-wise</code></a>
+  <a class="code" href="#matrix:plus-scalar"><code>matrix:plus-scalar</code></a>
+  <a class="code" href="#matrix:plus"><code>matrix:plus</code></a>
+  <a class="code" href="#matrix:+"><code>matrix:+</code></a>
+  <a class="code" href="#matrix:minus"><code>matrix:minus</code></a>
+  <a class="code" href="#matrix:-"><code>matrix:-</code></a>
+  <a class="code" href="#matrix:inverse"><code>matrix:inverse</code></a>
+  <a class="code" href="#matrix:transpose"><code>matrix:transpose</code></a>
+  <a class="code" href="#matrix:real-eigenvalues"><code>matrix:real-eigenvalues</code></a>
+  <a class="code" href="#matrix:imaginary-eigenvalues"><code>matrix:imaginary-eigenvalues</code></a>
+  <a class="code" href="#matrix:eigenvectors"><code>matrix:eigenvectors</code></a>
+  <a class="code" href="#matrix:det"><code>matrix:det</code></a>
+  <a class="code" href="#matrix:rank"><code>matrix:rank</code></a>
+  <a class="code" href="#matrix:trace"><code>matrix:trace</code></a>
 </div>
 <div class="dict_entry" id="matrix:make-constant">
   <h3><a>matrix:make-constant</a></h3>

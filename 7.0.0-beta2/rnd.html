@@ -249,7 +249,7 @@
 			<a href="gis.html">GIS</a>
 			<a href="gogo.html">GoGo</a>
 			<a href="ls.html">LevelSpace</a>
-			<a href="matrix.html">Matrices</a>
+			<a href="matrix.html">Matrix</a>
 			<a href="nw.html">Networks</a>
 			<a href="palette.html">Palette</a>
 			<a href="profiler.html">Profiler</a>
@@ -370,7 +370,7 @@
 			<a href="gis.html">GIS</a>
 			<a href="gogo.html">GoGo</a>
 			<a href="ls.html">LevelSpace</a>
-			<a href="matrix.html">Matrices</a>
+			<a href="matrix.html">Matrix</a>
 			<a href="nw.html">Networks</a>
 			<a href="palette.html">Palette</a>
 			<a href="profiler.html">Profiler</a>
@@ -529,17 +529,18 @@ n-values 100 [ rnd:weighted-one-of-list candidates [ [w] -&gt; w ] ]
 <p>Things are a bit more complicated if you are choosing <strong>without repeats</strong>, however. In this case, the algorithm may have to discard some picks because the candidates have already been selected. When this starts happening too often (maybe because some weights are much bigger than others), the extension re-initializes the algorithm with the already-picked candidates excluded. This should not happen too often, however, so while picking without repeats has an upper bound of <em>O(m * n)</em> in theory, it should usually not be much more than <em>O(m + n)</em> in practice.</p>
 <p>The previous remarks apply to agentset primitives as much as they apply to list primitives.</p>
 <h2>Primitives</h2>
-# <h3>AgentSet Primitives</h3>
+<p> Looking for the primitive reference for the Rnd extension? You can find it <a href="rnd/index.html">here</a>.</p>
+<h3>AgentSet Primitives</h3>
 <div id="agentset">
-  <a href="#rnd:weighted-one-of"><code>rnd:weighted-one-of</code></a>
-  <a href="#rnd:weighted-n-of"><code>rnd:weighted-n-of</code></a>
-  <a href="#rnd:weighted-n-of-with-repeats"><code>rnd:weighted-n-of-with-repeats</code></a>
+  <a class="code" href="#rnd:weighted-one-of"><code>rnd:weighted-one-of</code></a>
+  <a class="code" href="#rnd:weighted-n-of"><code>rnd:weighted-n-of</code></a>
+  <a class="code" href="#rnd:weighted-n-of-with-repeats"><code>rnd:weighted-n-of-with-repeats</code></a>
 </div>
 <h3>List Primitives</h3>
 <div id="list">
-  <a href="#rnd:weighted-one-of-list"><code>rnd:weighted-one-of-list</code></a>
-  <a href="#rnd:weighted-n-of-list"><code>rnd:weighted-n-of-list</code></a>
-  <a href="#rnd:weighted-n-of-list-with-repeats"><code>rnd:weighted-n-of-list-with-repeats</code></a>
+  <a class="code" href="#rnd:weighted-one-of-list"><code>rnd:weighted-one-of-list</code></a>
+  <a class="code" href="#rnd:weighted-n-of-list"><code>rnd:weighted-n-of-list</code></a>
+  <a class="code" href="#rnd:weighted-n-of-list-with-repeats"><code>rnd:weighted-n-of-list-with-repeats</code></a>
 </div>
 <div class="dict_entry" id="rnd:weighted-one-of">
   <h3><a>rnd:weighted-one-of</a></h3>

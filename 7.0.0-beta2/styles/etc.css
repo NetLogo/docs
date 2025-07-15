@@ -179,6 +179,12 @@ span.prim_example span.since {
 	color: var(--secondary-heading-text-color);
 }
 
+@media (max-width: 1024px) {
+	div.dict_entry > :not(:first-child) {
+		margin-inline: var(--space-lg);
+	}
+}
+
 /* ============================================================
    ARTIFACTS (from NetLogo < 7.0)
    ========================================================================== */
@@ -313,6 +319,13 @@ div.version {
 	z-index: 10; /* Ensure it stays above other content */
 	border-bottom: 1px solid var(--color-rule);
 	margin-bottom: var(--block-bottom);
+}
+
+.dictionary-layout .sidebar .heading-title {
+	/* One line max */
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
 }
 
 .dictionary-layout .sidebar .search-bar {
@@ -459,8 +472,8 @@ div.version {
 /* --------- Desktop: min-width 1024px --------- */
 @media (min-width: 1024px) {
 	.dictionary-layout .sidebar {
-		min-height: 90vh; /* full-height */
-		max-height: 90vh;
+		min-height: 100vh; /* full-height */
+		max-height: 100vh;
 		margin-top: 0;
 	}
 	.dictionary-layout .content {

@@ -249,7 +249,7 @@
 			<a href="gis.html">GIS</a>
 			<a href="gogo.html">GoGo</a>
 			<a href="ls.html">LevelSpace</a>
-			<a href="matrix.html">Matrices</a>
+			<a href="matrix.html">Matrix</a>
 			<a href="nw.html">Networks</a>
 			<a href="palette.html">Palette</a>
 			<a href="profiler.html">Profiler</a>
@@ -370,7 +370,7 @@
 			<a href="gis.html">GIS</a>
 			<a href="gogo.html">GoGo</a>
 			<a href="ls.html">LevelSpace</a>
-			<a href="matrix.html">Matrices</a>
+			<a href="matrix.html">Matrix</a>
 			<a href="nw.html">Networks</a>
 			<a href="palette.html">Palette</a>
 			<a href="profiler.html">Profiler</a>
@@ -585,65 +585,66 @@ show map sort nw:get-context
 <p>If you&rsquo;re working on a network that can change regularly, try to do all your network calculations at once, then all your network changes at once. The more your interweave network calculations and network changes, the more the NW extension will have to recalculate things. For example, if you have a traffic model, and cars need to figure out the shortest path to their destination based on the traffic each tick, have all the cars find their shortest paths, then change the network weights to account for how traffic has changed.</p>
 <p>There may be rare occasions in which you don&rsquo;t want the NW extension to remember values. For example, if you&rsquo;re working on an extremely large network, remembering all those values may take more memory than you have. In that case, you can just call <code>nw:set-context (first nw:get-context) (last nw:get-context)</code> to force the NW extension to immediately forget everything.</p>
 <h2>Primitives</h2>
-# <h3>Generators</h3>
+<p> Looking for the primitive reference for the Networks extension? You can find it <a href="nw/index.html">here</a>.</p>
+<h3>Generators</h3>
 <div id="generator">
-  <a href="#nw:generate-preferential-attachment"><code>nw:generate-preferential-attachment</code></a>
-  <a href="#nw:generate-random"><code>nw:generate-random</code></a>
-  <a href="#nw:generate-watts-strogatz"><code>nw:generate-watts-strogatz</code></a>
-  <a href="#nw:generate-small-world"><code>nw:generate-small-world</code></a>
-  <a href="#nw:generate-lattice-2d"><code>nw:generate-lattice-2d</code></a>
-  <a href="#nw:generate-ring"><code>nw:generate-ring</code></a>
-  <a href="#nw:generate-star"><code>nw:generate-star</code></a>
-  <a href="#nw:generate-wheel"><code>nw:generate-wheel</code></a>
+  <a class="code" href="#nw:generate-preferential-attachment"><code>nw:generate-preferential-attachment</code></a>
+  <a class="code" href="#nw:generate-random"><code>nw:generate-random</code></a>
+  <a class="code" href="#nw:generate-watts-strogatz"><code>nw:generate-watts-strogatz</code></a>
+  <a class="code" href="#nw:generate-small-world"><code>nw:generate-small-world</code></a>
+  <a class="code" href="#nw:generate-lattice-2d"><code>nw:generate-lattice-2d</code></a>
+  <a class="code" href="#nw:generate-ring"><code>nw:generate-ring</code></a>
+  <a class="code" href="#nw:generate-star"><code>nw:generate-star</code></a>
+  <a class="code" href="#nw:generate-wheel"><code>nw:generate-wheel</code></a>
 </div>
 <h3>Path and Distance</h3>
 <div id="path">
-  <a href="#nw:turtles-in-radius"><code>nw:turtles-in-radius</code></a>
-  <a href="#nw:turtles-in-reverse-radius"><code>nw:turtles-in-reverse-radius</code></a>
-  <a href="#nw:distance-to"><code>nw:distance-to</code></a>
-  <a href="#nw:weighted-distance-to"><code>nw:weighted-distance-to</code></a>
-  <a href="#nw:path-to"><code>nw:path-to</code></a>
-  <a href="#nw:turtles-on-path-to"><code>nw:turtles-on-path-to</code></a>
-  <a href="#nw:weighted-path-to"><code>nw:weighted-path-to</code></a>
-  <a href="#nw:turtles-on-weighted-path-to"><code>nw:turtles-on-weighted-path-to</code></a>
-  <a href="#nw:mean-path-length"><code>nw:mean-path-length</code></a>
-  <a href="#nw:mean-weighted-path-length"><code>nw:mean-weighted-path-length</code></a>
+  <a class="code" href="#nw:turtles-in-radius"><code>nw:turtles-in-radius</code></a>
+  <a class="code" href="#nw:turtles-in-reverse-radius"><code>nw:turtles-in-reverse-radius</code></a>
+  <a class="code" href="#nw:distance-to"><code>nw:distance-to</code></a>
+  <a class="code" href="#nw:weighted-distance-to"><code>nw:weighted-distance-to</code></a>
+  <a class="code" href="#nw:path-to"><code>nw:path-to</code></a>
+  <a class="code" href="#nw:turtles-on-path-to"><code>nw:turtles-on-path-to</code></a>
+  <a class="code" href="#nw:weighted-path-to"><code>nw:weighted-path-to</code></a>
+  <a class="code" href="#nw:turtles-on-weighted-path-to"><code>nw:turtles-on-weighted-path-to</code></a>
+  <a class="code" href="#nw:mean-path-length"><code>nw:mean-path-length</code></a>
+  <a class="code" href="#nw:mean-weighted-path-length"><code>nw:mean-weighted-path-length</code></a>
 </div>
 <h3>Clusterer/Community Detection</h3>
 <div id="clusterer">
-  <a href="#nw:bicomponent-clusters"><code>nw:bicomponent-clusters</code></a>
-  <a href="#nw:weak-component-clusters"><code>nw:weak-component-clusters</code></a>
-  <a href="#nw:louvain-communities"><code>nw:louvain-communities</code></a>
-  <a href="#nw:maximal-cliques"><code>nw:maximal-cliques</code></a>
-  <a href="#nw:biggest-maximal-cliques"><code>nw:biggest-maximal-cliques</code></a>
+  <a class="code" href="#nw:bicomponent-clusters"><code>nw:bicomponent-clusters</code></a>
+  <a class="code" href="#nw:weak-component-clusters"><code>nw:weak-component-clusters</code></a>
+  <a class="code" href="#nw:louvain-communities"><code>nw:louvain-communities</code></a>
+  <a class="code" href="#nw:maximal-cliques"><code>nw:maximal-cliques</code></a>
+  <a class="code" href="#nw:biggest-maximal-cliques"><code>nw:biggest-maximal-cliques</code></a>
 </div>
 <h3>Context Management</h3>
 <div id="context">
-  <a href="#nw:set-context"><code>nw:set-context</code></a>
-  <a href="#nw:get-context"><code>nw:get-context</code></a>
-  <a href="#nw:with-context"><code>nw:with-context</code></a>
+  <a class="code" href="#nw:set-context"><code>nw:set-context</code></a>
+  <a class="code" href="#nw:get-context"><code>nw:get-context</code></a>
+  <a class="code" href="#nw:with-context"><code>nw:with-context</code></a>
 </div>
 <h3>Import and Export</h3>
 <div id="io">
-  <a href="#nw:save-matrix"><code>nw:save-matrix</code></a>
-  <a href="#nw:load-matrix"><code>nw:load-matrix</code></a>
-  <a href="#nw:save-graphml"><code>nw:save-graphml</code></a>
-  <a href="#nw:load-graphml"><code>nw:load-graphml</code></a>
-  <a href="#nw:load"><code>nw:load</code></a>
-  <a href="#nw:save"><code>nw:save</code></a>
+  <a class="code" href="#nw:save-matrix"><code>nw:save-matrix</code></a>
+  <a class="code" href="#nw:load-matrix"><code>nw:load-matrix</code></a>
+  <a class="code" href="#nw:save-graphml"><code>nw:save-graphml</code></a>
+  <a class="code" href="#nw:load-graphml"><code>nw:load-graphml</code></a>
+  <a class="code" href="#nw:load"><code>nw:load</code></a>
+  <a class="code" href="#nw:save"><code>nw:save</code></a>
 </div>
 <h3>Centrality Measures</h3>
 <div id="centrality">
-  <a href="#nw:betweenness-centrality"><code>nw:betweenness-centrality</code></a>
-  <a href="#nw:eigenvector-centrality"><code>nw:eigenvector-centrality</code></a>
-  <a href="#nw:page-rank"><code>nw:page-rank</code></a>
-  <a href="#nw:closeness-centrality"><code>nw:closeness-centrality</code></a>
-  <a href="#nw:weighted-closeness-centrality"><code>nw:weighted-closeness-centrality</code></a>
+  <a class="code" href="#nw:betweenness-centrality"><code>nw:betweenness-centrality</code></a>
+  <a class="code" href="#nw:eigenvector-centrality"><code>nw:eigenvector-centrality</code></a>
+  <a class="code" href="#nw:page-rank"><code>nw:page-rank</code></a>
+  <a class="code" href="#nw:closeness-centrality"><code>nw:closeness-centrality</code></a>
+  <a class="code" href="#nw:weighted-closeness-centrality"><code>nw:weighted-closeness-centrality</code></a>
 </div>
 <h3>Clustering Measures</h3>
 <div id="clustering">
-  <a href="#nw:clustering-coefficient"><code>nw:clustering-coefficient</code></a>
-  <a href="#nw:modularity"><code>nw:modularity</code></a>
+  <a class="code" href="#nw:clustering-coefficient"><code>nw:clustering-coefficient</code></a>
+  <a class="code" href="#nw:modularity"><code>nw:modularity</code></a>
 </div>
 <div class="dict_entry" id="nw:set-context">
   <h3><a>nw:set-context</a></h3>

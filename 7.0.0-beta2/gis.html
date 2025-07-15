@@ -249,7 +249,7 @@
 			<a href="gis.html">GIS</a>
 			<a href="gogo.html">GoGo</a>
 			<a href="ls.html">LevelSpace</a>
-			<a href="matrix.html">Matrices</a>
+			<a href="matrix.html">Matrix</a>
 			<a href="nw.html">Networks</a>
 			<a href="palette.html">Palette</a>
 			<a href="profiler.html">Profiler</a>
@@ -370,7 +370,7 @@
 			<a href="gis.html">GIS</a>
 			<a href="gogo.html">GoGo</a>
 			<a href="ls.html">LevelSpace</a>
-			<a href="matrix.html">Matrices</a>
+			<a href="matrix.html">Matrix</a>
 			<a href="nw.html">Networks</a>
 			<a href="palette.html">Palette</a>
 			<a href="profiler.html">Profiler</a>
@@ -597,88 +597,89 @@ and comments at the
 <a href="https://groups.google.com/d/forum/netlogo-users" target="_blank">NetLogo Users Group</a>, or write directly to Eric Russell and the NetLogo team at
 <a href="mailto:ccl-gis@ccl.northwestern.edu">ccl-gis@ccl.northwestern.edu</a></p>
 <h2>Primitives</h2>
-# <h3>RasterDataset Primitives</h3>
+<p> Looking for the primitive reference for the GIS extension? You can find it <a href="gis/index.html">here</a>.</p>
+<h3>RasterDataset Primitives</h3>
 <div id="raster">
-  <a href="#gis:width-of"><code>gis:width-of</code></a>
-  <a href="#gis:height-of"><code>gis:height-of</code></a>
-  <a href="#gis:raster-value"><code>gis:raster-value</code></a>
-  <a href="#gis:set-raster-value"><code>gis:set-raster-value</code></a>
-  <a href="#gis:minimum-of"><code>gis:minimum-of</code></a>
-  <a href="#gis:maximum-of"><code>gis:maximum-of</code></a>
-  <a href="#gis:sampling-method-of"><code>gis:sampling-method-of</code></a>
-  <a href="#gis:set-sampling-method"><code>gis:set-sampling-method</code></a>
-  <a href="#gis:raster-sample"><code>gis:raster-sample</code></a>
-  <a href="#gis:raster-world-envelope"><code>gis:raster-world-envelope</code></a>
-  <a href="#gis:create-raster"><code>gis:create-raster</code></a>
-  <a href="#gis:resample"><code>gis:resample</code></a>
-  <a href="#gis:convolve"><code>gis:convolve</code></a>
-  <a href="#gis:apply-raster"><code>gis:apply-raster</code></a>
+  <a class="code" href="#gis:width-of"><code>gis:width-of</code></a>
+  <a class="code" href="#gis:height-of"><code>gis:height-of</code></a>
+  <a class="code" href="#gis:raster-value"><code>gis:raster-value</code></a>
+  <a class="code" href="#gis:set-raster-value"><code>gis:set-raster-value</code></a>
+  <a class="code" href="#gis:minimum-of"><code>gis:minimum-of</code></a>
+  <a class="code" href="#gis:maximum-of"><code>gis:maximum-of</code></a>
+  <a class="code" href="#gis:sampling-method-of"><code>gis:sampling-method-of</code></a>
+  <a class="code" href="#gis:set-sampling-method"><code>gis:set-sampling-method</code></a>
+  <a class="code" href="#gis:raster-sample"><code>gis:raster-sample</code></a>
+  <a class="code" href="#gis:raster-world-envelope"><code>gis:raster-world-envelope</code></a>
+  <a class="code" href="#gis:create-raster"><code>gis:create-raster</code></a>
+  <a class="code" href="#gis:resample"><code>gis:resample</code></a>
+  <a class="code" href="#gis:convolve"><code>gis:convolve</code></a>
+  <a class="code" href="#gis:apply-raster"><code>gis:apply-raster</code></a>
 </div>
 <h3>Dataset Primitives</h3>
 <div id="data">
-  <a href="#gis:load-dataset"><code>gis:load-dataset</code></a>
-  <a href="#gis:store-dataset"><code>gis:store-dataset</code></a>
-  <a href="#gis:type-of"><code>gis:type-of</code></a>
-  <a href="#gis:patch-dataset"><code>gis:patch-dataset</code></a>
-  <a href="#gis:turtle-dataset"><code>gis:turtle-dataset</code></a>
-  <a href="#gis:link-dataset"><code>gis:link-dataset</code></a>
+  <a class="code" href="#gis:load-dataset"><code>gis:load-dataset</code></a>
+  <a class="code" href="#gis:store-dataset"><code>gis:store-dataset</code></a>
+  <a class="code" href="#gis:type-of"><code>gis:type-of</code></a>
+  <a class="code" href="#gis:patch-dataset"><code>gis:patch-dataset</code></a>
+  <a class="code" href="#gis:turtle-dataset"><code>gis:turtle-dataset</code></a>
+  <a class="code" href="#gis:link-dataset"><code>gis:link-dataset</code></a>
 </div>
 <h3>VectorDataset Primitives</h3>
 <div id="vector">
-  <a href="#gis:shape-type-of"><code>gis:shape-type-of</code></a>
-  <a href="#gis:property-names"><code>gis:property-names</code></a>
-  <a href="#gis:feature-list-of"><code>gis:feature-list-of</code></a>
-  <a href="#gis:vertex-lists-of"><code>gis:vertex-lists-of</code></a>
-  <a href="#gis:centroid-of"><code>gis:centroid-of</code></a>
-  <a href="#gis:random-point-inside"><code>gis:random-point-inside</code></a>
-  <a href="#gis:location-of"><code>gis:location-of</code></a>
-  <a href="#gis:set-property-value"><code>gis:set-property-value</code></a>
-  <a href="#gis:property-value"><code>gis:property-value</code></a>
-  <a href="#gis:find-features"><code>gis:find-features</code></a>
-  <a href="#gis:find-one-feature"><code>gis:find-one-feature</code></a>
-  <a href="#gis:find-less-than"><code>gis:find-less-than</code></a>
-  <a href="#gis:find-greater-than"><code>gis:find-greater-than</code></a>
-  <a href="#gis:find-range"><code>gis:find-range</code></a>
-  <a href="#gis:property-minimum"><code>gis:property-minimum</code></a>
-  <a href="#gis:property-maximum"><code>gis:property-maximum</code></a>
-  <a href="#gis:apply-coverage"><code>gis:apply-coverage</code></a>
-  <a href="#gis:create-turtles-from-points"><code>gis:create-turtles-from-points</code></a>
-  <a href="#gis:create-turtles-from-points-manual"><code>gis:create-turtles-from-points-manual</code></a>
-  <a href="#gis:create-turtles-inside-polygon"><code>gis:create-turtles-inside-polygon</code></a>
-  <a href="#gis:create-turtles-inside-polygon-manual"><code>gis:create-turtles-inside-polygon-manual</code></a>
-  <a href="#gis:coverage-minimum-threshold"><code>gis:coverage-minimum-threshold</code></a>
-  <a href="#gis:set-coverage-minimum-threshold"><code>gis:set-coverage-minimum-threshold</code></a>
-  <a href="#gis:coverage-maximum-threshold"><code>gis:coverage-maximum-threshold</code></a>
-  <a href="#gis:set-coverage-maximum-threshold"><code>gis:set-coverage-maximum-threshold</code></a>
-  <a href="#gis:intersects?"><code>gis:intersects?</code></a>
-  <a href="#gis:contains?"><code>gis:contains?</code></a>
-  <a href="#gis:contained-by?"><code>gis:contained-by?</code></a>
-  <a href="#gis:have-relationship?"><code>gis:have-relationship?</code></a>
-  <a href="#gis:relationship-of"><code>gis:relationship-of</code></a>
-  <a href="#gis:intersecting"><code>gis:intersecting</code></a>
+  <a class="code" href="#gis:shape-type-of"><code>gis:shape-type-of</code></a>
+  <a class="code" href="#gis:property-names"><code>gis:property-names</code></a>
+  <a class="code" href="#gis:feature-list-of"><code>gis:feature-list-of</code></a>
+  <a class="code" href="#gis:vertex-lists-of"><code>gis:vertex-lists-of</code></a>
+  <a class="code" href="#gis:centroid-of"><code>gis:centroid-of</code></a>
+  <a class="code" href="#gis:random-point-inside"><code>gis:random-point-inside</code></a>
+  <a class="code" href="#gis:location-of"><code>gis:location-of</code></a>
+  <a class="code" href="#gis:set-property-value"><code>gis:set-property-value</code></a>
+  <a class="code" href="#gis:property-value"><code>gis:property-value</code></a>
+  <a class="code" href="#gis:find-features"><code>gis:find-features</code></a>
+  <a class="code" href="#gis:find-one-feature"><code>gis:find-one-feature</code></a>
+  <a class="code" href="#gis:find-less-than"><code>gis:find-less-than</code></a>
+  <a class="code" href="#gis:find-greater-than"><code>gis:find-greater-than</code></a>
+  <a class="code" href="#gis:find-range"><code>gis:find-range</code></a>
+  <a class="code" href="#gis:property-minimum"><code>gis:property-minimum</code></a>
+  <a class="code" href="#gis:property-maximum"><code>gis:property-maximum</code></a>
+  <a class="code" href="#gis:apply-coverage"><code>gis:apply-coverage</code></a>
+  <a class="code" href="#gis:create-turtles-from-points"><code>gis:create-turtles-from-points</code></a>
+  <a class="code" href="#gis:create-turtles-from-points-manual"><code>gis:create-turtles-from-points-manual</code></a>
+  <a class="code" href="#gis:create-turtles-inside-polygon"><code>gis:create-turtles-inside-polygon</code></a>
+  <a class="code" href="#gis:create-turtles-inside-polygon-manual"><code>gis:create-turtles-inside-polygon-manual</code></a>
+  <a class="code" href="#gis:coverage-minimum-threshold"><code>gis:coverage-minimum-threshold</code></a>
+  <a class="code" href="#gis:set-coverage-minimum-threshold"><code>gis:set-coverage-minimum-threshold</code></a>
+  <a class="code" href="#gis:coverage-maximum-threshold"><code>gis:coverage-maximum-threshold</code></a>
+  <a class="code" href="#gis:set-coverage-maximum-threshold"><code>gis:set-coverage-maximum-threshold</code></a>
+  <a class="code" href="#gis:intersects?"><code>gis:intersects?</code></a>
+  <a class="code" href="#gis:contains?"><code>gis:contains?</code></a>
+  <a class="code" href="#gis:contained-by?"><code>gis:contained-by?</code></a>
+  <a class="code" href="#gis:have-relationship?"><code>gis:have-relationship?</code></a>
+  <a class="code" href="#gis:relationship-of"><code>gis:relationship-of</code></a>
+  <a class="code" href="#gis:intersecting"><code>gis:intersecting</code></a>
 </div>
 <h3>Coordinate System Primitives</h3>
 <div id="coord">
-  <a href="#gis:set-transformation"><code>gis:set-transformation</code></a>
-  <a href="#gis:set-transformation-ds"><code>gis:set-transformation-ds</code></a>
-  <a href="#gis:set-world-envelope"><code>gis:set-world-envelope</code></a>
-  <a href="#gis:set-world-envelope-ds"><code>gis:set-world-envelope-ds</code></a>
-  <a href="#gis:world-envelope"><code>gis:world-envelope</code></a>
-  <a href="#gis:envelope-of"><code>gis:envelope-of</code></a>
-  <a href="#gis:envelope-union-of"><code>gis:envelope-union-of</code></a>
-  <a href="#gis:load-coordinate-system"><code>gis:load-coordinate-system</code></a>
-  <a href="#gis:set-coordinate-system"><code>gis:set-coordinate-system</code></a>
-  <a href="#gis:project-lat-lon"><code>gis:project-lat-lon</code></a>
-  <a href="#gis:project-lat-lon-from-ellipsoid"><code>gis:project-lat-lon-from-ellipsoid</code></a>
+  <a class="code" href="#gis:set-transformation"><code>gis:set-transformation</code></a>
+  <a class="code" href="#gis:set-transformation-ds"><code>gis:set-transformation-ds</code></a>
+  <a class="code" href="#gis:set-world-envelope"><code>gis:set-world-envelope</code></a>
+  <a class="code" href="#gis:set-world-envelope-ds"><code>gis:set-world-envelope-ds</code></a>
+  <a class="code" href="#gis:world-envelope"><code>gis:world-envelope</code></a>
+  <a class="code" href="#gis:envelope-of"><code>gis:envelope-of</code></a>
+  <a class="code" href="#gis:envelope-union-of"><code>gis:envelope-union-of</code></a>
+  <a class="code" href="#gis:load-coordinate-system"><code>gis:load-coordinate-system</code></a>
+  <a class="code" href="#gis:set-coordinate-system"><code>gis:set-coordinate-system</code></a>
+  <a class="code" href="#gis:project-lat-lon"><code>gis:project-lat-lon</code></a>
+  <a class="code" href="#gis:project-lat-lon-from-ellipsoid"><code>gis:project-lat-lon-from-ellipsoid</code></a>
 </div>
 <h3>Drawing Primitives</h3>
 <div id="drawing">
-  <a href="#gis:drawing-color"><code>gis:drawing-color</code></a>
-  <a href="#gis:set-drawing-color"><code>gis:set-drawing-color</code></a>
-  <a href="#gis:draw"><code>gis:draw</code></a>
-  <a href="#gis:fill"><code>gis:fill</code></a>
-  <a href="#gis:paint"><code>gis:paint</code></a>
-  <a href="#gis:import-wms-drawing"><code>gis:import-wms-drawing</code></a>
+  <a class="code" href="#gis:drawing-color"><code>gis:drawing-color</code></a>
+  <a class="code" href="#gis:set-drawing-color"><code>gis:set-drawing-color</code></a>
+  <a class="code" href="#gis:draw"><code>gis:draw</code></a>
+  <a class="code" href="#gis:fill"><code>gis:fill</code></a>
+  <a class="code" href="#gis:paint"><code>gis:paint</code></a>
+  <a class="code" href="#gis:import-wms-drawing"><code>gis:import-wms-drawing</code></a>
 </div>
 <div class="dict_entry" id="gis:set-transformation">
   <h3><a>gis:set-transformation</a></h3>
