@@ -37,6 +37,9 @@
 	align-items: center;
 	gap: var(--space-md);
 	flex: 1;
+
+	max-width: max(70vw, 400px);
+	overflow-x: auto;
 }
 
 .navbar__item {
@@ -136,6 +139,11 @@
 .version-select:focus-visible {
 	outline: 1px dashed var(--color-primary);
 	outline-offset: 1px;
+}
+.version-select:disabled {
+	background: var(--color-grey-light);
+	color: var(--color-text-disabled);
+	cursor: not-allowed;
 }
 
 /* Utility buttons */

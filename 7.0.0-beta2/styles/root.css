@@ -45,7 +45,7 @@
 
 	--color-warning: #f0ad4e; /* Warning color */
 	--color-success: #5cb85c; /* Success color */
-	--color-error: #d9534f; /* Error color */
+	--color-error: var(--color-red-accent); /* Error color */
 
 	--color-text-on-primary: var(--color-white);
 

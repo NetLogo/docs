@@ -21,6 +21,17 @@
 		</style>
 	</head>
 	<body>
+		<script>
+			window.netlogo = {
+				...(window.netlogo || {}),
+				version: "7.0.0-beta2",
+				title: "What&#39;s new?",
+				pdf: false,
+				stringVariables: {
+					"CCL": "https://ccl.northwestern.edu/netlogo"
+				}
+			};
+		</script>
 		<!------------  NAV  ------------>
 		<nav class="navbar">
 			<input id="menu-toggle" type="checkbox" hidden />
@@ -273,25 +284,26 @@
 					<!-- Version / Actions -->
 					<select id="version-select" class="version-select" aria-label="Select version">
 						<option selected value="this">7.0.0-beta2</option>
-						<option value="6.4.0">6.4</option>
-						<option value="6.3.0">6.3.0</option>
-						<option value="6.2.2">6.2.2</option>
-						<option value="6.1.1">6.1.1</option>
-						<option value="6.0.4">6.0.4</option>
-						<option value="6.0-BETA1">6.0beta</option>
-						<option value="5.3.1">5.3.1</option>
-						<option value="5.2.1">5.2.1</option>
-						<option value="5.1.0">5.1.0</option>
-						<option value="5.0">5.0</option>
-						<option value="4.1">4.1</option>
-						<option value="4.0">4.0</option>
-						<option value="3.1">3.1</option>
-						<option value="3.0">3.0</option>
-						<option value="2.1">2.1</option>
-						<option value="2.0">2.0</option>
-						<option value="1.2">1.2</option>
-						<option value="1.1">1.1</option>
-						<option value="1.0">1.0</option>
+						<!-- See script:expandStringVariables for details on how ${var} works -->
+						<option data-url-prefix="${CCL}/6.4.0/docs" value="6.4.0">6.4</option>
+						<option data-url-prefix="${CCL}/6.3.0/docs" value="6.3.0">6.3.0</option>
+						<option data-url-prefix="${CCL}/6.2.2/docs" value="6.2.2">6.2.2</option>
+						<option data-url-prefix="${CCL}/6.1.1/docs" value="6.1.1">6.1.1</option>
+						<option data-url-prefix="${CCL}/6.0.4/docs" value="6.0.4">6.0.4</option>
+						<option data-url-prefix="${CCL}/6.0-BETA1/docs" value="6.0-BETA1">6.0beta</option>
+						<option data-url-prefix="${CCL}/5.3.1/docs" value="5.3.1">5.3.1</option>
+						<option data-url-prefix="${CCL}/5.2.1/docs" value="5.2.1">5.2.1</option>
+						<option data-url-prefix="${CCL}/5.1.0/docs" value="5.1.0">5.1.0</option>
+						<option data-url-prefix="${CCL}/5.0/docs" value="5.0">5.0</option>
+						<option data-url-prefix="${CCL}/4.1/docs" value="4.1">4.1</option>
+						<option data-url-prefix="${CCL}/4.0/docs" value="4.0">4.0</option>
+						<option data-url-prefix="${CCL}/3.1/docs" value="3.1">3.1</option>
+						<option data-url-prefix="${CCL}/3.0/docs" value="3.0">3.0</option>
+						<option value="2.1" disabled>2.1</option>
+						<option value="2.0" disabled>2.0</option>
+						<option value="1.2" disabled>1.2</option>
+						<option value="1.1" disabled>1.1</option>
+						<option value="1.0" disabled>1.0</option>
 					</select>
 					<button class="navbar__action hidden" id="searchBtn" aria-label="Search (⌘K)">
 						<!-- Search icon -->
@@ -306,6 +318,21 @@
 						<svg viewBox="0 0 24 24">
 							<path
 								d="M12 .5a12 12 0 0 0-3.79 23.4c.6.11.82-.26.82-.58v-2.04c-3.34.72-4.04-1.61-4.04-1.61-.55-1.4-1.34-1.77-1.34-1.77-1.09-.74.08-.73.08-.73 1.2.08 1.83 1.23 1.83 1.23 1.07 1.84 2.8 1.31 3.48 1.01.11-.78.42-1.31.76-1.61-2.67-.3-5.47-1.34-5.47-5.96 0-1.32.47-2.4 1.23-3.24-.12-.3-.53-1.52.12-3.17 0 0 1.01-.32 3.3 1.23a11.32 11.32 0 0 1 6 0c2.3-1.55 3.3-1.23 3.3-1.23.65 1.65.24 2.87.12 3.17.77.84 1.23 1.92 1.23 3.24 0 4.63-2.8 5.66-5.47 5.96.43.38.81 1.12.81 2.25v3.34c0 .32.22.7.83.58A12 12 0 0 0 12 .5z"
+							/>
+						</svg>
+					</a>
+					<a
+						class="navbar__action"
+						href="NetLogo%20User%20Manual.pdf"
+						aria-label="User Manual"
+						title="User Manual PDF"
+						target="_blank"
+					>
+						<!-- User Manual icon -->
+						<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+							<!--!Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2025 Fonticons, Inc.-->
+							<path
+								d="M0 64C0 28.7 28.7 0 64 0L224 0l0 128c0 17.7 14.3 32 32 32l128 0 0 144-208 0c-35.3 0-64 28.7-64 64l0 144-48 0c-35.3 0-64-28.7-64-64L0 64zm384 64l-128 0L256 0 384 128zM176 352l32 0c30.9 0 56 25.1 56 56s-25.1 56-56 56l-16 0 0 32c0 8.8-7.2 16-16 16s-16-7.2-16-16l0-48 0-80c0-8.8 7.2-16 16-16zm32 80c13.3 0 24-10.7 24-24s-10.7-24-24-24l-16 0 0 48 16 0zm96-80l32 0c26.5 0 48 21.5 48 48l0 64c0 26.5-21.5 48-48 48l-32 0c-8.8 0-16-7.2-16-16l0-128c0-8.8 7.2-16 16-16zm32 128c8.8 0 16-7.2 16-16l0-64c0-8.8-7.2-16-16-16l-16 0 0 96 16 0zm80-112c0-8.8 7.2-16 16-16l48 0c8.8 0 16 7.2 16 16s-7.2 16-16 16l-32 0 0 32 32 0c8.8 0 16 7.2 16 16s-7.2 16-16 16l-32 0 0 48c0 8.8-7.2 16-16 16s-16-7.2-16-16l0-64 0-64z"
 							/>
 						</svg>
 					</a>
@@ -497,7 +524,7 @@
 <div class="toc">
 <h4><a href="#table-of-contents" id="table-of-contents" class="section-anchor">Table of Contents</a></h4>
 <ul>
-<li><a href="#version-70-beta2-june-2025">Version 7.0-beta2 (June 2025)</a></li>
+<li><a href="#version-700-beta2-july-2025">Version 7.0.0-beta2 (July 2025)</a></li>
 <li><a href="#version-640-november-2023">Version 6.4.0 (November 2023)</a></li>
 <li><a href="#version-630-september-2022">Version 6.3.0 (September 2022)</a></li>
 <li><a href="#version-622-december-2021">Version 6.2.2 (December 2021)</a></li>
@@ -531,52 +558,50 @@
 <li><a href="#version-10-april-2002">Version 1.0 (April 2002)</a></li>
 </ul>
 </div>
-<h2><a href="#version-70-beta2-june-2025" id="version-70-beta2-june-2025" class="section-anchor">Version 7.0-beta2 (June 2025)</a></h2>
-<p>The biggest changes in this release are:</p>
+<h2><a href="#version-700-beta2-july-2025" id="version-700-beta2-july-2025" class="section-anchor">Version 7.0.0-beta2 (July 2025)</a></h2>
+<p>This is a major upgrade from NetLogo 6.4. We made many changes to basic features, the NetLogo GUI, the file format and NetLogo library models.</p>
+<p>Some of the biggest changes we made in this release are:</p>
 <ul>
-<li>A new modernized GUI with both light and dark modes (and a classic mode)
-(<a href="#changes-to-the-netlogo-gui">see below</a>)</li>
-<li>Greater customizability, with more preferences and settings
-(<a href="#changes-for-customizability">see below</a>)</li>
-<li>NetLogo models are now stored in a new format with the extension .nlogox
-(<a href="#changes-to-the-netlogo-file-format">see below</a>)</li>
-<li>The download page now has separate Intel and Silicon MacOS versions.</li>
+<li>
+<p>A new modernized GUI with both light and dark modes (and a classic mode) (<a href="#changes-to-the-netLogo-gui">see below</a>)</p>
+</li>
+<li>
+<p>Greater customizability, with more preferences and settings (<a href="#changes-for-customizability">see below</a>)</p>
+</li>
+<li>
+<p>NetLogo models are now stored in a new format with the extension .nlogox (<a href="#changes-to-the-netlogo-file-format">see below</a>)</p>
+</li>
+<li>
+<p>The download page now has separate Intel and Silicon MacOS versions.</p>
+</li>
 </ul>
 <p>Below, we list all the changes since NetLogo 6.4.</p>
 <h3><a href="#changes-in-netlogo-functionality" id="changes-in-netlogo-functionality" class="section-anchor">Changes in NetLogo Functionality</a></h3>
 <ul>
-<li>The random number generator behavior has changed. If you had model behavior that depended on a specific random seed being set, it will not generate the same behavior as in NetLogo 6.</li>
+<li>There was a small bug fixed in the behavior of the <code>random</code> primitive. Models that use <code>random</code> and
+<code>random-seed</code> may not generate the exact same behavior as in NetLogo 6.</li>
 </ul>
 <h3><a href="#changes-to-the-netlogo-gui" id="changes-to-the-netlogo-gui" class="section-anchor">Changes to the NetLogo GUI</a></h3>
 <ul>
-<li>See the <a href="https://ccl.northwestern.edu/nl7changesoverview/nl7guide.html" target="_blank">transition guide document</a> for more details.</li>
+<li>See the <a href="netlogo7intro.html">NetLogo 7.0.0 Changes Overview</a> for more details.</li>
 <li>User interface elements (widgets) have a flat modern look with a new color scheme.</li>
-<li>Users have a choice of color themes: Light, Dark and Classic.
-<ul>
+<li>Users have a choice of color themes: Light, Dark and Classic.</li>
 <li>The classic color theme is similar to the light theme, except the widgets have the pre-NetLogo 7 colors.</li>
-</ul>
-</li>
-<li>Widget sizes have been adjusted for better aesthetics and readability.
-<ul>
+<li>Widget sizes have been adjusted for better aesthetics and readability.</li>
 <li>All widgets now open with the new widget <em>styles</em>, but pre-NetLogo 7 models will open with the old widget <em>sizes</em> by default. However, the new widget styles are not designed to look or function well with the old widget sizes, so model authors are strongly encouraged to update their models to use the new widget sizes.</li>
 <li>There is a tool to automatically update the layout of a model to better support the new widget sizes.</li>
 <li>Users can set widgets to have their pre-7.0.0 default sizes if they want.</li>
-</ul>
-</li>
 <li>Options to delete, copy and paste all selected widgets have been added to the right-click menu.</li>
 <li>A preview is shown when widgets are added.</li>
 <li>Buttons have new icons for observer, turtle, patch and link.</li>
 <li>Sliders now display their values in an editable box.</li>
 <li>For Monitors, users can specify the units represented by numbers.</li>
 <li>The font and background colors for Notes can include transparency and are specified separately for Light and Dark Modes.</li>
-<li>The Interface Toolbar has been updated for usability:
-<ul>
-<li>With the Interaction tool, users can interact with widgets much as they did before NetLogo 7.</li>
-<li>With the Selection tool, users can select and move widgets by clicking on them.</li>
-<li>With the Edit tool, users can edit widgets after a single click (no previous selection required).</li>
-<li>With the Delete tool, users can delete widgets by clicking (no previous selection required).</li>
-</ul>
-</li>
+<li>The Interface Toolbar has been updated for usability: there are now four different tools for interacting with or editing widgets:</li>
+<li>With the <em>Interaction tool</em>, users can interact with widgets much as they did before NetLogo 7.</li>
+<li>With the <em>Selection tool</em>, users can select and move widgets by clicking on them.</li>
+<li>With the <em>Edit tool</em>, users can edit widgets after a single click (no previous selection required).</li>
+<li>With the <em>Delete tool</em>, users can delete widgets by clicking (no previous selection required).</li>
 <li>There are new tools to align, distribute and stretch widgets. These have a menu in the Interface Toolbar.</li>
 <li>Icons for the Interface, Info and Code Tabs have been updated.</li>
 <li>The icons for moving the command center from the bottom of the Interface Tab to its right side and back are now more intuitive.</li>
@@ -588,6 +613,7 @@
 <li>The color themes are color blind friendly.</li>
 <li>The shapes list in the Turtle Shapes Editor and the Link Shapes Editor is now searchable.</li>
 <li>Color Swatches has been replaced by a more powerful Color picker.</li>
+<li>The documentation format has been updated.</li>
 </ul>
 <h3><a href="#changes-to-the-netlogo-file-format" id="changes-to-the-netlogo-file-format" class="section-anchor">Changes to the NetLogo File format</a></h3>
 <ul>
@@ -597,32 +623,24 @@
 <li>The .nlogox files are XML files.</li>
 <li>Any third-party scripts that processed <code>.nlogo</code> files are not expected to function correctly on <code>.nlogox</code> files</li>
 <li>The .nlogox format allows the saving of model-specific information.</li>
-<li>The .nlogox format allows the saving of user interface element specific information.
-<ul>
+<li>The .nlogox format allows the saving of user interface element specific information.</li>
 <li>For example, a user interface element can appear in the new larger size, or the original size.</li>
-</ul>
-</li>
-<li>The .nlogox format is extensible and will allow new types of data to be stored in the future.
-<ul>
+<li>The .nlogox format is extensible and will allow new types of data to be stored in the future.</li>
 <li>This makes it easier to add capabilities and keep models backwards compatible.</li>
 <li>Resources needed for a model may be stored in the .nlogox file in the future.</li>
-</ul>
-</li>
 </ul>
 <h3><a href="#changes-for-customizability" id="changes-for-customizability" class="section-anchor">Changes for Customizability</a></h3>
 <ul>
 <li>Widgets that have changed size for NetLogo 7 have a checkbox that allows users to switch between the new larger size in NetLogo 7 and the previous size used in NetLogo 6.4.</li>
-<li>The <code>Auto indent</code> and <code>Show line numbers</code> global preferences can be set directly from the Code Tab.</li>
-<li>There are changes to the Preferences dialog which let you customize various NetLogo settings.
-<ul>
+<li>The &ldquo;Auto indent&rdquo; and &ldquo;Show line numbers&rdquo; global preferences can be set directly from the Code Tab.</li>
+<li>There are changes to the Preferences dialog which let you customize various NetLogo settings.</li>
 <li>External editor support: Users can enable a feature that checks the open model for changes made outside of NetLogo to the model file and to any included files. When a change is detected, the file is updated in NetLogo. This feature can be enabled or disabled using the preferences dialog. It is disabled by default.</li>
 <li>There is a new preference option that prevents compilation errors from stealing focus from the current tab. By default, it is not enabled.</li>
 <li>There is a new preference option that causes a separate code tab to be opened when NetLogo starts. By default, it is not enabled.</li>
 <li>There is a Linux-only UI Scale preference that matches NetLogo graphics to the system UI scale.</li>
-</ul>
-</li>
+<li>There is a preference that enable users to control whether anonymous data will be collected when they are using NetLogo. It is enabled by default.</li>
 <li>Users can switch between Light, Dark and Classic color themes using an item in the Tools menu.</li>
-<li>A new Color Picker replaces Color Swatches. Users can still select NetLogo colors from a grid of rectangles. The Color Picker has a second tab that allows users to specify colors in most common formats,  and that enables easy selection of a more extensive set of colors.</li>
+<li>A new Color Picker replaces Color Swatches. Users can still select NetLogo colors from a grid of rectangles. The Color Picker has a second tab that allows users to specify colors in most common formats, and that enables easy selection of a more extensive set of colors.</li>
 </ul>
 <h3><a href="#features-and-enhancements" id="features-and-enhancements" class="section-anchor">Features and Enhancements</a></h3>
 <ul>
@@ -635,6 +653,9 @@
 <li>Plots can now be scaled independently for the x and y axes via checkboxes in the Plot widget.</li>
 <li>The separate code tab has a full NetLogo menu bar.</li>
 <li>The Help Menu now has a link to the NetLogo Forum, a website to ask/answer questions and have discussions about NetLogo.</li>
+<li>The Tools-&gt;Halt option is disabled if code is not running.</li>
+<li>Print legends wrap to be multi-line if needed.</li>
+<li>The auto-save functionality will prompt users if there is an auto-save file available (for example if NetLogo crashed).</li>
 </ul>
 <h3><a href="#language-changes" id="language-changes" class="section-anchor">Language Changes</a></h3>
 <ul>
@@ -642,22 +663,23 @@
 <li>The new primitives <code>auto-plot-x-on</code>, <code>auto-plot-y-on</code>, <code>auto-plot-x-off</code>, and <code>auto-plot-y-off</code> allow plots to be scaled independently for the x and y axes.</li>
 <li>The new primitive <code>set-topology</code> replaces the &ldquo;hidden&rdquo; command <code>__change-topology</code>.</li>
 </ul>
-<h3><a href="#bug-fixes-and-changes" id="bug-fixes-and-changes" class="section-anchor">Bug Fixes and Changes</a></h3>
+<h3><a href="#bug-fixes-and-minor-changes" id="bug-fixes-and-minor-changes" class="section-anchor">Bug Fixes and Minor Changes</a></h3>
 <ul>
 <li>Multi-assign with <code>let</code> and <code>set</code> can use arbitrarily nested lists to &ldquo;destructure&rdquo; variables. For example, <code>let [[corner1-x corner1-y corner2-x corner2-y] player-name score] get-current-player-info</code>.</li>
 <li>The primitive <code>auto-plot?</code> has been restored.</li>
-<li>An optimization speeds up the execution of the constructs <code>any turtles-on</code> and <code>any &lt;breeds&gt;-on</code>.</li>
+<li>An optimization speeds up the execution of the constructs <code>any? turtles-on</code> and <code>any? &lt;breeds&gt;-on</code>.</li>
 <li>An <code>__includes</code> statement not followed by brackets no longer causes an exception.</li>
 <li>Reporter procedures without a <code>report</code> statement, <code>run</code> or <code>runresult</code> now throw a compile time error.</li>
 <li>The user receives a specific message when keywords such as <code>globals</code>, <code>turtles-own</code>, <code>to</code> or <code>end</code> are used in an incorrect context.</li>
-<li>A helpful error message results when a constant such as <code>e</code> or <code>pi</code> is used as a global variable name.</li>
-<li>Unmatched closing parentheses, brackets and braces result in a meaningful error message.</li>
+<li>
+<p>Unmatched closing parentheses, brackets and braces result in a meaningful error message.</p>
+</li>
 <li>When a runtime error occurs the user is asked for information that would allow us to reproduce and fix the problem. This is in addition to the stack trace plus system information currently requested.</li>
-<li><code>Save as NetLogo Web</code> adds the contents of any included files to the model code.</li>
+<li>&ldquo;Save as NetLogo Web&rdquo; adds the contents of any included files to the model code.</li>
 <li>One can now import a world that has an array containing strings with curly braces.</li>
 <li>The Recent Files lists now appropriately contains only 2D or 3D models.</li>
-<li>The <code>Reload the last model on startup</code> preference now appropriately opens only 2D or 3D models.</li>
-<li>When the user does a <code>Save As</code>, non-NetLogo files are greyed out and cannot be selected on Windows and Linux. It is a MacOS feature that users can still select a greyed-out file. If a user selects a non-NetLogo file on MacOS they are warned that a .nlogox or .nlogox3d extension will be added.</li>
+<li>The &ldquo;Reload the last model on startup&rdquo; preference now appropriately opens only 2D or 3D models.</li>
+<li>When the user does a &ldquo;Save As&rdquo;, non-NetLogo files are greyed out and cannot be selected on Windows and Linux. It is a MacOS feature that users can still select a greyed-out file. If a user selects a non-NetLogo file on MacOS they are warned that a .nlogox or .nlogox3d extension will be added.</li>
 <li>The Tools menu now displays the correct Show/Hide Command Center option no matter how the command center is made visible or hidden.</li>
 <li>The process of selecting a log directory has been improved to allow a directory to be created, and to display an error message if the logging directory does not exist when the model is loaded.</li>
 <li>The preferences dialog shows an error dialog and prevents the user from closing it if logging is enabled but no log directory is specified, or if the specified log directory does not exist or if NetLogo does not have the necessary permissions to write to the directory.</li>
@@ -665,8 +687,8 @@
 <li>Creating a number input box and leaving the value empty no longer causes errors or crashes.</li>
 <li>When the value of an interface element is changed outside of the Edit dialog, the user will be prompted to save the model when closing it.</li>
 <li>An empty link monitor now allows a <code>who</code> number to be entered as an end value.</li>
-<li>The value of the <code>Auto indent</code> checkbox now persists between sessions.</li>
-<li>Shortcuts for <code>Previous word</code>, <code>Select previous word</code>, <code>Next word</code>, <code>Select next word</code>, <code>Select word</code>, <code>Delete previous word</code>, and <code>Delete next word</code> should work as expected in the code tab and in other text editors.</li>
+<li>The value of the &ldquo;Auto indent&rdquo; checkbox now persists between sessions.</li>
+<li>Shortcuts for &ldquo;Previous word&rdquo;, &ldquo;Select previous word&rdquo;, &ldquo;Next word&rdquo;, &ldquo;Select next word&rdquo;, &ldquo;Select word&rdquo;, &ldquo;Delete previous word&rdquo;, and &ldquo;Delete next word&rdquo; should work as expected in the code tab and in other text editors.</li>
 <li>Command tasks now jump to the code when a runtime error occurs.</li>
 <li>The MacOS and Linux convention of specifying a user&rsquo;s home directory with a tilde at the beginning of a file path is now properly interpreted for included (.nls) files.</li>
 <li>Included files are now recompiled when they are closed without saving the changes.</li>
@@ -674,42 +696,76 @@
 <li>There is no exception when reopening an included file that was saved in a separate code tab.</li>
 <li>An included file being edited in a separate window can be saved.</li>
 <li>Opening a separate code tab that contains a compilation error no longer causes an exception.</li>
-<li>The <code>Save</code> hot-key works for included files in a separate code tab.</li>
+<li>The &ldquo;Save&rdquo; hot-key works for included files in a separate code tab.</li>
 <li>Doing a text search in a separate code tab that overlaps an interface window will no longer bring the interface window to the front, covering part of the separate code tab. (This was a MacOS-only issue.)</li>
 <li>Changes in focus happen correctly when moving between separate and non-separate tabs.</li>
 <li>Multi-assign with <code>let</code> and <code>set</code> now works with BehaviorSpace.</li>
-<li>BehaviorSpace no longer produces a runtime error when the following conditions hold: 1) the user specifies a <em>Run metrics when</em> reporter, 2) the reporter is never true, and 3) the user has specified both Table and Spreadsheet output.</li>
+<li>BehaviorSpace works correctly when no measurements have been made. In particular, it no longer produces a runtime error when the following conditions hold: 1) the user specifies a <em>Run metrics when</em> reporter, 2) the reporter is never true, and 3) the user has specified both Table and Spreadsheet output.</li>
 <li>BehaviorSpace error messages are improved.</li>
 <li>When a BehaviorSpace experiment is run with one or more specified output files that are open in another program, it now aborts the experiment and shows a useful error message.</li>
 <li>Invalid variable specifications in BehaviorSpace result in useful messages.</li>
 <li>BehaviorSpace output files can now be deleted once an experiment ends. NetLogo does not need to be exited.</li>
+<li>BehaviorSpace experiment edit compilation errors are reported when the dialog is closed rather than at runtime.</li>
+<li>Comments are now supported in BehaviorSpace multiline reporter fields.</li>
 <li>Right clicking the blank space in a new Systems Dynamics Model no longer causes an exception.</li>
 <li>NetLogo no longer hangs moving through a corner with wrapped coordinates and pen-down.</li>
 <li>Number input boxes without a value no longer keep other input boxes or the command center from gaining focus.</li>
 <li>The Page Setup dialog opened when a user wants to Print now closes when its Cancel button is pressed.</li>
 <li>When a procedure in the Code Tab is &ldquo;folded,&rdquo; so that only the line with the name is visible, an action that needs to move to inside the code causes it to be &ldquo;unfolded,&rdquo; so it is fully visible. This can be a result of a search, find-and-replace or jumping to code with a compilation error.</li>
+<li>The padding and location of internal components of widgets now change proportionally when zooming.</li>
+<li><code>mouse-xcor</code> and <code>mouse-ycor</code> no longer degrade performance when called multiple times per iteration of go or in an ask with lots of agents.</li>
 <li>If the NetLogo window is maximized in Windows, opening a new model no longer unmaximizes it.</li>
 <li>Plot pens always take account of <code>plot-pen-up</code> and <code>plot-pen-down</code>.</li>
-<li>The padding and location of internal components of widgets now change proportionally when zooming.</li>
+<li>Models that have not been edited are never consider unsaved.</li>
+<li>Ctrl/Cmd+X when nothing is selected now cuts (copies and deletes) the entire line.</li>
+<li>Double clicking on a model that was saved with compilation errors opens it correctly.</li>
+<li><code>mouse-xcor</code> and <code>mouse-ycor</code> no longer degrade performance when called multiple times per iteration of go or in an ask with lots of agents.</li>
+<li>Using a lower case &lsquo;i&rsquo; in code with a Turkish locale no longer causes compilations errors</li>
+<li>The resize behavior of edit dialogs has been improved. For example, plot widget &ldquo;update commands&rdquo; and &ldquo;setup commands&rdquo; fields can now be made taller</li>
+<li>NetLogo now detects autosave files created for a model in case NetLogo crashes. Users are now asked if they want to recover it.</li>
+<li>Mouse coordinated are now correctly reported along border of a selected view.</li>
+<li>All open files are closed when a runtime error occurs.</li>
+<li>When exporting and then importing a model the last line in an Output area is a newline it will be retained.</li>
+<li>Disabled button state is now preserved by Import world.</li>
+<li>Scientific notation in monitors shows the desired number of decimals.</li>
+<li>Empty 3D models now have more room for widgets.</li>
+<li>Clipboard errors when pasting no longer cause an exception.</li>
+<li>After patch colors have been read from a file the underlying input stream is now closed.</li>
+<li>Some NetLogo display problems are avoided because Microsoft Direct3D graphics are now off by default.</li>
 </ul>
 <h3><a href="#extension-updates" id="extension-updates" class="section-anchor">Extension Updates</a></h3>
 <ul>
 <li>The gogo extension supports the GoGo board 6.</li>
 <li>The dialog extension <code>user-input</code> primitive allows an optional default value argument.</li>
 <li>There is a new resource extension that allows you to list and get resources bundled with a model.</li>
+<li>The SimpleR extension is now bundled with NetLogo.</li>
+<li>The R extension is no longer bundled with NetLogo. It is available through the extension manager.</li>
+<li>There is a new bspace extension that allows users to create experiments programatically.</li>
 </ul>
 <h3><a href="#documentation-updates" id="documentation-updates" class="section-anchor">Documentation Updates</a></h3>
 <ul>
+<li>The Documentation has been updated to describe the many updates that were made for NetLogo 7.0.0. The majority of the images have been updated.</li>
+<li>There are three new pages:</li>
+<li><a href="netlogo7intro.html">NetLogo 7.0.0 Changes Overview</a></li>
+<li><a href="netlogopreferences.html">Netlogo Preferences</a></li>
+<li><a href="colorpicker.html">Color Picker Guide</a></li>
 <li>Grammar was improved for NetLogo Tutorial 2.</li>
 <li>The link to the book &ldquo;An Introduction to Agent-Based Modeling&rdquo; was updated.</li>
 <li>The BehaviorSpace error message about undefined parameter values was made easier to interpret.</li>
 <li>The BehaviorSpace documentation for the subexperiment syntax is improved and uses examples from the Wolf Sheep Predation Model.</li>
+<li>The effect of topological wrapping on the primitives <code>neighbors</code> and <code>neighbors4</code> is explained in the documentation.</li>
 </ul>
 <h3><a href="#models-library-changes" id="models-library-changes" class="section-anchor">Models Library Changes</a></h3>
 <p>Note: most models have been updated to the new widget size but not all.</p>
 <h4><a href="#new-sample-models" id="new-sample-models" class="section-anchor">New Sample Models:</a></h4>
 <ul>
-<li>We will have new sample models with the next release.</li>
+<li>The Mathematics section now has a subfolder Conic Sections that contains three models:</li>
+<li>Emergent Shapes - Ellipse</li>
+<li>Emergent Shapes - Parabola</li>
+<li>Emergent Shapes - Hyperbola</li>
+<li>The three models above replace two models from the NetLogo 6.4 mathematics section:</li>
+<li>Conic Sections 1</li>
+<li>Comic Sections 2</li>
 </ul>
 <h4><a href="#new-code-examples" id="new-code-examples" class="section-anchor">New Code Examples</a></h4>
 <ul>
@@ -743,24 +799,24 @@ rather than being expanded combinatorically.</li>
 <li>There is a reduction in memory usage for experiments containing plots when <em>Update plots and monitors</em> is unchecked in the <em>Run options dialog</em>.</li>
 </ul>
 <h3><a href="#language-changes" id="language-changes" class="section-anchor">Language Changes</a></h3>
-<p>The <code>let</code> and <code>set</code> primitives now support taking a list of variable names as the first argument and will assign values to those variables from a list of values given as the second argument.  This is useful in many situations, but especially when you want to have a reporter procedure calculate and report multiple values to be used elsewhere.</p>
-<p>A new reporter primitive has been added, <code>who-are-not</code>.  It takes an agentset as a lefthand side argument and an agent or another agentset as a righthand side argument and reports all agents in the former who are not in the latter.  For example:  <code>let strangers turtles who-are-not link-neighbors</code>.</p>
+<p>The <code>let</code> and <code>set</code> primitives now support taking a list of variable names as the first argument and will assign values to those variables from a list of values given as the second argument. This is useful in many situations, but especially when you want to have a reporter procedure calculate and report multiple values to be used elsewhere.</p>
+<p>A new reporter primitive has been added, <code>who-are-not</code>. It takes an agentset as a lefthand side argument and an agent or another agentset as a righthand side argument and reports all agents in the former who are not in the latter. For example: <code>let strangers turtles who-are-not link-neighbors</code>.</p>
 <h3><a href="#bug-fixes-and-changes" id="bug-fixes-and-changes" class="section-anchor">Bug Fixes and Changes</a></h3>
 <ul>
 <li>The save dialog will no longer appear when clicking the close button on an already-saved includes file code tab.</li>
 <li>When an includes code file is edited, compiled, and closed without saving, the model will correctly re-compile without the unsaved change.</li>
 <li>When extensions are updated through the extensions manager, existing files and libraries for them will be removed so conflicts between versions cannot occur.</li>
 <li>An error will no longer occur when opening a NetLogo model stored in the user&rsquo;s home directory due to the extension locating code trying to search restricted folders.</li>
-<li>Plotting now uses its own RNG that is cloned from the main RNG and updated when the main RNG changes.  This means if plotting is enabled, it will be reproducible from the main RNG, but if plotting is disabled the behavior of the model will not change when using the same main RNG seed.</li>
+<li>Plotting now uses its own RNG that is cloned from the main RNG and updated when the main RNG changes. This means if plotting is enabled, it will be reproducible from the main RNG, but if plotting is disabled the behavior of the model will not change when using the same main RNG seed.</li>
 <li>A failed compile of a string as a command with <code>run</code> could cause the same string to fail to run as a reporter using <code>runresult</code> later.</li>
-<li>Patch colors can now be set to RGBA values with an alpha channel, the alpha channel is just ignored as there is nothing &ldquo;behind&rdquo; patches.  Previously this would cause an error to occur.</li>
-<li>Users can add symbolic links to their models library folders to point to other directories to have those models available for loading in the app.  This had worked in a prior version of NetLogo, but was accidentally disabled with other bugfixes.</li>
+<li>Patch colors can now be set to RGBA values with an alpha channel, the alpha channel is just ignored as there is nothing &ldquo;behind&rdquo; patches. Previously this would cause an error to occur.</li>
+<li>Users can add symbolic links to their models library folders to point to other directories to have those models available for loading in the app. This had worked in a prior version of NetLogo, but was accidentally disabled with other bugfixes.</li>
 <li>The <code>link-neighbor?</code> boolean reporter has had some small optimizations done to improve performance.</li>
 <li>Agent labels now support linebreaks.</li>
-<li>Errors that happen when NetLogo is starting but before the full interface appears should now be caught and displayed in a simple dialog.  Previously to see such errors NetLogo would have to be started from a command line console.</li>
-<li>The default maximum memory usage for NetLogo is now set to 50% of system memory instead of a static limit of 1 gigabyte.  For systems with greater than 2 gigabytes of memory this should give improved performance and reduce the chance of getting out of memory errors during model runs.</li>
-<li>When the extension manager is disabled via the Java environment property, no data will be fetched over the network.  Previously the current extension listing would be fetched even though using the list in the manager was disabled.</li>
-<li>The <code>&lt;breed&gt;-at</code> primitive now works properly in 3D.  Previously it would function as the 2D version, only getting agents with z-coordinate of 0.</li>
+<li>Errors that happen when NetLogo is starting but before the full interface appears should now be caught and displayed in a simple dialog. Previously to see such errors NetLogo would have to be started from a command line console.</li>
+<li>The default maximum memory usage for NetLogo is now set to 50% of system memory instead of a static limit of 1 gigabyte. For systems with greater than 2 gigabytes of memory this should give improved performance and reduce the chance of getting out of memory errors during model runs.</li>
+<li>When the extension manager is disabled via the Java environment property, no data will be fetched over the network. Previously the current extension listing would be fetched even though using the list in the manager was disabled.</li>
+<li>The <code>&lt;breed&gt;-at</code> primitive now works properly in 3D. Previously it would function as the 2D version, only getting agents with z-coordinate of 0.</li>
 </ul>
 <h4><a href="#behaviorspace-bug-fixes-and-changes" id="behaviorspace-bug-fixes-and-changes" class="section-anchor">BehaviorSpace Bug fixes and changes</a></h4>
 <ul>
@@ -808,9 +864,9 @@ rather than being expanded combinatorically.</li>
 <ul>
 <li>The major change in this release is the upgrade of the bundled Java from version 8 to 17. Java 17 is the current long-term-support release of the Java runtime.</li>
 <li>The models library will correctly display when NetLogo is set to a language other than English.</li>
-<li>The log4j library has been removed from NetLogo. Logging is now configured from the NetLogo preferences dialog.  The output is in JSON text file format. See the Logging docs for more information.</li>
-<li>BehaviorSpace experiments can now also be run from a terminal or command console using the <code>NetLogo_Console</code> app with NetLogo&rsquo;s bundled Java by using the <code>--headless</code> flag.  See the BehaviorSpace documentation for more information and examples.  This avoids the need to install and configure a separate Java runtime to use the <code>netlogo-headless.sh</code> script, which remains bundled for those who require it.</li>
-<li>BehaviorSpace output files are now chosen directly during run setup instead of separate prompts at the run start.  This simplifies the setup process and resolves a bug where the runs would not occur on macOS.</li>
+<li>The log4j library has been removed from NetLogo. Logging is now configured from the NetLogo preferences dialog. The output is in JSON text file format. See the Logging docs for more information.</li>
+<li>BehaviorSpace experiments can now also be run from a terminal or command console using the &ldquo;NetLogo_Console&rdquo; app with NetLogo&rsquo;s bundled Java by using the <code>--headless</code> flag. See the BehaviorSpace documentation for more information and examples. This avoids the need to install and configure a separate Java runtime to use the <code>netlogo-headless.sh</code> script, which remains bundled for those who require it.</li>
+<li>BehaviorSpace output files are now chosen directly during run setup instead of separate prompts at the run start. This simplifies the setup process and resolves a bug where the runs would not occur on macOS.</li>
 <li>The System Dynamics Modeler UI has some small improvements.</li>
 <li>Fixed a bug where slider widgets would allow initial values outside of their range when changing the limits.</li>
 <li>Better handle asymptotic values for tan with a proper error message.</li>
@@ -859,8 +915,8 @@ rather than being expanded combinatorically.</li>
 <li>Taxi Cabs: Fixed Dongping Zhang&rsquo;s name in the credits.</li>
 <li>Turbulence: Cross-listed under CS/CA.</li>
 <li>Tree Simple: Changed <code>init-x slider</code> min/max to -100/100. Before the range was -125/125, which caused an error.</li>
-<li>Traffic Basic: Changed  <code>speed-limit</code> and <code>speed-min</code> from agent variables to be globals.</li>
-<li>Urban Suite - Cells: Renamed the  <code>go * 80</code>  button to <code>go * 40</code>, reflecting its actual effect.</li>
+<li>Traffic Basic: Changed <code>speed-limit</code> and <code>speed-min</code> from agent variables to be globals.</li>
+<li>Urban Suite - Cells: Renamed the <code>go * 80</code> button to <code>go * 40</code>, reflecting its actual effect.</li>
 <li>CA 1D Rule 30 - Improved the info tab to explain how Rule 30 has been used as random number generator.</li>
 </ul>
 <h4><a href="#curricular-models-changes" id="curricular-models-changes" class="section-anchor">Curricular Models Changes:</a></h4>
@@ -878,7 +934,7 @@ rather than being expanded combinatorically.</li>
 <li>When Agent Inspector window opens put focus in Command Line.</li>
 <li>When enter macOS full screen mode move inspector windows to foreground.</li>
 <li>Properly export models to HTML with the <strong>Save As NetLogo Web&hellip;</strong> option.</li>
-<li>Fixed a bug where preview images would not generate correctly for models that imported background images on setup.  This affected a couple of library models: Robotic Factory and Bug Hunt Camouflage.</li>
+<li>Fixed a bug where preview images would not generate correctly for models that imported background images on setup. This affected a couple of library models: Robotic Factory and Bug Hunt Camouflage.</li>
 <li>Added an explanation about Extension Sample Models to the models library info screen, and now those models will be listed as unverified.</li>
 <li>Fixed a small typo in the FAQ for the path to the <code>NetLogo.cfg</code> file on macOS systems.</li>
 <li>Add a <code>profiler:data</code> primitive to the Profiler extension that returns all the profiler data as a list of lists suitable for passing to the CSV extension for output to a file.</li>
@@ -979,8 +1035,8 @@ rather than being expanded combinatorically.</li>
 </ul>
 <h3><a href="#bugfixes" id="bugfixes" class="section-anchor">Bugfixes</a></h3>
 <ul>
-<li>We&rsquo;ve made changes to how we bundle NetLogo on macOS in order to satisfy Apple&rsquo;s package notarization process for detecting malware.  NetLogo now runs without any special workarounds, as long as your macOS settings allow running software from identified developers.</li>
-<li>When first opening a model and installing a new extension for it through the extensions manager prompt, the model widgets would not be usable until the model&rsquo;s code was recompiled.  Now the model will be ready to use right after the extension is installed.</li>
+<li>We&rsquo;ve made changes to how we bundle NetLogo on macOS in order to satisfy Apple&rsquo;s package notarization process for detecting malware. NetLogo now runs without any special workarounds, as long as your macOS settings allow running software from identified developers.</li>
+<li>When first opening a model and installing a new extension for it through the extensions manager prompt, the model widgets would not be usable until the model&rsquo;s code was recompiled. Now the model will be ready to use right after the extension is installed.</li>
 <li>When using <code>in-cone</code> on wrapped worlds, occasionally turtles at the very edge of the wrapped cone would be missing from the results.</li>
 <li>When using <code>in-radius</code> on a patch to get nearby turtles, sometimes turtles at the edge of the radius would be missing from the results.</li>
 <li>The performance of a turtle lookup by breed and who-number, like <code>sheep 10</code>, could take an unreasonable amount of time.</li>
@@ -988,7 +1044,7 @@ rather than being expanded combinatorically.</li>
 </ul>
 <h3><a href="#logging-improvements" id="logging-improvements" class="section-anchor">Logging Improvements</a></h3>
 <ul>
-<li>Logging can now be enabled and a configuration file chosen through the NetLogo preferences menu.  The logging standalone application is no longer necessary, so it has been removed.</li>
+<li>Logging can now be enabled and a configuration file chosen through the NetLogo preferences menu. The logging standalone application is no longer necessary, so it has been removed.</li>
 <li>The command line switch to set the logging directory would previously be ignored.</li>
 <li>Users now get a chance to add a comment to the log when they get a compiler error.</li>
 </ul>
@@ -1002,8 +1058,8 @@ rather than being expanded combinatorically.</li>
 </ul>
 <h3><a href="#extension-changes" id="extension-changes" class="section-anchor">Extension Changes</a></h3>
 <ul>
-<li>The Time extension is now bundled with NetLogo.  This extension lets you work with real-world dates and times in your model, and includes an event scheduler for triggering events at points in time.  It also includes an NLS library file you can add to your model to handle time series reading from CSV files.  See <a href="https://github.com/NetLogo/Time-Extension" target="_blank">the Time extension docs</a> for more information.</li>
-<li>The View2.5D extension has been significantly upgraded. Turtle stem color can be set by a reporter. Links are now visible in the 2.5D window. They can be visualized either going from turtle to turtle (the default) or in the xy-plane.  The choice can be made using radio buttons or through new commands</li>
+<li>The Time extension is now bundled with NetLogo. This extension lets you work with real-world dates and times in your model, and includes an event scheduler for triggering events at points in time. It also includes an NLS library file you can add to your model to handle time series reading from CSV files. See <a href="https://github.com/NetLogo/Time-Extension" target="_blank">the Time extension docs</a> for more information.</li>
+<li>The View2.5D extension has been significantly upgraded. Turtle stem color can be set by a reporter. Links are now visible in the 2.5D window. They can be visualized either going from turtle to turtle (the default) or in the xy-plane. The choice can be made using radio buttons or through new commands</li>
 <li>LevelSpace now always runs hidden models at full speed and should give better error messages when errors occur when loading a model.</li>
 <li>The Network (NW) extension will not add extra whitespace when using <code>nw:save-matrix</code>.</li>
 <li>The Python extension gives better error messages when the paths to the Python executables are incorrect.</li>
@@ -1062,12 +1118,14 @@ rather than being expanded combinatorically.</li>
 <li>Tumor: Additional credits and references added.</li>
 <li>Wealth Distribution: Got rid of one line of CODE that didn&rsquo;t do anything.</li>
 </ul>
-<p>Our <code>Chemistry &amp; Physics</code> folder now contains enough examples that can be classified as &ldquo;Materials Science&rdquo; that they deserve their own folder. This means a number of models have been physically moved into this new sub-folder of Chemistry and Physics:
-- Solid Diffusion
-- Polymer Dynamics
-- Lennard-Jones
-- Dislocation Motion and Deformation
-- Crystallization Models</p>
+<p>Our <code>Chemistry &amp; Physics</code> folder now contains enough examples that can be classified as &ldquo;Materials Science&rdquo; that they deserve their own folder. This means a number of models have been physically moved into this new sub-folder of Chemistry and Physics:</p>
+<ul>
+<li>Solid Diffusion</li>
+<li>Polymer Dynamics</li>
+<li>Lennard-Jones</li>
+<li>Dislocation Motion and Deformation</li>
+<li>Crystallization Models</li>
+</ul>
 <p>Also in this folder are the MaterialSim models. They have been physically moved to the Curricular Models folder, but will be cross-referenced in <code>Chemistry &amp; Physics/Materials Science</code>.</p>
 <h3><a href="#alternative-visualization-updates" id="alternative-visualization-updates" class="section-anchor">Alternative Visualization Updates:</a></h3>
 <ul>
@@ -1081,7 +1139,7 @@ rather than being expanded combinatorically.</li>
 <li>Divide the Cake: Promoted from Unverified after updates to CODE and INFO.</li>
 <li>Guppy Spots HubNet: Promoted from Unverified after updates to CODE and INFO.</li>
 <li>Chemical Equilibrium: Fix plot and monitor bug that incorrectly counted pink molecules.</li>
-<li>EACH (now appears as a sub-directory of the <code>BEAGLE Evolution</code> directory)</li>
+<li>EACH (now appears as a sub-directory of the &ldquo;BEAGLE Evolution&rdquo; directory)</li>
 </ul>
 <p>Note, the above BEAGLE models have now been physically moved into the <code>Curricular Models/BEAGLE Evolution/</code> folder. In the Models Library browser, they will appear cross-referenced in the usual places.</p>
 <h4><a href="#code-examples-updates" id="code-examples-updates" class="section-anchor">Code Examples Updates:</a></h4>
@@ -1095,7 +1153,7 @@ rather than being expanded combinatorically.</li>
 <ul>
 <li>Arduino Example: Minor INFO tab updates.</li>
 <li>Heroes and Cowards: Minor INFO tab updates.</li>
-<li>Simple Economy: Updated INFO tab and now listed as a Sample Model under the <code>Economics</code> folder.</li>
+<li>Simple Economy: Updated INFO tab and now listed as a Sample Model under the &ldquo;Economics&rdquo; folder.</li>
 </ul>
 <p>Fixed inconsistent bracket styling across IABM Textbook models. This resulted in changes to 12 models.</p>
 <ul>
@@ -1118,7 +1176,7 @@ rather than being expanded combinatorically.</li>
 <li>Many fixes to the <code>in-radius</code> primitive, which could report incorrect values when used with a radius that&rsquo;s a large percentage of an unwrapped world width or cause runtime errors when world sizes changed or when the radius wrapped around the world back to itself.</li>
 <li>Corrected issues with code tab compile errors causing unexpected behavior or runtime errors in the interface tab, especially when a model had breeded links.</li>
 <li>You can now use the same <code>let</code> variable name in different command blocks inside a procedure.</li>
-<li>The <code>netlogo-headless.sh</code> scripts for macOS and Linux had issues with running the 3D command switch and properly wrapping the Java executable  in quotes in case it contains spaces.</li>
+<li>The <code>netlogo-headless.sh</code> scripts for macOS and Linux had issues with running the 3D command switch and properly wrapping the Java executable in quotes in case it contains spaces.</li>
 </ul>
 <h3><a href="#features" id="features" class="section-anchor">Features</a></h3>
 <ul>
@@ -1128,7 +1186,7 @@ rather than being expanded combinatorically.</li>
 <ul>
 <li>The Python extension on Windows will no longer give permissions errors when trying to create it&rsquo;s config file, moved the file to a per-user directory.</li>
 <li>The Python extension will no longer produce a confusing deprecation warning when used with Python 3.7.</li>
-<li>Moved the storage location for the R extension config files to a per-user directory and updated documentation around getting it working.  This issue mostly affected Windows users.</li>
+<li>Moved the storage location for the R extension config files to a per-user directory and updated documentation around getting it working. This issue mostly affected Windows users.</li>
 <li>The Mathematica-Link add-on now works correctly with NetLogo 6.1.0 and 6.1.1.</li>
 </ul>
 <h3><a href="#documentation-changes" id="documentation-changes" class="section-anchor">Documentation Changes</a></h3>
@@ -1162,13 +1220,13 @@ rather than being expanded combinatorically.</li>
 </ul>
 <h2><a href="#version-610-may-2019" id="version-610-may-2019" class="section-anchor">Version 6.1.0 (May 2019)</a></h2>
 <h3><a href="#feature-changes" id="feature-changes" class="section-anchor">Feature Changes</a></h3>
-<p>The premier feature for this release is an <strong>Extension Manager</strong> for installing and updating extensions, which is available under the Tools menu.  Using extensions with NetLogo could be a painful process: manually finding them, downloading them, and getting them correctly installed in the NetLogo application.  The extensions manager addresses these issues by automating the installation of many 3rd-party extensions, and the updating of the bundled extensions between NetLogo releases.  All done easily from within the application.  In fact, if you open a model that requires an extension you don’t have installed that it knows about, the Extension Manager will ask if you’d like to download and install it right on the spot, without any extra effort</p>
-<p>We welcome external contributions to the extensions library!  If you have developed a NetLogo extension and want to make it available to NetLogo users in the Extension Manager, see these instructions:  <a href="https://github.com/NetLogo/NetLogo-Libraries#submitting-pull-requests" target="_blank">https://github.com/NetLogo/NetLogo-Libraries#submitting-pull-requests</a></p>
+<p>The premier feature for this release is an <strong>Extension Manager</strong> for installing and updating extensions, which is available under the Tools menu. Using extensions with NetLogo could be a painful process: manually finding them, downloading them, and getting them correctly installed in the NetLogo application. The extensions manager addresses these issues by automating the installation of many 3rd-party extensions, and the updating of the bundled extensions between NetLogo releases. All done easily from within the application. In fact, if you open a model that requires an extension you don’t have installed that it knows about, the Extension Manager will ask if you’d like to download and install it right on the spot, without any extra effort</p>
+<p>We welcome external contributions to the extensions library! If you have developed a NetLogo extension and want to make it available to NetLogo users in the Extension Manager, see these instructions: <a href="https://github.com/NetLogo/NetLogo-Libraries#submitting-pull-requests" target="_blank">https://github.com/NetLogo/NetLogo-Libraries#submitting-pull-requests</a></p>
 <p>Other new features include:</p>
 <ul>
 <li>The primitives <code>ifelse</code> and <code>ifelse-value</code> now take a varying number of clauses, making selecting a single case from a variety of options much simpler.</li>
-<li>Added a new primitive, <code>up-to-n-of</code>, which gives as many items from a list as possible up to some limit, without causing an error if it cannot get all of them.  Previously, to safely use <code>n-of</code> when you were unsure of the number of agents in an agentset would require some verbose code like <code>ask n-of (ifelse-value (count turtles-here &lt; 10) [count turtles-here] [10]) turtles-here [ fd 10 ]</code>, but now you can simple write <code>ask up-to-n-of turtles-here [ fd 10 ]</code> to get the same effect.</li>
-<li>Added new hotkeys: Command-U for &ldquo;Show Usage&rdquo; of a term, Command-E for &ldquo;Jump to Declaration&rdquo; of a procedure, and Command-Option-S for &ldquo;Save All&rdquo; when using included NetLogo code files.  Or Ctrl-U, Ctrl-E, Ctrl-Alt-S for Windows and Linux users.</li>
+<li>Added a new primitive, <code>up-to-n-of</code>, which gives as many items from a list as possible up to some limit, without causing an error if it cannot get all of them. Previously, to safely use <code>n-of</code> when you were unsure of the number of agents in an agentset would require some verbose code like <code>ask n-of (ifelse-value (count turtles-here &lt; 10) [count turtles-here] [10]) turtles-here [ fd 10 ]</code>, but now you can simple write <code>ask up-to-n-of turtles-here [ fd 10 ]</code> to get the same effect.</li>
+<li>Added new hotkeys: Command-U for &ldquo;Show Usage&rdquo; of a term, Command-E for &ldquo;Jump to Declaration&rdquo; of a procedure, and Command-Option-S for &ldquo;Save All&rdquo; when using included NetLogo code files. Or Ctrl-U, Ctrl-E, Ctrl-Alt-S for Windows and Linux users.</li>
 <li>Multiline input widgets are now directly editable on the interface tab.</li>
 <li>Runtime optimizations for the <code>in-radius</code> and <code>in-cone</code> primitives.</li>
 </ul>
@@ -1190,8 +1248,8 @@ rather than being expanded combinatorically.</li>
 </ul>
 <h3><a href="#extension-changes" id="extension-changes" class="section-anchor">Extension Changes</a></h3>
 <ul>
-<li>The Python extension, <code>py</code>, is now bundled with NetLogo.  If you have Python installed on your computer, you can use it from inside a NetLogo model.</li>
-<li>The Control Flow extension, <code>cf</code>, has been removed from NetLogo in favor of the new variadic <code>ifelse</code> and <code>ifelse-value</code> behavior.  The <code>cf</code> extension is still available from the extensions library if needed for any existing models.</li>
+<li>The Python extension, <code>py</code>, is now bundled with NetLogo. If you have Python installed on your computer, you can use it from inside a NetLogo model.</li>
+<li>The Control Flow extension, <code>cf</code>, has been removed from NetLogo in favor of the new variadic <code>ifelse</code> and <code>ifelse-value</code> behavior. The <code>cf</code> extension is still available from the extensions library if needed for any existing models.</li>
 <li>The CSV extension, <code>csv</code>, had some minor documentation updates.</li>
 <li>The GoGo board extension, <code>gogo</code>, should work more reliably on Windows 10.</li>
 <li>The Network extension, <code>nw</code>, now loads data in a predictable order when imported, and it correctly handles preferential attachment.</li>
@@ -1214,17 +1272,13 @@ rather than being expanded combinatorically.</li>
 </ul>
 <p>New Code Examples:</p>
 <ul>
-<li><code>py</code> Extension
-<ul>
+<li><code>py</code> Extension</li>
 <li>Python Basic Example</li>
 <li>Python Flocking Clusters</li>
 </ul>
-</li>
-</ul>
 <p>New Curricular models:</p>
 <ul>
-<li>PNoM Curriculum
-<ul>
+<li>PNoM Curriculum</li>
 <li>PNoM 1 Diffusion Sandbox</li>
 <li>PNoM 2 Diffusion Sensor Sandbox</li>
 <li>PNoM 3 Virtual Syringe</li>
@@ -1232,8 +1286,6 @@ rather than being expanded combinatorically.</li>
 <li>PNoM 5 Virtual Syringe Temperature Graph</li>
 <li>PNoM 6 Particle Sandbox Gravity</li>
 <li>PNoM 7 Particle Sandbox Intermolecular</li>
-</ul>
-</li>
 </ul>
 <p>Sample Model Updates:</p>
 <ul>
@@ -1260,7 +1312,7 @@ rather than being expanded combinatorically.</li>
 <li>Mouse Drag Multiple Example: The model has been rewritten to be NLW compatible.</li>
 <li>Mouse Drag One Example: The model has been updated to be NLW compatible</li>
 </ul>
-<p>We&rsquo;ve introduced a new subfolder in the <code>Sample Models/Social Science</code> folder: <code>Economics</code>. With this new folder, several models have been moved. The following models are now in the <code>Social Science/Economics</code> folder:</p>
+<p>We&rsquo;ve introduced a new subfolder in the <code>Sample Models/Social Science</code> folder: &ldquo;Economics&rdquo;. With this new folder, several models have been moved. The following models are now in the <code>Social Science/Economics</code> folder:</p>
 <ul>
 <li>Bidding Market</li>
 <li>Hotelling&rsquo;s Law</li>
@@ -1280,41 +1332,41 @@ rather than being expanded combinatorically.</li>
 <ul>
 <li>
 <p>Code Examples:</p>
-<ul>
-<li>Beatbox</li>
-<li>HSB and RGB Example</li>
-<li>NW General Examples</li>
-</ul>
 </li>
 <li>
+<p>Beatbox</p>
+</li>
+<li>HSB and RGB Example</li>
+<li>NW General Examples</li>
+<li>
 <p>Curricular Models:</p>
-<ul>
-<li>BEAGLE: DNA Protein Synthesis, DNA Replication Fork</li>
+</li>
+<li>
+<p>BEAGLE: DNA Protein Synthesis, DNA Replication Fork</p>
+</li>
 <li>GenEvo 1 Genetic Switch</li>
 <li>Lattice Land - Explore</li>
 <li>ModelSim: Bacteria Food Hunt</li>
 <li>NIELS: Current in a Wire HubNet</li>
 <li>ProbLab: 4 Blocks, 4 Block Stalagmites, 4 Block Two Stalagmites, Histo Blocks</li>
-</ul>
-</li>
 <li>
 <p>HubNet Activities:</p>
-<ul>
-<li>Minority Game HubNet</li>
+</li>
+<li>
+<p>Minority Game HubNet</p>
+</li>
 <li>Predator Prey Game HubNet</li>
 <li>Prisoners Dilemma HubNet</li>
 <li>Root Beer Game HubNet</li>
-</ul>
-</li>
 <li>
 <p>IABM Textbook:</p>
-<ul>
-<li>Traffic Basic Adaptive Individuals</li>
-</ul>
+</li>
+<li>
+<p>Traffic Basic Adaptive Individuals</p>
 </li>
 <li>
 <p>Sample Models:</p>
-<ul>
+</li>
 <li>Artificial Neural Net - Multilayer</li>
 <li>Artificial Neural Net - Perceptron</li>
 <li>Bidding Market</li>
@@ -1332,8 +1384,6 @@ rather than being expanded combinatorically.</li>
 <li>Tabonuco Yagrumo Hybrid</li>
 <li>Traffic 2 Lanes</li>
 <li>Vision Evolution</li>
-</ul>
-</li>
 </ul>
 <h2><a href="#version-604-june-2018" id="version-604-june-2018" class="section-anchor">Version 6.0.4 (June 2018)</a></h2>
 <h3><a href="#feature-changes" id="feature-changes" class="section-anchor">Feature Changes</a></h3>
@@ -1452,7 +1502,7 @@ rather than being expanded combinatorically.</li>
 <li><code>sound</code> Extension – Sound Workbench: Minor GUI updates</li>
 <li><code>sound</code> Extension – Percussion Workbench: Minor GUI updates</li>
 <li>File Input Example: Fixed a bug in the <code>save-patch-data</code> template procedure</li>
-<li>Lottery Example: Corrected <em>Related Models</em> from Preferential Attachment to the <code>Rnd</code> Example Model in the Info Tab</li>
+<li>Lottery Example: Corrected <em>Related Models</em> from Preferential Attachment to the &ldquo;Rnd&rdquo; Example Model in the Info Tab</li>
 <li>Info Tab Example: Corrected reference from <code>pegdown</code> to <code>flexmark</code> in the Info Tab</li>
 </ul>
 <h4><a href="#revised-curricular-models" id="revised-curricular-models" class="section-anchor">Revised Curricular Models:</a></h4>
@@ -1468,7 +1518,7 @@ rather than being expanded combinatorically.</li>
 <ul>
 <li>Artificial Anasazi: Update broken URLs in Info Tab</li>
 <li>Autumn: Update broken URLs in Info Tab</li>
-<li>HIV: The <code>AIDS</code> model has been renamed to <code>HIV</code>†</li>
+<li>HIV: The &ldquo;AIDS&rdquo; model has been renamed to &ldquo;HIV&rdquo;†</li>
 <li>Color Fractions: Removed direct reference to dead web page in Info Tab</li>
 <li>Fairy Circles: Update URLs in Info Tab</li>
 <li>Fur: Update broken URLs in Info Tab</li>
@@ -1555,12 +1605,9 @@ More information (including a partial workaround for the problem) is available <
 </ul>
 <h4><a href="#new-curricular-models" id="new-curricular-models" class="section-anchor">New Curricular Models:</a></h4>
 <ul>
-<li>Lattice Land Curriculum
-<ul>
+<li>Lattice Land Curriculum</li>
 <li>Lattice Land - Triangles Explore</li>
 <li>Lattice Land - Triangles Dissection</li>
-</ul>
-</li>
 </ul>
 <h4><a href="#revised-sample-models" id="revised-sample-models" class="section-anchor">Revised Sample Models:</a></h4>
 <ul>
@@ -1572,13 +1619,10 @@ More information (including a partial workaround for the problem) is available <
 </ul>
 <h4><a href="#revised-curricular-models" id="revised-curricular-models" class="section-anchor">Revised Curricular Models:</a></h4>
 <ul>
-<li>Connected Chemistry:
-<ul>
+<li>Connected Chemistry:</li>
 <li>Connected Chemistry 1: Fix NetLogo Web incompatibility.</li>
 <li>Connected Chemistry 3: Update minimum number of particles to 2.</li>
 <li>Connected Chemistry 8: Minor code updates. Small change to default values.</li>
-</ul>
-</li>
 </ul>
 <h4><a href="#revised-hubnet-activities" id="revised-hubnet-activities" class="section-anchor">Revised HubNet Activities:</a></h4>
 <ul>
@@ -1636,11 +1680,8 @@ primitive. This resulted in changes to 12 models.</p>
 </ul>
 <h4><a href="#new-curricular-model" id="new-curricular-model" class="section-anchor">New Curricular Model</a></h4>
 <ul>
-<li>Lattice Land curriculum:
-<ul>
+<li>Lattice Land curriculum:</li>
 <li>Lattice Land Explore</li>
-</ul>
-</li>
 </ul>
 <h4><a href="#revised-sample-models" id="revised-sample-models" class="section-anchor">Revised Sample Models</a></h4>
 <ul>
@@ -1650,15 +1691,12 @@ primitive. This resulted in changes to 12 models.</p>
 </ul>
 <h4><a href="#revised-curricular-models" id="revised-curricular-models" class="section-anchor">Revised Curricular Models</a></h4>
 <ul>
-<li>GenEvo curriculum:
-<ul>
+<li>GenEvo curriculum:</li>
 <li>GenEvo 1 Genetic Switch: info tab updates and new graduated method of displaying lacZ concentration.</li>
 <li>GenEvo 2 Genetic Drift: info tab updates and interface tweaks. New model preview.</li>
 <li>GenEvo 3 Genetic Drift and Natural Selection: info tab updates and interface tweaks.</li>
 <li>GenEvo 4 Competition: info tab updates.</li>
 <li>Genetic Switch - Synthetic Biology has been renamed and is now Synthetic Biology - Genetic Switch. It also received info tab updates and a few interface changes.</li>
-</ul>
-</li>
 </ul>
 <h2><a href="#version-60-december-2016" id="version-60-december-2016" class="section-anchor">Version 6.0 (December 2016)</a></h2>
 <h3><a href="#feature-changes" id="feature-changes" class="section-anchor">Feature Changes</a></h3>
@@ -1708,15 +1746,12 @@ primitive. This resulted in changes to 12 models.</p>
 <li><code>ls</code> enables multi-level agent-based modeling in NetLogo.</li>
 <li>The Extensions API has been updated from 5.0 to 6.0. This means that all non-bundled extensions will need to be updated to use the new API. Extensions written for NetLogo 5 <em>will not</em> work in NetLogo 6. If you&rsquo;re an extension author, see <a href="https://github.com/NetLogo/NetLogo/wiki/6.0-Extension-and-Controlling-API-Transition-Guide" target="_blank">the extension author transition guide for 6.0</a> for more information. If you regularly use extensions you may want to contact their authors to inform them a new version of NetLogo is on the way and they may want to update their extensions.</li>
 <li><code>arduino:get</code> (in the arduino extension) correctly reports values from Windows 64-bit machines. In prior versions it would only report some values correctly.</li>
-<li>Several new features have been added to the <code>nw</code> extension:
-<ul>
+<li>Several new features have been added to the <code>nw</code> extension:</li>
 <li>Added community detection using the Louvain method</li>
 <li>Added modularity measurement</li>
 <li>Added Watts-Strogatz small-world network generation</li>
 <li>Made other network generation algorithms easier to layout</li>
 <li>Weighted primitives now take symbolic variable names instead of strings. See <a href="transition.html">the transition guide</a> for more information.</li>
-</ul>
-</li>
 <li>The <code>qtj</code> extension is no longer bundled with NetLogo. Users are encouraged to make use of the <a href="vid.html">new <code>vid</code> extension</a>.</li>
 <li>The new <code>vid</code> extension is now bundled with NetLogo, combining features of the late <code>qtj</code> extension and the movie primitives.</li>
 <li>The network extension is no longer bundled with NetLogo. Users are encouraged to use the <code>nw</code> extension (<a href="nw.html">https://ccl.northwestern.edu/netlogo/docs/nw.html</a>), which has been bundled with NetLogo for some time.</li>
@@ -1807,13 +1842,10 @@ primitive. This resulted in changes to 12 models.</p>
 <ul>
 <li>GoGoMonitorSerial, GoGoMonitorSimpleSerial: removed the models, as the <code>gogo-serial</code> and <code>qtj</code> extensions are no longer bundled.</li>
 <li>Random Network Example: made sure that the number of links is never too big for the number of nodes.</li>
-<li>Since the QuickTime extension (<code>qtj</code>) has been replaced by the <code>vid</code> extension, the following models have been converted to use the <code>vid</code> extension:
-<ul>
+<li>Since the QuickTime extension (<code>qtj</code>) has been replaced by the <code>vid</code> extension, the following models have been converted to use the <code>vid</code> extension:</li>
 <li>Movie Example, replaced by Movie Recording Example</li>
 <li>QuickTime Movie Example, replaced by Movie Playing Example</li>
 <li>QuickTime Camera Example, replaced by Video Camera Example</li>
-</ul>
-</li>
 </ul>
 <h4><a href="#demoted-model" id="demoted-model" class="section-anchor">Demoted model:</a></h4>
 <ul>
@@ -1893,13 +1925,10 @@ primitive. This resulted in changes to 12 models.</p>
 <li>An included CSV extension to read and write CSV files</li>
 <li>An included Palette extension to map different values to colors</li>
 <li>The previous gogo extension has been removed. It has been replaced with two different gogo extensions, gogo and gogo-serial. The extensions work with different hardware. The gogo extension works with the new style HID-interface gogo boards and the gogo-serial extension works with the old-style serial-interface gogo boards</li>
-<li>Upgrade to the network extension including the following changes:
-<ul>
+<li>Upgrade to the network extension including the following changes:</li>
 <li>Support for many more file types, including GEXF, GDF, GML, Pajek NET, UCINET DL, and Netdraw VNA</li>
 <li>Fixed bugs with GraphML support</li>
 <li>Improved documentation</li>
-</ul>
-</li>
 </ul>
 <h3><a href="#new-features" id="new-features" class="section-anchor">New features</a></h3>
 <ul>
@@ -1938,8 +1967,7 @@ primitive. This resulted in changes to 12 models.</p>
 </ul>
 <h2><a href="#version-50-february-2012" id="version-50-february-2012" class="section-anchor">Version 5.0 (February 2012)</a></h2>
 <ul>
-<li>features:
-<ul>
+<li>features:</li>
 <li>open source (GPL license; source code online at <a href="https://github.com/NetLogo/NetLogo" target="_blank">https://github.com/NetLogo/NetLogo</a>)</li>
 <li>new license for Sample Models and Curricular Models is Creative Commons Attribution-NonCommercial-ShareAlike</li>
 <li>international characters (Unicode) supported throughout application</li>
@@ -1949,10 +1977,7 @@ primitive. This resulted in changes to 12 models.</p>
 <li>authorable model speed (target frame rate setting)</li>
 <li>buttons optionally disable until ticks start</li>
 <li>translucent colors in 3D view and NetLogo 3D (for RGB colors only)</li>
-</ul>
-</li>
-<li>language changes:
-<ul>
+<li>language changes:</li>
 <li>&ldquo;tasks&rdquo; store code to be run later
 <ul>
 <li>aka first-class functions, closures, lambda</li>
@@ -1966,17 +1991,11 @@ primitive. This resulted in changes to 12 models.</p>
 <li>new primitive <code>sort-on</code> lets you say e.g., <code>sort-on [size] turtles</code></li>
 <li>new primitive <code>error</code> causes a runtime error</li>
 <li><code>random-normal</code> rejects negative standard deviations</li>
-</ul>
-</li>
-<li>HubNet:
-<ul>
+<li>HubNet:</li>
 <li>activities can run headless</li>
 <li>new primitives <code>hubnet-clients-list</code>, <code>hubnet-kick-client</code>, <code>hubnet-kick-all-clients</code></li>
 <li><code>hubnet-set-client-interface</code> no longer required</li>
-</ul>
-</li>
-<li>other fixes and changes:
-<ul>
+<li>other fixes and changes:</li>
 <li>tabs renamed to Interface/Info/Code</li>
 <li>Command Center allows reporters, adds <code>show</code> command automatically</li>
 <li>NetLogo 3D uses .nlogo3d suffix, not .nlogo</li>
@@ -1986,15 +2005,10 @@ primitive. This resulted in changes to 12 models.</p>
 <li>Mac app runs in 64 bit mode by default</li>
 <li>upgraded Windows installer</li>
 <li>GoGo extension getting-started experience now smoother on all platforms</li>
-</ul>
-</li>
-<li>models:
-<ul>
+<li>models:</li>
 <li>new Sample Models: Sandpile, Lightning, Osmotic Pressure, Robby the Robot, Preferential Attachment 3D</li>
 <li>new Curricular Models: Bug Hunt Consumers, Bug Hunt Predators and Invasive Species, Plant Speciation, epiDEM Basic, epiDEM Travel and Control, Connected Chemistry Atmosphere</li>
 <li>new Code Examples: Info Tab Example, GoGoMonitorSimple</li>
-</ul>
-</li>
 </ul>
 <h2><a href="#version-413-april-2011" id="version-413-april-2011" class="section-anchor">Version 4.1.3 (April 2011)</a></h2>
 <ul>

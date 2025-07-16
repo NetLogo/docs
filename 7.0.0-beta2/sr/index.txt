@@ -1,5 +1,12 @@
-sound:drums sound:drums.html
-sound:instruments sound:instruments.html
-sound:play-drum sound:play-drum.html
-sound:play-note sound:play-note.html
-sound:play-note-later sound:play-note-later.html
+sr:setup sr:setup.html
+sr:run sr:run.html
+sr:runresult sr:runresult.html
+sr:set sr:set.html
+sr:set-agent sr:set-agent.html
+sr:set-agent-data-frame sr:set-agent-data-frame.html
+sr:set-data-frame sr:set-data-frame.html
+sr:set-list sr:set-list.html
+sr:set-named-list sr:set-named-list.html
+sr:set-plot-device sr:set-plot-device.html
+sr:r-home sr:r-home.html
+sr:show-console sr:show-console.html
