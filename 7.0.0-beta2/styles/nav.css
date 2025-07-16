@@ -39,7 +39,6 @@
 	flex: 1;
 
 	max-width: max(70vw, 400px);
-	overflow-x: auto;
 }
 
 .navbar__item {
@@ -247,7 +246,7 @@ button.navbar__action {
 		display: flex;
 		gap: var(--space-md);
 		justify-content: space-between;
-		width: 90%;
+		width: 100%;
 	}
 	.navbar__anchor {
 		display: flex;
@@ -270,6 +269,9 @@ button.navbar__action {
 	}
 	.navbar__item {
 		width: 100%;
+	}
+	#menu-toggle {
+		padding-left: 0.6rem;
 	}
 	#menu-toggle:not(:checked) ~ .navbar__links__mobile {
 		display: none;
@@ -315,8 +317,8 @@ button.navbar__action {
 	}
 
 	.version-select {
-		font-size: 0.875rem;
-		max-height: 3rem;
+		font-size: 0.7rem;
+		max-height: 2rem;
 		overflow: hidden;
 		text-overflow: ellipsis;
 		white-space: nowrap;
