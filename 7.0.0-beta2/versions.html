@@ -246,7 +246,6 @@
 			<a href="controlling.html">Controlling</a>
 			<a href="mathematica.html">Mathematica Link</a>
 			<a href="3d.html">NetLogo 3D</a>
-			<a href="modelingcommons.html">Save to Modeling Commons</a>
 		</div>
 	</div>
 	<!-- Extensions -->
@@ -268,8 +267,8 @@
 			<a href="py.html">Python</a>
 			<a href="resource.html">Resource</a>
 			<a href="rnd.html">Rnd</a>
-			<a href="sound.html">Sound</a>
 			<a href="sr.html">Simple R</a>
+			<a href="sound.html">Sound</a>
 			<a href="table.html">Table</a>
 			<a href="time.html">Time</a>
 			<a href="vid.html">Vid</a>
@@ -321,7 +320,13 @@
 							/>
 						</svg>
 					</a>
-					<a class="navbar__action" href="NetLogo%20User%20Manual.pdf" aria-label="User Manual" title="User Manual PDF" target="_blank">
+					<a
+						class="navbar__action"
+						href="NetLogo%20User%20Manual.pdf"
+						aria-label="User Manual"
+						title="User Manual PDF"
+						target="_blank"
+					>
 						<!-- User Manual icon -->
 						<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
 							<!--!Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2025 Fonticons, Inc.-->
@@ -377,7 +382,6 @@
 			<a href="controlling.html">Controlling</a>
 			<a href="mathematica.html">Mathematica Link</a>
 			<a href="3d.html">NetLogo 3D</a>
-			<a href="modelingcommons.html">Save to Modeling Commons</a>
 		</div>
 	</div>
 	<!-- Extensions -->
@@ -399,8 +403,8 @@
 			<a href="py.html">Python</a>
 			<a href="resource.html">Resource</a>
 			<a href="rnd.html">Rnd</a>
-			<a href="sound.html">Sound</a>
 			<a href="sr.html">Simple R</a>
+			<a href="sound.html">Sound</a>
 			<a href="table.html">Table</a>
 			<a href="time.html">Time</a>
 			<a href="vid.html">Vid</a>
@@ -472,8 +476,8 @@
 				</p>
 				<p>
 					This program is free software; you can redistribute it and/or modify it under the terms of the GNU General
-					Public License as published by the Free Software Foundation; either version 2 of the License, or (at your
-					option) any later version.
+					Public License as published by the Free Software Foundation; either version 2 of the
+					<a href="copyright.html">License</a>, or (at your option) any later version.
 				</p>
 				<p>
 					Commercial licenses are also available. To inquire about commercial licenses, please contact Uri Wilensky at
@@ -621,7 +625,7 @@
 <li>For example, a user interface element can appear in the new larger size, or the original size.</li>
 <li>The .nlogox format is extensible and will allow new types of data to be stored in the future.</li>
 <li>This makes it easier to add capabilities and keep models backwards compatible.</li>
-<li>Resources needed for a model may be stored in the .nlogox file in the future.</li>
+<li><a href="resource-manager.html">Resources</a> needed for a model may be stored in the .nlogox file in the future.</li>
 </ul>
 <h3><a href="#changes-for-customizability" id="changes-for-customizability" class="section-anchor">Changes for Customizability</a></h3>
 <ul>
@@ -660,14 +664,12 @@
 <h3><a href="#bug-fixes-and-minor-changes" id="bug-fixes-and-minor-changes" class="section-anchor">Bug Fixes and Minor Changes</a></h3>
 <ul>
 <li>Multi-assign with <code>let</code> and <code>set</code> can use arbitrarily nested lists to &ldquo;destructure&rdquo; variables. For example, <code>let [[corner1-x corner1-y corner2-x corner2-y] player-name score] get-current-player-info</code>.</li>
-<li>The primitive <code>auto-plot?</code> has been restored.</li>
+<li>The primitive <code>autoplot?</code> has been restored.</li>
 <li>An optimization speeds up the execution of the constructs <code>any? turtles-on</code> and <code>any? &lt;breeds&gt;-on</code>.</li>
 <li>An <code>__includes</code> statement not followed by brackets no longer causes an exception.</li>
 <li>Reporter procedures without a <code>report</code> statement, <code>run</code> or <code>runresult</code> now throw a compile time error.</li>
 <li>The user receives a specific message when keywords such as <code>globals</code>, <code>turtles-own</code>, <code>to</code> or <code>end</code> are used in an incorrect context.</li>
-<li>
-<p>Unmatched closing parentheses, brackets and braces result in a meaningful error message.</p>
-</li>
+<li>Unmatched closing parentheses, brackets and braces result in a meaningful error message.</li>
 <li>When a runtime error occurs the user is asked for information that would allow us to reproduce and fix the problem. This is in addition to the stack trace plus system information currently requested.</li>
 <li>&ldquo;Save as NetLogo Web&rdquo; adds the contents of any included files to the model code.</li>
 <li>One can now import a world that has an array containing strings with curly braces.</li>
@@ -706,10 +708,9 @@
 <li>Number input boxes without a value no longer keep other input boxes or the command center from gaining focus.</li>
 <li>The Page Setup dialog opened when a user wants to Print now closes when its Cancel button is pressed.</li>
 <li>When a procedure in the Code Tab is &ldquo;folded,&rdquo; so that only the line with the name is visible, an action that needs to move to inside the code causes it to be &ldquo;unfolded,&rdquo; so it is fully visible. This can be a result of a search, find-and-replace or jumping to code with a compilation error.</li>
-<li>The padding and location of internal components of widgets now change proportionally when zooming.</li>
-<li><code>mouse-xcor</code> and <code>mouse-ycor</code> no longer degrade performance when called multiple times per iteration of go or in an ask with lots of agents.</li>
 <li>If the NetLogo window is maximized in Windows, opening a new model no longer unmaximizes it.</li>
 <li>Plot pens always take account of <code>plot-pen-up</code> and <code>plot-pen-down</code>.</li>
+<li>The padding and location of internal components of widgets now change proportionally when zooming.</li>
 <li>Models that have not been edited are never consider unsaved.</li>
 <li>Ctrl/Cmd+X when nothing is selected now cuts (copies and deletes) the entire line.</li>
 <li>Double clicking on a model that was saved with compilation errors opens it correctly.</li>
@@ -717,7 +718,7 @@
 <li>Using a lower case &lsquo;i&rsquo; in code with a Turkish locale no longer causes compilations errors</li>
 <li>The resize behavior of edit dialogs has been improved. For example, plot widget &ldquo;update commands&rdquo; and &ldquo;setup commands&rdquo; fields can now be made taller</li>
 <li>NetLogo now detects autosave files created for a model in case NetLogo crashes. Users are now asked if they want to recover it.</li>
-<li>Mouse coordinated are now correctly reported along border of a selected view.</li>
+<li>Mouse coordinates are now correctly reported along the border of a selected view.</li>
 <li>All open files are closed when a runtime error occurs.</li>
 <li>When exporting and then importing a model the last line in an Output area is a newline it will be retained.</li>
 <li>Disabled button state is now preserved by Import world.</li>
@@ -726,12 +727,18 @@
 <li>Clipboard errors when pasting no longer cause an exception.</li>
 <li>After patch colors have been read from a file the underlying input stream is now closed.</li>
 <li>Some NetLogo display problems are avoided because Microsoft Direct3D graphics are now off by default.</li>
+<li>The default value label tick counter, the names of the panels in the &lsquo;About NetLogo&rsquo;, and the Preview Commands editor can be internationalized.</li>
+<li>Links to the NetLogo user manual PDF in the documentation installed with NetLogo work correctly.</li>
+<li>Inserting a tab in a Note produces four spaces.</li>
+<li>Adjusting a widget value using arrow keys does not affect other scrollable areas.</li>
+<li><code>import-world</code> correctly handles tables that have a key with a &lsquo;:&rsquo;.</li>
+<li>Better memory support for worlds with one small and one very large dimension.</li>
 </ul>
 <h3><a href="#extension-updates" id="extension-updates" class="section-anchor">Extension Updates</a></h3>
 <ul>
 <li>The gogo extension supports the GoGo board 6.</li>
 <li>The dialog extension <code>user-input</code> primitive allows an optional default value argument.</li>
-<li>There is a new resource extension that allows you to list and get resources bundled with a model.</li>
+<li>There is <a href="resource.html">a new resource extension</a> that allows you to list and <a href="resource-manager.html">get resources bundled with a model</a>.</li>
 <li>The SimpleR extension is now bundled with NetLogo.</li>
 <li>The R extension is no longer bundled with NetLogo. It is available through the extension manager.</li>
 <li>There is a new bspace extension that allows users to create experiments programatically.</li>
@@ -753,6 +760,8 @@
 <p>Note: most models have been updated to the new widget size but not all.</p>
 <h4><a href="#new-sample-models" id="new-sample-models" class="section-anchor">New Sample Models:</a></h4>
 <ul>
+<li>Interstitial Diffusion</li>
+<li>Invasive Plants</li>
 <li>The Mathematics section now has a subfolder Conic Sections that contains three models:</li>
 <li>Emergent Shapes - Ellipse</li>
 <li>Emergent Shapes - Parabola</li>

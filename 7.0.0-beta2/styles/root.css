@@ -48,6 +48,7 @@
 	--color-error: var(--color-red-accent); /* Error color */
 
 	--color-text-on-primary: var(--color-white);
+	--color-text: var(--color-black);
 
 	--color-link: var(--color-primary);
 	--color-link-hover: var(--color-primary-dark);
@@ -89,4 +90,31 @@
 	--dur-fast: 0.25s;
 
 	--scroll-margin: 2em;
+}
+
+@media print {
+	:root {
+		--color-white: #ffffff;
+		--shadow-md: none; /* No shadows in print */
+	}
+	h1[id],
+	h2[id],
+	h3[id] {
+		scroll-margin-top: 80px;
+	}
+	.anchor-target {
+		height: 0px;
+		max-height: 0px;
+		width: 0px;
+		max-width: 0px;
+		position: relative;
+
+		transform: translateY(-80px);
+	}
+
+	nav,
+	footer,
+	.toc {
+		display: none; /* Hide navigation and footer in print */
+	}
 }

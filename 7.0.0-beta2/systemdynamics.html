@@ -246,7 +246,6 @@
 			<a href="controlling.html">Controlling</a>
 			<a href="mathematica.html">Mathematica Link</a>
 			<a href="3d.html">NetLogo 3D</a>
-			<a href="modelingcommons.html">Save to Modeling Commons</a>
 		</div>
 	</div>
 	<!-- Extensions -->
@@ -268,8 +267,8 @@
 			<a href="py.html">Python</a>
 			<a href="resource.html">Resource</a>
 			<a href="rnd.html">Rnd</a>
-			<a href="sound.html">Sound</a>
 			<a href="sr.html">Simple R</a>
+			<a href="sound.html">Sound</a>
 			<a href="table.html">Table</a>
 			<a href="time.html">Time</a>
 			<a href="vid.html">Vid</a>
@@ -321,7 +320,13 @@
 							/>
 						</svg>
 					</a>
-					<a class="navbar__action" href="NetLogo%20User%20Manual.pdf" aria-label="User Manual" title="User Manual PDF" target="_blank">
+					<a
+						class="navbar__action"
+						href="NetLogo%20User%20Manual.pdf"
+						aria-label="User Manual"
+						title="User Manual PDF"
+						target="_blank"
+					>
 						<!-- User Manual icon -->
 						<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
 							<!--!Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2025 Fonticons, Inc.-->
@@ -377,7 +382,6 @@
 			<a href="controlling.html">Controlling</a>
 			<a href="mathematica.html">Mathematica Link</a>
 			<a href="3d.html">NetLogo 3D</a>
-			<a href="modelingcommons.html">Save to Modeling Commons</a>
 		</div>
 	</div>
 	<!-- Extensions -->
@@ -399,8 +403,8 @@
 			<a href="py.html">Python</a>
 			<a href="resource.html">Resource</a>
 			<a href="rnd.html">Rnd</a>
-			<a href="sound.html">Sound</a>
 			<a href="sr.html">Simple R</a>
+			<a href="sound.html">Sound</a>
 			<a href="table.html">Table</a>
 			<a href="time.html">Time</a>
 			<a href="vid.html">Vid</a>
@@ -472,8 +476,8 @@
 				</p>
 				<p>
 					This program is free software; you can redistribute it and/or modify it under the terms of the GNU General
-					Public License as published by the Free Software Foundation; either version 2 of the License, or (at your
-					option) any later version.
+					Public License as published by the Free Software Foundation; either version 2 of the
+					<a href="copyright.html">License</a>, or (at your option) any later version.
 				</p>
 				<p>
 					Commercial licenses are also available. To inquire about commercial licenses, please contact Uri Wilensky at
@@ -584,32 +588,35 @@ the Tools menu. The System Dynamics Modeler window will appear.
 <p>A System Dynamics diagram is made up of four kinds of components:
 Stocks, Variables, Flows and Links.</p>
 <dl>
-<dt>Stock
+<dt>
+<p>Stock</p>
 <dd><p>
-  To create a Stock, press the Stock button in the toolbar and click in the
-  diagram area below. A new Stock appears. Each Stock requires a unique name,
-  which becomes a global variable. Stocks also require an **Initial value**.
-  It can be a number, a variable, a complex NetLogo expression, or a call to a
-  NetLogo reporter.
-<dt>Variable
+<p>To create a Stock, press the Stock button in the toolbar and click in the
+diagram area below. A new Stock appears. Each Stock requires a unique name,
+which becomes a global variable. Stocks also require an <strong>Initial value</strong>.
+It can be a number, a variable, a complex NetLogo expression, or a call to a
+NetLogo reporter.</p>
+<dt>
+<p>Variable</p>
 <dd><p>
-  To create a Variable, press the Variable button and click on the diagram.
-  Each Variable in the System Dynamics Model requires a unique name, which
-  becomes the name of a procedure, or a global variable. Variables also
-  require an **Expression**. This expression can be a number, a variable, a
-  complex NetLogo expression, or a call to a NetLogo reporter.
-<dt>Flow
+<p>To create a Variable, press the Variable button and click on the diagram.
+Each Variable in the System Dynamics Model requires a unique name, which
+becomes the name of a procedure, or a global variable. Variables also
+require an <strong>Expression</strong>. This expression can be a number, a variable, a
+complex NetLogo expression, or a call to a NetLogo reporter.</p>
+<dt>
+<p>Flow</p>
 <dd><p>
-  To create a Flow, press the Flow button or use the right mouse button to
-  Click and hold where you want the Flow to begin -- either on a Stock or in
-  an empty area -- and drag the mouse to where you want the Flow to end -- on a
-  Stock or in an empty area.
-  Each Flow requires a unique name, which becomes a NetLogo reporter. Flows
-  require an **Expression**, which is the rate of flow from the input to the
-  output.
-  This expression can be a number, a variable, a complex NetLogo expression,
-  or a call to a NetLogo reporter. If the value is negative, the flow is in
-  the opposite direction.
+<p>To create a Flow, press the Flow button or use the right mouse button to
+Click and hold where you want the Flow to begin &ndash; either on a Stock or in
+an empty area &ndash; and drag the mouse to where you want the Flow to end &ndash; on a
+Stock or in an empty area.
+Each Flow requires a unique name, which becomes a NetLogo reporter. Flows
+require an <strong>Expression</strong>, which is the rate of flow from the input to the
+output.
+This expression can be a number, a variable, a complex NetLogo expression,
+or a call to a NetLogo reporter. If the value is negative, the flow is in
+the opposite direction.</p>
 <p>When more than one Flow is connected to a Stock, it is important to consider
 how they should interact with one another. NetLogo will not enforce that the
 Flows out of a stock occur in any particular order. Also, NetLogo will not
@@ -622,11 +629,12 @@ primitive: <code>min (list stock 10)</code>. If I want Flow A to deplete a Stock
 Flow B is calculated, I can link Flow A to Flow B and modify Flow B to
 subtract Flow A&rsquo;s value from the stock:
 <code>min (list (max (list 0 (stock - flow-a))) 10)</code>.</p>
-<dt>Link
+<dt>
+<p>Link</p>
 <dd><p>
-  To create a Link, press the Link button, or using the right mouse button,
-  click and hold on the starting point for the link -- a Variable, Stock or
-  Flow -- and drag the mouse to the destination Variable or Flow.
+<p>To create a Link, press the Link button, or using the right mouse button,
+click and hold on the starting point for the link &ndash; a Variable, Stock or
+Flow &ndash; and drag the mouse to the destination Variable or Flow.</p>
 </dl>
 <h4><a href="#working-with-diagram-elements" id="working-with-diagram-elements" class="section-anchor">Working with Diagram Elements</a></h4>
 <p>When you create a Stock, Variable, or Flow, you see a red question-mark on the
@@ -798,7 +806,9 @@ to go
 end
 </code></pre>
 </li>
-<li>Move to the Interface tab</li>
+<li>
+<p>Move to the Interface tab</p>
+</li>
 <li>Create a <code>setup</code> button</li>
 <li>Create a <code>go</code> button (don&rsquo;t forget to make it forever)</li>
 <li>Create a <code>sheep</code> monitor.</li>
@@ -828,7 +838,8 @@ which eat sheep.</p>
 <li>Add one more Flow from the <code>wolves</code> Stock to the Flow that goes out of the
 Sheep stock.</li>
 <li>Fill in the names of the diagram elements so it looks like this:
-<img src="images/systemdynamics/tutorial10.png" alt="Screenshot" class="screenshot" />
+<img src="images/systemdynamics/tutorial10.png" alt="Screenshot" class="screenshot" /></li>
+</ul>
 <p>where
 initial-value of <code>wolves</code> is <code>30</code>,
 <code>wolf-deaths</code> is <code>wolves * wolf-death-rate</code>,
@@ -837,12 +848,10 @@ initial-value of <code>wolves</code> is <code>30</code>,
 <code>wolf-births</code> is <code>wolves * predator-efficiency * predation-rate * sheep</code>,
 <code>predation-rate</code> is <code>3.0E-4</code>,
 and <code>sheep-deaths</code> is <code>sheep * predation-rate * wolves</code>.</p>
-</li>
-<li>
-<p>Adjust the <code>dt</code> of the system dynamics model by selecting &ldquo;Edit&rdquo; next to
+<ul>
+<li>Adjust the <code>dt</code> of the system dynamics model by selecting &ldquo;Edit&rdquo; next to
 <code>dt</code> in the toolbar of the system dynamics modeler. In the dialog that
-appears, enter <code>0.01</code>.</p>
-</li>
+appears, enter <code>0.01</code>.</li>
 </ul>
   <p class="screenshot">
     <img alt="screen shot" style="height: auto; width: auto; max-width: 40%; max-height: 40%;" src="images/systemdynamics/setdtexample.png" />

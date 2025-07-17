@@ -246,7 +246,6 @@
 			<a href="controlling.html">Controlling</a>
 			<a href="mathematica.html">Mathematica Link</a>
 			<a href="3d.html">NetLogo 3D</a>
-			<a href="modelingcommons.html">Save to Modeling Commons</a>
 		</div>
 	</div>
 	<!-- Extensions -->
@@ -268,8 +267,8 @@
 			<a href="py.html">Python</a>
 			<a href="resource.html">Resource</a>
 			<a href="rnd.html">Rnd</a>
-			<a href="sound.html">Sound</a>
 			<a href="sr.html">Simple R</a>
+			<a href="sound.html">Sound</a>
 			<a href="table.html">Table</a>
 			<a href="time.html">Time</a>
 			<a href="vid.html">Vid</a>
@@ -321,7 +320,13 @@
 							/>
 						</svg>
 					</a>
-					<a class="navbar__action" href="NetLogo%20User%20Manual.pdf" aria-label="User Manual" title="User Manual PDF" target="_blank">
+					<a
+						class="navbar__action"
+						href="NetLogo%20User%20Manual.pdf"
+						aria-label="User Manual"
+						title="User Manual PDF"
+						target="_blank"
+					>
 						<!-- User Manual icon -->
 						<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
 							<!--!Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2025 Fonticons, Inc.-->
@@ -377,7 +382,6 @@
 			<a href="controlling.html">Controlling</a>
 			<a href="mathematica.html">Mathematica Link</a>
 			<a href="3d.html">NetLogo 3D</a>
-			<a href="modelingcommons.html">Save to Modeling Commons</a>
 		</div>
 	</div>
 	<!-- Extensions -->
@@ -399,8 +403,8 @@
 			<a href="py.html">Python</a>
 			<a href="resource.html">Resource</a>
 			<a href="rnd.html">Rnd</a>
-			<a href="sound.html">Sound</a>
 			<a href="sr.html">Simple R</a>
+			<a href="sound.html">Sound</a>
 			<a href="table.html">Table</a>
 			<a href="time.html">Time</a>
 			<a href="vid.html">Vid</a>
@@ -472,8 +476,8 @@
 				</p>
 				<p>
 					This program is free software; you can redistribute it and/or modify it under the terms of the GNU General
-					Public License as published by the Free Software Foundation; either version 2 of the License, or (at your
-					option) any later version.
+					Public License as published by the Free Software Foundation; either version 2 of the
+					<a href="copyright.html">License</a>, or (at your option) any later version.
 				</p>
 				<p>
 					Commercial licenses are also available. To inquire about commercial licenses, please contact Uri Wilensky at
@@ -512,6 +516,7 @@
 	</body>
 </html>
 <main class="prose">
+<h1><a href="#espacio-conductual" id="espacio-conductual" class="section-anchor">Espacio-Conductual</a></h1>
 <p>Esta guía consta de tres partes:</p>
 <ul>
 <li><a href="#qué-es-espacio-conductual"><strong>¿Qué es Espacio-Conductual?</strong></a>: Describe la herramienta en términos generales,
@@ -578,7 +583,7 @@ espacio de parámetros multidimensional- funciona mejor nuestro modelo?</p>
 <p>Por ejemplo, supongamos que desea lograrse una sincronización rápida entre los agentes en el modelo
 Fireflies. El modelo tiene cuatro deslizadores: number, cycle-length,
 flash-length and flashes-to-reset, con aproximadamente 2000, 100, 10 y 3 valores posibles,
-respectivamente. Esto significa que, ¡hay 2000 * 100 * 10 * 3 =
+respectivamente. Esto significa que, ¡hay 2000 _ 100 _ 10 * 3 =
 6,000,000 posibles combinaciones de valores de los deslizadores! Probar combinaciones una por una,
 no es una forma remotamente eficiente de descubrir cuál provocará la sincronización
 más rápida.</p>
@@ -831,9 +836,7 @@ tortugas aumentó y disminuyó durante cada ejecución, se incluiría:</p>
 <p>Se puede ingresar un reportero, varios o ninguno. Si se ingresan varios,
 cada reportero debe estar en una línea diferente, por ejemplo:</p>
 <blockquote>
-<p><code>count frogs</code>
-<code>count mice</code>
-<code>count birds</code></p>
+<p><code>count frogs</code> &gt; <code>count mice</code> &gt; <code>count birds</code></p>
 </blockquote>
 <p>Si no se ingresan reporteros, las ejecuciones aún se llevarán a cabo. Esto es útil
 si deseas registrar los resultados a tu propia manera, como con el comando
@@ -867,7 +870,7 @@ Para obtener resultados diferentes en repeticiones, se puedes usar
 <p><strong>Comandos <code>go</code>:</strong> Estos comandos se ejecutarán una y otra vez para avanzar el modelo
 al siguiente &lsquo;paso&rsquo;. Por lo general, esto será el nombre de un procedimiento, como <code>go</code>,
 pero se pueden incluir los comandos que se deseen.</p>
-<p><strong>Condición de finalización:</strong>  Esto permite realizar ejecuciones del modelo de diferentes
+<p><strong>Condición de finalización:</strong> Esto permite realizar ejecuciones del modelo de diferentes
 duraciones, finalizando cada una cuando se cumple una cierta condición. Por ejemplo, supongamos
 que se desea que cada ejecución dure hasta que ya no queden tortugas. En ese caso, se ingresaría:</p>
 <blockquote>
@@ -1018,7 +1021,7 @@ resultados con formato adecuado para esos reporteros. Tanto en los formatos <str
 desplegar
 sus elementos en celdas separadas con un valor por celda. Si los valores de la lista se requieren en celdas
 ndividuales,
-se selecciona el formato  <strong>Resultados en lista</strong> junto con uno o ambos de los otros formatos.</p>
+se selecciona el formato <strong>Resultados en lista</strong> junto con uno o ambos de los otros formatos.</p>
 <p>Es importante destacar que el formato <strong>Resultados en lista</strong>, al igual que el formato <strong>Resultados en hoja de
 cálculo</strong>, no contendrá datos hasta que el experimento esté completo. También es importante tener en cuenta que el
 formato
@@ -1164,7 +1167,7 @@ se excluye para mejorar el rendimiento.</li>
 especificar <code>--table</code> o <code>--spreadsheet</code>, o ambos. Si se especifica alguna de las dimensiones
 del mundo, se deben proporcionar las cuatro.</p>
 <p>Es importante tener en cuenta que antes de NetLogo 6.3.0, las indicaciones recomendaban el uso de
-<code>netlogo-headless.sh</code> (o <code>netlogo-headless.bat</code> en Windows)  junto con una instalación independiente de Java
+<code>netlogo-headless.sh</code> (o <code>netlogo-headless.bat</code> en Windows) junto con una instalación independiente de Java
 en el sistema para llevar a cabo experimentos de Espacio-Conductual. El script <code>netlogo-headless.sh</code> aún se
 incluye en NetLogo y puede seguir utilizándose como antes, lo que puede ser preferible en entornos de servidor,
 donde la versión de Java instalada está estrictamente controlada. Sin embargo, en una computadora personal, el
@@ -1175,7 +1178,7 @@ configuraciones especiales.</p>
 <p>Resulta más conveniente crear previamente la configuración de un experimento en la interfaz gráfica,
 de modo que quede guardada como parte del modelo. Para ejecutar una configuración de experimento que
 se haya guardado en un modelo, se presenta un ejemplo de línea de comandos que debe ejecutarse
-desde la carpeta de instalación de NetLogo 7.0.0-beta2,  de modo que las rutas a la aplicación
+desde la carpeta de instalación de NetLogo 7.0.0-beta2, de modo que las rutas a la aplicación
 <code>NetLogo_Console</code> y al modelo <code>Wolf Sheep Simple 5.nlogo</code> sean correctas.</p>
 <p>Las siguientes instrucciones deberían funcionar tal cual en una terminal en macOS y Linux. En Windows,
 en el símbolo del sistema, puede usarse <code>^</code> en lugar de <code>\</code> para dividir el comando en varias líneas

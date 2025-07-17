@@ -1,22 +1,20 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <title>
-      NetLogo 7.0.0-beta2 User Manual: Info Tab
-    </title>
-        <link rel="stylesheet" href="netlogo.css" type="text/css"/>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="netlogo.css" type="text/css" />
-        <link rel="icon" type="image/png" href="favicon/favicon-96x96.png" sizes="96x96" />
-        <link rel="icon" type="image/svg+xml" href="favicon/favicon.svg" />
-        <link rel="shortcut icon" href="favicon/favicon.ico" />
-        <link rel="apple-touch-icon" sizes="180x180" href="favicon/apple-touch-icon.png" />
-        <meta name="apple-mobile-web-app-title" content="Docs" />
-        <link rel="manifest" href="favicon/site.webmanifest" />
-  </head>
+	<head>
+		<title>NetLogo 7.0.0-beta2 User Manual: Info Tab</title>
+		<link rel="stylesheet" href="netlogo.css" type="text/css" />
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<link rel="stylesheet" href="netlogo.css" type="text/css" />
+		<link rel="icon" type="image/png" href="favicon/favicon-96x96.png" sizes="96x96" />
+		<link rel="icon" type="image/svg+xml" href="favicon/favicon.svg" />
+		<link rel="shortcut icon" href="favicon/favicon.ico" />
+		<link rel="apple-touch-icon" sizes="180x180" href="favicon/apple-touch-icon.png" />
+		<meta name="apple-mobile-web-app-title" content="Docs" />
+		<link rel="manifest" href="favicon/site.webmanifest" />
+	</head>
 
-    <!DOCTYPE html>
+	<!DOCTYPE html>
 <html lang="en">
 	<head>
 		<script src="script.js" type="module"></script>
@@ -263,7 +261,6 @@
 			<a href="controlling.html">Controlling</a>
 			<a href="mathematica.html">Mathematica Link</a>
 			<a href="3d.html">NetLogo 3D</a>
-			<a href="modelingcommons.html">Save to Modeling Commons</a>
 		</div>
 	</div>
 	<!-- Extensions -->
@@ -285,8 +282,8 @@
 			<a href="py.html">Python</a>
 			<a href="resource.html">Resource</a>
 			<a href="rnd.html">Rnd</a>
-			<a href="sound.html">Sound</a>
 			<a href="sr.html">Simple R</a>
+			<a href="sound.html">Sound</a>
 			<a href="table.html">Table</a>
 			<a href="time.html">Time</a>
 			<a href="vid.html">Vid</a>
@@ -338,7 +335,13 @@
 							/>
 						</svg>
 					</a>
-					<a class="navbar__action" href="NetLogo%20User%20Manual.pdf" aria-label="User Manual" title="User Manual PDF" target="_blank">
+					<a
+						class="navbar__action"
+						href="NetLogo%20User%20Manual.pdf"
+						aria-label="User Manual"
+						title="User Manual PDF"
+						target="_blank"
+					>
 						<!-- User Manual icon -->
 						<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
 							<!--!Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2025 Fonticons, Inc.-->
@@ -394,7 +397,6 @@
 			<a href="controlling.html">Controlling</a>
 			<a href="mathematica.html">Mathematica Link</a>
 			<a href="3d.html">NetLogo 3D</a>
-			<a href="modelingcommons.html">Save to Modeling Commons</a>
 		</div>
 	</div>
 	<!-- Extensions -->
@@ -416,8 +418,8 @@
 			<a href="py.html">Python</a>
 			<a href="resource.html">Resource</a>
 			<a href="rnd.html">Rnd</a>
-			<a href="sound.html">Sound</a>
 			<a href="sr.html">Simple R</a>
+			<a href="sound.html">Sound</a>
 			<a href="table.html">Table</a>
 			<a href="time.html">Time</a>
 			<a href="vid.html">Vid</a>
@@ -489,8 +491,8 @@
 				</p>
 				<p>
 					This program is free software; you can redistribute it and/or modify it under the terms of the GNU General
-					Public License as published by the Free Software Foundation; either version 2 of the License, or (at your
-					option) any later version.
+					Public License as published by the Free Software Foundation; either version 2 of the
+					<a href="copyright.html">License</a>, or (at your option) any later version.
 				</p>
 				<p>
 					Commercial licenses are also available. To inquire about commercial licenses, please contact Uri Wilensky at
@@ -530,51 +532,41 @@
 </html>
 
 
-  <body>
-    <main class="prose">
+	<body>
+		<main class="prose">
+			<h1>Info Tab</h1>
+			<p>
+				The Info tab provides an introduction to a model. It explains what system is being modeled, how the model was
+				created, and and how to use it. It may also suggest things to explore and ways to extend the model, or call your
+				attention to particular NetLogo features the model uses.
+			</p>
+			<p class="screenshot">
+				<img alt="screen shot" src="images/infotab/infotab.png" />
+			</p>
+			<p>You may wish to read the Info tab of an existing model before interacting with its widgets or its code.</p>
+			<h2>
+				<a id="info-editing">Editing</a>
+			</h2>
+			<p>
+				The normal, formatted view of the Info tab is not editable. To make edits, click the &quot;Edit&quot; button.
+				When done editing, click the &quot;Edit&quot; button again.
+			</p>
+			<p class="screenshot">
+				<img alt="screen shot" src="images/infotab/infotabedit.png" />
+			</p>
+			<p>
+				You edit the Info tab as unformatted plain text. When you're done editing, the plain text you entered is
+				displayed in a more attractive format.
+			</p>
+			<p>
+				To control how the formatted display looks, you use a &quot;markup language&quot; called Markdown. You may have
+				encountered Markdown elsewhere; it is used on a number of web sites. (There are other markup languages in use on
+				the web; for example, Wikipedia used a markup language called MediaWiki. Markup languages differ in details.)
+			</p>
+			<p>
+				The remainder of this guide is a tour of Markdown.
 
-
-    <p>
-      The Info tab provides an introduction to a model.
-      It explains what system is being modeled, how the model was
-      created, and and how to use it.
-      It may also suggest things to explore and ways to extend the model, or
-      call your attention to particular NetLogo features the model uses.
-    </p>
-    <p class="screenshot">
-      <img alt="screen shot" src="images/infotab/infotab.png"/>
-    </p>
-    <p>
-      You may wish to read the Info tab of an existing model before interacting with its widgets or its code.
-    </p>
-    <h2>
-      <a id="info-editing">Editing</a>
-    </h2>
-    <p>
-      The normal, formatted view of the Info tab is not editable. To make edits, click
-      the &quot;Edit&quot; button. When done editing, click the
-      &quot;Edit&quot; button again.
-    </p>
-    <p class="screenshot">
-      <img alt="screen shot" src="images/infotab/infotabedit.png"/>
-    </p>
-    <p>
-      You edit the Info tab as unformatted plain text. When you're done
-      editing, the plain text you entered is displayed in a more attractive
-      format.
-    </p>
-    <p>
-      To control how the formatted display looks, you use a &quot;markup
-      language&quot; called Markdown. You may have encountered Markdown
-      elsewhere; it is used on a number of web sites. (There are other
-      markup languages in use on the web; for example, Wikipedia used a
-      markup language called MediaWiki. Markup languages differ
-      in details.)
-    </p>
-    <p>
-      The remainder of this guide is a tour of Markdown.
-
-      <ul>
+				<ul>
 <li><a href="#headings">Headings</a></li>
 <li><a href="#paragraphs">Paragraphs</a></li>
 <li><a href="#italicized-and-bold-text">Italicized and bold text</a></li>
@@ -827,6 +819,7 @@ WWW&lt;sup&gt;[1]&lt;/sup&gt;
 <p>More information about Markdown is at <a href="https://daringfireball.net/projects/markdown/" target="_blank">https://daringfireball.net/projects/markdown/</a>. For rendering Markdown, NetLogo uses the <a href="https://github.com/vsch/flexmark-java" target="_blank">Flexmark-java</a> library.</p>
 <!-- 2010 -->
 
-    </p></main>
-  </body>
+			</p>
+		</main>
+	</body>
 </html>
