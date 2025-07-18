@@ -692,10 +692,10 @@
  <h4><span class="prim_example">matrix:forecast-compound-growth <i>data-list</i></span></h4>
  <p>Reports a four-element list of the form:</p>
  <p><tt>[ forecast constant growth-proportion R<sup>2</sup> ]</tt></p>
- <p>Whereas <a href="./matrix.html#matrixforecast-linear-growth">matrix:forecast-linear-growth</a> assumes growth by a constant absolute amount each period, <a href="./matrix.html#matrixforecast-compound-growth">matrix:forecast-compound-growth</a> assumes that Y grows by a constant <strong>proportion</strong> each period. The <em>constant</em> and <em>growth-proportion</em> are the parameters of the trend-line</p>
+ <p>Whereas <a class='code' href="./matrix.html#matrixforecast-linear-growth">matrix:forecast-linear-growth</a> assumes growth by a constant absolute amount each period, <a class='code' href="./matrix.html#matrixforecast-compound-growth">matrix:forecast-compound-growth</a> assumes that Y grows by a constant <strong>proportion</strong> each period. The <em>constant</em> and <em>growth-proportion</em> are the parameters of the trend-line</p>
  <p><tt>Y = <em>constant</em> * <em>growth-proportion</em><sup>t</sup>.</tt></p>
- <p>Note that the growth proportion is typically interpreted as <em>growth-proportion</em> = <em>(1.0 + growth-rate)</em>. Therefore, if <a href="./matrix.html#matrixforecast-compound-growth">matrix:forecast-compound-growth</a> returns a <em>growth-proportion</em> of 1.10, that implies that Y grows by (1.10 - 1.0) = 10% each period. Note that if growth is negative, <a href="./matrix.html#matrixforecast-compound-growth">matrix:forecast-compound-growth</a> will return a <em>growth-proportion</em> of less than one. E.g., a <em>growth-proportion</em> of 0.90 implies a growth rate of -10%.</p>
- <p><strong>NOTE:</strong> The compound growth forecast is achieved by taking the ln of Y. (See <a href="./matrix.html#matrixregress">matrix:regress</a>, below.) Because it is impossible to take the natural log of zero or a negative number, <a href="./matrix.html#matrixforecast-compound-growth">matrix:forecast-compound-growth</a> will result in an error if it finds a zero or negative number in <em>data-list</em>.</p>
+ <p>Note that the growth proportion is typically interpreted as <em>growth-proportion</em> = <em>(1.0 + growth-rate)</em>. Therefore, if <a class='code' href="./matrix.html#matrixforecast-compound-growth">matrix:forecast-compound-growth</a> returns a <em>growth-proportion</em> of 1.10, that implies that Y grows by (1.10 - 1.0) = 10% each period. Note that if growth is negative, <a class='code' href="./matrix.html#matrixforecast-compound-growth">matrix:forecast-compound-growth</a> will return a <em>growth-proportion</em> of less than one. E.g., a <em>growth-proportion</em> of 0.90 implies a growth rate of -10%.</p>
+ <p><strong>NOTE:</strong> The compound growth forecast is achieved by taking the ln of Y. (See <a class='code' href="./matrix.html#matrixregress">matrix:regress</a>, below.) Because it is impossible to take the natural log of zero or a negative number, <a class='code' href="./matrix.html#matrixforecast-compound-growth">matrix:forecast-compound-growth</a> will result in an error if it finds a zero or negative number in <em>data-list</em>.</p>
  <pre><code class="language-NetLogo">;; a compound growth extrapolation of the next item in the list.
 print matrix:forecast-compound-growth [20 25 28 32 35 39]
 =&gt; [45.60964465307147 21.15254147944863 1.136621034423892 0.9760867518334806]
@@ -711,123 +711,6 @@ print matrix:forecast-compound-growth [20 25 28 32 35 39]
 				</p>
 			</main>
 		</div>
-		<script>
-			(function () {
-				document.addEventListener('DOMContentLoaded', function () {
-					// Get the sidebar element
-					const sidebarDiv = document.querySelector('.sidebar');
-					if (!sidebarDiv) {
-						console.error('Sidebar element not found');
-						return;
-					}
-
-					const primList = sidebarDiv.querySelector('.primitive-list');
-					if (!primList) {
-						console.error('Primitive list element not found');
-						return;
-					}
-
-					const searchInput = document.getElementById('search-input');
-					if (!searchInput) {
-						console.error('Search bar element not found');
-						return;
-					}
-
-					const updateSearchResults = async () => {
-						const searchTerm = searchInput.value.toLowerCase();
-						const items = document.querySelectorAll('.heading-items li');
-						items.forEach((item) => {
-							const link = item.querySelector('a');
-							if (link && link.textContent.toLowerCase().includes(searchTerm)) {
-								item.style.display = 'block';
-							} else {
-								item.style.display = 'none';
-							}
-						});
-					};
-
-					// Maintain last scroll position
-					const parentScroll = new URLSearchParams(window.location.search).get('parentScroll');
-					sidebarDiv.scrollTop = parentScroll || 0;
-
-					const scrollBehavior = parentScroll ? 'smooth' : 'instant';
-
-					// Maintain last search query
-					const searchQuery = new URLSearchParams(window.location.search).get('search');
-					if (searchQuery) {
-						searchInput.value = searchQuery;
-						updateSearchResults();
-					}
-
-					// Remove parentScroll from the URL to avoid confusion
-					const newURL = new URL(window.location.href);
-					newURL.searchParams.delete('parentScroll');
-					newURL.searchParams.delete('search');
-					window.history.replaceState({}, '', newURL);
-
-					// Process links in the sidebar
-					// currentPath: /<version>/dict/<primitive-name>.html
-					const links = document.querySelectorAll('.sidebar a');
-					const currentPath = window.location.pathname;
-
-					// Base URL matches <base href="../" />
-					const baseURL = new URL('../', window.location.href);
-					const scrollMargin = 100;
-
-					// Loop through each link
-					// and 1. set data-link attribute to the pathname
-					//     2. add 'active' class if it matches currentPath
-					//     3. add click event to update URL with parentScroll
-					let didScroll = false;
-					links.forEach((link) => {
-						try {
-							const url = new URL(link.getAttribute('href'), baseURL);
-							link.setAttribute('data-link', url.pathname);
-							if (url.pathname === currentPath) {
-								link.classList.add('active');
-								// Local div scroll
-								if (sidebarDiv && !didScroll) {
-									didScroll = true;
-									setTimeout(() => {
-										sidebarDiv.scrollTo({
-											top: link.offsetTop - sidebarDiv.offsetTop - scrollMargin,
-											behavior: scrollBehavior,
-										});
-										primList.scrollTo({
-											top: link.offsetTop - primList.offsetTop - scrollMargin,
-											behavior: 'instant', // Mobile
-										});
-									}, 0);
-								}
-							}
-
-							link.addEventListener('click', function (event) {
-								event.preventDefault();
-								// Add ?parentScroll=<parentScroll> to the URL
-								const parentScroll = sidebarDiv ? sidebarDiv.scrollTop : 0;
-								const query = searchInput ? searchInput.value : '';
-
-								const newURL = new URL(link.getAttribute('href'), baseURL);
-								newURL.searchParams.set('parentScroll', parentScroll);
-								if (query) {
-									newURL.searchParams.set('search', query);
-								}
-								window.location.href = newURL.href;
-							});
-						} catch (error) {
-							console.error(`Error processing link ${link.getAttribute('href')}:`, error);
-						}
-					});
-
-					// Search functionality
-					let timer = null;
-					const debounceDelay = 200; // 300 milliseconds
-					searchInput.addEventListener('input', function () {
-						clearTimeout(timer);
-						timer = setTimeout(updateSearchResults, timer ? debounceDelay : 0);
-					});
-				});
-			})();
-		</script>
+		<script src="scripts/dictionary.js"></script>
 	</body>
 </html>

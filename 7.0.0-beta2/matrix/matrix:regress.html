@@ -691,7 +691,7 @@
  <h3><a>matrix:regress</a></h3>
  <h4><span class="prim_example">matrix:regress <i>data-matrix</i></span></h4>
  <p>All three of the forecast primitives above are just special cases of performing an OLS (ordinary-least-squares) linear regression – the matrix:regress primitive provides a flexible/general-purpose approach. The input is a matrix <em>data-matrix</em>, with the first column being the observations on the dependent variable and each subsequent column being the observations on the (1 or more) independent variables. Thus each row consists of an observation of the dependent variable followed by the corresponding observations for each independent variable.</p>
- <p>The output is a Logo nested list composed of two elements. The first element is a list containing the regression constant followed by the coefficients on each of the independent variables. The second element is a 3-element list containing the R<sup>2</sup> statistic, the total sum of squares, and the residual sum of squares. The following code example shows how the <a href="./matrix.html#matrixregress">matrix:regress</a> primitive can be used to perform the same function as the code examples shown in the matrix:forecast-*-growth primitives above. (However, keep in mind that the <a href="./matrix.html#matrixregress">matrix:regress</a> primitive is more powerful than this, and can have many more independent variables in the regression, as indicated in the fourth example below.)</p>
+ <p>The output is a Logo nested list composed of two elements. The first element is a list containing the regression constant followed by the coefficients on each of the independent variables. The second element is a 3-element list containing the R<sup>2</sup> statistic, the total sum of squares, and the residual sum of squares. The following code example shows how the <a class='code' href="./matrix.html#matrixregress">matrix:regress</a> primitive can be used to perform the same function as the code examples shown in the matrix:forecast-*-growth primitives above. (However, keep in mind that the <a class='code' href="./matrix.html#matrixregress">matrix:regress</a> primitive is more powerful than this, and can have many more independent variables in the regression, as indicated in the fourth example below.)</p>
  <pre><code class="language-NetLogo">;; this is equivalent to what the matrix:forecast-linear-growth does
 let data-list [20 25 28 32 35 39]
 let indep-var (n-values length data-list [ x -&gt; x ]) ; 0,1,2...,5
@@ -741,123 +741,6 @@ print matrix:regress matrix:from-column-list (list happiness snack-food-consumed
 				</p>
 			</main>
 		</div>
-		<script>
-			(function () {
-				document.addEventListener('DOMContentLoaded', function () {
-					// Get the sidebar element
-					const sidebarDiv = document.querySelector('.sidebar');
-					if (!sidebarDiv) {
-						console.error('Sidebar element not found');
-						return;
-					}
-
-					const primList = sidebarDiv.querySelector('.primitive-list');
-					if (!primList) {
-						console.error('Primitive list element not found');
-						return;
-					}
-
-					const searchInput = document.getElementById('search-input');
-					if (!searchInput) {
-						console.error('Search bar element not found');
-						return;
-					}
-
-					const updateSearchResults = async () => {
-						const searchTerm = searchInput.value.toLowerCase();
-						const items = document.querySelectorAll('.heading-items li');
-						items.forEach((item) => {
-							const link = item.querySelector('a');
-							if (link && link.textContent.toLowerCase().includes(searchTerm)) {
-								item.style.display = 'block';
-							} else {
-								item.style.display = 'none';
-							}
-						});
-					};
-
-					// Maintain last scroll position
-					const parentScroll = new URLSearchParams(window.location.search).get('parentScroll');
-					sidebarDiv.scrollTop = parentScroll || 0;
-
-					const scrollBehavior = parentScroll ? 'smooth' : 'instant';
-
-					// Maintain last search query
-					const searchQuery = new URLSearchParams(window.location.search).get('search');
-					if (searchQuery) {
-						searchInput.value = searchQuery;
-						updateSearchResults();
-					}
-
-					// Remove parentScroll from the URL to avoid confusion
-					const newURL = new URL(window.location.href);
-					newURL.searchParams.delete('parentScroll');
-					newURL.searchParams.delete('search');
-					window.history.replaceState({}, '', newURL);
-
-					// Process links in the sidebar
-					// currentPath: /<version>/dict/<primitive-name>.html
-					const links = document.querySelectorAll('.sidebar a');
-					const currentPath = window.location.pathname;
-
-					// Base URL matches <base href="../" />
-					const baseURL = new URL('../', window.location.href);
-					const scrollMargin = 100;
-
-					// Loop through each link
-					// and 1. set data-link attribute to the pathname
-					//     2. add 'active' class if it matches currentPath
-					//     3. add click event to update URL with parentScroll
-					let didScroll = false;
-					links.forEach((link) => {
-						try {
-							const url = new URL(link.getAttribute('href'), baseURL);
-							link.setAttribute('data-link', url.pathname);
-							if (url.pathname === currentPath) {
-								link.classList.add('active');
-								// Local div scroll
-								if (sidebarDiv && !didScroll) {
-									didScroll = true;
-									setTimeout(() => {
-										sidebarDiv.scrollTo({
-											top: link.offsetTop - sidebarDiv.offsetTop - scrollMargin,
-											behavior: scrollBehavior,
-										});
-										primList.scrollTo({
-											top: link.offsetTop - primList.offsetTop - scrollMargin,
-											behavior: 'instant', // Mobile
-										});
-									}, 0);
-								}
-							}
-
-							link.addEventListener('click', function (event) {
-								event.preventDefault();
-								// Add ?parentScroll=<parentScroll> to the URL
-								const parentScroll = sidebarDiv ? sidebarDiv.scrollTop : 0;
-								const query = searchInput ? searchInput.value : '';
-
-								const newURL = new URL(link.getAttribute('href'), baseURL);
-								newURL.searchParams.set('parentScroll', parentScroll);
-								if (query) {
-									newURL.searchParams.set('search', query);
-								}
-								window.location.href = newURL.href;
-							});
-						} catch (error) {
-							console.error(`Error processing link ${link.getAttribute('href')}:`, error);
-						}
-					});
-
-					// Search functionality
-					let timer = null;
-					const debounceDelay = 200; // 300 milliseconds
-					searchInput.addEventListener('input', function () {
-						clearTimeout(timer);
-						timer = setTimeout(updateSearchResults, timer ? debounceDelay : 0);
-					});
-				});
-			})();
-		</script>
+		<script src="scripts/dictionary.js"></script>
 	</body>
 </html>
