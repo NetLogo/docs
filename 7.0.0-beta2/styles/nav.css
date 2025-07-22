@@ -145,7 +145,6 @@
 }
 .version-select option {
 	background: var(--color-background);
-	color: var(--color-text);
 }
 
 /* Utility buttons */
