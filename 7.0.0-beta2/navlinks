@@ -1,7 +1,7 @@
 <div class="navbar__links">
 	<!-- Intro -->
 	<div class="navbar__item">
-		<a href="/7.0.0-beta2/">Home</a>
+		<a href="./">Home</a>
 	</div>
 	<!-- Learning -->
 	<div class="navbar__item">
