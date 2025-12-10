@@ -5,7 +5,7 @@
 		<meta charset="UTF-8" />
 		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
-		<title>NetLogo 7.0.2: GoGo</title>
+		<title>NetLogo 7.0.3: GoGo</title>
 		<link rel="stylesheet" href="netlogo.css" type="text/css" />
 		<link rel="icon" type="image/png" href="favicon/favicon-96x96.png" sizes="96x96" />
 		<link rel="icon" type="image/svg+xml" href="favicon/favicon.svg" />
@@ -23,7 +23,7 @@
 		<script>
 			window.netlogo = {
 				...(window.netlogo || {}),
-				version: "7.0.2",
+				version: "7.0.3",
 				title: "",
 				pdf: false,
 				stringVariables: {
@@ -281,8 +281,8 @@
 				</div>
 				<div class="navbar__actions">
 					<!-- Version / Actions -->
-					<select id="version-select" class="version-select" aria-label="Select version" data-current-version="7.0.2">
-						<option selected value="this">7.0.2</option>
+					<select id="version-select" class="version-select" aria-label="Select version" data-current-version="7.0.3">
+						<option selected value="this">7.0.3</option>
 						<!-- See script:expandStringVariables for details on how ${var} works -->
 						<option data-url-prefix="${CCL}/6.4.0/docs" value="6.4.0">6.4</option>
 						<option data-url-prefix="${CCL}/6.3.0/docs" value="6.3.0">6.3.0</option>
@@ -517,7 +517,7 @@
 	</body>
 </html>
 <title>
-  NetLogo 7.0.2 User Manual: GoGo Extension
+  NetLogo 7.0.3 User Manual: GoGo Extension
 </title>
 <main class="prose">
 <h1>GoGo</h1>
@@ -746,11 +746,11 @@ so that a motor attached to one of these ports would turn clockwise.</p>
 <p>Now let&rsquo;s start the model. Imagine that we want to control a car with four wheels and two motors attached to the back wheels. We will assume that you have built such as car and connected the motors to the output ports &ldquo;a&rdquo; and &ldquo;b&rdquo; on the GoGo board. One very simple approach could be to create two buttons for each motor, &ldquo;on&rdquo; and &ldquo;off&rdquo;:</p>
 <p><img src="http://ccl.northwestern.edu/netlogo/docs/images/gogo/netlogolab-example1-on_off_buttons.png" alt="on off buttons" /></p>
 <p>The code associated with these buttons is very simple: for the &ldquo;on&rdquo; button, we could simply have</p>
-<pre><code>gogo:talk-to-output-ports [&quot;a&quot;]  
+<pre><code>gogo:talk-to-output-ports [&quot;a&quot;]
 gogo:output-port-on
-    
+
 For the off button, it would be very similar:
-    
+
 gogo:talk-to-output-ports [&quot;a&quot;]
 gogo:output-port-off
 </code></pre>
@@ -773,7 +773,7 @@ gogo:output-port-reverse
   clear-all
   create-turtle
 end
-    
+
 to move-with-heat
   if gogo:read-sensor 1 &gt; 500
     [ forward 1 ]
@@ -803,6 +803,6 @@ end
   var extensionName = "GoGo";
   var extensionShortName = "gogo";
   var primRoot = "gogo";
-  var version = "7.0.2";
+  var version = "7.0.3";
 </script>
 <script src="scripts/extension-docs.js"></script>

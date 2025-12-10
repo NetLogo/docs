@@ -35,7 +35,7 @@
 		<meta charset="UTF-8" />
 		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
-		<title>NetLogo 7.0.2: FAQ (Frequently Asked Questions)</title>
+		<title>NetLogo 7.0.3: FAQ (Frequently Asked Questions)</title>
 		<link rel="stylesheet" href="netlogo.css" type="text/css" />
 		<link rel="icon" type="image/png" href="favicon/favicon-96x96.png" sizes="96x96" />
 		<link rel="icon" type="image/svg+xml" href="favicon/favicon.svg" />
@@ -53,7 +53,7 @@
 		<script>
 			window.netlogo = {
 				...(window.netlogo || {}),
-				version: "7.0.2",
+				version: "7.0.3",
 				title: "FAQ (Frequently Asked Questions)",
 				pdf: false,
 				stringVariables: {
@@ -311,8 +311,8 @@
 				</div>
 				<div class="navbar__actions">
 					<!-- Version / Actions -->
-					<select id="version-select" class="version-select" aria-label="Select version" data-current-version="7.0.2">
-						<option selected value="this">7.0.2</option>
+					<select id="version-select" class="version-select" aria-label="Select version" data-current-version="7.0.3">
+						<option selected value="this">7.0.3</option>
 						<!-- See script:expandStringVariables for details on how ${var} works -->
 						<option data-url-prefix="${CCL}/6.4.0/docs" value="6.4.0">6.4</option>
 						<option data-url-prefix="${CCL}/6.3.0/docs" value="6.3.0">6.3.0</option>
@@ -857,7 +857,7 @@ drastically slows down Swing applications, including NetLogo.</p>
 into power saving mode when you unplug it. (If you do this, your battery won&rsquo;t
 last as long.)</p>
 <p>Another workaround is to run NetLogo with an option recommended by Oracle, by
-editing the NetLogo 7.0.2.vmoptions file, found in the NetLogo directory
+editing the NetLogo 7.0.3.vmoptions file, found in the NetLogo directory
 (under Program Files on your hard drive, unless you installed NetLogo in a
 different location). Add on a new line:</p>
 <pre><code>-Dsun.java2d.ddoffscreen=false
@@ -923,27 +923,14 @@ memory. Upgrading to a newer version of Windows may help.</p>
 check that Windows is actually running in 64-bit mode; see
 <a href="https://windows.microsoft.com/en-US/windows-vista/32-bit-and-64-bit-Windows-frequently-asked-questions" target="_blank">Microsoft&rsquo;s FAQ page on 64-bit Windows</a>.</p>
 <h3><a href="#netlogo-wont-start-on-mac-os-sierra-or-later" id="netlogo-wont-start-on-mac-os-sierra-or-later" class="section-anchor">NetLogo won&rsquo;t start on Mac OS Sierra (or later)</a></h3>
-<p>Some users have reported problems opening NetLogo 6 on Mac OS Sierra and later
-(We don’t yet know if this is an issue with NetLogo 7). We&rsquo;ve been
-unable to determine a root cause for this problem, but we&rsquo;re continuing to
-investigate. We&rsquo;re looking for assistance from you if you run into this problem.
-It would be extremely helpful if you could run the following command in the
-&ldquo;Terminal&rdquo; application and send the output in an email to
-<a href="mailto:bugs@ccl.northwestern.edu?subject=Sierra%20NetLogo%206%20Bug">bugs@ccl.northwestern.edu</a>.</p>
-<pre><code>xattr -pl com.apple.quarantine /Applications/NetLogo\ 7.0.2/NetLogo\ 7.0.2.app
-</code></pre>
-<p>running it should give you a single line of output (something like
-<code>com.apple.quarantine: 01e1;58ac6af2;Firefox;F2E0B1E2-D203-4B05-8DF9-ABA58B52EFEA</code>,
-but yours will have different numbers, letters, and words). Please copy and
-paste this string into the email you send us.</p>
-<p>There is also a partial workaround! Running the following command in the
+<p>Some users have reported problems opening versions after NetLogo 6 on Mac OS Sierra and later.
+We&rsquo;ve been unable to determine a root cause for this problem, but we&rsquo;re continuing to
+investigate. In the meantime, there is a workaround! Running the following command in the
 Terminal will enable users to run NetLogo without turning Gatekeeper completely
 off. The command is:</p>
-<pre><code>sudo xattr -dr com.apple.quarantine /Applications/NetLogo\ 7.0.2/NetLogo\ 7.0.2.app
+<pre><code>sudo xattr -dr com.apple.quarantine /Applications/NetLogo\ 7.0.3
 </code></pre>
-<p>Note that if you plan to run NetLogo 3D or HubNet Client you
-may also need to re-run that command once for each of those applications. If the
-workaround was not effective for you, please
+<p>If the workaround was not effective for you, please
 <a href="mailto:bugs@ccl.northwestern.edu?subject=Sierra%20NetLogo%206%20Bug%20Workaround">send us an email and let us know</a>.</p>
 <h3><a href="#netlogo-wont-start-on-windows-or-crashes-suddenly-on-mac-os-sierra" id="netlogo-wont-start-on-windows-or-crashes-suddenly-on-mac-os-sierra" class="section-anchor">NetLogo won&rsquo;t start on Windows or crashes suddenly on Mac OS Sierra</a></h3>
 <p>Some users on Mac OS with discrete graphics cards experience sudden crashes of
@@ -1098,11 +1085,11 @@ configuration file for the NetLogo_Console app; on macOS and Linux the configura
 the NetLogo.cfg file.  Although the file location varies by platform, the process for changing it is the same.</p>
 <p>Platform specific notes follow:</p>
 <ul>
-<li><strong>Windows:</strong> The file will typically be in <code>C:\Program Files\NetLogo 7.0.2\app</code>,
+<li><strong>Windows:</strong> The file will typically be in <code>C:\Program Files\NetLogo 7.0.3\app</code>,
 unless you are running 32 bit NetLogo on a 64 bit Windows, then it will be
-in <code>C:\Program Files (x86)\NetLogo 7.0.2\app</code>.</li>
+in <code>C:\Program Files (x86)\NetLogo 7.0.3\app</code>.</li>
 <li><strong>Mac OS X:</strong> The file for NetLogo will be located at:
-<code>/Applications/NetLogo 7.0.2/NetLogo 7.0.2.app/Contents/app/NetLogo 7.0.2.cfg</code> For
+<code>/Applications/NetLogo 7.0.3/NetLogo 7.0.3.app/Contents/app/NetLogo 7.0.3.cfg</code> For
 NetLogo 3D and the other applications, you will find the file in the
 corresponding location for each application package. You can reach the configuration
 file by control-clicking the application in the Finder and choosing &ldquo;Show

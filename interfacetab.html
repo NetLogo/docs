@@ -6,7 +6,7 @@
 		<meta charset="UTF-8" />
 		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
-		<title>NetLogo 7.0.2: Interface Tab Guide</title>
+		<title>NetLogo 7.0.3: Interface Tab Guide</title>
 		<link rel="stylesheet" href="netlogo.css" type="text/css" />
 		<link rel="icon" type="image/png" href="favicon/favicon-96x96.png" sizes="96x96" />
 		<link rel="icon" type="image/svg+xml" href="favicon/favicon.svg" />
@@ -24,7 +24,7 @@
 		<script>
 			window.netlogo = {
 				...(window.netlogo || {}),
-				version: "7.0.2",
+				version: "7.0.3",
 				title: "Interface Tab Guide",
 				pdf: false,
 				stringVariables: {
@@ -282,8 +282,8 @@
 				</div>
 				<div class="navbar__actions">
 					<!-- Version / Actions -->
-					<select id="version-select" class="version-select" aria-label="Select version" data-current-version="7.0.2">
-						<option selected value="this">7.0.2</option>
+					<select id="version-select" class="version-select" aria-label="Select version" data-current-version="7.0.3">
+						<option selected value="this">7.0.3</option>
 						<!-- See script:expandStringVariables for details on how ${var} works -->
 						<option data-url-prefix="${CCL}/6.4.0/docs" value="6.4.0">6.4</option>
 						<option data-url-prefix="${CCL}/6.3.0/docs" value="6.3.0">6.3.0</option>
@@ -606,15 +606,22 @@ Align Widget menu to align, stretch or distribute them.</p>
 <p>To learn more about the different kinds of interface elements, refer to the
 chart below.</p>
 <h2><a href="#charts-interface-widgets" id="charts-interface-widgets" class="section-anchor">Charts: Interface Widgets</a></h2>
-<p>Buttons perform actions when clicked. The input widgets set values for
-global variables. The input widgets are: sliders,
-switches, choosers and inputs. Monitors and plots are two output widgets
-that display a global variable value. There is also the output area which
-can be written to by the model as it runs. Notes are used to add labels, instructions and
-other information to the interface. Buttons are blue. Input widgets are a
-shades of blue (lighter for the Light Theme, darker for the Dark Theme).
-Output widgets are shades of grey. The background and font colors for notes
-are user settable.</p>
+<p>Buttons perform actions when clicked.  They have a rich blue background color.</p>
+<p>Slider, switch, chooser and (text) input widgets allow setting a global
+variable from the Interface tab.  They are colored in shades of blue (lighter
+for the Light Theme, darker for the Dark Theme).  Any NetLogo code that sets
+a global variable to a value that could not be chosen with the corresponding
+widget will generate a runtime error.  The one exception to this is that sliders
+can be set to any number, regardless of the slider&rsquo;s min, max, and increment.</p>
+<p>Monitors, plots, and output widgets display information in the Interface tab
+in response to running NetLogo code.  Monitors are output widgets that display
+the code results as text, while plots are output widgets that display the code
+results as lines, bars and/or points.  Output area widget can be written to
+with the primitives that start with <code>output-</code>.  Output widgets are colored
+in shades of gray.</p>
+<p>Notes are used to add labels, instructions and other information to the
+interface.  Their background and font colors can be customized by editing the
+widget.</p>
 <h3><a href="#widget-appearance-light-and-dark-themes" id="widget-appearance-light-and-dark-themes" class="section-anchor">Widget Appearance: Light and Dark Themes</a></h3>
 <table border>
 <colgroup>
