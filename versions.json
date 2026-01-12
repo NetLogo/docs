@@ -1,5 +1,16 @@
 [
   {
+    "name": "7.0.3",
+    "value": "7.0.3",
+    "version": "7.0.3",
+    "dir": "7.0.3/",
+    "displayName": "7.0.3",
+    "buildTime": "2026-01-12T20:40:09.491Z",
+    "latest": true,
+    "commitHash": "80875971fe83709fb0b254e5ac699d7badb6957a",
+    "buildRepoCommitHash": "008575a26c8304ec20cf2ffd5c9a809c0fdf06e3"
+  },
+  {
     "name": "7.0.2",
     "value": "7.0.2",
     "latest": false
@@ -132,16 +143,5 @@
     "value": "1.0",
     "disabled": true,
     "latest": false
-  },
-  {
-    "name": "7.0.3",
-    "value": "7.0.3",
-    "version": "7.0.3",
-    "dir": "7.0.3/",
-    "displayName": "7.0.3",
-    "buildTime": "2026-01-12T20:40:09.491Z",
-    "latest": true,
-    "commitHash": "80875971fe83709fb0b254e5ac699d7badb6957a",
-    "buildRepoCommitHash": "008575a26c8304ec20cf2ffd5c9a809c0fdf06e3"
   }
 ]
