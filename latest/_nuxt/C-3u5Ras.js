@@ -1,1 +1,0 @@
-import{_ as o,e as r,o as s,D as t}from"#entry";import"remark-gfm";import"rehype-raw";const n={};function a(e,c){return s(),r("ol",null,[t(e.$slots,"default")])}const m=Object.assign(o(n,[["render",a]]),{__name:"ProseOl"});export{m as default};

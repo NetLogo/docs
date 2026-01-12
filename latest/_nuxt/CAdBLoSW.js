@@ -1,0 +1,1 @@
+import{r as s}from"./CIcSA034.js";import{am as t,c as a,o as e,w as c,k as p}from"#entry";import n from"./BqNT4M0Q.js";import"./BN_7HF1G.js";const d={__name:"ProseTip",setup(i){const o=t();return(r,m)=>(e(),a(n,{color:"success",icon:p(o).ui.icons.tip},{default:c(()=>[s(r.$slots,"default",{mdcUnwrap:"p"})]),_:3},8,["icon"]))}};export{d as default};

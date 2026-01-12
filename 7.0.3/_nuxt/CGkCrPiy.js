@@ -1,1 +1,0 @@
-import{_ as e,e as r,o}from"#entry";import"remark-gfm";import"rehype-raw";const t={};function c(s,n){return o(),r("hr")}const f=Object.assign(e(t,[["render",c]]),{__name:"ProseHr"});export{f as default};
