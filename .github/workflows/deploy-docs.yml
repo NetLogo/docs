@@ -70,9 +70,6 @@ jobs:
           ref: "gh-pages/live-site"
           path: prebuild-branch
       
-      - name: Upsert .nojekyll File
-        run: touch prebuild-branch/.nojekyll
-
       - name: Deploy to gh-pages/live-site Branch
         id: deploy
         run: |
@@ -81,6 +78,8 @@ jobs:
           # Efficiently remove old files and copy new ones
           git rm -rf . && git clean -fxd
           cp -R ../${{ env.DIST_DIR }}/* .
+
+          touch .nojekyll
 
           git add -A
 
