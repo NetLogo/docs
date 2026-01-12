@@ -1,0 +1,1 @@
+import{_ as o,e as r,o as t,D as s}from"#entry";import"remark-gfm";import"rehype-raw";const n={};function a(e,c){return t(),r("tbody",null,[s(e.$slots,"default")])}const f=Object.assign(o(n,[["render",a]]),{__name:"ProseTbody"});export{f as default};

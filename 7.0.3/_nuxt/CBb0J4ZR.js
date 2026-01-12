@@ -1,0 +1,1 @@
+import{_ as o,e as r,o as t,D as s}from"#entry";import"remark-gfm";import"rehype-raw";const a={};function n(e,c){return t(),r("thead",null,[s(e.$slots,"default")])}const f=Object.assign(o(a,[["render",n]]),{__name:"ProseThead"});export{f as default};
