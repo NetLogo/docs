@@ -1,1 +1,0 @@
-import{_ as o,e as r,o as t,D as s}from"#entry";import"remark-gfm";import"rehype-raw";const a={};function n(e,c){return t(),r("table",null,[s(e.$slots,"default")])}const m=Object.assign(o(a,[["render",n]]),{__name:"ProseTable"});export{m as default};
