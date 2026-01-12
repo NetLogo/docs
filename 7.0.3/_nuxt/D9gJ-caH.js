@@ -1,0 +1,1 @@
+import{_ as o,e as t,o as r,D as s}from"#entry";import"remark-gfm";import"rehype-raw";const c={};function n(e,a){return r(),t("blockquote",null,[s(e.$slots,"default")])}const f=Object.assign(o(c,[["render",n]]),{__name:"ProseBlockquote"});export{f as default};
