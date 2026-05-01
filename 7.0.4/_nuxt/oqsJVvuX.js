@@ -1,0 +1,1 @@
+import{r as e}from"./CnAxPwHr.js";import{_ as t,b as n,o as r}from"#entry";import"./iik6CYzq.js";const s={},a={class:"netlogo-wiki-link mb-0"};function c(o,m){return r(),n("code",a,[e(o.$slots,"default",{mdcUnwrap:"p"})])}const i=Object.assign(t(s,[["render",c]]),{__name:"NetLogoCommand"});export{i as default};
