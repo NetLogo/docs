@@ -1,0 +1,1 @@
+import{i,s as t}from"#entry";const a=i({dictionaryDisplayName:t().default("NetLogo Dictionary"),dictionaryHomeDirectory:t().default("../dictionary.html"),indexFileURI:t(),currentItemId:t(),currentItemLabel:t().default(""),primRoot:t()});export{a as P};

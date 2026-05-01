@@ -1,0 +1,1 @@
+import{j as a,c,E as t,G as s,o as _}from"#entry";const m=a({__name:"MDCIcon.global",props:{name:{}},setup(n){return(o,r)=>{const e=s;return _(),c(e,t({name:n.name},o.$attrs),null,16,["name"])}}}),l=Object.assign(m,{__name:"MDCIcon"});export{l as default};
