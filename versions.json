@@ -5,10 +5,10 @@
     "version": "7.0.4",
     "dir": "7.0.4/",
     "displayName": "7.0.4",
-    "buildTime": "2026-05-01T17:56:48.947Z",
+    "buildTime": "2026-05-15T17:15:12.921Z",
     "latest": true,
-    "commitHash": "bd397b0dfbb11a3c14ef7debf95e66231808c1f1",
-    "buildRepoCommitHash": "dad447012750e71c1b363385018926171835a64f"
+    "commitHash": "365e7d980eda905c454e462d4b40619a8c25dda6",
+    "buildRepoCommitHash": "dc656ebd886cc619b413919b159f3c5c2ebf833f"
   },
   {
     "name": "7.0.3",
