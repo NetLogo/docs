@@ -1,16 +1,5 @@
 [
   {
-    "name": "7.1.0-internal1",
-    "value": "7.1.0-internal1",
-    "version": "7.1.0-internal1",
-    "dir": "7.1.0-internal1/",
-    "displayName": "7.1.0-internal1",
-    "buildTime": "2026-07-16T13:48:43.050Z",
-    "latest": false,
-    "commitHash": "f912d18351eb42a7a8759d7c37354e165f55ad65",
-    "buildRepoCommitHash": "b128cfe16f2ed2cf106cf681fda3611a4556b822"
-  },
-  {
     "name": "7.0.4",
     "value": "7.0.4",
     "version": "7.0.4",
