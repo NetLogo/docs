@@ -1,0 +1,1 @@
+import{r as o}from"./CnAxPwHr.js";import{_ as r,b as a,o as s}from"#entry";import"./iik6CYzq.js";const t={},n={class:"my-(--space-lg) mx:[var(--space-xl)]"};function c(e,_){return s(),a("div",n,[o(e.$slots,"default",{mdcUnwrap:"p"})])}const p=Object.assign(r(t,[["render",c]]),{__name:"MDCContainer"});export{p as default};
