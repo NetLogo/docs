@@ -1,16 +1,5 @@
 [
   {
-    "name": "7.1.0-alpha1",
-    "value": "7.1.0-alpha1",
-    "version": "7.1.0-alpha1",
-    "dir": "7.1.0-alpha1/",
-    "displayName": "7.1.0-alpha1",
-    "buildTime": "2026-08-13T23:43:00.058Z",
-    "latest": false,
-    "commitHash": "afc504111299d806f94e9c7b849f5d474e7ad01d",
-    "buildRepoCommitHash": "539ad6029171ab4779263da4da089503483d99ff"
-  },
-  {
     "name": "7.0.4",
     "value": "7.0.4",
     "version": "7.0.4",
